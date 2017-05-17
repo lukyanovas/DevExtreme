@@ -2,7 +2,22 @@
   "name": "devextreme",
   "version": "17.1.3",
   "description": "HTML5 JavaScript Component Suite for Responsive Web Development",
-  "keywords": [ "html5", "controls", "widgets", "components", "jquery", "knockout", "angular", "web", "ui", "datagrid", "pivotgrid", "scheduler", "treelist", "chart" ],
+  "keywords": [
+    "html5",
+    "controls",
+    "widgets",
+    "components",
+    "jquery",
+    "knockout",
+    "angular",
+    "web",
+    "ui",
+    "datagrid",
+    "pivotgrid",
+    "scheduler",
+    "treelist",
+    "chart"
+  ],
   "homepage": "https://js.devexpress.com/",
   "bugs": "https://www.devexpress.com/support/",
   "author": "Developer Express Inc.",
@@ -16,11 +31,14 @@
   },
   "devDependencies": {
     "@types/jquery": "^2.0.34",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "bootstrap": "^3.3.7",
     "del": "^2.2.2",
     "eslint": "^3.12.2",
     "eslint-plugin-spellcheck": "0.0.6",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-concat": "^2.6.0",
     "gulp-eol": "^0.1.2",
     "gulp-file": "^0.3.0",
@@ -46,6 +64,7 @@
     "qunitjs": "^2.0.1",
     "run-sequence": "^1.1.5",
     "systemjs": "<=0.19.41",
+    "systemjs-plugin-babel": "0.0.21",
     "systemjs-plugin-css": "^0.1.23",
     "systemjs-plugin-json": "0.2.2",
     "systemjs-plugin-text": "0.0.8",
@@ -63,11 +82,9 @@
   "scripts": {
     "lint": "jshint --verbose . && eslint .",
     "lint-staged": "lint-staged",
-
     "build-style-compiler": "cd build/style-compiler && dotnet restore -v minimal && dotnet publish -o bin/Debug/dist",
     "build-test-runner": "cd testing/runner && dotnet restore -v minimal && dotnet publish -o bin/Debug/dist",
     "build-dotnet": "npm run -s build-style-compiler && npm run -s build-test-runner",
-
     "build": "npm run -s build-dotnet && gulp default",
     "build-dist": "npm run -s build-dotnet && gulp default --uglify",
     "build-themes": "gulp style-compiler-themes"

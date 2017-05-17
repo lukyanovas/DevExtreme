@@ -20,5 +20,15 @@ module.exports = {
         'globalize/currency': 'window.Globalize',
         'globalize/date': 'window.Globalize',
         'globalize/message': 'window.Globalize'
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015']
+            }
+        }]
     }
 };
