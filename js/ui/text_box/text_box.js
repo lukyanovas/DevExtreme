@@ -8,7 +8,7 @@ import { extend } from '../../core/utils/extend';
 import registerComponent from '../../core/component_registrator';
 import TextEditor from './ui.text_editor';
 import * as eventUtils from '../../events/utils';
-import domAdapter from '../core/dom_adapter';
+import domAdapter from '../../core/dom_adapter';
 
 var window = domAdapter.getWindow();
 

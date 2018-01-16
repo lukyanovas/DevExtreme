@@ -1,3 +1,3 @@
 "use strict";
 
-import './modules/parts/widgets-web';
+require("./modules/parts/widgets-web");

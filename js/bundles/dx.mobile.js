@@ -1,3 +1,3 @@
 "use strict";
 
-import './modules/parts/widgets-mobile';
+require("./modules/parts/widgets-mobile");

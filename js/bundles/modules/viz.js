@@ -2,6 +2,6 @@
 
 /* global DevExpress */
 
-import './core';
+require("./core");
 
-export default DevExpress.viz = DevExpress.viz || {};
+module.exports = DevExpress.viz = DevExpress.viz || {};

@@ -1,7 +1,7 @@
 "use strict";
 
-import DevExpress from './core';
-import './data';
+var DevExpress = require("./core");
+require("./data");
 
 /// BUNDLER_PARTS
 /* UI core (dx.module-core.js) */
@@ -76,7 +76,6 @@ ui.CollectionWidget = require("../../../ui/collection/ui.collection_widget.edit"
 
 // Reports
 ui.dxDropDownEditor = require("../../../ui/drop_down_editor/ui.drop_down_editor");
-
 // Reports
 
-export default ui;
+module.exports = ui;

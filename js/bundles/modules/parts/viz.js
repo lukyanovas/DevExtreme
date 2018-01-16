@@ -1,7 +1,7 @@
 "use strict";
 
-import DevExpress from './core';
-import './data';
+var DevExpress = require("./core");
+require("./data");
 
 /// BUNDLER_PARTS
 /* Viz core (dx.module-viz-core.js) */
@@ -72,4 +72,4 @@ viz._dashboard.Renderer = require("../../../viz/core/renderers/renderer").Render
 viz._dashboard.SvgElement = require("../../../viz/core/renderers/renderer").SvgElement;
 viz._dashboard.patchFontOptions = require("../../../viz/core/utils").patchFontOptions;
 
-export default viz;
+module.exports = viz;

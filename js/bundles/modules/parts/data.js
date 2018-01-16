@@ -1,6 +1,6 @@
 "use strict";
 
-import DevExpress from './core';
+var DevExpress = require("./core");
 
 /// BUNDLER_PARTS
 /* Data (dx.module-core.js) */
@@ -8,7 +8,6 @@ import DevExpress from './core';
 var data = DevExpress.data = require("../../../bundles/modules/data");
 
 data.odata = require("../../../bundles/modules/data.odata");
-
 /// BUNDLER_PARTS_END
 
-export default data;
+module.exports = data;

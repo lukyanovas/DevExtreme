@@ -1,4 +1,4 @@
 "use strict";
 
-import './widgets-mobile';
-import './widgets-web';
+require("./widgets-mobile");
+require("./widgets-web");

@@ -2,12 +2,12 @@
 
 /* global DevExpress */
 
-import './core';
+require("./core");
 
 /// BUNDLER_PARTS
-import '../../integration/knockout';
+require("../../integration/knockout");
 
-export default DevExpress.framework = {};
+module.exports = DevExpress.framework = {};
 
 DevExpress.framework.dxCommand = require("../../framework/command");
 DevExpress.framework.Router = require("../../framework/router");
@@ -43,7 +43,7 @@ DevExpress.framework.createActionExecutors = require("../../framework/action_exe
 
 DevExpress.framework.Application = require("../../framework/application").Application;
 
-import browserAdapters from '../../framework/browser_adapters';
+var browserAdapters = require("../../framework/browser_adapters");
 DevExpress.framework.DefaultBrowserAdapter = browserAdapters.DefaultBrowserAdapter;
 DevExpress.framework.OldBrowserAdapter = browserAdapters.OldBrowserAdapter;
 DevExpress.framework.BuggyAndroidBrowserAdapter = browserAdapters.BuggyAndroidBrowserAdapter;
@@ -79,7 +79,7 @@ DevExpress.framework.html.MarkupComponent = require("../../framework/html/markup
 DevExpress.framework.html.ViewEngine = require("../../framework/html/view_engine").ViewEngine;
 DevExpress.framework.html.ViewEngineComponents = require("../../framework/html/view_engine_components");
 
-import widgetCommandAdaptersModule from '../../framework/html/widget_command_adapters';
+var widgetCommandAdaptersModule = require("../../framework/html/widget_command_adapters");
 DevExpress.framework.html.commandToDXWidgetAdapters = {
     dxToolbar: widgetCommandAdaptersModule.dxToolbar,
     dxList: widgetCommandAdaptersModule.dxList,

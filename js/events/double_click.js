@@ -6,7 +6,7 @@ import Class from '../core/class';
 import registerEvent from './core/event_registrator';
 import clickEvent from './click';
 import * as eventUtils from './utils';
-import domAdapter from '../../core/dom_adapter';
+import domAdapter from '../core/dom_adapter';
 
 var document = domAdapter.getWindow().document;
 

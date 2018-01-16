@@ -7,7 +7,7 @@ import { getSvgMarkup } from '../../../core/utils/svg';
 import animation from './animation';
 import { isDefined as _isDefined } from '../../../core/utils/type';
 import vizUtils from '../utils';
-import domAdapter from '../../core/dom_adapter';
+import domAdapter from '../../../core/dom_adapter';
 
 var window = domAdapter.getWindow(), Node = window.Node, doc = window.document, math = Math, mathMin = math.min, mathMax = math.max, mathFloor = math.floor, mathRound = math.round, mathSin = math.sin, mathCos = math.cos, mathAbs = math.abs, mathPI = math.PI, _normalizeEnum = vizUtils.normalizeEnum, _normalizeBBox = vizUtils.normalizeBBox, _rotateBBox = vizUtils.rotateBBox, PI_DIV_180 = mathPI / 180, _parseInt = parseInt, SHARPING_CORRECTION = 0.5, ARC_COORD_PREC = 5, WAVED_LINE_LENGTH = 24, WAVED_LINE_TOP = 0, WAVED_LINE_CENTER = 2, WAVED_LINE_BOTTOM = 4;
 
