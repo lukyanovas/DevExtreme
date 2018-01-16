@@ -462,7 +462,7 @@
                     writeable,
                     xhr,
                     xml,
-                    xmlns
+                    xmlns,
                     zoomend,
                     zoomstart
                 ]
