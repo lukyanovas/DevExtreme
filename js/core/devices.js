@@ -1,19 +1,20 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    navigator = window.navigator,
-    extend = require("./utils/extend").extend,
-    isPlainObject = require("./utils/type").isPlainObject,
-    each = require("./utils/iterator").each,
-    Class = require("./class"),
-    errors = require("./errors"),
-    Callbacks = require("./utils/callbacks"),
-    resizeCallbacks = require("./utils/window").resizeCallbacks,
-    EventsMixin = require("./events_mixin"),
-    SessionStorage = require("./utils/storage").sessionStorage,
-    viewPort = require("./utils/view_port"),
-    Config = require("./config");
+import $ from '../core/renderer';
+import { extend } from './utils/extend';
+import { isPlainObject } from './utils/type';
+import { each } from './utils/iterator';
+import Class from './class';
+import errors from './errors';
+import Callbacks from './utils/callbacks';
+import { resizeCallbacks } from './utils/window';
+import EventsMixin from './events_mixin';
+import { sessionStorage as SessionStorage } from './utils/storage';
+import * as viewPort from './utils/view_port';
+import Config from './config';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), navigator = window.navigator;
 
 var KNOWN_UA_TABLE = {
     "iPhone": "iPhone",
@@ -475,4 +476,4 @@ if(!devices.isForced() && devices.current().platform === "win") {
  * @namespace DevExpress
  * @hidden
  */
-module.exports = devices;
+export default devices;

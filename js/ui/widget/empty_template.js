@@ -1,7 +1,7 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    TemplateBase = require("./ui.template_base");
+import $ from '../../core/renderer';
+import TemplateBase from './ui.template_base';
 
 var EmptyTemplate = TemplateBase.inherit({
 
@@ -12,4 +12,4 @@ var EmptyTemplate = TemplateBase.inherit({
 });
 
 
-module.exports = EmptyTemplate;
+export default EmptyTemplate;

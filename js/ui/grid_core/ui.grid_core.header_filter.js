@@ -1,23 +1,23 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    modules = require("./ui.grid_core.modules"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    headerFilterCore = require("./ui.grid_core.header_filter_core"),
-    headerFilterMixin = headerFilterCore.headerFilterMixin,
-    messageLocalization = require("../../localization/message"),
-    allowHeaderFiltering = headerFilterCore.allowHeaderFiltering,
-    clickEvent = require("../../events/click"),
-    dataUtils = require("../../data/utils"),
-    dataCoreUtils = require("../../core/utils/data"),
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    getDefaultAlignment = require("../../core/utils/position").getDefaultAlignment,
-    extend = require("../../core/utils/extend").extend,
-    normalizeDataSourceOptions = require("../../data/data_source/data_source").normalizeDataSourceOptions,
-    dateLocalization = require("../../localization/date"),
-    isWrapped = require("../../core/utils/variable_wrapper").isWrapped,
-    Deferred = require("../../core/utils/deferred").Deferred;
+import eventsEngine from '../../events/core/events_engine';
+import modules from './ui.grid_core.modules';
+import gridCoreUtils from './ui.grid_core.utils';
+import headerFilterCore from './ui.grid_core.header_filter_core';
+import messageLocalization from '../../localization/message';
+import clickEvent from '../../events/click';
+import dataUtils from '../../data/utils';
+import dataCoreUtils from '../../core/utils/data';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import { getDefaultAlignment } from '../../core/utils/position';
+import { extend } from '../../core/utils/extend';
+import { normalizeDataSourceOptions } from '../../data/data_source/data_source';
+import dateLocalization from '../../localization/date';
+import { isWrapped } from '../../core/utils/variable_wrapper';
+import { Deferred } from '../../core/utils/deferred';
+
+var headerFilterMixin = headerFilterCore.headerFilterMixin, allowHeaderFiltering = headerFilterCore.allowHeaderFiltering;
 
 var DATE_INTERVAL_FORMATS = {
     'month': function(value) {
@@ -449,7 +449,7 @@ var DataControllerFilterRowExtender = {
     }
 };
 
-module.exports = {
+export default {
     invertFilterExpression: invertFilterExpression,
     defaultOptions: function() {
         return {

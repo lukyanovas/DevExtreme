@@ -1,19 +1,16 @@
 "use strict";
 
-var toComparable = require("../../core/utils/data").toComparable,
-    dataUtils = require("../../data/utils"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    storeHelper = require("../../data/store_helper"),
-    gridCore = require("./ui.data_grid.core"),
-    normalizeSortingInfo = gridCore.normalizeSortingInfo,
-    groupingCore = require("./ui.data_grid.grouping.core"),
-    createGroupFilter = groupingCore.createGroupFilter,
-    createOffsetFilter = groupingCore.createOffsetFilter,
-    dataQuery = require("../../data/query"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import { toComparable } from '../../core/utils/data';
+import dataUtils from '../../data/utils';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import storeHelper from '../../data/store_helper';
+import gridCore from './ui.data_grid.core';
+import groupingCore from './ui.data_grid.grouping.core';
+import dataQuery from '../../data/query';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var normalizeSortingInfo = gridCore.normalizeSortingInfo, createGroupFilter = groupingCore.createGroupFilter, createOffsetFilter = groupingCore.createOffsetFilter, when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var loadTotalCount = function(dataSource, options) {
     var d = new Deferred(),
@@ -25,11 +22,11 @@ var loadTotalCount = function(dataSource, options) {
     return d;
 };
 
-///#DEBUG
-exports.loadTotalCount = loadTotalCount;
+export { loadTotalCount };
+
 ///#ENDDEBUG
 
-exports.GroupingHelper = groupingCore.GroupingHelper.inherit((function() {
+export var GroupingHelper = groupingCore.GroupingHelper.inherit((function() {
 
     var foreachCollapsedGroups = function(that, callback, updateOffsets) {
         return that.foreachGroups(function(groupInfo) {

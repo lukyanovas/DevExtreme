@@ -1,17 +1,15 @@
 "use strict";
 
-var proto = require("./tree_map.base").prototype,
-    nodeProto = require("./node").prototype,
-    expand = require("../core/helpers").expand,
-    common = require("./common"),
+import { prototype as proto } from './tree_map.base';
+import { prototype as nodeProto } from './node';
+import { expand } from '../core/helpers';
+import common from './common';
+import { parseScalar as _parseScalar } from '../core/utils';
 
-    _parseScalar = require("../core/utils").parseScalar,
-    _buildRectAppearance = common.buildRectAppearance,
+var _buildRectAppearance = common.buildRectAppearance, STATE_CODE = 1;
 
-    STATE_CODE = 1;
-
-require("./api");
-require("./states");
+import './api';
+import './states';
 
 proto._eventsMap.onHoverChanged = { name: "hoverChanged" };
 

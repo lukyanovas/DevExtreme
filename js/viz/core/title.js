@@ -1,14 +1,10 @@
 "use strict";
 
-var _Number = Number,
-    _isString = require("../../core/utils/type").isString,
-    extend = require("../../core/utils/extend").extend,
-    _patchFontOptions = require("./utils").patchFontOptions,
-    parseHorizontalAlignment = require("./utils").enumParser(["left", "center", "right"]),
-    parseVerticalAlignment = require("./utils").enumParser(["top", "bottom"]),
+import { isString as _isString } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { patchFontOptions as _patchFontOptions } from './utils';
 
-    DEFAULT_MARGIN = 10,
-    DEFAULT_GAP = 3;
+var _Number = Number, parseHorizontalAlignment = require("./utils").enumParser(["left", "center", "right"]), parseVerticalAlignment = require("./utils").enumParser(["top", "bottom"]), DEFAULT_MARGIN = 10, DEFAULT_GAP = 3;
 
 function hasText(text) {
     return !!(text && String(text).length > 0);
@@ -254,7 +250,7 @@ extend(Title.prototype, require("./layout_element").LayoutElement.prototype, {
     // BaseWidget_layout_implementation
 });
 
-exports.Title = Title;
+export { Title };
 
 ///#DEBUG
 Title.prototype.DEBUG_getOptions = function() { return this._options; };
@@ -266,7 +262,7 @@ function processTitleOptions(options) {
     return newOptions;
 }
 
-exports.plugin = {
+export var plugin = {
     name: "title",
     init: function() {
         var that = this;

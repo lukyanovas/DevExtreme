@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    noop = require("../core/utils/common").noop,
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    DropDownList = require("./drop_down_editor/ui.drop_down_list"),
-    themes = require("./themes"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import { noop } from '../core/utils/common';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import DropDownList from './drop_down_editor/ui.drop_down_list';
+import themes from './themes';
+import { Deferred } from '../core/utils/deferred';
 
 var AUTOCOMPLETE_CLASS = "dx-autocomplete",
     AUTOCOMPLETE_POPUP_WRAPPER_CLASS = "dx-autocomplete-popup-wrapper";
@@ -286,4 +286,4 @@ var Autocomplete = DropDownList.inherit({
 
 registerComponent("dxAutocomplete", Autocomplete);
 
-module.exports = Autocomplete;
+export default Autocomplete;

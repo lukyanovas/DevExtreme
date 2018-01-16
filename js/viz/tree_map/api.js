@@ -1,9 +1,8 @@
 "use strict";
 
-var proto = require("./tree_map.base").prototype,
-    nodeProto = require("./node").prototype,
-
-    _extend = require("../../core/utils/extend").extend;
+import { prototype as proto } from './tree_map.base';
+import { prototype as nodeProto } from './node';
+import { extend as _extend } from '../../core/utils/extend';
 
 proto._eventsMap.onNodesInitialized = { name: "nodesInitialized" };
 proto._eventsMap.onNodesRendering = { name: "nodesRendering" };

@@ -1,7 +1,7 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    CollectionWidgetItem = require("../collection/item");
+import $ from '../../core/renderer';
+import CollectionWidgetItem from '../collection/item';
 
 var LIST_ITEM_BADGE_CONTAINER_CLASS = "dx-list-item-badge-container",
     LIST_ITEM_BADGE_CLASS = "dx-list-item-badge",
@@ -53,4 +53,4 @@ var ListItem = CollectionWidgetItem.inherit({
 
 });
 
-module.exports = ListItem;
+export default ListItem;

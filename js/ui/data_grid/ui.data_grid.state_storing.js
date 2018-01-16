@@ -1,11 +1,12 @@
 "use strict";
 
-var gridCore = require("./ui.data_grid.core"),
-    commonUtils = require("../../core/utils/common"),
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    stateStoringCore = require("../grid_core/ui.grid_core.state_storing"),
-    equalByValue = commonUtils.equalByValue;
+import gridCore from './ui.data_grid.core';
+import commonUtils from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import stateStoringCore from '../grid_core/ui.grid_core.state_storing';
+
+var equalByValue = commonUtils.equalByValue;
 
 
 //TODO move processLoadState to target modules (data, columns, pagerView)

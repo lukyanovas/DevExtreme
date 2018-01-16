@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    modules = require("./ui.grid_core.modules"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    isDefined = require("../../core/utils/type").isDefined,
-    isFunction = require("../../core/utils/type").isFunction,
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    Popup = require("../popup"),
-    TreeView = require("../tree_view"),
-    List = require("../list");
+import $ from '../../core/renderer';
+import modules from './ui.grid_core.modules';
+import gridCoreUtils from './ui.grid_core.utils';
+import { isDefined } from '../../core/utils/type';
+import { isFunction } from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import Popup from '../popup';
+import TreeView from '../tree_view';
+import List from '../list';
 
 var HEADER_FILTER_CLASS = "dx-header-filter",
     HEADER_FILTER_MENU_CLASS = "dx-header-filter-menu";
@@ -45,7 +45,7 @@ function isSearchEnabled(that, options) {
     return that.option("headerFilter.allowSearch");
 }
 
-exports.updateHeaderFilterItemSelectionState = function(item, filterValuesMatch, isExcludeFilter) {
+export var updateHeaderFilterItemSelectionState = function(item, filterValuesMatch, isExcludeFilter) {
     if(filterValuesMatch ^ isExcludeFilter) {
         item.selected = true;
 
@@ -63,7 +63,7 @@ exports.updateHeaderFilterItemSelectionState = function(item, filterValuesMatch,
     }
 };
 
-exports.HeaderFilterView = modules.View.inherit({
+export var HeaderFilterView = modules.View.inherit({
     getPopupContainer: function() {
         return this._popupContainer;
     },
@@ -313,7 +313,7 @@ var allowHeaderFiltering = exports.allowHeaderFiltering = function(column) {
 };
 
 
-exports.headerFilterMixin = {
+export var headerFilterMixin = {
     _applyColumnState: function(options) {
         var $headerFilterIndicator,
             rootElement = options.rootElement,

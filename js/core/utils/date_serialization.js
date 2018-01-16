@@ -1,12 +1,11 @@
 "use strict";
 
-var config = require("../config"),
-    getLDMLFormatter = require("../../localization/ldml/date.formatter").getFormatter,
-    defaultDateNames = require("../../localization/default_date_names"),
-    typeUtils = require("./type"),
-    isString = typeUtils.isString,
-    isDate = typeUtils.isDate,
-    isNumber = typeUtils.isNumeric;
+import config from '../config';
+import { getFormatter as getLDMLFormatter } from '../../localization/ldml/date.formatter';
+import defaultDateNames from '../../localization/default_date_names';
+import * as typeUtils from './type';
+
+var isString = typeUtils.isString, isDate = typeUtils.isDate, isNumber = typeUtils.isNumeric;
 
 var NUMBER_SERIALIZATION_FORMAT = "number",
     DATE_SERIALIZATION_FORMAT = "yyyy/MM/dd",
@@ -161,7 +160,7 @@ var getDateSerializationFormat = function(value) {
     }
 };
 
-module.exports = {
+export default {
     dateParser: dateParser,
     deserializeDate: deserializeDate,
     serializeDate: serializeDate,

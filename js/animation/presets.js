@@ -8,4 +8,4 @@
 * @export default
 */
 
-module.exports = require("./presets/presets").presets;
+export default require("./presets/presets").presets;

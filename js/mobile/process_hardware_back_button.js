@@ -1,6 +1,7 @@
 "use strict";
 
-var hardwareBack = require("../core/utils/callbacks")();
+import hardwareBackFactory from '../core/utils/callbacks';
+const hardwareBack = hardwareBackFactory();
 
 /**
  * @name processHardwareBackButton
@@ -9,7 +10,8 @@ var hardwareBack = require("../core/utils/callbacks")();
  * @module mobile/process_hardware_back_button
  * @export default
  */
-module.exports = function() {
+export default function() {
     hardwareBack.fire();
-};
-module.exports.processCallback = hardwareBack;
+}
+
+export var processCallback = hardwareBack;

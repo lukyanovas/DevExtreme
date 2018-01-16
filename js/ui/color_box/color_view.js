@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    translator = require("../../animation/translator"),
-    extend = require("../../core/utils/extend").extend,
-    Color = require("../../color"),
-    messageLocalization = require("../../localization/message"),
-    devices = require("../../core/devices"),
-    registerComponent = require("../../core/component_registrator"),
-    Editor = require("../editor/editor"),
-    NumberBox = require("../number_box"),
-    TextBox = require("../text_box"),
-    Draggable = require("../draggable"),
-    clickEvent = require("../../events/click");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import translator from '../../animation/translator';
+import { extend } from '../../core/utils/extend';
+import Color from '../../color';
+import messageLocalization from '../../localization/message';
+import devices from '../../core/devices';
+import registerComponent from '../../core/component_registrator';
+import Editor from '../editor/editor';
+import NumberBox from '../number_box';
+import TextBox from '../text_box';
+import Draggable from '../draggable';
+import clickEvent from '../../events/click';
 
 var COLOR_VIEW_CLASS = "dx-colorview",
     COLOR_VIEW_CONTAINER_CLASS = "dx-colorview-container",
@@ -838,4 +838,4 @@ var ColorView = Editor.inherit({
 
 registerComponent("dxColorView", ColorView);
 
-module.exports = ColorView;
+export default ColorView;

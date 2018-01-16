@@ -1,13 +1,13 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Color = require("../../color"),
-    ColorView = require("./color_view"),
-    extend = require("../../core/utils/extend").extend,
-    isFunction = require("../../core/utils/type").isFunction,
-    registerComponent = require("../../core/component_registrator"),
-    DropDownEditor = require("../drop_down_editor/ui.drop_down_editor");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Color from '../../color';
+import ColorView from './color_view';
+import { extend } from '../../core/utils/extend';
+import { isFunction } from '../../core/utils/type';
+import registerComponent from '../../core/component_registrator';
+import DropDownEditor from '../drop_down_editor/ui.drop_down_editor';
 
 var COLOR_BOX_CLASS = "dx-colorbox",
     COLOR_BOX_INPUT_CLASS = COLOR_BOX_CLASS + "-input",
@@ -447,4 +447,4 @@ var ColorBox = DropDownEditor.inherit({
 
 registerComponent("dxColorBox", ColorBox);
 
-module.exports = ColorBox;
+export default ColorBox;

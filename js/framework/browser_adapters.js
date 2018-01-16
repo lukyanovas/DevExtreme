@@ -1,12 +1,13 @@
 "use strict";
 
-require("../integration/jquery");
+import '../integration/jquery';
+import $ from 'jquery';
+import Class from '../core/class';
+import Callbacks from '../core/utils/callbacks';
+import queue from '../core/utils/queue';
+import domAdapter from '../core/dom_adapter';
 
-var $ = require("jquery"),
-    Class = require("../core/class"),
-    Callbacks = require("../core/utils/callbacks"),
-    window = require("../core/dom_adapter").getWindow(),
-    queue = require("../core/utils/queue");
+var window = domAdapter.getWindow();
 
 var ROOT_PAGE_URL = "__root__",
     BUGGY_ANDROID_BUFFER_PAGE_URL = "__buffer__";
@@ -206,8 +207,4 @@ var BuggyCordovaWP81BrowserAdapter = DefaultBrowserAdapter.inherit({
     }
 });
 
-exports.DefaultBrowserAdapter = DefaultBrowserAdapter;
-exports.OldBrowserAdapter = OldBrowserAdapter;
-exports.BuggyAndroidBrowserAdapter = BuggyAndroidBrowserAdapter;
-exports.HistorylessBrowserAdapter = HistorylessBrowserAdapter;
-exports.BuggyCordovaWP81BrowserAdapter = BuggyCordovaWP81BrowserAdapter;
+export { DefaultBrowserAdapter, OldBrowserAdapter, BuggyAndroidBrowserAdapter, HistorylessBrowserAdapter, BuggyCordovaWP81BrowserAdapter };

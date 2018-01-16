@@ -1,18 +1,12 @@
 "use strict";
 
-var _extend = require("../../../core/utils/extend").extend,
-    symbolPoint = require("./symbol_point"),
-    barPoint = require("./bar_point"),
+import { extend as _extend } from '../../../core/utils/extend';
+import symbolPoint from './symbol_point';
+import barPoint from './bar_point';
 
-    _math = Math,
-    _abs = _math.abs,
-    _min = _math.min,
-    _max = _math.max,
-    _round = _math.round,
+var _math = Math, _abs = _math.abs, _min = _math.min, _max = _math.max, _round = _math.round, DEFAULT_FINANCIAL_TRACKER_MARGIN = 2;
 
-    DEFAULT_FINANCIAL_TRACKER_MARGIN = 2;
-
-module.exports = _extend({}, barPoint, {
+export default _extend({}, barPoint, {
     _getContinuousPoints: function(openCoord, closeCoord) {
         var that = this,
             x = that.x,

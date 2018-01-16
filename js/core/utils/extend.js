@@ -1,6 +1,6 @@
 "use strict";
 
-var isPlainObject = require("./type").isPlainObject;
+import { isPlainObject } from './type';
 
 var extendFromObject = function(target, source, overrideExistingValues) {
     target = target || {};
@@ -63,5 +63,4 @@ var extend = function(target) {
     return target;
 };
 
-exports.extend = extend;
-exports.extendFromObject = extendFromObject;
+export { extend, extendFromObject };

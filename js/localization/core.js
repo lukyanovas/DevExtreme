@@ -1,8 +1,8 @@
 "use strict";
 
-var dependencyInjector = require("../core/utils/dependency_injector");
+import dependencyInjector from '../core/utils/dependency_injector';
 
-module.exports = dependencyInjector({
+export default dependencyInjector({
     locale: (function() {
         var currentLocale = "en";
 

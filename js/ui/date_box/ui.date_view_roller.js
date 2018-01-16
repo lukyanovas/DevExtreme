@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    registerComponent = require("../../core/component_registrator"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    eventUtils = require("../../events/utils"),
-    clickEvent = require("../../events/click"),
-    Scrollable = require("../scroll_view/ui.scrollable"),
-    fx = require("../../animation/fx"),
-    translator = require("../../animation/translator");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import registerComponent from '../../core/component_registrator';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import * as eventUtils from '../../events/utils';
+import clickEvent from '../../events/click';
+import Scrollable from '../scroll_view/ui.scrollable';
+import fx from '../../animation/fx';
+import translator from '../../animation/translator';
 
 var DATEVIEW_ROLLER_CLASS = "dx-dateviewroller",
     DATEVIEW_ROLLER_ACTIVE_CLASS = "dx-state-active",
@@ -302,4 +302,4 @@ var DateViewRoller = Scrollable.inherit({
 
 registerComponent("dxDateViewRoller", DateViewRoller);
 
-module.exports = DateViewRoller;
+export default DateViewRoller;

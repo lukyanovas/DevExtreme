@@ -1,10 +1,11 @@
 "use strict";
 
-var BaseStrategy = require("./base"),
-    Observer = require("./observer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    extend = require("../../core/utils/extend").extend,
-    onlyMSPointerSupport = !window.PointerEvent && window.MSPointerEvent;
+import BaseStrategy from './base';
+import Observer from './observer';
+import { extend } from '../../core/utils/extend';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), onlyMSPointerSupport = !window.PointerEvent && window.MSPointerEvent;
 
 var eventMap = {
     "dxpointerdown": onlyMSPointerSupport ? "MSPointerDown" : "pointerdown",
@@ -55,4 +56,4 @@ MsPointerStrategy.resetObserver = function() {
 };
 
 
-module.exports = MsPointerStrategy;
+export default MsPointerStrategy;

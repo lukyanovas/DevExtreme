@@ -1,40 +1,36 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Callbacks = require("../../core/utils/callbacks"),
-    isWrapped = require("../../core/utils/variable_wrapper").isWrapped,
-    dataCoreUtils = require("../../core/utils/data"),
-    grep = require("../../core/utils/common").grep,
-    typeUtils = require("../../core/utils/type"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    getDefaultAlignment = require("../../core/utils/position").getDefaultAlignment,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    config = require("../../core/config"),
-    isDefined = typeUtils.isDefined,
-    objectUtils = require("../../core/utils/object"),
-    errors = require("../widget/ui.errors"),
-    modules = require("./ui.grid_core.modules"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    normalizeSortingInfo = gridCoreUtils.normalizeSortingInfo,
-    equalSortParameters = gridCoreUtils.equalSortParameters,
-    normalizeIndexes = require("../../core/utils/array").normalizeIndexes,
-    inflector = require("../../core/utils/inflector"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    numberLocalization = require("../../localization/number"),
-    dateLocalization = require("../../localization/date"),
-    messageLocalization = require("../../localization/message"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    DataSourceModule = require("../../data/data_source/data_source"),
-    normalizeDataSourceOptions = DataSourceModule.normalizeDataSourceOptions;
+import $ from '../../core/renderer';
+import Callbacks from '../../core/utils/callbacks';
+import { isWrapped } from '../../core/utils/variable_wrapper';
+import dataCoreUtils from '../../core/utils/data';
+import { grep } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import iteratorUtils from '../../core/utils/iterator';
+import { getDefaultAlignment } from '../../core/utils/position';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import config from '../../core/config';
+import objectUtils from '../../core/utils/object';
+import errors from '../widget/ui.errors';
+import modules from './ui.grid_core.modules';
+import gridCoreUtils from './ui.grid_core.utils';
+import { normalizeIndexes } from '../../core/utils/array';
+import inflector from '../../core/utils/inflector';
+import dateSerialization from '../../core/utils/date_serialization';
+import numberLocalization from '../../localization/number';
+import dateLocalization from '../../localization/date';
+import messageLocalization from '../../localization/message';
+import * as deferredUtils from '../../core/utils/deferred';
+import DataSourceModule from '../../data/data_source/data_source';
+
+var isDefined = typeUtils.isDefined, normalizeSortingInfo = gridCoreUtils.normalizeSortingInfo, equalSortParameters = gridCoreUtils.equalSortParameters, when = deferredUtils.when, Deferred = deferredUtils.Deferred, normalizeDataSourceOptions = DataSourceModule.normalizeDataSourceOptions;
 
 var USER_STATE_FIELD_NAMES_15_1 = ["filterValues", "filterType", "fixed", "fixedPosition"],
     USER_STATE_FIELD_NAMES = ["visibleIndex", "dataField", "name", "dataType", "width", "visible", "sortOrder", "lastSortOrder", "sortIndex", "groupIndex", "filterValue", "selectedFilterOperation", "added"].concat(USER_STATE_FIELD_NAMES_15_1),
     COMMAND_EXPAND_CLASS = "dx-command-expand";
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             commonColumnSettings: {

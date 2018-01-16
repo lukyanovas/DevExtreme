@@ -1,17 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Class = require("../../core/class"),
-    Callbacks = require("../../core/utils/callbacks"),
-    grep = require("../../core/utils/common").grep,
-    isFunction = require("../../core/utils/type").isFunction,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    errors = require("../widget/ui.errors"),
-    messageLocalization = require("../../localization/message"),
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Class from '../../core/class';
+import Callbacks from '../../core/utils/callbacks';
+import { grep } from '../../core/utils/common';
+import { isFunction } from '../../core/utils/type';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import errors from '../widget/ui.errors';
+import messageLocalization from '../../localization/message';
 
-    WIDGET_WITH_LEGACY_CONTAINER_NAME = "dxDataGrid";
+var WIDGET_WITH_LEGACY_CONTAINER_NAME = "dxDataGrid";
 
 
 var ModuleItem = Class.inherit({
@@ -395,7 +395,7 @@ var callModuleItemsMethod = function(that, methodName, args) {
     }
 };
 
-module.exports = {
+export default {
     modules: [],
 
     View: View,

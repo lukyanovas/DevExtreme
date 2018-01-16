@@ -1,13 +1,13 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    commonUtils = require("../../core/utils/common"),
-    each = require("../../core/utils/iterator").each,
-    VerticalAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.vertical"),
-    HorizontalAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.horizontal"),
-    HorizontalMonthLineAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.horizontal_month_line"),
-    HorizontalMonthAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.horizontal_month"),
-    AgendaAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.agenda");
+import Class from '../../core/class';
+import commonUtils from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import VerticalAppointmentsStrategy from './ui.scheduler.appointments.strategy.vertical';
+import HorizontalAppointmentsStrategy from './ui.scheduler.appointments.strategy.horizontal';
+import HorizontalMonthLineAppointmentsStrategy from './ui.scheduler.appointments.strategy.horizontal_month_line';
+import HorizontalMonthAppointmentsStrategy from './ui.scheduler.appointments.strategy.horizontal_month';
+import AgendaAppointmentsStrategy from './ui.scheduler.appointments.strategy.agenda';
 
 var RENDERING_STRATEGIES = {
     "horizontal": HorizontalAppointmentsStrategy,
@@ -172,4 +172,4 @@ var AppointmentLayoutManager = Class.inherit({
     }
 });
 
-module.exports = AppointmentLayoutManager;
+export default AppointmentLayoutManager;

@@ -1,24 +1,13 @@
 "use strict";
 
-var VERSION = require("../core/version"),
-    window = require("../core/dom_adapter").getWindow(),
-    imageCreator = require("./image_creator").imageCreator,
-    isFunction = require("../core/utils/type").isFunction,
-    extend = require("../core/utils/extend").extend,
-    deferredUtils = require("../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
+import VERSION from '../core/version';
+import { imageCreator } from './image_creator';
+import { isFunction } from '../core/utils/type';
+import { extend } from '../core/utils/extend';
+import * as deferredUtils from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
 
-    mainPageTemplate = "%PDF-1.3\r\n2 0 obj\r\n<</ProcSet[/PDF/ImageB/ImageC/ImageI]/XObject<</I0 5 0 R>>>>\r\nendobj\r\n4 0 obj\r\n<</Type/Pages/Kids[1 0 R]/Count 1>>\r\nendobj\r\n7 0 obj\r\n<</OpenAction[1 0 R /FitH null]/Type/Catalog/Pages 4 0 R/PageLayout/OneColumn>>\r\nendobj\r\n1 0 obj\r\n<</Type/Page/Resources 2 0 R/MediaBox[0 0 _width_ _height_]/Contents 3 0 R/Parent 4 0 R>>\r\nendobj\r\n",
-    contentTemplate = "3 0 obj\r\n<</Length 52>>stream\r\n0.20 w\n0 G\nq _width_ 0 0 _height_ 0.00 0.00 cm /I0 Do Q\r\nendstream\r\nendobj\r\n",
-    infoTemplate = "6 0 obj\r\n<</CreationDate _date_/Producer(DevExtreme _version_)>>\r\nendobj\r\n",
-    imageStartTemplate = "5 0 obj\r\n<</Type/XObject/Subtype/Image/Width _width_/Height _height_/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length _length_>>stream\r\n",
-    imageEndTemplate = "\r\nendstream\r\nendobj\r\n",
-    trailerTemplate = "trailer\r\n<<\r\n/Size 8\r\n/Root 7 0 R\r\n/Info 6 0 R\r\n>>\r\nstartxref\r\n_length_\r\n%%EOF",
-    xrefTemplate = "xref\r\n0 8\r\n0000000000 65535 f\r\n0000000241 00000 n\r\n0000000010 00000 n\r\n_main_ 00000 n\r\n0000000089 00000 n\r\n_image_ 00000 n\r\n_info_ 00000 n\r\n0000000143 00000 n\r\n",
-
-    DEFAULT_MARGIN_X = 60,
-    DEFAULT_MARGIN_Y = 40;
+var window = domAdapter.getWindow(), when = deferredUtils.when, Deferred = deferredUtils.Deferred, mainPageTemplate = "%PDF-1.3\r\n2 0 obj\r\n<</ProcSet[/PDF/ImageB/ImageC/ImageI]/XObject<</I0 5 0 R>>>>\r\nendobj\r\n4 0 obj\r\n<</Type/Pages/Kids[1 0 R]/Count 1>>\r\nendobj\r\n7 0 obj\r\n<</OpenAction[1 0 R /FitH null]/Type/Catalog/Pages 4 0 R/PageLayout/OneColumn>>\r\nendobj\r\n1 0 obj\r\n<</Type/Page/Resources 2 0 R/MediaBox[0 0 _width_ _height_]/Contents 3 0 R/Parent 4 0 R>>\r\nendobj\r\n", contentTemplate = "3 0 obj\r\n<</Length 52>>stream\r\n0.20 w\n0 G\nq _width_ 0 0 _height_ 0.00 0.00 cm /I0 Do Q\r\nendstream\r\nendobj\r\n", infoTemplate = "6 0 obj\r\n<</CreationDate _date_/Producer(DevExtreme _version_)>>\r\nendobj\r\n", imageStartTemplate = "5 0 obj\r\n<</Type/XObject/Subtype/Image/Width _width_/Height _height_/ColorSpace/DeviceRGB/BitsPerComponent 8/Filter/DCTDecode/Length _length_>>stream\r\n", imageEndTemplate = "\r\nendstream\r\nendobj\r\n", trailerTemplate = "trailer\r\n<<\r\n/Size 8\r\n/Root 7 0 R\r\n/Info 6 0 R\r\n>>\r\nstartxref\r\n_length_\r\n%%EOF", xrefTemplate = "xref\r\n0 8\r\n0000000000 65535 f\r\n0000000241 00000 n\r\n0000000010 00000 n\r\n_main_ 00000 n\r\n0000000089 00000 n\r\n_image_ 00000 n\r\n_info_ 00000 n\r\n0000000143 00000 n\r\n", DEFAULT_MARGIN_X = 60, DEFAULT_MARGIN_Y = 40;
 
 var pad = function(str, len) {
     return str.length < len ? pad("0" + str, len) : str;
@@ -67,7 +56,7 @@ var getBase64 = function(binaryData) {
     return window.btoa(binaryData);
 };
 
-exports.getData = function(data, options, callback) {
+export var getData = function(data, options, callback) {
     var imageData = imageCreator.getImageData(data, extend({}, options, { format: "jpeg" })),
         blob = new Deferred();
 
@@ -84,7 +73,7 @@ exports.getData = function(data, options, callback) {
 };
 
 ///#DEBUG
-exports.__tests = {
+export var __tests = {
     set_composePdfString: function(func) {
         exports.__tests.composePdfString = composePdfString;
         composePdfString = func;

@@ -30,7 +30,7 @@ var OPERATION_ICONS = {
         "isnotblank": "isNotBlank"
     };
 
-module.exports = {
+export default {
     getIconByFilterOperation: function(filterOperation) {
         return OPERATION_ICONS[filterOperation];
     },

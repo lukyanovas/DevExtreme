@@ -1,16 +1,16 @@
 "use strict";
 
-var dataUtils = require("./element_data");
-var domAdapter = require("./dom_adapter");
+import dataUtils from './element_data';
+import domAdapter from './dom_adapter';
 var window = domAdapter.getWindow();
 var Node = window.Node;
 var document = window.document;
 var HTMLCollection = window.HTMLCollection;
-var typeUtils = require("./utils/type");
-var styleUtils = require("./utils/style");
-var sizeUtils = require("./utils/size");
-var htmlParser = require("./utils/html_parser");
-var matches = require("./polyfills/matches");
+import * as typeUtils from './utils/type';
+import * as styleUtils from './utils/style';
+import sizeUtils from './utils/size';
+import htmlParser from './utils/html_parser';
+import matches from './polyfills/matches';
 
 var renderer = function(selector, context) {
     return new initRender(selector, context);
@@ -880,7 +880,7 @@ Object.defineProperty(rendererWrapper, "fn", {
     }
 });
 
-module.exports = {
+export default {
     set: function(strategy) {
         renderer = strategy;
     },

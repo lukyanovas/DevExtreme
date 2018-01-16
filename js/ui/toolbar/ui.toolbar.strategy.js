@@ -1,13 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    each = require("../../core/utils/iterator").each,
-    errors = require("../../core/errors"),
-    compileGetter = require("../../core/utils/data").compileGetter,
-    Class = require("../../core/class"),
-    Button = require("../button"),
-    abstract = Class.abstract;
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import errors from '../../core/errors';
+import { compileGetter } from '../../core/utils/data';
+import Class from '../../core/class';
+import Button from '../button';
+
+var abstract = Class.abstract;
 
 var TOOLBAR_MENU_CONTAINER_CLASS = "dx-toolbar-menu-container",
     TOOLBAR_MENU_BUTTON_CLASS = "dx-toolbar-menu-button";
@@ -133,4 +134,4 @@ var ToolbarStrategy = Class.inherit({
 
 });
 
-module.exports = ToolbarStrategy;
+export default ToolbarStrategy;

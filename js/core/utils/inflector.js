@@ -1,6 +1,6 @@
 "use strict";
 
-var map = require("./iterator").map;
+import { map } from './iterator';
 
 var _normalize = function(text) {
     if(text === undefined || text === null) {
@@ -76,9 +76,4 @@ var captionize = function(name) {
     return captionList.join("");
 };
 
-exports.dasherize = dasherize;
-exports.camelize = camelize;
-exports.humanize = humanize;
-exports.titleize = titleize;
-exports.underscore = underscore;
-exports.captionize = captionize;
+export { dasherize, camelize, humanize, titleize, underscore, captionize };

@@ -1,8 +1,8 @@
 "use strict";
 
-var isFunction = require("../core/utils/type").isFunction,
+import { isFunction } from '../core/utils/type';
 
-    CSS_TRANSITION_EASING_REGEX = /cubic-bezier\((\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\)/;
+var CSS_TRANSITION_EASING_REGEX = /cubic-bezier\((\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\s*,\s*(\d+(?:\.\d+)?)\)/;
 
 var TransitionTimingFuncMap = {
     "linear": "cubic-bezier(0, 0, 1, 1)",
@@ -85,13 +85,12 @@ var convertTransitionTimingFuncToEasing = function(cssTransitionEasing) {
     return easingName;
 };
 
-exports.setEasing = function(value) {
+export var setEasing = function(value) {
     easing = value;
 };
 
-exports.getEasing = function(name) {
+export var getEasing = function(name) {
     return easing[name];
 };
 
-exports.convertTransitionTimingFuncToEasing = convertTransitionTimingFuncToEasing;
-
+export { convertTransitionTimingFuncToEasing };

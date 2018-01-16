@@ -1,9 +1,9 @@
 "use strict";
 
-var logger = require("./console").logger,
-    dependencyInjector = require("./dependency_injector");
+import { logger } from './console';
+import dependencyInjector from './dependency_injector';
 
-module.exports = dependencyInjector({
+export default dependencyInjector({
     isWrapped: function() {
         return false;
     },

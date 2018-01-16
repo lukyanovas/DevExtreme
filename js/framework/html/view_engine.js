@@ -1,25 +1,22 @@
 "use strict";
 
-require("../../integration/jquery");
+import '../../integration/jquery';
+import $ from 'jquery';
+import version from '../../core/version';
+import Class from '../../core/class';
+import Callbacks from '../../core/utils/callbacks';
+import commonUtils from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import { inArray } from '../../core/utils/array';
+import errors from '../errors';
+import domUtils from '../../core/utils/dom';
+import { when } from '../../core/utils/deferred';
+import ajax from '../../core/utils/ajax';
+import domAdapter from '../../core/dom_adapter';
 
-var $ = require("jquery"),
-    version = require("../../core/version"),
-    window = require("../../core/dom_adapter").getWindow(),
-    location = window.location,
-    Class = require("../../core/class"),
-    Callbacks = require("../../core/utils/callbacks"),
-    commonUtils = require("../../core/utils/common"),
-    each = require("../../core/utils/iterator").each,
-    inArray = require("../../core/utils/array").inArray,
-    errors = require("../errors"),
-    domUtils = require("../../core/utils/dom"),
-    when = require("../../core/utils/deferred").when,
-    ajax = require("../../core/utils/ajax"),
-    _VIEW_ROLE = "dxView",
-    _LAYOUT_ROLE = "dxLayout",
-    MARKUP_TEMPLATE_MARKER = "MarkupTemplate:";
+var window = domAdapter.getWindow(), location = window.location, _VIEW_ROLE = "dxView", _LAYOUT_ROLE = "dxLayout", MARKUP_TEMPLATE_MARKER = "MarkupTemplate:";
 
-require("./view_engine_components");
+import './view_engine_components';
 
 var ViewEngine = Class.inherit({
     ctor: function(options) {
@@ -389,4 +386,4 @@ var ViewEngine = Class.inherit({
     }
 });
 
-exports.ViewEngine = ViewEngine;
+export { ViewEngine };

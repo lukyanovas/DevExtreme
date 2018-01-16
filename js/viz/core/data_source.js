@@ -1,8 +1,9 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    DataHelperMixin = require("../../data_helper"),
-    postCtor = DataHelperMixin.postCtor,
+import { noop } from '../../core/utils/common';
+import DataHelperMixin from '../../data_helper';
+
+var postCtor = DataHelperMixin.postCtor,
     name,
     members = {
         _dataSourceLoadErrorHandler: function() {
@@ -37,7 +38,7 @@ for(name in DataHelperMixin) {
     members[name] = DataHelperMixin[name];
 }
 
-exports.plugin = {
+export var plugin = {
     name: "data_source",
     init: function() {
         postCtor.call(this);

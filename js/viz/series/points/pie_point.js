@@ -1,24 +1,14 @@
 "use strict";
 
-var extend = require("../../../core/utils/extend").extend,
-    CONNECTOR_LENGTH = 20,
-    symbolPoint = require("./symbol_point"),
+import { extend } from '../../../core/utils/extend';
+import symbolPoint from './symbol_point';
+import vizUtils from '../../core/utils';
+import { isDefined as _isDefined } from '../../../core/utils/type';
+import { pieLabelIndent as INDENT_FROM_PIE } from '../../components/consts';
 
-    _extend = extend,
-    _round = Math.round,
-    _sqrt = Math.sqrt,
-    _acos = Math.acos,
-    DEG = 180 / Math.PI,
-    _abs = Math.abs,
-    vizUtils = require("../../core/utils"),
-    _normalizeAngle = vizUtils.normalizeAngle,
-    _getCosAndSin = vizUtils.getCosAndSin,
-    _isDefined = require("../../../core/utils/type").isDefined,
-    getVerticallyShiftedAngularCoords = vizUtils.getVerticallyShiftedAngularCoords,
+var CONNECTOR_LENGTH = 20, _extend = extend, _round = Math.round, _sqrt = Math.sqrt, _acos = Math.acos, DEG = 180 / Math.PI, _abs = Math.abs, _normalizeAngle = vizUtils.normalizeAngle, _getCosAndSin = vizUtils.getCosAndSin, getVerticallyShiftedAngularCoords = vizUtils.getVerticallyShiftedAngularCoords;
 
-    INDENT_FROM_PIE = require("../../components/consts").pieLabelIndent;
-
-module.exports = _extend({}, symbolPoint, {
+export default _extend({}, symbolPoint, {
     _updateData: function(data) {
         var that = this;
         symbolPoint._updateData.call(this, data);

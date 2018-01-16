@@ -1,14 +1,14 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    deferredStrategy = require("./selection.strategy.deferred"),
-    standardStrategy = require("./selection.strategy.standard"),
-    extend = require("../../core/utils/extend").extend,
-    noop = require("../../core/utils/common").noop,
-    isDefined = require("../../core/utils/type").isDefined,
-    Deferred = require("../../core/utils/deferred").Deferred;
+import Class from '../../core/class';
+import deferredStrategy from './selection.strategy.deferred';
+import standardStrategy from './selection.strategy.standard';
+import { extend } from '../../core/utils/extend';
+import { noop } from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import { Deferred } from '../../core/utils/deferred';
 
-module.exports = Class.inherit({
+export default Class.inherit({
     ctor: function(options) {
         this.options = extend(this._getDefaultOptions(), options, {
             selectedItemKeys: options.selectedKeys || []

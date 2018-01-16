@@ -1,7 +1,9 @@
 "use strict";
 
-var isFunction = require("./type").isFunction,
-    window = require("../../core/dom_adapter").getWindow();
+import { isFunction } from './type';
+import domAdapter from '../dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var logger = (function() {
     var console = window.console;
@@ -52,5 +54,4 @@ var debug = (function() {
     };
 }());
 
-exports.logger = logger;
-exports.debug = debug;
+export { logger, debug };

@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    support = require("../core/utils/support"),
-    extend = require("../core/utils/extend").extend,
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    MultiView = require("./multi_view"),
-    Tabs = require("./tabs"),
-    iconUtils = require("../core/utils/icon"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    BindableTemplate = require("./widget/bindable_template");
+import $ from '../core/renderer';
+import * as support from '../core/utils/support';
+import { extend } from '../core/utils/extend';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import MultiView from './multi_view';
+import Tabs from './tabs';
+import iconUtils from '../core/utils/icon';
+import { getPublicElement } from '../core/utils/dom';
+import BindableTemplate from './widget/bindable_template';
 
 var TABPANEL_CLASS = "dx-tabpanel",
     TABPANEL_TABS_CLASS = "dx-tabpanel-tabs",
@@ -430,4 +430,4 @@ var TabPanel = MultiView.inherit({
 
 registerComponent("dxTabPanel", TabPanel);
 
-module.exports = TabPanel;
+export default TabPanel;

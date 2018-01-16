@@ -1,18 +1,13 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    scatterSeries = require("./scatter_series"),
-    areaSeries = require("./area_series").chart.area,
-    chartSeries = scatterSeries.chart,
-    polarSeries = scatterSeries.polar,
-    _extend = extend,
-    _each = each,
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import scatterSeries from './scatter_series';
 
-    DEFAULT_BAR_POINT_SIZE = 3;
+var areaSeries = require("./area_series").chart.area, chartSeries = scatterSeries.chart, polarSeries = scatterSeries.polar, _extend = extend, _each = each, DEFAULT_BAR_POINT_SIZE = 3;
 
-exports.chart = {};
-exports.polar = {};
+export var chart = {};
+export var polar = {};
 
 var baseBarSeriesMethods = {
     _createLegendState: function(styleOptions, defaultColor) {

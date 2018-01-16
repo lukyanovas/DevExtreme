@@ -107,8 +107,7 @@ function isRunningTotalUsed(dataFields) {
     });
 }
 
-module.exports = Class.inherit((function() {
-
+export default Class.inherit((function() {
     var findHeaderItem = function(headerItems, path) {
         if(headerItems._cacheByPath) {
             return headerItems._cacheByPath[path.join(".")] || null;
@@ -589,10 +588,6 @@ module.exports = Class.inherit((function() {
         });
         return areaFields;
     }
-
-    ///#DEBUG
-    exports.sort = sort;
-    ///#ENDDEBUG
 
     /**
     * @name PivotGridDataSource
@@ -1567,5 +1562,5 @@ module.exports = Class.inherit((function() {
 })()).include(EventsMixin);
 
 ///#DEBUG
-module.exports.sort = exports.sort;
+export var sort = sort;
 ///#ENDDEBUG

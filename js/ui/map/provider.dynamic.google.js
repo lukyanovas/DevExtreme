@@ -2,18 +2,23 @@
 
 /* global google */
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    noop = require("../../core/utils/common").noop,
-    devices = require("../../core/devices"),
-    Promise = require("../../core/polyfills/promise"),
-    extend = require("../../core/utils/extend").extend,
-    map = require("../../core/utils/iterator").map,
-    DynamicProvider = require("./provider.dynamic"),
-    errors = require("../widget/ui.errors"),
-    Color = require("../../color"),
-    ajax = require("../../core/utils/ajax"),
-    isDefined = require("../../core/utils/type").isDefined;
+import $ from '../../core/renderer';
+
+import { noop } from '../../core/utils/common';
+import devices from '../../core/devices';
+import Promise from '../../core/polyfills/promise';
+import { extend } from '../../core/utils/extend';
+import { map } from '../../core/utils/iterator';
+import DynamicProvider from './provider.dynamic';
+import errors from '../widget/ui.errors';
+import Color from '../../color';
+import ajax from '../../core/utils/ajax';
+import { isDefined } from '../../core/utils/type';
+import domAdapter from '../../core/dom_adapter';
+
+/* global google */
+
+var window = domAdapter.getWindow();
 
 var GOOGLE_MAP_READY = "_googleScriptReady",
     GOOGLE_URL = "https://maps.googleapis.com/maps/api/js?callback=" + GOOGLE_MAP_READY;
@@ -463,6 +468,7 @@ var GoogleProvider = DynamicProvider.inherit({
 GoogleProvider.remapConstant = function(newValue) {
     GOOGLE_URL = newValue;
 };
+
 ///#ENDDEBUG
 
-module.exports = GoogleProvider;
+export default GoogleProvider;

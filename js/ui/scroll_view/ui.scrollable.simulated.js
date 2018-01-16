@@ -1,22 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    math = Math,
-    titleize = require("../../core/utils/inflector").titleize,
-    extend = require("../../core/utils/extend").extend,
-    iteratorUtils = require("../../core/utils/iterator"),
-    translator = require("../../animation/translator"),
-    Class = require("../../core/class"),
-    Animator = require("./animator"),
-    devices = require("../../core/devices"),
-    eventUtils = require("../../events/utils"),
-    commonUtils = require("../../core/utils/common"),
-    Scrollbar = require("./ui.scrollbar"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { titleize } from '../../core/utils/inflector';
+import { extend } from '../../core/utils/extend';
+import iteratorUtils from '../../core/utils/iterator';
+import translator from '../../animation/translator';
+import Class from '../../core/class';
+import Animator from './animator';
+import devices from '../../core/devices';
+import * as eventUtils from '../../events/utils';
+import commonUtils from '../../core/utils/common';
+import Scrollbar from './ui.scrollbar';
+import * as deferredUtils from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, math = Math, when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var realDevice = devices.real;
 var isSluggishPlatform = (realDevice.platform === "win" || realDevice.platform === "android");
@@ -1002,12 +1001,4 @@ var SimulatedStrategy = Class.inherit({
 
 });
 
-exports.SimulatedStrategy = SimulatedStrategy;
-exports.Scroller = Scroller;
-
-///#DEBUG
-exports.ACCELERATION = ACCELERATION;
-exports.MIN_VELOCITY_LIMIT = MIN_VELOCITY_LIMIT;
-exports.FRAME_DURATION = FRAME_DURATION;
-exports.SCROLL_LINE_HEIGHT = SCROLL_LINE_HEIGHT;
-///#ENDDEBUG
+export { SimulatedStrategy, Scroller, ACCELERATION, MIN_VELOCITY_LIMIT, FRAME_DURATION, SCROLL_LINE_HEIGHT };

@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    devices = require("../../core/devices"),
-    extend = require("../../core/utils/extend").extend,
-    inkRipple = require("../widget/utils.ink_ripple"),
-    registerComponent = require("../../core/component_registrator"),
-    Editor = require("../editor/editor"),
-    eventUtils = require("../../events/utils"),
-    themes = require("../themes"),
-    clickEvent = require("../../events/click");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import devices from '../../core/devices';
+import { extend } from '../../core/utils/extend';
+import inkRipple from '../widget/utils.ink_ripple';
+import registerComponent from '../../core/component_registrator';
+import Editor from '../editor/editor';
+import * as eventUtils from '../../events/utils';
+import themes from '../themes';
+import clickEvent from '../../events/click';
 
 var RADIO_BUTTON_CLASS = "dx-radiobutton",
     RADIO_BUTTON_ICON_CLASS = "dx-radiobutton-icon",
@@ -165,4 +165,4 @@ var RadioButton = Editor.inherit({
 
 registerComponent("dxRadioButton", RadioButton);
 
-module.exports = RadioButton;
+export default RadioButton;

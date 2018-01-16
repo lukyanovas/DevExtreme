@@ -1,17 +1,18 @@
 "use strict";
 
 //there are area, steparea, stackedarea, fullstackedarea, splinearea
-var objectUtils = require("../../core/utils/object"),
-    extend = require("../../core/utils/extend").extend,
-    scatterSeries = require("./scatter_series").chart,
-    lineSeries = require("./line_series"),
-    chartLineSeries = lineSeries.chart.line,
-    polarLineSeries = lineSeries.polar.line,
-    _map = require("../core/utils").map,
-    _extend = extend;
+import objectUtils from '../../core/utils/object';
 
-exports.chart = {};
-exports.polar = {};
+import { extend } from '../../core/utils/extend';
+import { chart as scatterSeries } from './scatter_series';
+import lineSeries from './line_series';
+import { map as _map } from '../core/utils';
+
+//there are area, steparea, stackedarea, fullstackedarea, splinearea
+var chartLineSeries = lineSeries.chart.line, polarLineSeries = lineSeries.polar.line, _extend = extend;
+
+export var chart = {};
+export var polar = {};
 
 var baseAreaMethods = {
 

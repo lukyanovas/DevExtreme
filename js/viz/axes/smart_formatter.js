@@ -1,22 +1,13 @@
 "use strict";
 
-var _format = require("../core/format"),
-    formatHelper = require("../../format_helper"),
-    typeUtils = require("../../core/utils/type"),
-    dateUtils = require("../../core/utils/date"),
-    mathUtils = require("../../core/utils/math"),
-    log10 = require("../core/utils").getAdjustedLog10,
-    isDefined = typeUtils.isDefined,
-    isFunction = typeUtils.isFunction,
-    isExponential = typeUtils.isExponential,
-    floor = Math.floor,
-    adjust = mathUtils.adjust,
-    getPrecision = mathUtils.getPrecision,
-    getExponent = mathUtils.getExponent,
-    abs = Math.abs,
-    EXPONENTIAL = "exponential",
-    formats = ["fixedPoint", "thousands", "millions", "billions", "trillions", EXPONENTIAL],
-    dateUnitIntervals = ['millisecond', 'second', 'minute', 'hour', 'day', 'month', 'year'];
+import _format from '../core/format';
+import formatHelper from '../../format_helper';
+import * as typeUtils from '../../core/utils/type';
+import dateUtils from '../../core/utils/date';
+import mathUtils from '../../core/utils/math';
+import { getAdjustedLog10 as log10 } from '../core/utils';
+
+var isDefined = typeUtils.isDefined, isFunction = typeUtils.isFunction, isExponential = typeUtils.isExponential, floor = Math.floor, adjust = mathUtils.adjust, getPrecision = mathUtils.getPrecision, getExponent = mathUtils.getExponent, abs = Math.abs, EXPONENTIAL = "exponential", formats = ["fixedPoint", "thousands", "millions", "billions", "trillions", EXPONENTIAL], dateUnitIntervals = ['millisecond', 'second', 'minute', 'hour', 'day', 'month', 'year'];
 
 function getDatesDifferences(prevDate, curDate, nextDate, tickFormat) {
     var prevDifferences,
@@ -252,4 +243,4 @@ function smartFormatter(tick, options) {
     return _format(tick, { format: format, precision: options.labelOptions.precision });
 }
 
-exports.smartFormatter = smartFormatter;
+export { smartFormatter };

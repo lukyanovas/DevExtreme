@@ -1,15 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    List = require("../list"),
-    DateBoxStrategy = require("./ui.date_box.strategy"),
-    devices = require("../../core/devices"),
-    noop = require("../../core/utils/common").noop,
-    isDate = require("../../core/utils/type").isDate,
-    extend = require("../../core/utils/extend").extend,
-    dateUtils = require("./ui.date_utils"),
-    dateLocalization = require("../../localization/date");
+import $ from '../../core/renderer';
+import List from '../list';
+import DateBoxStrategy from './ui.date_box.strategy';
+import devices from '../../core/devices';
+import { noop } from '../../core/utils/common';
+import { isDate } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import dateUtils from './ui.date_utils';
+import dateLocalization from '../../localization/date';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var BOUNDARY_VALUES = {
     "min": new Date(0, 0, 0, 0, 0),
@@ -282,4 +284,4 @@ var ListStrategy = DateBoxStrategy.inherit({
     }
 });
 
-module.exports = ListStrategy;
+export default ListStrategy;

@@ -1,35 +1,34 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Guid = require("../../core/guid"),
-    registerComponent = require("../../core/component_registrator"),
-    typeUtils = require("../../core/utils/type"),
-    domUtils = require("../../core/utils/dom"),
-    isWrapped = require("../../core/utils/variable_wrapper").isWrapped,
-    isWritableWrapped = require("../../core/utils/variable_wrapper").isWritableWrapped,
-    unwrap = require("../../core/utils/variable_wrapper").unwrap,
-    windowUtils = require("../../core/utils/window"),
-    stringUtils = require("../../core/utils/string"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    dataUtils = require("../../core/utils/data"),
-    removeEvent = require("../../core/remove_event"),
-    clickEvent = require("../../events/click"),
-    normalizeIndexes = require("../../core/utils/array").normalizeIndexes,
-    errors = require("../widget/ui.errors"),
-    messageLocalization = require("../../localization/message"),
-    styleUtils = require("../../core/utils/style"),
-    inflector = require("../../core/utils/inflector"),
-    Widget = require("../widget/ui.widget"),
-    Validator = require("../validator"),
-    ResponsiveBox = require("../responsive_box");
-
-require("../text_box");
-require("../number_box");
-require("../check_box");
-require("../date_box");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Guid from '../../core/guid';
+import registerComponent from '../../core/component_registrator';
+import * as typeUtils from '../../core/utils/type';
+import domUtils from '../../core/utils/dom';
+import { isWrapped } from '../../core/utils/variable_wrapper';
+import { isWritableWrapped } from '../../core/utils/variable_wrapper';
+import { unwrap } from '../../core/utils/variable_wrapper';
+import windowUtils from '../../core/utils/window';
+import stringUtils from '../../core/utils/string';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import dataUtils from '../../core/utils/data';
+import removeEvent from '../../core/remove_event';
+import clickEvent from '../../events/click';
+import { normalizeIndexes } from '../../core/utils/array';
+import errors from '../widget/ui.errors';
+import messageLocalization from '../../localization/message';
+import * as styleUtils from '../../core/utils/style';
+import inflector from '../../core/utils/inflector';
+import Widget from '../widget/ui.widget';
+import Validator from '../validator';
+import ResponsiveBox from '../responsive_box';
+import '../text_box';
+import '../number_box';
+import '../check_box';
+import '../date_box';
 
 var FORM_EDITOR_BY_DEFAULT = "dxTextBox",
     FIELD_ITEM_CLASS = "dx-field-item",
@@ -1101,10 +1100,10 @@ var LayoutManager = Widget.inherit({
 
 registerComponent("dxLayoutManager", LayoutManager);
 
-module.exports = LayoutManager;
+export default LayoutManager;
 
 //#DEBUG
-module.exports.__internals = {
+export var __internals = {
     FIELD_ITEM_CLASS: FIELD_ITEM_CLASS,
     FIELD_EMPTY_ITEM_CLASS: FIELD_EMPTY_ITEM_CLASS,
     FIELD_ITEM_CONTENT_CLASS: FIELD_ITEM_CONTENT_CLASS,

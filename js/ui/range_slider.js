@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    Slider = require("./slider"),
-    SliderHandle = require("./slider/ui.slider_handle"),
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    applyServerDecimalSeparator = require("../core/utils/common").applyServerDecimalSeparator,
-    eventUtils = require("../events/utils"),
-    messageLocalization = require("../localization/message");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import Slider from './slider';
+import SliderHandle from './slider/ui.slider_handle';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import { applyServerDecimalSeparator } from '../core/utils/common';
+import * as eventUtils from '../events/utils';
+import messageLocalization from '../localization/message';
 
 var RANGE_SLIDER_CLASS = "dx-rangeslider",
     RANGE_SLIDER_START_HANDLE_CLASS = RANGE_SLIDER_CLASS + "-start-handle",
@@ -401,4 +401,4 @@ var RangeSlider = Slider.inherit({
 
 registerComponent("dxRangeSlider", RangeSlider);
 
-module.exports = RangeSlider;
+export default RangeSlider;

@@ -1,6 +1,6 @@
 "use strict";
 
-var $ = require("../../core/renderer");
+import $ from '../../core/renderer';
 var INKRIPPLE_CLASS = "dx-inkripple",
     INKRIPPLE_WAVE_CLASS = "dx-inkripple-wave",
     INKRIPPLE_SHOWING_CLASS = "dx-inkripple-showing",
@@ -134,7 +134,6 @@ var hideWave = function(args, config) {
     args.hidingTimeout = setTimeout(hideSelectedWave.bind(this, $wave), animationDuration);
 };
 
-module.exports = {
+export default {
     render: render
 };
-

@@ -1,20 +1,20 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    BaseCollectionWidget = require("./ui.collection_widget.base"),
-    errors = require("../widget/ui.errors"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    noop = require("../../core/utils/common").noop,
-    isDefined = require("../../core/utils/type").isDefined,
-    PlainEditStrategy = require("./ui.collection_widget.edit.strategy.plain"),
-    compileGetter = require("../../core/utils/data").compileGetter,
-    DataSource = require("../../data/data_source/data_source").DataSource,
-    Selection = require("../selection/selection"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import BaseCollectionWidget from './ui.collection_widget.base';
+import errors from '../widget/ui.errors';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { noop } from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import PlainEditStrategy from './ui.collection_widget.edit.strategy.plain';
+import { compileGetter } from '../../core/utils/data';
+import { DataSource } from '../../data/data_source/data_source';
+import Selection from '../selection/selection';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var ITEM_DELETING_DATA_KEY = "dxItemDeleting",
     NOT_EXISTING_INDEX = -1;
@@ -902,4 +902,4 @@ var CollectionWidget = BaseCollectionWidget.inherit({
     }
 });
 
-module.exports = CollectionWidget;
+export default CollectionWidget;

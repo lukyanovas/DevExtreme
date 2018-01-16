@@ -1,10 +1,12 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    browser = require("../../core/utils/browser"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    Class = require("../../core/class"),
-    eventUtils = require("../utils");
+import eventsEngine from '../../events/core/events_engine';
+import browser from '../../core/utils/browser';
+import Class from '../../core/class';
+import * as eventUtils from '../utils';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var POINTER_EVENTS_NAMESPACE = "dxPointerEvents";
 
@@ -98,4 +100,4 @@ var BaseStrategy = Class.inherit({
 });
 
 
-module.exports = BaseStrategy;
+export default BaseStrategy;

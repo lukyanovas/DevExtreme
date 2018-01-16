@@ -1,10 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    extend = require("../../core/utils/extend").extend,
-    pivotUtils = require("./ui.pivot_grid.utils"),
-    each = require("../../core/utils/iterator").each,
-    foreachTree = pivotUtils.foreachTree,
+import $ from '../../core/renderer';
+import { extend } from '../../core/utils/extend';
+import pivotUtils from './ui.pivot_grid.utils';
+import { each } from '../../core/utils/iterator';
+
+var foreachTree = pivotUtils.foreachTree,
     FORMAT_DICTIONARY = {
         number: "numeric",
         date: "datetime"
@@ -290,7 +291,7 @@ function removeBinding(chart) {
     unbind && unbind();
 }
 
-module.exports = {
+export default {
     /**
     * @name dxPivotGridMethods_bindChart
     * @publicName bindChart(chart, integrationOptions)

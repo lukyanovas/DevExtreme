@@ -1,14 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    DateView = require("./ui.date_view"),
-    DateBoxStrategy = require("./ui.date_box.strategy"),
-    support = require("../../core/utils/support"),
-    extend = require("../../core/utils/extend").extend,
-    themes = require("../themes"),
-    dateUtils = require("./ui.date_utils"),
-    messageLocalization = require("../../localization/message");
+import $ from '../../core/renderer';
+import DateView from './ui.date_view';
+import DateBoxStrategy from './ui.date_box.strategy';
+import * as support from '../../core/utils/support';
+import { extend } from '../../core/utils/extend';
+import themes from '../themes';
+import dateUtils from './ui.date_utils';
+import messageLocalization from '../../localization/message';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var DateViewStrategy = DateBoxStrategy.inherit({
 
@@ -155,4 +157,4 @@ var DateViewStrategy = DateBoxStrategy.inherit({
     }
 });
 
-module.exports = DateViewStrategy;
+export default DateViewStrategy;

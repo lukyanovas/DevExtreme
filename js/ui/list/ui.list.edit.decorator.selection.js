@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    clickEvent = require("../../events/click"),
-    extend = require("../../core/utils/extend").extend,
-    errors = require("../widget/ui.errors"),
-    CheckBox = require("../check_box"),
-    RadioButton = require("../radio_group/radio_button"),
-    eventUtils = require("../../events/utils"),
-    registerDecorator = require("./ui.list.edit.decorator_registry").register,
-    EditDecorator = require("./ui.list.edit.decorator");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import clickEvent from '../../events/click';
+import { extend } from '../../core/utils/extend';
+import errors from '../widget/ui.errors';
+import CheckBox from '../check_box';
+import RadioButton from '../radio_group/radio_button';
+import * as eventUtils from '../../events/utils';
+import { register as registerDecorator } from './ui.list.edit.decorator_registry';
+import EditDecorator from './ui.list.edit.decorator';
 
 
 var SELECT_DECORATOR_ENABLED_CLASS = "dx-list-select-decorator-enabled",

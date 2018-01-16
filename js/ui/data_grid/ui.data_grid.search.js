@@ -1,6 +1,6 @@
 "use strict";
 
-var gridCore = require("./ui.data_grid.core"),
-    searchModule = require("../grid_core/ui.grid_core.search");
+import gridCore from './ui.data_grid.core';
+import searchModule from '../grid_core/ui.grid_core.search';
 
 gridCore.registerModule("search", searchModule);

@@ -1,6 +1,6 @@
 "use strict";
 
-var fitIntoRange = require("../../core/utils/math").fitIntoRange;
+import { fitIntoRange } from '../../core/utils/math';
 
 var DEFAULT_CONFIG = { thousandsSeparator: ",", decimalSeparator: "." },
     ESCAPING_CHAR = "'",
@@ -214,5 +214,4 @@ function getFormat(formatter) {
     return negativeFormat === "-" + positiveFormat ? positiveFormat : positiveFormat + ";" + negativeFormat;
 }
 
-exports.getFormatter = getFormatter;
-exports.getFormat = getFormat;
+export { getFormatter, getFormat };

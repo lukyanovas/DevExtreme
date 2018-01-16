@@ -1,7 +1,7 @@
 "use strict";
 
-var _format = require("../../format_helper").format;
+import { format as _format } from '../../format_helper';
 
-module.exports = function(value, options) {
+export default function(value, options) {
     return _format(value, options.format, options.precision /* DEPRECATED_16_1 */);
-};
+}

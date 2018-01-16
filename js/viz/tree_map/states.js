@@ -1,12 +1,10 @@
 "use strict";
 
-var proto = require("./tree_map.base").prototype,
-    nodeProto = require("./node").prototype,
+import { prototype as proto } from './tree_map.base';
+import { prototype as nodeProto } from './node';
+import { extend as _extend } from '../../core/utils/extend';
 
-    handlers = proto._handlers,
-    _calculateState = handlers.calculateState,
-    _buildState = nodeProto._buildState,
-    _extend = require("../../core/utils/extend").extend;
+var handlers = proto._handlers, _calculateState = handlers.calculateState, _buildState = nodeProto._buildState;
 
 handlers.calculateState = function(options) {
     var states = { 0: _calculateState(options) };

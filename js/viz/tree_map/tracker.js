@@ -1,21 +1,22 @@
 "use strict";
 
-var proto = require("./tree_map.base").prototype,
-    Tracker = require("../components/tracker").Tracker,
-    expand = require("../core/helpers").expand,
-    _parseScalar = require("../core/utils").parseScalar,
-    DATA_KEY_BASE = "__treemap_data_",
-    dataKeyModifier = 0;
+import { prototype as proto } from './tree_map.base';
+import { Tracker } from '../components/tracker';
+import { expand } from '../core/helpers';
+import { parseScalar as _parseScalar } from '../core/utils';
 
-require("./api");
-require("./hover");
-require("./tooltip");
+var DATA_KEY_BASE = "__treemap_data_", dataKeyModifier = 0;
+
+import './api';
+import './hover';
+import './tooltip';
 
 proto._eventsMap.onClick = { name: "click" };
-
+var dataKey;
 expand(proto, "_initCore", function() {
+    dataKey = DATA_KEY_BASE + dataKeyModifier++;
+
     var that = this,
-        dataKey = DATA_KEY_BASE + dataKeyModifier++,
         getProxy = function(index) {
             return that._nodes[index].proxy;
         };
@@ -41,12 +42,11 @@ expand(proto, "_initCore", function() {
     that._handlers.setTrackerData = function(node, element) {
         element.data(dataKey, node._id);
     };
-
-    ///#DEBUG
-    exports._TESTS_dataKey = dataKey;
-    ///#ENDDEBUG
 });
 
 expand(proto, "_disposeCore", function() {
     this._tracker.dispose();
 });
+///#DEBUG
+export var _TESTS_dataKey = dataKey;
+///#ENDDEBUG

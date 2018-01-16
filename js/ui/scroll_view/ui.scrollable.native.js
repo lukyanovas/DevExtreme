@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    noop = require("../../core/utils/common").noop,
-    each = require("../../core/utils/iterator").each,
-    devices = require("../../core/devices"),
-    Class = require("../../core/class"),
-    Scrollbar = require("./ui.scrollbar");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { noop } from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import devices from '../../core/devices';
+import Class from '../../core/class';
+import Scrollbar from './ui.scrollbar';
 
 var SCROLLABLE_NATIVE = "dxNativeScrollable",
     SCROLLABLE_NATIVE_CLASS = "dx-scrollable-native",
@@ -295,4 +295,4 @@ var NativeStrategy = Class.inherit({
     }
 });
 
-module.exports = NativeStrategy;
+export default NativeStrategy;

@@ -1,15 +1,17 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    window = require("../../core/dom_adapter").getWindow(),
-    Promise = require("../../core/polyfills/promise"),
-    extend = require("../../core/utils/extend").extend,
-    iteratorUtils = require("../../core/utils/iterator"),
-    DynamicProvider = require("./provider.dynamic"),
-    Color = require("../../color"),
-    ajax = require("../../core/utils/ajax"),
-    browser = require("../../core/utils/browser"),
-    isDefined = require("../../core/utils/type").isDefined;
+import { noop } from '../../core/utils/common';
+import Promise from '../../core/polyfills/promise';
+import { extend } from '../../core/utils/extend';
+import iteratorUtils from '../../core/utils/iterator';
+import DynamicProvider from './provider.dynamic';
+import Color from '../../color';
+import ajax from '../../core/utils/ajax';
+import browser from '../../core/utils/browser';
+import { isDefined } from '../../core/utils/type';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 /* global Microsoft */
 var BING_MAP_READY = "_bingScriptReady",
@@ -478,6 +480,7 @@ BingProvider.remapConstant = function(newValue) {
     BING_URL_V7 = newValue;
     BING_URL_V8 = newValue;
 };
+
 ///#ENDDEBUG
 
-module.exports = BingProvider;
+export default BingProvider;

@@ -1,6 +1,6 @@
 "use strict";
 
-var eventsEngine = require("./events/core/events_engine");
+import eventsEngine from './events/core/events_engine';
 
 /**
 * @name events
@@ -30,7 +30,7 @@ var eventsEngine = require("./events/core/events_engine");
 * @export on
 */
 
-exports.on = eventsEngine.on;
+export var on = eventsEngine.on;
 
 /**
 * @name eventsMethods_one
@@ -45,7 +45,7 @@ exports.on = eventsEngine.on;
 * @export one
 */
 
-exports.one = eventsEngine.one;
+export var one = eventsEngine.one;
 
 /**
 * @name eventsMethods_off
@@ -59,7 +59,7 @@ exports.one = eventsEngine.one;
 * @export off
 */
 
-exports.off = eventsEngine.off;
+export var off = eventsEngine.off;
 
 /**
 * @name eventsMethods_trigger
@@ -72,7 +72,7 @@ exports.off = eventsEngine.off;
 * @export trigger
 */
 
-exports.trigger = eventsEngine.trigger;
+export var trigger = eventsEngine.trigger;
 
 /**
 * @name eventsMethods_triggerHandler
@@ -86,7 +86,7 @@ exports.trigger = eventsEngine.trigger;
 * @hidden
 */
 
-exports.triggerHandler = eventsEngine.triggerHandler;
+export var triggerHandler = eventsEngine.triggerHandler;
 
 /**
 * @name dxEvent
@@ -176,4 +176,4 @@ exports.triggerHandler = eventsEngine.triggerHandler;
 * @hidden
 */
 
-exports.Event = eventsEngine.Event;
+export var Event = eventsEngine.Event;

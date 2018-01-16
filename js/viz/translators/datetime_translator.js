@@ -1,8 +1,8 @@
 "use strict";
 
-var numericTranslator = require("./numeric_translator");
+import numericTranslator from './numeric_translator';
 
-module.exports = {
+export default {
     translate: numericTranslator.translate,
 
     untranslate: numericTranslator.untranslate,

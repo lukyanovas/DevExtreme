@@ -1,17 +1,17 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    ajax = require("../core/utils/ajax"),
-    window = require("../core/dom_adapter").getWindow(),
-    isFunction = require("../core/utils/type").isFunction,
-    each = require("../core/utils/iterator").each,
-    getSvgMarkup = require("../core/utils/svg").getSvgMarkup,
-    deferredUtils = require("../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import $ from '../core/renderer';
+import ajax from '../core/utils/ajax';
+import { isFunction } from '../core/utils/type';
+import { each } from '../core/utils/iterator';
+import { getSvgMarkup } from '../core/utils/svg';
+import * as deferredUtils from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 
-exports.svgCreator = {
+export var svgCreator = {
     _markup: "",
     _imageArray: {},
     _imageDeferreds: [],
@@ -110,6 +110,6 @@ exports.svgCreator = {
     }
 };
 
-exports.getData = function(data, options, callback) {
+export var getData = function(data, options, callback) {
     exports.svgCreator.getData(data, options).done(callback);
 };

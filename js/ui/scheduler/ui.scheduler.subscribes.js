@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    array = require("../../core/utils/array"),
-    recurrenceUtils = require("./utils.recurrence"),
-    dateUtils = require("../../core/utils/date"),
-    each = require("../../core/utils/iterator").each,
-    translator = require("../../animation/translator"),
-    grep = require("../../core/utils/common").grep,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    dateLocalization = require("../../localization/date"),
-    SchedulerTimezones = require("./ui.scheduler.timezones"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import array from '../../core/utils/array';
+import recurrenceUtils from './utils.recurrence';
+import dateUtils from '../../core/utils/date';
+import { each } from '../../core/utils/iterator';
+import translator from '../../animation/translator';
+import { grep } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import dateLocalization from '../../localization/date';
+import SchedulerTimezones from './ui.scheduler.timezones';
+import { Deferred } from '../../core/utils/deferred';
 
 var toMs = dateUtils.dateToMilliseconds;
 
@@ -724,4 +724,4 @@ var subscribes = {
     }
 
 };
-module.exports = subscribes;
+export default subscribes;

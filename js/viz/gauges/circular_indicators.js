@@ -1,14 +1,9 @@
 "use strict";
 
-var baseIndicatorsModule = require("./base_indicators"),
-    BaseIndicator = baseIndicatorsModule.BaseIndicator,
-    BaseTextCloudMarker = baseIndicatorsModule.BaseTextCloudMarker,
-    BaseRangeBar = baseIndicatorsModule.BaseRangeBar,
-    vizUtils = require("../core/utils"),
+import baseIndicatorsModule from './base_indicators';
+import vizUtils from '../core/utils';
 
-    _Number = Number,
-    _getCosAndSin = vizUtils.getCosAndSin,
-    _convertAngleToRendererSpace = vizUtils.convertAngleToRendererSpace;
+var BaseIndicator = baseIndicatorsModule.BaseIndicator, BaseTextCloudMarker = baseIndicatorsModule.BaseTextCloudMarker, BaseRangeBar = baseIndicatorsModule.BaseRangeBar, _Number = Number, _getCosAndSin = vizUtils.getCosAndSin, _convertAngleToRendererSpace = vizUtils.convertAngleToRendererSpace;
 
 var SimpleIndicator = BaseIndicator.inherit({
     _move: function() {
@@ -429,10 +424,12 @@ var rangeBar = BaseRangeBar.inherit({
     }
 });
 
-exports._default = rectangleNeedle;
-exports["rectangleneedle"] = rectangleNeedle;
-exports["triangleneedle"] = triangleNeedle;
-exports["twocolorneedle"] = twoColorNeedle;
-exports["trianglemarker"] = triangleMarker;
-exports["textcloud"] = textCloud;
-exports["rangebar"] = rangeBar;
+export {
+    rectangleNeedle as _default,
+    rectangleNeedle as rectangleneedle,
+    triangleNeedle as triangleneedle,
+    twoColorNeedle as twocolorneedle,
+    triangleMarker as trianglemarker,
+    textCloud as textcloud,
+    rangeBar as rangebar
+};

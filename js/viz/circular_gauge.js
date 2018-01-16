@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("./gauges/circular_gauge");
+export default require("./gauges/circular_gauge");

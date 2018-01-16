@@ -1,14 +1,14 @@
 "use strict";
 
-var _Number = Number,
-    _getAppropriateFormat = require("../core/utils").getAppropriateFormat,
-    extend = require("../../core/utils/extend").extend,
-    translator1DModule = require("../translators/translator1d"),
-    _extend = extend,
-    BaseWidget = require("../core/base_widget"),
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    Tracker = require("./tracker"),
-    _isString = require("../../core/utils/type").isString;
+import { getAppropriateFormat as _getAppropriateFormat } from '../core/utils';
+import { extend } from '../../core/utils/extend';
+import translator1DModule from '../translators/translator1d';
+import BaseWidget from '../core/base_widget';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import Tracker from './tracker';
+import { isString as _isString } from '../../core/utils/type';
+
+var _Number = Number, _extend = extend;
 
 var dxBaseGauge = BaseWidget.inherit({
     _rootClassPrefix: "dxg",
@@ -305,9 +305,7 @@ var dxBaseGauge = BaseWidget.inherit({
     }
 });
 
-exports.dxBaseGauge = dxBaseGauge;
-
-var _format = require("../core/format");
+import _format from '../core/format';
 
 //  TODO: find a better place for it
 var formatValue = function(value, options, extra) {
@@ -328,10 +326,9 @@ var getSampleText = function(translator, options) {
     return text1.length >= text2.length ? text1 : text2;
 };
 
-exports.formatValue = formatValue;
-exports.getSampleText = getSampleText;
+export { dxBaseGauge, formatValue, getSampleText };
 
-exports.compareArrays = function(array1, array2) {
+export var compareArrays = function(array1, array2) {
     return array1 && array2 && array1.length === array2.length && compareArraysElements(array1, array2);
 };
 

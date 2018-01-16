@@ -1,17 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    when = require("../../core/utils/deferred").when,
-    fx = require("../../animation/fx"),
-    swipeEvents = require("../../events/swipe"),
-    translator = require("../../animation/translator"),
-    eventUtils = require("../../events/utils"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    CollectionWidget = require("../collection/ui.collection_widget.edit"),
-    config = require("../../core/config"),
-    BindableTemplate = require("../widget/bindable_template");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { when } from '../../core/utils/deferred';
+import fx from '../../animation/fx';
+import swipeEvents from '../../events/swipe';
+import translator from '../../animation/translator';
+import * as eventUtils from '../../events/utils';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import CollectionWidget from '../collection/ui.collection_widget.edit';
+import config from '../../core/config';
+import BindableTemplate from '../widget/bindable_template';
 
 
 var PIVOT_TABS_CLASS = "dx-pivottabs",
@@ -565,8 +565,5 @@ var PivotTabs = CollectionWidget.inherit({
     }
 });
 
-module.exports = PivotTabs;
-
-///#DEBUG
-module.exports.animation = animation;
-///#ENDDEBUG
+export default PivotTabs;
+export { animation };

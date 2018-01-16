@@ -1,7 +1,7 @@
 "use strict";
 
-var ListStrategy = require("./ui.toolbar.strategy.list_base"),
-    Swipeable = require("../../events/gesture/swipeable");
+import ListStrategy from './ui.toolbar.strategy.list_base';
+import Swipeable from '../../events/gesture/swipeable';
 
 var ListBottomStrategy = ListStrategy.inherit({
 
@@ -44,4 +44,4 @@ var ListBottomStrategy = ListStrategy.inherit({
 
 });
 
-module.exports = ListBottomStrategy;
+export default ListBottomStrategy;

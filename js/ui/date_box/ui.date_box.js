@@ -1,25 +1,23 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    registerComponent = require("../../core/component_registrator"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    compareVersions = require("../../core/utils/version").compare,
-    extend = require("../../core/utils/extend").extend,
-    support = require("../../core/utils/support"),
-    devices = require("../../core/devices"),
-    config = require("../../core/config"),
-    dateUtils = require("../../core/utils/date"),
-    uiDateUtils = require("./ui.date_utils"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    DropDownEditor = require("../drop_down_editor/ui.drop_down_editor"),
-    dateLocalization = require("../../localization/date"),
-    messageLocalization = require("../../localization/message"),
+import $ from '../../core/renderer';
+import registerComponent from '../../core/component_registrator';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { compare as compareVersions } from '../../core/utils/version';
+import { extend } from '../../core/utils/extend';
+import * as support from '../../core/utils/support';
+import devices from '../../core/devices';
+import config from '../../core/config';
+import dateUtils from '../../core/utils/date';
+import uiDateUtils from './ui.date_utils';
+import dateSerialization from '../../core/utils/date_serialization';
+import DropDownEditor from '../drop_down_editor/ui.drop_down_editor';
+import dateLocalization from '../../localization/date';
+import messageLocalization from '../../localization/message';
+import domAdapter from '../../core/dom_adapter';
 
-    DATEBOX_CLASS = "dx-datebox",
-    DX_AUTO_WIDTH_CLASS = "dx-auto-width",
-    DATEBOX_WRAPPER_CLASS = "dx-datebox-wrapper";
+var window = domAdapter.getWindow(), DATEBOX_CLASS = "dx-datebox", DX_AUTO_WIDTH_CLASS = "dx-auto-width", DATEBOX_WRAPPER_CLASS = "dx-datebox-wrapper";
 
 var PICKER_TYPE = {
     calendar: "calendar",
@@ -42,12 +40,18 @@ var STRATEGY_NAME = {
     list: 'List'
 };
 
+import Calendar from './ui.date_box.strategy.calendar';
+import DateView from './ui.date_box.strategy.date_view';
+import Native from './ui.date_box.strategy.native';
+import CalendarWithTime from './ui.date_box.strategy.calendar_with_time';
+import List from './ui.date_box.strategy.list';
+
 var STRATEGY_CLASSES = {
-    Calendar: require("./ui.date_box.strategy.calendar"),
-    DateView: require("./ui.date_box.strategy.date_view"),
-    Native: require("./ui.date_box.strategy.native"),
-    CalendarWithTime: require("./ui.date_box.strategy.calendar_with_time"),
-    List: require("./ui.date_box.strategy.list")
+    Calendar,
+    DateView,
+    Native,
+    CalendarWithTime,
+    List
 };
 
 var isRealWidthSet = function($element) {
@@ -921,4 +925,4 @@ var DateBox = DropDownEditor.inherit({
 
 registerComponent("dxDateBox", DateBox);
 
-module.exports = DateBox;
+export default DateBox;

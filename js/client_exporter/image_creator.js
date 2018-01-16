@@ -1,17 +1,18 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    Color = require("../color"),
-    isFunction = require("../core/utils/type").isFunction,
-    iteratorUtils = require("../core/utils/iterator"),
-    extend = require("../core/utils/extend").extend,
-    window = require("../core/dom_adapter").getWindow(),
+import $ from '../core/renderer';
+import Color from '../color';
+import { isFunction } from '../core/utils/type';
+import iteratorUtils from '../core/utils/iterator';
+import { extend } from '../core/utils/extend';
+import { camelize } from '../core/utils/inflector';
+import * as deferredUtils from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(),
     document = window.document,
-    camelize = require("../core/utils/inflector").camelize,
-    deferredUtils = require("../core/utils/deferred"),
     when = deferredUtils.when,
     Deferred = deferredUtils.Deferred,
-
     _math = Math,
     PI = _math.PI,
     _min = _math.min,
@@ -21,11 +22,9 @@ var $ = require("../core/renderer"),
     _atan2 = _math.atan2,
     _cos = _math.cos,
     _sin = _math.sin,
-
     _each = iteratorUtils.each,
     _extend = extend,
     _number = Number,
-
     IMAGE_QUALITY = 1,
     TEXT_DECORATION_LINE_WIDTH_COEFF = 0.05,
     DEFAULT_MARGIN_SIZE = {
@@ -35,7 +34,6 @@ var $ = require("../core/renderer"),
     DEFAULT_FONT_SIZE = "10px",
     DEFAULT_FONT_FAMILY = "sans-serif",
     DEFAULT_TEXT_COLOR = "#000",
-
     clipPaths,
     imageDeferreds,
     patterns,
@@ -636,7 +634,7 @@ function resolveString(string, canvas, mimeType) {
     });
 }
 
-exports.imageCreator = {
+export var imageCreator = {
     getImageData: function(markup, options) {
         var mimeType = "image/" + options.format,
             string = new Deferred(),
@@ -686,6 +684,6 @@ exports.imageCreator = {
     }
 };
 
-exports.getData = function(data, options, callback) {
+export var getData = function(data, options, callback) {
     exports.imageCreator.getData(data, options).done(callback);
 };

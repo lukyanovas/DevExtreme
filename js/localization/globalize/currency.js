@@ -1,10 +1,9 @@
 "use strict";
 
-require("./core");
-require("./number");
-
-require("../currency");
-require("globalize/currency");
+import './core';
+import './number';
+import '../currency';
+import 'globalize/currency';
 
 var enCurrencyUSD = {
     "main": {
@@ -49,9 +48,9 @@ var currencyData = {
     }
 };
 
-var Globalize = require("globalize"),
-    config = require("../../core/config"),
-    numberLocalization = require("../number");
+import Globalize from 'globalize';
+import config from '../../core/config';
+import numberLocalization from '../number';
 
 if(Globalize && Globalize.formatCurrency) {
 

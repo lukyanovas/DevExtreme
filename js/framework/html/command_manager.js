@@ -1,18 +1,16 @@
 "use strict";
 
-require("../../integration/jquery");
-
-var $ = require("jquery"),
-    Class = require("../../core/class"),
-    noop = require("../../core/utils/common").noop,
-    iteratorUtils = require("../../core/utils/iterator"),
-    errors = require("../errors"),
-    CommandMapping = require("../command_mapping"),
-    commandToDXWidgetAdapters = require("./widget_command_adapters"),
-    when = require("../../core/utils/deferred").when;
-
-require("../command");
-require("./command_container");
+import '../../integration/jquery';
+import $ from 'jquery';
+import Class from '../../core/class';
+import { noop } from '../../core/utils/common';
+import iteratorUtils from '../../core/utils/iterator';
+import errors from '../errors';
+import CommandMapping from '../command_mapping';
+import commandToDXWidgetAdapters from './widget_command_adapters';
+import { when } from '../../core/utils/deferred';
+import '../command';
+import './command_container';
 
 var CommandManager = Class.inherit({
     ctor: function(options) {
@@ -120,4 +118,4 @@ var CommandManager = Class.inherit({
     }
 });
 
-module.exports = CommandManager;
+export default CommandManager;

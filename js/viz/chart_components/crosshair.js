@@ -1,23 +1,11 @@
 "use strict";
 
-var math = Math,
-    mathAbs = math.abs,
-    mathMin = math.min,
-    mathMax = math.max,
-    mathFloor = math.floor,
-    vizUtils = require("../core/utils"),
-    extend = require("../../core/utils/extend").extend,
-    HORIZONTAL = "horizontal",
-    VERTICAL = "vertical",
-    LABEL_BACKGROUND_PADDING_X = 8,
-    LABEL_BACKGROUND_PADDING_Y = 4,
-    CENTER = "center",
-    RIGHT = "right",
-    LEFT = "left",
-    TOP = "top",
-    BOTTOM = "bottom";
+import vizUtils from '../core/utils';
+import { extend } from '../../core/utils/extend';
 
-exports.getMargins = function() {
+var math = Math, mathAbs = math.abs, mathMin = math.min, mathMax = math.max, mathFloor = math.floor, HORIZONTAL = "horizontal", VERTICAL = "vertical", LABEL_BACKGROUND_PADDING_X = 8, LABEL_BACKGROUND_PADDING_Y = 4, CENTER = "center", RIGHT = "right", LEFT = "left", TOP = "top", BOTTOM = "bottom";
+
+export var getMargins = function() {
     return {
         x: LABEL_BACKGROUND_PADDING_X,
         y: LABEL_BACKGROUND_PADDING_Y
@@ -308,4 +296,4 @@ Crosshair.prototype = {
     }
 };
 
-exports.Crosshair = Crosshair;
+export { Crosshair };

@@ -1,11 +1,12 @@
 "use strict";
 
-var _noop = require("../core/utils/common").noop,
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    vizUtils = require("./core/utils"),
-    AdvancedChart = require("./chart_components/advanced_chart").AdvancedChart,
-    DEFAULT_PANE_NAME = 'default';
+import { noop as _noop } from '../core/utils/common';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import vizUtils from './core/utils';
+import { AdvancedChart } from './chart_components/advanced_chart';
+
+var DEFAULT_PANE_NAME = 'default';
 
 var dxPolarChart = AdvancedChart.inherit({
     _chartType: 'polar',
@@ -126,4 +127,4 @@ var dxPolarChart = AdvancedChart.inherit({
 
 registerComponent("dxPolarChart", dxPolarChart);
 
-module.exports = dxPolarChart;
+export default dxPolarChart;

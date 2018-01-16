@@ -1,18 +1,18 @@
 "use strict";
 
-var isDefined = require("../../core/utils/type").isDefined,
-    map = require("../../core/utils/iterator").map,
-    odataUtils = require("./utils"),
-    proxyUrlFormatter = require("../proxy_url_formatter"),
-    errors = require("../errors").errors,
-    query = require("../query"),
-    Store = require("../abstract_store"),
-    mixins = require("./mixins"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import { isDefined } from '../../core/utils/type';
+import { map } from '../../core/utils/iterator';
+import odataUtils from './utils';
+import proxyUrlFormatter from '../proxy_url_formatter';
+import { errors } from '../errors';
+import query from '../query';
+import Store from '../abstract_store';
+import mixins from './mixins';
+import * as deferredUtils from '../../core/utils/deferred';
 
-require("./query_adapter");
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
+
+import './query_adapter';
 
 var ANONYMOUS_KEY_NAME = "5d46402c-7899-4ea9-bd81-8b73c47c7683";
 
@@ -297,4 +297,4 @@ var ODataStore = Store.inherit({
 
 }, "odata").include(mixins.SharedMethods);
 
-module.exports = ODataStore;
+export default ODataStore;

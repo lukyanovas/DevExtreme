@@ -1,8 +1,8 @@
 "use strict";
 
-var jQuery = require("jquery"),
-    themes_callback = require("../../ui/themes_callback"),
-    ready = require("../../core/utils/ready");
+import jQuery from 'jquery';
+import themes_callback from '../../ui/themes_callback';
+import ready from '../../core/utils/ready';
 
 if(jQuery && !themes_callback.fired()) {
     var holdReady = jQuery.holdReady || jQuery.fn.holdReady;

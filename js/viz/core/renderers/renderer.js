@@ -1,36 +1,15 @@
 "use strict";
 
-var $ = require("../../../core/renderer"),
-    window = require("../../../core/dom_adapter").getWindow(),
-    Node = window.Node,
-    eventsEngine = require("../../../events/core/events_engine"),
-    browser = require("../../../core/utils/browser"),
-    getSvgMarkup = require("../../../core/utils/svg").getSvgMarkup,
-    doc = window.document,
-    animation = require("./animation"),
-    math = Math,
-    mathMin = math.min,
-    mathMax = math.max,
-    mathFloor = math.floor,
-    mathRound = math.round,
-    mathSin = math.sin,
-    mathCos = math.cos,
-    mathAbs = math.abs,
-    mathPI = math.PI,
+import $ from '../../../core/renderer';
+import eventsEngine from '../../../events/core/events_engine';
+import browser from '../../../core/utils/browser';
+import { getSvgMarkup } from '../../../core/utils/svg';
+import animation from './animation';
+import { isDefined as _isDefined } from '../../../core/utils/type';
+import vizUtils from '../utils';
+import domAdapter from '../../core/dom_adapter';
 
-    _isDefined = require("../../../core/utils/type").isDefined,
-    vizUtils = require("../utils"),
-    _normalizeEnum = vizUtils.normalizeEnum,
-    _normalizeBBox = vizUtils.normalizeBBox,
-    _rotateBBox = vizUtils.rotateBBox,
-    PI_DIV_180 = mathPI / 180,
-    _parseInt = parseInt,
-    SHARPING_CORRECTION = 0.5,
-    ARC_COORD_PREC = 5,
-    WAVED_LINE_LENGTH = 24,
-    WAVED_LINE_TOP = 0,
-    WAVED_LINE_CENTER = 2,
-    WAVED_LINE_BOTTOM = 4;
+var window = domAdapter.getWindow(), Node = window.Node, doc = window.document, math = Math, mathMin = math.min, mathMax = math.max, mathFloor = math.floor, mathRound = math.round, mathSin = math.sin, mathCos = math.cos, mathAbs = math.abs, mathPI = math.PI, _normalizeEnum = vizUtils.normalizeEnum, _normalizeBBox = vizUtils.normalizeBBox, _rotateBBox = vizUtils.rotateBBox, PI_DIV_180 = mathPI / 180, _parseInt = parseInt, SHARPING_CORRECTION = 0.5, ARC_COORD_PREC = 5, WAVED_LINE_LENGTH = 24, WAVED_LINE_TOP = 0, WAVED_LINE_CENTER = 2, WAVED_LINE_BOTTOM = 4;
 
 var pxAddingExceptions = {
     "column-count": true,
@@ -1039,16 +1018,17 @@ function arcAnimate(params, options, complete) {
 }
 
 ///#DEBUG
-exports.DEBUG_set_getNextDefsSvgId = function(newFunction) {
+export var DEBUG_set_getNextDefsSvgId = function(newFunction) {
     getNextDefsSvgId = newFunction;
 };
 
-exports.DEBUG_removeBackupContainer = function() {
+export var DEBUG_removeBackupContainer = function() {
     if(backupCounter) {
         backupCounter = 0;
         doc.body.removeChild(backupContainer);
     }
 };
+
 ///#ENDDEBUG
 
 function buildLink(target, parameters) {
@@ -1073,7 +1053,6 @@ function SvgElement(renderer, tagName, type) {
         that.type = type || "line";
     }
 }
-exports.SvgElement = SvgElement;
 
 SvgElement.prototype = {
     constructor: SvgElement,
@@ -1384,7 +1363,6 @@ SvgElement.prototype = {
 function PathSvgElement(renderer, type) {
     SvgElement.call(this, renderer, "path", type);
 }
-exports.PathSvgElement = PathSvgElement;
 
 PathSvgElement.prototype = objectCreate(SvgElement.prototype);
 
@@ -1399,7 +1377,6 @@ extend(PathSvgElement.prototype, {
 function ArcSvgElement(renderer) {
     SvgElement.call(this, renderer, "path", "arc");
 }
-exports.ArcSvgElement = ArcSvgElement;
 
 ArcSvgElement.prototype = objectCreate(SvgElement.prototype);
 
@@ -1414,7 +1391,6 @@ extend(ArcSvgElement.prototype, {
 function RectSvgElement(renderer) {
     SvgElement.call(this, renderer, "rect");
 }
-exports.RectSvgElement = RectSvgElement;
 
 RectSvgElement.prototype = objectCreate(SvgElement.prototype);
 
@@ -1428,7 +1404,6 @@ extend(RectSvgElement.prototype, {
 function TextSvgElement(renderer) {
     SvgElement.call(this, renderer, "text");
 }
-exports.TextSvgElement = TextSvgElement;
 
 TextSvgElement.prototype = objectCreate(SvgElement.prototype);
 
@@ -1504,7 +1479,7 @@ function Renderer(options) {
     that._backed = false;
 }
 
-exports.Renderer = Renderer;
+export { SvgElement, PathSvgElement, ArcSvgElement, RectSvgElement, TextSvgElement, Renderer };
 
 Renderer.prototype = {
     constructor: Renderer,
@@ -1951,8 +1926,6 @@ var fixFuncIriCallbacks = (function() {
     };
 })();
 
-exports.refreshPaths = function() {
+export var refreshPaths = function() {
     fixFuncIriCallbacks.fire();
 };
-
-

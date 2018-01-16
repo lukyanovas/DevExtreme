@@ -1,11 +1,11 @@
 "use strict";
 
-var mathUtils = require("../core/utils/math"),
-    iteratorUtils = require("../core/utils/iterator"),
-    errors = require("../core/errors"),
-    eventUtils = require("./utils"),
-    Emitter = require("./core/emitter"),
-    registerEmitter = require("./core/emitter_registrator");
+import mathUtils from '../core/utils/math';
+import iteratorUtils from '../core/utils/iterator';
+import errors from '../core/errors';
+import * as eventUtils from './utils';
+import Emitter from './core/emitter';
+import registerEmitter from './core/emitter_registrator';
 
 
 var DX_PREFIX = "dx",
@@ -338,6 +338,18 @@ registerEmitter({
     events: eventNames
 });
 
-iteratorUtils.each(eventNames, function(_, eventName) {
-    exports[eventName.substring(DX_PREFIX.length)] = eventName;
-});
+export let pinch = "dxpinch";
+export let pinchend = "dxpinchend";
+export let pinchstart = "dxpinchstart";
+export let rotate = "dxrotate";
+export let rotateend = "dxrotateend";
+export let rotatestart = "dxrotatestart";
+export let transform = "dxtransform";
+export let transformend = "dxtransformend";
+export let transformstart = "dxtransformstart";
+export let translate = "dxtranslate";
+export let translateend = "dxtranslateend";
+export let translatestart = "dxtranslatestart";
+export let zoom = "dxzoom";
+export let zoomend = "dxzoomend";
+export let zoomstart = "dxzoomstart";

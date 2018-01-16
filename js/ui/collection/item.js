@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Class = require("../../core/class"),
-    each = require("../../core/utils/iterator").each,
-    publicComponentUtils = require("../../core/utils/public_component");
+import $ from '../../core/renderer';
+import Class from '../../core/class';
+import { each } from '../../core/utils/iterator';
+import publicComponentUtils from '../../core/utils/public_component';
 
 var INVISIBLE_STATE_CLASS = "dx-state-invisible",
     DISABLED_STATE_CLASS = "dx-state-disabled",
@@ -97,4 +97,4 @@ CollectionItem.getInstance = function($element) {
     return publicComponentUtils.getInstanceByElement($element, this);
 };
 
-module.exports = CollectionItem;
+export default CollectionItem;

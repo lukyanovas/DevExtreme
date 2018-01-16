@@ -1,8 +1,8 @@
 "use strict";
 
-var DefaultEventsStrategy = require("./events_strategy"),
-    each = require("./utils/iterator").each,
-    isPlainObject = require("./utils/type").isPlainObject;
+import DefaultEventsStrategy from './events_strategy';
+import { each } from './utils/iterator';
+import { isPlainObject } from './utils/type';
 
 /**
  * @name EventsMixin
@@ -11,7 +11,7 @@ var DefaultEventsStrategy = require("./events_strategy"),
  * @export default
  * @hidden
  */
-module.exports = {
+export default {
     ctor: function() {
         this._events = {};
         this.setEventsStrategy(new DefaultEventsStrategy(this));

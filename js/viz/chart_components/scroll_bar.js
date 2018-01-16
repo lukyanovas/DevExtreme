@@ -1,16 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    eventUtils = require("../../events/utils"),
-    extend = require("../../core/utils/extend").extend,
-    MIN_SCROLL_BAR_SIZE = 2,
-    translator2DModule = require("../translators/translator2d"),
-    pointerEvents = require("../../events/pointer"),
-    isDefined = require("../../core/utils/type").isDefined,
-    _min = Math.min,
-    _max = Math.max;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import * as eventUtils from '../../events/utils';
+import { extend } from '../../core/utils/extend';
+import translator2DModule from '../translators/translator2d';
+import pointerEvents from '../../events/pointer';
+import { isDefined } from '../../core/utils/type';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, MIN_SCROLL_BAR_SIZE = 2, _min = Math.min, _max = Math.max;
 
 var ScrollBar = function(renderer, group) {
     this._translator = new translator2DModule.Translator2D({}, {}, {});
@@ -229,4 +228,4 @@ ScrollBar.prototype = {
     }
 };
 
-exports.ScrollBar = ScrollBar;
+export { ScrollBar };

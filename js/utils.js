@@ -9,7 +9,8 @@
 * @namespace DevExpress.data.utils
 * @export compileGetter
 */
-exports.compileGetter = require("./core/utils/data").compileGetter;
+export var compileGetter = require("./core/utils/data").compileGetter;
+
 /**
 * @name Utils_compileSetter
 * @publicName compileSetter(expr)
@@ -19,4 +20,4 @@ exports.compileGetter = require("./core/utils/data").compileGetter;
 * @namespace DevExpress.data.utils
 * @export compileSetter
 */
-exports.compileSetter = require("./core/utils/data").compileSetter;
+export var compileSetter = require("./core/utils/data").compileSetter;

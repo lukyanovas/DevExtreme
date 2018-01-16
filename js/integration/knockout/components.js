@@ -1,13 +1,13 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Action = require("../../core/action"),
-    compileGetter = require("../../core/utils/data").compileGetter,
-    extend = require("../../core/utils/extend").extend,
-    ko = require("knockout"),
-    iconUtils = require("../../core/utils/icon"),
-    clickEvent = require("../../events/click");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Action from '../../core/action';
+import { compileGetter } from '../../core/utils/data';
+import { extend } from '../../core/utils/extend';
+import ko from 'knockout';
+import iconUtils from '../../core/utils/icon';
+import clickEvent from '../../events/click';
 
 // TODO: dxAction as dxComponent?
 // TODO: A comment for documentation is temporarily located in the framework.command.js file. Waiting for changes in DocGen...

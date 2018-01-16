@@ -1,17 +1,17 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    config = require("../../core/config"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    recurrenceUtils = require("./utils.recurrence"),
-    dateUtils = require("../../core/utils/date"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    inArray = require("../../core/utils/array").inArray,
-    extend = require("../../core/utils/extend").extend,
-    arrayUtils = require("../../core/utils/array"),
-    query = require("../../data/query");
+import Class from '../../core/class';
+import config from '../../core/config';
+import iteratorUtils from '../../core/utils/iterator';
+import dateSerialization from '../../core/utils/date_serialization';
+import recurrenceUtils from './utils.recurrence';
+import dateUtils from '../../core/utils/date';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { inArray } from '../../core/utils/array';
+import { extend } from '../../core/utils/extend';
+import arrayUtils from '../../core/utils/array';
+import query from '../../data/query';
 
 var DATE_FILTER_POSITION = 0,
     USER_FILTER_POSITION = 1;
@@ -475,4 +475,4 @@ var AppointmentModel = Class.inherit({
     }
 });
 
-module.exports = AppointmentModel;
+export default AppointmentModel;

@@ -1,24 +1,11 @@
 "use strict";
 
-var extend = require("../../../core/utils/extend").extend,
+import { extend } from '../../../core/utils/extend';
+import symbolPoint from './symbol_point';
 
-    _extend = extend,
+var _extend = extend, _math = Math, _floor = _math.floor, _abs = _math.abs, CANVAS_POSITION_DEFAULT = "canvas_position_default", DEFAULT_BAR_TRACKER_SIZE = 9, CORRECTING_BAR_TRACKER_VALUE = 4, RIGHT = "right", LEFT = "left", TOP = "top", BOTTOM = "bottom";
 
-    _math = Math,
-    _floor = _math.floor,
-    _abs = _math.abs,
-
-    symbolPoint = require("./symbol_point"),
-
-    CANVAS_POSITION_DEFAULT = "canvas_position_default",
-    DEFAULT_BAR_TRACKER_SIZE = 9,
-    CORRECTING_BAR_TRACKER_VALUE = 4,
-    RIGHT = "right",
-    LEFT = "left",
-    TOP = "top",
-    BOTTOM = "bottom";
-
-module.exports = _extend({}, symbolPoint, {
+export default _extend({}, symbolPoint, {
 
     correctCoordinates: function(correctOptions) {
         var that = this,

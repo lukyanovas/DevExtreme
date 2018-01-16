@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    devices = require("../core/devices"),
-    extend = require("../core/utils/extend").extend,
-    inkRipple = require("./widget/utils.ink_ripple"),
-    Editor = require("./editor/editor"),
-    registerComponent = require("../core/component_registrator"),
-    eventUtils = require("../events/utils"),
-    themes = require("./themes"),
-    clickEvent = require("../events/click");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import devices from '../core/devices';
+import { extend } from '../core/utils/extend';
+import inkRipple from './widget/utils.ink_ripple';
+import Editor from './editor/editor';
+import registerComponent from '../core/component_registrator';
+import * as eventUtils from '../events/utils';
+import themes from './themes';
+import clickEvent from '../events/click';
 
 var CHECKBOX_CLASS = "dx-checkbox",
     CHECKBOX_ICON_CLASS = "dx-checkbox-icon",
@@ -264,4 +264,4 @@ var CheckBox = Editor.inherit({
 
 registerComponent("dxCheckBox", CheckBox);
 
-module.exports = CheckBox;
+export default CheckBox;

@@ -1,9 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    ready = require("./ready"),
-    changeCallback = require("../../core/utils/callbacks")(),
-    $originalViewPort = $();
+import $ from '../../core/renderer';
+import ready from './ready';
+import changeCallbackFactory from '../../core/utils/callbacks';
+const changeCallback = changeCallbackFactory();
+
+var $originalViewPort = $();
 
 var value = (function() {
     var $current;
@@ -26,8 +28,8 @@ ready(function() {
     value(".dx-viewport");
 });
 
-exports.value = value;
-exports.changeCallback = changeCallback;
-exports.originalViewPort = function() {
+export { value, changeCallback };
+
+export var originalViewPort = function() {
     return $originalViewPort;
 };

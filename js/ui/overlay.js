@@ -1,37 +1,36 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    navigator = window.navigator,
-    document = window.document,
-    eventsEngine = require("../events/core/events_engine"),
-    fx = require("../animation/fx"),
-    translator = require("../animation/translator"),
-    compareVersions = require("../core/utils/version").compare,
-    viewPortUtils = require("../core/utils/view_port"),
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    viewPortChanged = viewPortUtils.changeCallback,
-    hideTopOverlayCallback = require("../mobile/hide_top_overlay").hideCallback,
-    positionUtils = require("../animation/position"),
-    fitIntoRange = require("../core/utils/math").fitIntoRange,
-    domUtils = require("../core/utils/dom"),
-    noop = require("../core/utils/common").noop,
-    typeUtils = require("../core/utils/type"),
-    each = require("../core/utils/iterator").each,
-    devices = require("../core/devices"),
-    browser = require("../core/utils/browser"),
-    registerComponent = require("../core/component_registrator"),
-    Widget = require("./widget/ui.widget"),
-    KeyboardProcessor = require("./widget/ui.keyboard_processor"),
-    selectors = require("./widget/selectors"),
-    dragEvents = require("../events/drag"),
-    eventUtils = require("../events/utils"),
-    pointerEvents = require("../events/pointer"),
-    Resizable = require("./resizable"),
-    EmptyTemplate = require("./widget/empty_template"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import fx from '../animation/fx';
+import translator from '../animation/translator';
+import { compare as compareVersions } from '../core/utils/version';
+import * as viewPortUtils from '../core/utils/view_port';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import { getPublicElement } from '../core/utils/dom';
+import { hideCallback as hideTopOverlayCallback } from '../mobile/hide_top_overlay';
+import positionUtils from '../animation/position';
+import { fitIntoRange } from '../core/utils/math';
+import domUtils from '../core/utils/dom';
+import { noop } from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import { each } from '../core/utils/iterator';
+import devices from '../core/devices';
+import browser from '../core/utils/browser';
+import registerComponent from '../core/component_registrator';
+import Widget from './widget/ui.widget';
+import KeyboardProcessor from './widget/ui.keyboard_processor';
+import selectors from './widget/selectors';
+import dragEvents from '../events/drag';
+import * as eventUtils from '../events/utils';
+import pointerEvents from '../events/pointer';
+import Resizable from './resizable';
+import EmptyTemplate from './widget/empty_template';
+import { Deferred } from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), navigator = window.navigator, document = window.document, viewPortChanged = viewPortUtils.changeCallback;
 
 var OVERLAY_CLASS = "dx-overlay",
     OVERLAY_WRAPPER_CLASS = "dx-overlay-wrapper",
@@ -1510,4 +1509,4 @@ Overlay.baseZIndex = function(zIndex) {
 
 registerComponent("dxOverlay", Overlay);
 
-module.exports = Overlay;
+export default Overlay;

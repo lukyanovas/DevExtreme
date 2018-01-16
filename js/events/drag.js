@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    dataUtils = require("../core/element_data"),
-    wrapToArray = require("../core/utils/array").wrapToArray,
-    inArray = require("../core/utils/array").inArray,
-    iteratorUtils = require("../core/utils/iterator"),
-    contains = require("../core/utils/dom").contains,
-    registerEvent = require("./core/event_registrator"),
-    eventUtils = require("./utils"),
-    GestureEmitter = require("./gesture/emitter.gesture"),
-    registerEmitter = require("./core/emitter_registrator");
+import $ from '../core/renderer';
+import dataUtils from '../core/element_data';
+import { wrapToArray } from '../core/utils/array';
+import { inArray } from '../core/utils/array';
+import iteratorUtils from '../core/utils/iterator';
+import { contains } from '../core/utils/dom';
+import registerEvent from './core/event_registrator';
+import * as eventUtils from './utils';
+import GestureEmitter from './gesture/emitter.gesture';
+import registerEmitter from './core/emitter_registrator';
 
 
 var DRAG_START_EVENT = "dxdragstart",
@@ -345,12 +345,14 @@ registerEmitter({
 
 
 ///#DEBUG
-exports.dropTargets = knownDropTargets;
+export var dropTargets = knownDropTargets;
+
 ///#ENDDEBUG
 
-exports.move = DRAG_EVENT;
-exports.start = DRAG_START_EVENT;
-exports.end = DRAG_END_EVENT;
-exports.enter = DRAG_ENTER_EVENT;
-exports.leave = DRAG_LEAVE_EVENT;
-exports.drop = DROP_EVENT;
+export var move = DRAG_EVENT;
+
+export var start = DRAG_START_EVENT;
+export var end = DRAG_END_EVENT;
+export var enter = DRAG_ENTER_EVENT;
+export var leave = DRAG_LEAVE_EVENT;
+export var drop = DROP_EVENT;

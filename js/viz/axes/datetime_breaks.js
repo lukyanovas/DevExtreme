@@ -1,7 +1,8 @@
 "use strict";
 
-var dateUtils = require("../../core/utils/date"),
-    days = [0, 1, 2, 3, 4, 5, 6];
+import dateUtils from '../../core/utils/date';
+
+var days = [0, 1, 2, 3, 4, 5, 6];
 
 function getWeekendDays(workdays) {
     return days.filter(function(day) {
@@ -195,7 +196,7 @@ function calculateGaps(breaks) {
     });
 }
 
-exports.generateDateBreaks = function(min, max, workWeek, singleWorkdays, holidays) {
+export var generateDateBreaks = function(min, max, workWeek, singleWorkdays, holidays) {
     var weekendDayIndices = getWeekEndDayIndices(workWeek),
         breaks = generateDateBreaksForWeekend(min, max, weekendDayIndices);
 

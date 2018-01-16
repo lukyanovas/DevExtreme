@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Editor = require("../editor/editor"),
-    NumberBox = require("../number_box"),
-    SelectBox = require("../select_box"),
-    ensureDefined = require("../../core/utils/common").ensureDefined,
-    Box = require("../box"),
-    extend = require("../../core/utils/extend").extend,
-    registerComponent = require("../../core/component_registrator"),
-    dateLocalization = require("../../localization/date");
+import $ from '../../core/renderer';
+import Editor from '../editor/editor';
+import NumberBox from '../number_box';
+import SelectBox from '../select_box';
+import { ensureDefined } from '../../core/utils/common';
+import Box from '../box';
+import { extend } from '../../core/utils/extend';
+import registerComponent from '../../core/component_registrator';
+import dateLocalization from '../../localization/date';
 
 var TIMEVIEW_CLASS = "dx-timeview",
     TIMEVIEW_CLOCK_CLASS = "dx-timeview-clock",
@@ -321,4 +321,4 @@ var TimeView = Editor.inherit({
 
 registerComponent("dxTimeView", TimeView);
 
-module.exports = TimeView;
+export default TimeView;

@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    isNumeric = require("../../core/utils/type").isNumeric,
-    each = require("../../core/utils/iterator").each,
-    EditStrategy = require("../collection/ui.collection_widget.edit.strategy.plain");
+import $ from '../../core/renderer';
+import { isNumeric } from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import EditStrategy from '../collection/ui.collection_widget.edit.strategy.plain';
 
 
 var LIST_ITEM_CLASS = "dx-list-item",
@@ -240,4 +240,4 @@ var GroupedEditStrategy = EditStrategy.inherit({
 
 });
 
-module.exports = GroupedEditStrategy;
+export default GroupedEditStrategy;

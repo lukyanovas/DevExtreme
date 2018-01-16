@@ -1,10 +1,10 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    errors = require("../../ui/widget/ui.errors"),
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type");
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import errors from '../../ui/widget/ui.errors';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
 
 var DataConverter = Class.inherit({
 
@@ -234,4 +234,4 @@ var DataConverter = Class.inherit({
 
 });
 
-module.exports = DataConverter;
+export default DataConverter;

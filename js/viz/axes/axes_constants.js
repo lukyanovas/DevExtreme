@@ -1,8 +1,8 @@
 "use strict";
 
-var _map = require("../core/utils").map;
+import { map as _map } from '../core/utils';
 
-module.exports = {
+export default {
     logarithmic: "logarithmic",
     discrete: "discrete",
     numeric: "numeric",

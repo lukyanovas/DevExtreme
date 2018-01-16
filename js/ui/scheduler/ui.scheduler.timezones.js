@@ -1,8 +1,8 @@
 "use strict";
 
-var query = require("../../data/query"),
-    errors = require("../../core/errors"),
-    tzData = require("./ui.scheduler.timezones_data");
+import query from '../../data/query';
+import errors from '../../core/errors';
+import tzData from './ui.scheduler.timezones_data';
 
 var SchedulerTimezones = {
     _displayNames: tzData.displayNames,
@@ -151,4 +151,4 @@ var SchedulerTimezones = {
     }
 };
 
-module.exports = SchedulerTimezones;
+export default SchedulerTimezones;

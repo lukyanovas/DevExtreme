@@ -1,26 +1,19 @@
 "use strict";
 
-var errors = require("../core/errors"),
-    seriesConsts = require("./components/consts"),
-    vizUtils = require("./core/utils"),
-    extend = require("../core/utils/extend").extend,
-    isNumeric = require("../core/utils/type").isNumeric,
-    each = require("../core/utils/iterator").each,
-    rangeModule = require("./translators/range"),
-    registerComponent = require("../core/component_registrator"),
-    baseChartModule = require("./chart_components/base_chart"),
-    BaseChart = baseChartModule.BaseChart,
-    overlapping = baseChartModule.overlapping,
-    seriesSpacing = seriesConsts.pieSeriesSpacing,
-    translator1DModule = require("./translators/translator1d"),
-    OPTIONS_FOR_REFRESH_SERIES = ["startAngle", "innerRadius", "segmentsDirection", "type"],
-    _extend = extend,
-    _each = each,
-    _noop = require("../core/utils/common").noop,
-    _getVerticallyShiftedAngularCoords = require("./core/utils").getVerticallyShiftedAngularCoords,
+import errors from '../core/errors';
+import seriesConsts from './components/consts';
+import vizUtils from './core/utils';
+import { extend } from '../core/utils/extend';
+import { isNumeric } from '../core/utils/type';
+import { each } from '../core/utils/iterator';
+import rangeModule from './translators/range';
+import registerComponent from '../core/component_registrator';
+import baseChartModule from './chart_components/base_chart';
+import translator1DModule from './translators/translator1d';
+import { noop as _noop } from '../core/utils/common';
+import { getVerticallyShiftedAngularCoords as _getVerticallyShiftedAngularCoords } from './core/utils';
 
-    states = seriesConsts.states, NORMAL_STATE = states.normalMark,
-    LEGEND_ACTIONS = [states.resetItem, states.applyHover, states.applySelected, states.applySelected];
+var BaseChart = baseChartModule.BaseChart, overlapping = baseChartModule.overlapping, seriesSpacing = seriesConsts.pieSeriesSpacing, OPTIONS_FOR_REFRESH_SERIES = ["startAngle", "innerRadius", "segmentsDirection", "type"], _extend = extend, _each = each, states = seriesConsts.states, NORMAL_STATE = states.normalMark, LEGEND_ACTIONS = [states.resetItem, states.applyHover, states.applySelected, states.applySelected];
 
 function getLegendItemAction(points) {
     var state = NORMAL_STATE;
@@ -403,7 +396,7 @@ _each(OPTIONS_FOR_REFRESH_SERIES, function(_, name) {
 
 registerComponent("dxPieChart", dxPieChart);
 
-module.exports = dxPieChart;
+export default dxPieChart;
 
 var pieSizeEqualizer = (function() {
     function equalize(group, allPies) {

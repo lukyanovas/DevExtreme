@@ -1,6 +1,6 @@
 "use strict";
 
-var rendererBase = require("./renderer_base");
+import rendererBase from './renderer_base';
 
 /**
 * @name dxElement
@@ -9,4 +9,4 @@ var rendererBase = require("./renderer_base");
 * @hidden
 */
 
-module.exports = rendererBase.get();
+export default rendererBase.get();

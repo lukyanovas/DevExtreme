@@ -1,19 +1,20 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    _Number = Number,
+import { noop } from '../../core/utils/common';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import DataHelperMixin from '../../data_helper';
+import { isFunction as _isFunction } from '../../core/utils/type';
+import vizUtils from '../core/utils';
+
+var _Number = Number,
     _String = String,
     _abs = Math.abs,
     _round = Math.round,
     _min = Math.min,
     _max = Math.max,
     _sqrt = Math.sqrt,
-    DataHelperMixin = require("../../data_helper"),
-    _isFunction = require("../../core/utils/type").isFunction,
     _isArray = Array.isArray,
-    vizUtils = require("../core/utils"),
     _parseScalar = vizUtils.parseScalar,
     _patchFontOptions = vizUtils.patchFontOptions,
     _normalizeEnum = vizUtils.normalizeEnum,
@@ -21,18 +22,14 @@ var noop = require("../../core/utils/common").noop,
     _extend = extend,
     _each = each,
     _concat = Array.prototype.concat,
-
     TYPE_AREA = "area",
     TYPE_LINE = "line",
     TYPE_MARKER = "marker",
-
     STATE_DEFAULT = 0,
     STATE_HOVERED = 1,
     STATE_SELECTED = 2,
     STATE_TO_INDEX = [0, 1, 2, 2],
-
     TOLERANCE = 1,
-
     SELECTIONS = {
         "none": null,
         "single": -1,
@@ -1615,33 +1612,46 @@ MapLayerCollection.prototype = {
     }
 };
 
-exports.MapLayerCollection = MapLayerCollection;
+export { MapLayerCollection };
 
 ///#DEBUG
-exports._TESTS_MapLayer = MapLayer;
-exports._TESTS_stub_MapLayer = function(stub) {
+export var _TESTS_MapLayer = MapLayer;
+
+export var _TESTS_stub_MapLayer = function(stub) {
     MapLayer = stub;
 };
-exports._TESTS_selectStrategy = selectStrategy;
-exports._TESTS_stub_selectStrategy = function(stub) {
+
+export var _TESTS_selectStrategy = selectStrategy;
+
+export var _TESTS_stub_selectStrategy = function(stub) {
     selectStrategy = stub;
 };
-exports._TESTS_MapLayerElement = MapLayerElement;
-exports._TESTS_stub_MapLayerElement = function(stub) {
+
+export var _TESTS_MapLayerElement = MapLayerElement;
+
+export var _TESTS_stub_MapLayerElement = function(stub) {
     MapLayerElement = stub;
 };
-exports._TESTS_createProxy = createProxy;
-exports._TESTS_stub_performGrouping = function(stub) {
+
+export var _TESTS_createProxy = createProxy;
+
+export var _TESTS_stub_performGrouping = function(stub) {
     performGrouping = stub;
 };
-exports._TESTS_performGrouping = performGrouping;
-exports._TESTS_stub_groupByColor = function(stub) {
+
+export var _TESTS_performGrouping = performGrouping;
+
+export var _TESTS_stub_groupByColor = function(stub) {
     groupByColor = stub;
 };
-exports._TESTS_groupByColor = groupByColor;
-exports._TESTS_stub_groupBySize = function(stub) {
+
+export var _TESTS_groupByColor = groupByColor;
+
+export var _TESTS_stub_groupBySize = function(stub) {
     groupBySize = stub;
 };
-exports._TESTS_groupBySize = groupBySize;
-exports._TESTS_findGroupingIndex = findGroupingIndex;
+
+export var _TESTS_groupBySize = groupBySize;
+
+export var _TESTS_findGroupingIndex = findGroupingIndex;
 ///#ENDDEBUG

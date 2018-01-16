@@ -1,30 +1,26 @@
 "use strict";
 
-var _normalizeEnum = require("./utils").normalizeEnum,
-    _min = Math.min,
-    _max = Math.max,
+import { normalizeEnum as _normalizeEnum } from './utils';
 
+var _min = Math.min,
+    _max = Math.max,
     ALIGN_START = 0,
     ALIGN_MIDDLE = 1,
     ALIGN_END = 2,
-
     horizontalAlignmentMap = {
         left: ALIGN_START,
         center: ALIGN_MIDDLE,
         right: ALIGN_END
     },
-
     verticalAlignmentMap = {
         top: ALIGN_START,
         center: ALIGN_MIDDLE,
         bottom: ALIGN_END
     },
-
     sideMap = {
         horizontal: 0,
         vertical: 1
     },
-
     slicersMap = {};
 
 slicersMap[ALIGN_START] = function(a, b, size) {
@@ -262,4 +258,4 @@ function makeHeader(header, weakElement) {
     };
 }
 
-module.exports = Layout;
+export default Layout;

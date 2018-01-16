@@ -1,6 +1,7 @@
 "use strict";
+import domAdapter from '../dom_adapter';
 
-var document = require("../dom_adapter").getWindow().document;
+var document = domAdapter.getWindow().document;
 
 function getMarkup(element) {
     var temp = document.createElement('div');
@@ -33,6 +34,6 @@ function decodeHtmlEntities(markup) {
         .replace(/&shy;/gi, "&#173;");
 }
 
-exports.getSvgMarkup = function(element) {
+export var getSvgMarkup = function(element) {
     return fixIENamespaces(decodeHtmlEntities(getMarkup(element)));
 };

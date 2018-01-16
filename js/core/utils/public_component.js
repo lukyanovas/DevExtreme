@@ -1,10 +1,10 @@
 "use strict";
 
-var dataUtils = require("../../core/element_data"),
-    eventsEngine = require("../../events/core/events_engine"),
-    WeakMap = require("../polyfills/weak_map"),
-    isDefined = require("./type").isDefined,
-    removeEvent = require("../remove_event");
+import dataUtils from '../../core/element_data';
+import eventsEngine from '../../events/core/events_engine';
+import WeakMap from '../polyfills/weak_map';
+import { isDefined } from './type';
+import removeEvent from '../remove_event';
 
 var COMPONENT_NAMES_DATA_KEY = "dxComponents",
     ANONYMOUS_COMPONENT_DATA_KEY = "dxPrivateComponent";
@@ -27,7 +27,7 @@ var getName = exports.name = function(componentClass, newName) {
     return componentNames.get(componentClass);
 };
 
-exports.attachInstanceToElement = function($element, componentInstance, disposeFn) {
+export var attachInstanceToElement = function($element, componentInstance, disposeFn) {
     var data = dataUtils.data($element.get(0)),
         name = getName(componentInstance.constructor);
 
@@ -46,7 +46,7 @@ exports.attachInstanceToElement = function($element, componentInstance, disposeF
     data[COMPONENT_NAMES_DATA_KEY].push(name);
 };
 
-exports.getInstanceByElement = function($element, componentClass) {
+export var getInstanceByElement = function($element, componentClass) {
     var name = getName(componentClass);
 
     return dataUtils.data($element.get(0), name);

@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Callbacks = require("../../core/utils/callbacks"),
-    translator = require("../../animation/translator"),
-    eventUtils = require("../../events/utils"),
-    NativeStrategy = require("./ui.scrollable.native"),
-    LoadIndicator = require("../load_indicator"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import Callbacks from '../../core/utils/callbacks';
+import translator from '../../animation/translator';
+import * as eventUtils from '../../events/utils';
+import NativeStrategy from './ui.scrollable.native';
+import LoadIndicator from '../load_indicator';
+import { Deferred } from '../../core/utils/deferred';
 
 var SCROLLVIEW_PULLDOWN_DOWN_LOADING_CLASS = "dx-scrollview-pull-down-loading",
     SCROLLVIEW_PULLDOWN_INDICATOR_CLASS = "dx-scrollview-pull-down-indicator",
@@ -244,4 +244,4 @@ var SwipeDownNativeScrollViewStrategy = NativeStrategy.inherit({
     }
 });
 
-module.exports = SwipeDownNativeScrollViewStrategy;
+export default SwipeDownNativeScrollViewStrategy;

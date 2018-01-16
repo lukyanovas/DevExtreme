@@ -1,16 +1,19 @@
 "use strict";
 
 //there stackedline, fullstackedline, stackedbar, fullstackedbar, stackedarea, fullstackedarea
-var _noop = require("../../core/utils/common").noop,
-    _extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    areaSeries = require("./area_series").chart,
-    chartAreaSeries = areaSeries.area,
-    barSeries = require("./bar_series"),
+import { noop as _noop } from '../../core/utils/common';
+
+import { extend as _extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { chart as areaSeries } from './area_series';
+import barSeries from './bar_series';
+import { chart as lineSeries } from './line_series';
+import vizUtils from '../core/utils';
+import objectUtils from '../../core/utils/object';
+
+//there stackedline, fullstackedline, stackedbar, fullstackedbar, stackedarea, fullstackedarea
+var chartAreaSeries = areaSeries.area,
     chartBarSeries = barSeries.chart.bar,
-    lineSeries = require("./line_series").chart,
-    vizUtils = require("../core/utils"),
-    objectUtils = require("../../core/utils/object"),
     baseStackedSeries = {
         getErrorBarRangeCorrector: _noop,
         _fillErrorBars: _noop,
@@ -20,8 +23,8 @@ var _noop = require("../../core/utils/common").noop,
         }
     };
 
-exports.chart = {};
-exports.polar = {};
+export var chart = {};
+export var polar = {};
 
 exports.chart["stackedline"] = _extend({}, lineSeries.line, baseStackedSeries, { });
 

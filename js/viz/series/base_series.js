@@ -1,34 +1,32 @@
 "use strict";
 
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import pointModule from './points/base_point';
+import vizUtils from '../core/utils';
+import { noop as _noop } from '../../core/utils/common';
+import { states } from '../components/consts';
+import rangeCalculator from './helpers/range_data_calculator';
+import scatterSeries from './scatter_series';
+import lineSeries from './line_series';
+import areaSeries from './area_series';
+import barSeries from './bar_series';
+import rangeSeries from './range_series';
+import bubbleSeries from './bubble_series';
+import pieSeries from './pie_series';
+import financialSeries from './financial_series';
+import stackedSeries from './stacked_series';
+
 var seriesNS = {},
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    pointModule = require("./points/base_point"),
     _isDefined = typeUtils.isDefined,
-    vizUtils = require("../core/utils"),
     _map = vizUtils.map,
     _each = each,
     _extend = extend,
     _isEmptyObject = typeUtils.isEmptyObject,
     _normalizeEnum = vizUtils.normalizeEnum,
-    _noop = require("../../core/utils/common").noop,
     _inArray = inArray,
-    states = require("../components/consts").states,
-
-    rangeCalculator = require("./helpers/range_data_calculator"),
-
-    scatterSeries = require("./scatter_series"),
-    lineSeries = require("./line_series"),
-    areaSeries = require("./area_series"),
-    barSeries = require("./bar_series"),
-    rangeSeries = require("./range_series"),
-    bubbleSeries = require("./bubble_series"),
-    pieSeries = require("./pie_series"),
-    financialSeries = require("./financial_series"),
-    stackedSeries = require("./stacked_series"),
-
     DISCRETE = "discrete",
     SELECTED_STATE = states.selectedMark,
     HOVER_STATE = states.hoverMark,
@@ -171,9 +169,8 @@ function Series(settings, options) {
     that.updateOptions(options);
 }
 
-exports.Series = Series;
-
-exports.mixins = seriesNS.mixins;
+export { Series };
+export var mixins = seriesNS.mixins;
 
 Series.prototype = {
     constructor: Series,

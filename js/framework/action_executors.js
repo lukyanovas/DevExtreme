@@ -1,14 +1,15 @@
 "use strict";
 
-require("../integration/jquery");
+import '../integration/jquery';
+import $ from 'jquery';
+import dataCoreUtils from '../core/utils/data';
+import { extend } from '../core/utils/extend';
+import { isPlainObject } from '../core/utils/type';
+import { map } from '../core/utils/iterator';
+import { Route } from './router';
+import domAdapter from '../core/dom_adapter';
 
-var $ = require("jquery"),
-    document = require("../core/dom_adapter").getWindow().document,
-    dataCoreUtils = require("../core/utils/data"),
-    extend = require("../core/utils/extend").extend,
-    isPlainObject = require("../core/utils/type").isPlainObject,
-    map = require("../core/utils/iterator").map,
-    Route = require("./router").Route;
+var document = domAdapter.getWindow().document;
 
 function prepareNavigateOptions(options, actionArguments) {
     if(actionArguments.args) {
@@ -111,4 +112,4 @@ var createActionExecutors = function(app) {
     };
 };
 
-exports.createActionExecutors = createActionExecutors;
+export { createActionExecutors };

@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("./gauges/linear_gauge");
+export default require("./gauges/linear_gauge");

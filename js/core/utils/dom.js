@@ -1,17 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    Node = window.Node,
-    document = window.document,
-    eventsEngine = require("../../events/core/events_engine"),
-    errors = require("../errors"),
-    inArray = require("./array").inArray,
-    typeUtils = require("./type"),
-    isDefined = typeUtils.isDefined,
-    isRenderer = typeUtils.isRenderer,
-    htmlParser = require("../../core/utils/html_parser"),
-    elementStrategy;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import errors from '../errors';
+import { inArray } from './array';
+import { isDefined, isRenderer } from './type';
+import htmlParser from '../../core/utils/html_parser';
+import domAdapter from '../dom_adapter';
+
+var window = domAdapter.getWindow(), Node = window.Node, document = window.document, elementStrategy;
 
 var resetActiveElement = function() {
     var activeElement = document.activeElement;
@@ -185,19 +182,7 @@ setPublicElementWrapper(function(element) {
     return element && element.get(0);
 });
 
-exports.setPublicElementWrapper = setPublicElementWrapper;
-exports.resetActiveElement = resetActiveElement;
-exports.createMarkupFromString = createMarkupFromString;
-exports.triggerShownEvent = triggerVisibilityChangeEvent("dxshown");
-exports.triggerHidingEvent = triggerVisibilityChangeEvent("dxhiding");
-exports.triggerResizeEvent = triggerVisibilityChangeEvent("dxresize");
-exports.getElementOptions = getElementOptions;
-exports.createComponents = createComponents;
-exports.normalizeTemplateElement = normalizeTemplateElement;
-exports.clearSelection = clearSelection;
-exports.uniqueId = uniqueId;
-exports.closestCommonParent = closestCommonParent;
-exports.clipboardText = clipboardText;
-exports.toggleAttr = toggleAttr;
-exports.contains = contains;
-exports.getPublicElement = getPublicElement;
+export var triggerShownEvent = triggerVisibilityChangeEvent("dxshown");
+export var triggerHidingEvent = triggerVisibilityChangeEvent("dxhiding");
+export var triggerResizeEvent = triggerVisibilityChangeEvent("dxresize");
+export { setPublicElementWrapper, resetActiveElement, createMarkupFromString, getElementOptions, createComponents, normalizeTemplateElement, clearSelection, uniqueId, closestCommonParent, clipboardText, toggleAttr, contains, getPublicElement };

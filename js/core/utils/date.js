@@ -1,14 +1,11 @@
 "use strict";
 
-var typeUtils = require("./type"),
-    adjust = require("./math").adjust,
-    each = require("./iterator").each,
-    camelize = require("./inflector").camelize,
+import * as typeUtils from './type';
+import { adjust } from './math';
+import { each } from './iterator';
+import { camelize } from './inflector';
 
-    isObject = typeUtils.isObject,
-    isString = typeUtils.isString,
-    isDate = typeUtils.isDate,
-    isDefined = typeUtils.isDefined;
+var isObject = typeUtils.isObject, isString = typeUtils.isString, isDate = typeUtils.isDate, isDefined = typeUtils.isDefined;
 
 var dateUnitIntervals = ['millisecond', 'second', 'minute', 'hour', 'day', 'week', 'month', 'quarter', 'year'];
 
@@ -629,4 +626,4 @@ var dateUtils = {
     getDatesInterval: getDatesInterval
 };
 
-module.exports = dateUtils;
+export default dateUtils;

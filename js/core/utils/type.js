@@ -1,6 +1,7 @@
 "use strict";
+import domAdapter from '../dom_adapter';
 
-var Element = require("../dom_adapter").getWindow().Element;
+var Element = domAdapter.getWindow().Element;
 
 var types = {
     "[object Array]": "array",
@@ -93,20 +94,4 @@ var isDeferred = function(object) {
     return object && isFunction(object.done) && isFunction(object.fail);
 };
 
-exports.isBoolean = isBoolean;
-exports.isExponential = isExponential;
-exports.isDate = isDate;
-exports.isDefined = isDefined;
-exports.isFunction = isFunction;
-exports.isString = isString;
-exports.isNumeric = isNumeric;
-exports.isObject = isObject;
-exports.isEmptyObject = isEmptyObject;
-exports.isPlainObject = isPlainObject;
-exports.isPrimitive = isPrimitive;
-exports.isWindow = isWindow;
-exports.isDomNode = isDomNode;
-exports.isRenderer = isRenderer;
-exports.isPromise = isPromise;
-exports.isDeferred = isDeferred;
-exports.type = type;
+export { isBoolean, isExponential, isDate, isDefined, isFunction, isString, isNumeric, isObject, isEmptyObject, isPlainObject, isPrimitive, isWindow, isDomNode, isRenderer, isPromise, isDeferred, type };

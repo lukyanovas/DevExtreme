@@ -1,26 +1,26 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    messageLocalization = require("../../localization/message"),
-    clickEvent = require("../../events/click"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    CheckBox = require("../check_box"),
-    HierarchicalCollectionWidget = require("../hierarchical_collection/ui.hierarchical_collection_widget"),
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    dblclickEvent = require("../../events/double_click"),
-    fx = require("../../animation/fx"),
-    Scrollable = require("../scroll_view/ui.scrollable"),
-    LoadIndicator = require("../load_indicator"),
-    deferredUtils = require("../../core/utils/deferred"),
-    Deferred = deferredUtils.Deferred,
-    when = deferredUtils.when;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import messageLocalization from '../../localization/message';
+import clickEvent from '../../events/click';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import { getPublicElement } from '../../core/utils/dom';
+import CheckBox from '../check_box';
+import HierarchicalCollectionWidget from '../hierarchical_collection/ui.hierarchical_collection_widget';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import dblclickEvent from '../../events/double_click';
+import fx from '../../animation/fx';
+import Scrollable from '../scroll_view/ui.scrollable';
+import LoadIndicator from '../load_indicator';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var Deferred = deferredUtils.Deferred, when = deferredUtils.when;
 
 var WIDGET_CLASS = "dx-treeview",
     NODE_CONTAINER_CLASS = "dx-treeview-node-container",
@@ -1867,4 +1867,4 @@ var TreeViewBase = HierarchicalCollectionWidget.inherit({
 
 });
 
-module.exports = TreeViewBase;
+export default TreeViewBase;

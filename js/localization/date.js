@@ -1,17 +1,16 @@
 "use strict";
 
-var dependencyInjector = require("../core/utils/dependency_injector"),
-    isString = require("../core/utils/type").isString,
-    iteratorUtils = require("../core/utils/iterator"),
-    inArray = require("../core/utils/array").inArray,
-    getLDMLDateFormatter = require("./ldml/date.formatter").getFormatter,
-    getLDMLDateFormat = require("./ldml/date.format").getFormat,
-    getLDMLDateParser = require("./ldml/date.parser").getParser,
-    defaultDateNames = require("./default_date_names"),
-    numberLocalization = require("./number"),
-    errors = require("../core/errors");
-
-require("./core");
+import dependencyInjector from '../core/utils/dependency_injector';
+import { isString } from '../core/utils/type';
+import iteratorUtils from '../core/utils/iterator';
+import { inArray } from '../core/utils/array';
+import { getFormatter as getLDMLDateFormatter } from './ldml/date.formatter';
+import { getFormat as getLDMLDateFormat } from './ldml/date.format';
+import { getParser as getLDMLDateParser } from './ldml/date.parser';
+import defaultDateNames from './default_date_names';
+import numberLocalization from './number';
+import errors from '../core/errors';
+import './core';
 
 var FORMATS_TO_PATTERN_MAP = {
     "shortdate": "M/d/y",
@@ -185,4 +184,4 @@ var dateLocalization = dependencyInjector({
     }
 });
 
-module.exports = dateLocalization;
+export default dateLocalization;

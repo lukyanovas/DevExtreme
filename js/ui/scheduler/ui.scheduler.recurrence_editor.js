@@ -1,29 +1,28 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Class = require("../../core/class"),
-    Guid = require("../../core/guid"),
-    registerComponent = require("../../core/component_registrator"),
-    recurrenceUtils = require("./utils.recurrence"),
-    domUtils = require("../../core/utils/dom"),
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    Editor = require("../editor/editor"),
-    CheckBox = require("../check_box"),
-    RadioGroup = require("../radio_group"),
-    Switch = require("../switch"),
-    NumberBox = require("../number_box"),
-    SelectBox = require("../select_box"),
-    DateBox = require("../date_box"),
-    publisherMixin = require("./ui.scheduler.publisher_mixin"),
-    messageLocalization = require("../../localization/message"),
-    dateLocalization = require("../../localization/date"),
-    dateUtils = require("../../core/utils/date");
-
-var clickEvent = require("../../events/click");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Class from '../../core/class';
+import Guid from '../../core/guid';
+import registerComponent from '../../core/component_registrator';
+import recurrenceUtils from './utils.recurrence';
+import domUtils from '../../core/utils/dom';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import Editor from '../editor/editor';
+import CheckBox from '../check_box';
+import RadioGroup from '../radio_group';
+import Switch from '../switch';
+import NumberBox from '../number_box';
+import SelectBox from '../select_box';
+import DateBox from '../date_box';
+import publisherMixin from './ui.scheduler.publisher_mixin';
+import messageLocalization from '../../localization/message';
+import dateLocalization from '../../localization/date';
+import dateUtils from '../../core/utils/date';
+import clickEvent from '../../events/click';
 
 var RECURRENCE_EDITOR = "dx-recurrence-editor",
     LABEL_POSTFIX = "-label",
@@ -899,4 +898,4 @@ var SchedulerRecurrenceEditor = Editor.inherit({
 
 registerComponent("dxSchedulerRecurrenceEditor", SchedulerRecurrenceEditor);
 
-module.exports = SchedulerRecurrenceEditor;
+export default SchedulerRecurrenceEditor;

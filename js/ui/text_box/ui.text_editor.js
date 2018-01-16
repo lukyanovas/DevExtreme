@@ -1,8 +1,8 @@
 "use strict";
 
-var registerComponent = require("../../core/component_registrator"),
-    TextEditorMask = require("./ui.text_editor.mask");
+import registerComponent from '../../core/component_registrator';
+import TextEditorMask from './ui.text_editor.mask';
 
 registerComponent("dxTextEditor", TextEditorMask);
 
-module.exports = TextEditorMask;
+export default TextEditorMask;

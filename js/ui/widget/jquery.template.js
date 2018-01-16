@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    errors = require("../../core/errors"),
-    typeUtils = require("../../core/utils/type"),
-    TemplateBase = require("./ui.template_base"),
-    domUtils = require("../../core/utils/dom");
+import $ from '../../core/renderer';
+import errors from '../../core/errors';
+import * as typeUtils from '../../core/utils/type';
+import TemplateBase from './ui.template_base';
+import domUtils from '../../core/utils/dom';
 
 var templateEngines = {};
 var registerTemplateEngine = function(name, templateEngine) {
@@ -137,5 +137,5 @@ var Template = TemplateBase.inherit({
 
 });
 
-module.exports = Template;
-module.exports.setTemplateEngine = setTemplateEngine;
+export default Template;
+export { setTemplateEngine };

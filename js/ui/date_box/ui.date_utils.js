@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    isDate = require("../../core/utils/type").isDate,
-    each = require("../../core/utils/iterator").each,
-    dateLocalization = require("../../localization/date");
+import $ from '../../core/renderer';
+import dateSerialization from '../../core/utils/date_serialization';
+import { isDate } from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import dateLocalization from '../../localization/date';
 
 // TODO: move to dx.utils
 
@@ -273,4 +273,4 @@ dateUtils.DATE_COMPONENTS_INFO = {
     }
 };
 
-module.exports = dateUtils;
+export default dateUtils;

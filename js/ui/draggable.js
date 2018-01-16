@@ -1,20 +1,22 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    eventsEngine = require("../events/core/events_engine"),
-    stringUtils = require("../core/utils/string"),
-    registerComponent = require("../core/component_registrator"),
-    translator = require("../animation/translator"),
-    dasherize = require("../core/utils/inflector").dasherize,
-    extend = require("../core/utils/extend").extend,
-    DOMComponent = require("../core/dom_component"),
-    eventUtils = require("../events/utils"),
-    pointerEvents = require("../events/pointer"),
-    dragEvents = require("../events/drag"),
-    positionUtils = require("../animation/position"),
-    isFunction = require("../core/utils/type").isFunction,
-    noop = require("../core/utils/common").noop;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import stringUtils from '../core/utils/string';
+import registerComponent from '../core/component_registrator';
+import translator from '../animation/translator';
+import { dasherize } from '../core/utils/inflector';
+import { extend } from '../core/utils/extend';
+import DOMComponent from '../core/dom_component';
+import * as eventUtils from '../events/utils';
+import pointerEvents from '../events/pointer';
+import dragEvents from '../events/drag';
+import positionUtils from '../animation/position';
+import { isFunction } from '../core/utils/type';
+import { noop } from '../core/utils/common';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var DRAGGABLE = "dxDraggable",
     DRAGSTART_EVENT_NAME = eventUtils.addNamespace(dragEvents.start, DRAGGABLE),
@@ -216,4 +218,4 @@ var Draggable = DOMComponent.inherit({
 
 registerComponent(DRAGGABLE, Draggable);
 
-module.exports = Draggable;
+export default Draggable;

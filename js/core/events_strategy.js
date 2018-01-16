@@ -1,11 +1,11 @@
 "use strict";
 
-var Callbacks = require("./utils/callbacks"),
-    isFunction = require("./utils/type").isFunction,
-    each = require("./utils/iterator").each,
-    Class = require("./class");
+import Callbacks from './utils/callbacks';
+import { isFunction } from './utils/type';
+import { each } from './utils/iterator';
+import Class from './class';
 
-module.exports = Class.inherit({
+export default Class.inherit({
     ctor: function(owner) {
         this._events = {};
         this._owner = owner;

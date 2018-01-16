@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    extend = require("../../core/utils/extend").extend,
-    Widget = require("../widget/ui.widget"),
-    Button = require("../button");
+import $ from '../../core/renderer';
+import { extend } from '../../core/utils/extend';
+import Widget from '../widget/ui.widget';
+import Button from '../button';
 
 var CALENDAR_NAVIGATOR_CLASS = "dx-calendar-navigator",
     CALENDAR_NAVIGATOR_PREVIOUS_MONTH_CLASS = "dx-calendar-navigator-previous-month",
@@ -109,4 +109,4 @@ var Navigator = Widget.inherit({
     }
 });
 
-module.exports = Navigator;
+export default Navigator;

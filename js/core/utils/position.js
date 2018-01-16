@@ -1,6 +1,6 @@
 "use strict";
 
-var config = require("../config");
+import config from '../config';
 
 var getDefaultAlignment = function(isRtlEnabled) {
     var rtlEnabled = isRtlEnabled || config().rtlEnabled;
@@ -8,4 +8,4 @@ var getDefaultAlignment = function(isRtlEnabled) {
     return rtlEnabled ? "right" : "left";
 };
 
-exports.getDefaultAlignment = getDefaultAlignment;
+export { getDefaultAlignment };

@@ -1,9 +1,10 @@
 "use strict";
 
-var eventUtils = require("./utils"),
-    Emitter = require("./core/emitter"),
-    registerEmitter = require("./core/emitter_registrator"),
-    abs = Math.abs;
+import * as eventUtils from './utils';
+import Emitter from './core/emitter';
+import registerEmitter from './core/emitter_registrator';
+
+var abs = Math.abs;
 
 var HOLD_EVENT_NAME = "dxhold",
     HOLD_TIMEOUT = 750,
@@ -75,6 +76,6 @@ registerEmitter({
     ]
 });
 
-module.exports = {
+export default {
     name: HOLD_EVENT_NAME
 };

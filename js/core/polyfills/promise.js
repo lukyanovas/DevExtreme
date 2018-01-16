@@ -1,10 +1,9 @@
 "use strict";
 
-var deferredUtils = require("../../core/utils/deferred"),
-    window = require("../../core/dom_adapter").getWindow(),
-    Deferred = deferredUtils.Deferred,
-    when = deferredUtils.when,
-    Promise = window.Promise;
+import { Deferred, when } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), Promise = window.Promise;
 
 if(!Promise) {
     // NOTE: This is an incomplete Promise polyfill but it is enough for creation purposes
@@ -30,4 +29,4 @@ if(!Promise) {
     };
 }
 
-module.exports = Promise;
+export default Promise;

@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    Editor = require("./editor/editor"),
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    fx = require("../animation/fx");
+import $ from '../core/renderer';
+import Editor from './editor/editor';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import fx from '../animation/fx';
 
 var TRACKBAR_CLASS = "dx-trackbar",
     TRACKBAR_CONTAINER_CLASS = "dx-trackbar-container",
@@ -136,4 +136,4 @@ var TrackBar = Editor.inherit({
 
 registerComponent("dxTrackBar", TrackBar);
 
-module.exports = TrackBar;
+export default TrackBar;

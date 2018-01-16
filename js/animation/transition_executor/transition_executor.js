@@ -1,16 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    fx = require("../fx"),
-    animationPresetsModule = require("../presets/presets"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import $ from '../../core/renderer';
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import iteratorUtils from '../../core/utils/iterator';
+import fx from '../fx';
+import animationPresetsModule from '../presets/presets';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var directionPostfixes = {
         forward: " dx-forward",
@@ -206,4 +206,4 @@ var TransitionExecutor = Class.inherit({
 
 });
 
-exports.TransitionExecutor = TransitionExecutor;
+export { TransitionExecutor };

@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    noop = require("../../core/utils/common").noop,
-    Class = require("../../core/class"),
-    swipeEvents = require("../../events/swipe"),
-    eventUtils = require("../../events/utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { noop } from '../../core/utils/common';
+import Class from '../../core/class';
+import swipeEvents from '../../events/swipe';
+import * as eventUtils from '../../events/utils';
 
 
 var LIST_EDIT_DECORATOR = "dxListEditDecorator",
@@ -104,4 +104,4 @@ var EditDecorator = Class.inherit({
 
 });
 
-module.exports = EditDecorator;
+export default EditDecorator;

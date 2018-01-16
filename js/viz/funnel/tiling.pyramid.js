@@ -4,7 +4,7 @@ var CENTER = 0.5,
     LEFTCORNER = 0,
     RIGHTCORNER = 1;
 
-module.exports = {
+export default {
     getFigures: function(data, neckWidth, neckHeight) {
         var height = 0,
             y = 0,

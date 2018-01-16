@@ -1,13 +1,13 @@
 "use strict";
 
-var gridCore = require("./ui.data_grid.core"),
-    columnsResizingReorderingModule = require("../grid_core/ui.grid_core.columns_resizing_reordering");
+import gridCore from './ui.data_grid.core';
+import columnsResizingReorderingModule from '../grid_core/ui.grid_core.columns_resizing_reordering';
 
-exports.DraggingHeaderView = columnsResizingReorderingModule.views.draggingHeaderView;
-exports.DraggingHeaderViewController = columnsResizingReorderingModule.controllers.draggingHeader;
-exports.ColumnsSeparatorView = columnsResizingReorderingModule.views.columnsSeparatorView;
-exports.TablePositionViewController = columnsResizingReorderingModule.controllers.tablePosition;
-exports.ColumnsResizerViewController = columnsResizingReorderingModule.controllers.columnsResizer;
-exports.TrackerView = columnsResizingReorderingModule.views.trackerView;
+export var DraggingHeaderView = columnsResizingReorderingModule.views.draggingHeaderView;
+export var DraggingHeaderViewController = columnsResizingReorderingModule.controllers.draggingHeader;
+export var ColumnsSeparatorView = columnsResizingReorderingModule.views.columnsSeparatorView;
+export var TablePositionViewController = columnsResizingReorderingModule.controllers.tablePosition;
+export var ColumnsResizerViewController = columnsResizingReorderingModule.controllers.columnsResizer;
+export var TrackerView = columnsResizingReorderingModule.views.trackerView;
 
 gridCore.registerModule("columnsResizingReordering", columnsResizingReorderingModule);

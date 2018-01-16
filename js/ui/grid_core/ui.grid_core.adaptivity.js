@@ -1,47 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    eventUtils = require("../../events/utils"),
-    clickEvent = require("../../events/click"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    browser = require("../../core/utils/browser"),
-    extend = require("../../core/utils/extend").extend,
-    equalByValue = commonUtils.equalByValue,
-    Guid = require("../../core/guid"),
-    modules = require("./ui.grid_core.modules"),
-    Form = require("../form"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import * as eventUtils from '../../events/utils';
+import clickEvent from '../../events/click';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import browser from '../../core/utils/browser';
+import { extend } from '../../core/utils/extend';
+import Guid from '../../core/guid';
+import modules from './ui.grid_core.modules';
+import Form from '../form';
+import gridCoreUtils from './ui.grid_core.utils';
+import domAdapter from '../../core/dom_adapter';
 
-    COLUMN_HEADERS_VIEW = "columnHeadersView",
-    ROWS_VIEW = "rowsView",
-    FOOTER_VIEW = "footerView",
-    COLUMN_VIEWS = [COLUMN_HEADERS_VIEW, ROWS_VIEW, FOOTER_VIEW],
-
-    ADAPTIVE_NAMESPACE = "dxDataGridAdaptivity",
-    HIDDEN_COLUMNS_WIDTH = "adaptiveHidden",
-    ADAPTIVE_ROW_TYPE = "detailAdaptive",
-
-    FORM_ITEM_CONTENT_CLASS = "dx-field-item-content",
-    FORM_ITEM_MODIFIED = "dx-item-modified",
-
-    HIDDEN_COLUMN_CLASS = "hidden-column",
-    ADAPTIVE_COLUMN_BUTTON_CLASS = "adaptive-more",
-    ADAPTIVE_COLUMN_NAME_CLASS = "dx-command-adaptive",
-    COMMAND_ADAPTIVE_HIDDEN_CLASS = "dx-command-adaptive-hidden",
-    ADAPTIVE_DETAIL_ROW_CLASS = "dx-adaptive-detail-row",
-    ADAPTIVE_ITEM_TEXT_CLASS = "dx-adaptive-item-text",
-    MASTER_DETAIL_CELL_CLASS = "dx-master-detail-cell",
-    LAST_DATA_CELL_CLASS = "dx-last-data-cell",
-    ADAPTIVE_COLUMN_NAME = "adaptive",
-    EDIT_MODE_BATCH = "batch",
-    EDIT_MODE_ROW = "row",
-    EDIT_MODE_FORM = "form",
-    EDIT_MODE_POPUP = "popup",
-    REVERT_TOOLTIP_CLASS = "revert-tooltip";
+var document = domAdapter.getWindow().document, equalByValue = commonUtils.equalByValue, COLUMN_HEADERS_VIEW = "columnHeadersView", ROWS_VIEW = "rowsView", FOOTER_VIEW = "footerView", COLUMN_VIEWS = [COLUMN_HEADERS_VIEW, ROWS_VIEW, FOOTER_VIEW], ADAPTIVE_NAMESPACE = "dxDataGridAdaptivity", HIDDEN_COLUMNS_WIDTH = "adaptiveHidden", ADAPTIVE_ROW_TYPE = "detailAdaptive", FORM_ITEM_CONTENT_CLASS = "dx-field-item-content", FORM_ITEM_MODIFIED = "dx-item-modified", HIDDEN_COLUMN_CLASS = "hidden-column", ADAPTIVE_COLUMN_BUTTON_CLASS = "adaptive-more", ADAPTIVE_COLUMN_NAME_CLASS = "dx-command-adaptive", COMMAND_ADAPTIVE_HIDDEN_CLASS = "dx-command-adaptive-hidden", ADAPTIVE_DETAIL_ROW_CLASS = "dx-adaptive-detail-row", ADAPTIVE_ITEM_TEXT_CLASS = "dx-adaptive-item-text", MASTER_DETAIL_CELL_CLASS = "dx-master-detail-cell", LAST_DATA_CELL_CLASS = "dx-last-data-cell", ADAPTIVE_COLUMN_NAME = "adaptive", EDIT_MODE_BATCH = "batch", EDIT_MODE_ROW = "row", EDIT_MODE_FORM = "form", EDIT_MODE_POPUP = "popup", REVERT_TOOLTIP_CLASS = "revert-tooltip";
 
 function getColumnId(column) {
     return column.command ? "command:" + column.command : column.index;
@@ -639,7 +613,7 @@ var AdaptiveColumnsController = modules.ViewController.inherit({
     }
 });
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

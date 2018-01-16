@@ -1,23 +1,25 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    eventsEngine = require("../events/core/events_engine"),
-    registerComponent = require("../core/component_registrator"),
-    Callbacks = require("../core/utils/callbacks"),
-    isDefined = require("../core/utils/type").isDefined,
-    each = require("../core/utils/iterator").each,
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    ajax = require("../core/utils/ajax"),
-    Editor = require("./editor/editor"),
-    Button = require("./button"),
-    ProgressBar = require("./progress_bar"),
-    browser = require("../core/utils/browser"),
-    devices = require("../core/devices"),
-    eventUtils = require("../events/utils"),
-    clickEvent = require("../events/click"),
-    messageLocalization = require("../localization/message");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import registerComponent from '../core/component_registrator';
+import Callbacks from '../core/utils/callbacks';
+import { isDefined } from '../core/utils/type';
+import { each } from '../core/utils/iterator';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import ajax from '../core/utils/ajax';
+import Editor from './editor/editor';
+import Button from './button';
+import ProgressBar from './progress_bar';
+import browser from '../core/utils/browser';
+import devices from '../core/devices';
+import * as eventUtils from '../events/utils';
+import clickEvent from '../events/click';
+import messageLocalization from '../localization/message';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var FILEUPLOADER_CLASS = "dx-fileuploader",
     FILEUPLOADER_EMPTY_CLASS = "dx-fileuploader-empty",
@@ -1395,4 +1397,4 @@ FileUploader.__internals = {
 
 registerComponent("dxFileUploader", FileUploader);
 
-module.exports = FileUploader;
+export default FileUploader;

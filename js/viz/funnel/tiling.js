@@ -1,15 +1,14 @@
 "use strict";
 
-var _normalizeEnum = require("../core/utils").normalizeEnum,
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
 
-    algorithms = {},
-    defaultAlgorithm;
+var algorithms = {}, defaultAlgorithm;
 
-exports.getAlgorithm = function(name) {
+export var getAlgorithm = function(name) {
     return algorithms[_normalizeEnum(name)] || defaultAlgorithm;
 };
 
-exports.addAlgorithm = function(name, callback, setDefault) {
+export var addAlgorithm = function(name, callback, setDefault) {
     algorithms[name] = callback;
 
     if(setDefault) {

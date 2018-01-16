@@ -1,16 +1,18 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    document = require("../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../events/core/events_engine"),
-    devices = require("../core/devices"),
-    domUtils = require("../core/utils/dom"),
-    animationFrame = require("../animation/frame"),
-    eventUtils = require("./utils"),
-    pointerEvents = require("./pointer"),
-    Emitter = require("./core/emitter"),
-    registerEmitter = require("./core/emitter_registrator"),
-    compareVersions = require("../core/utils/version").compare;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import devices from '../core/devices';
+import domUtils from '../core/utils/dom';
+import animationFrame from '../animation/frame';
+import * as eventUtils from './utils';
+import pointerEvents from './pointer';
+import Emitter from './core/emitter';
+import registerEmitter from './core/emitter_registrator';
+import { compare as compareVersions } from '../core/utils/version';
+import domAdapter from '../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var CLICK_EVENT_NAME = "dxclick",
     TOUCH_BOUNDARY = 10,
@@ -80,12 +82,14 @@ var ClickEmitter = Emitter.inherit({
 
 });
 
+var useNativeClick;
 
 // NOTE: native strategy for desktop, iOS 9.3+, Android 5+
 (function() {
     var NATIVE_CLICK_CLASS = "dx-native-click";
-    var realDevice = devices.real(),
-        useNativeClick =
+    var realDevice = devices.real();
+
+    var useNativeClick =
             realDevice.generic ||
             realDevice.ios && compareVersions(realDevice.version, [9, 3]) >= 0 ||
             realDevice.android && compareVersions(realDevice.version, [5]) >= 0;
@@ -152,10 +156,6 @@ var ClickEmitter = Emitter.inherit({
             eventsEngine.off(this.getElement(), "click", clickHandler);
         }
     });
-
-    ///#DEBUG
-    exports.useNativeClick = useNativeClick;
-    ///#ENDDEBUG
 })();
 
 
@@ -203,9 +203,7 @@ registerEmitter({
         CLICK_EVENT_NAME
     ]
 });
-
-exports.name = CLICK_EVENT_NAME;
-
+export var name = CLICK_EVENT_NAME;
 ///#DEBUG
-exports.misc = misc;
+export { useNativeClick, misc };
 ///#ENDDEBUG

@@ -1,6 +1,6 @@
 "use strict";
 
-var ko = require("knockout");
+import ko from 'knockout';
 
 // Check availability in global environment
 if(ko) {

@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    themes = require("./themes"),
-    registerComponent = require("../core/component_registrator"),
-    grep = require("../core/utils/common").grep,
-    extend = require("../core/utils/extend").extend,
-    arrayUtils = require("../core/utils/array"),
-    iteratorUtils = require("../core/utils/iterator"),
-    ActionSheetStrategy = require("./toolbar/ui.toolbar.strategy.action_sheet"),
-    DropDownMenuStrategy = require("./toolbar/ui.toolbar.strategy.drop_down_menu"),
-    ListBottomStrategy = require("./toolbar/ui.toolbar.strategy.list_bottom"),
-    ListTopStrategy = require("./toolbar/ui.toolbar.strategy.list_top"),
-    ToolbarBase = require("./toolbar/ui.toolbar.base"),
-    ChildDefaultTemplate = require("./widget/child_default_template");
+import $ from '../core/renderer';
+import themes from './themes';
+import registerComponent from '../core/component_registrator';
+import { grep } from '../core/utils/common';
+import { extend } from '../core/utils/extend';
+import arrayUtils from '../core/utils/array';
+import iteratorUtils from '../core/utils/iterator';
+import ActionSheetStrategy from './toolbar/ui.toolbar.strategy.action_sheet';
+import DropDownMenuStrategy from './toolbar/ui.toolbar.strategy.drop_down_menu';
+import ListBottomStrategy from './toolbar/ui.toolbar.strategy.list_bottom';
+import ListTopStrategy from './toolbar/ui.toolbar.strategy.list_top';
+import ToolbarBase from './toolbar/ui.toolbar.base';
+import ChildDefaultTemplate from './widget/child_default_template';
 
 var STRATEGIES = {
     actionSheet: ActionSheetStrategy,
@@ -440,4 +440,4 @@ var Toolbar = ToolbarBase.inherit({
 
 registerComponent("dxToolbar", Toolbar);
 
-module.exports = Toolbar;
+export default Toolbar;

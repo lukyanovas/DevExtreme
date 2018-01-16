@@ -1,13 +1,12 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    pointerEvents = require("../../events/pointer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    document = window.document,
-    each = require("../../core/utils/iterator").each,
-    msPointerEnabled = require("../../core/utils/support").pointer,
+import eventsEngine from '../../events/core/events_engine';
+import pointerEvents from '../../events/pointer';
+import { each } from '../../core/utils/iterator';
+import { pointer as msPointerEnabled } from '../../core/utils/support';
+import domAdapter from '../../core/dom_adapter';
 
-    MIN_MANUAL_SELECTING_WIDTH = 10;
+var window = domAdapter.getWindow(), document = window.document, MIN_MANUAL_SELECTING_WIDTH = 10;
 
 function isLeftButtonPressed(event) {
     var e = event || window.event,
@@ -246,4 +245,4 @@ Tracker.prototype = {
     }
 };
 
-exports.Tracker = Tracker;
+export { Tracker };

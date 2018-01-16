@@ -1,8 +1,8 @@
 "use strict";
 
-var ToolbarStrategy = require("./ui.toolbar.strategy"),
-    extend = require("../../core/utils/extend").extend,
-    ActionSheet = require("../action_sheet");
+import ToolbarStrategy from './ui.toolbar.strategy';
+import { extend } from '../../core/utils/extend';
+import ActionSheet from '../action_sheet';
 
 var ActionSheetStrategy = ToolbarStrategy.inherit({
 
@@ -48,4 +48,4 @@ var ActionSheetStrategy = ToolbarStrategy.inherit({
 
 });
 
-module.exports = ActionSheetStrategy;
+export default ActionSheetStrategy;

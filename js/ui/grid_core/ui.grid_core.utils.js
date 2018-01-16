@@ -1,16 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    stringUtils = require("../../core/utils/string"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    toComparable = require("../../core/utils/data").toComparable,
-    LoadPanel = require("../load_panel"),
-    dataUtils = require("../../data/utils"),
-    formatHelper = require("../../format_helper");
+import $ from '../../core/renderer';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import stringUtils from '../../core/utils/string';
+import iteratorUtils from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { toComparable } from '../../core/utils/data';
+import LoadPanel from '../load_panel';
+import dataUtils from '../../data/utils';
+import formatHelper from '../../format_helper';
 
 var NO_DATA_CLASS = "nodata",
     DATE_INTERVAL_SELECTORS = {
@@ -39,7 +39,7 @@ var NO_DATA_CLASS = "nodata",
     DEFAULT_DATE_INTERVAL = ["year", "month", "day"],
     DEFAULT_DATETIME_INTERVAL = ["year", "month", "day", "hour", "minute"];
 
-module.exports = (function() {
+export default (function() {
     var getIntervalSelector = function() {
         var groupInterval,
             data = arguments[1],
@@ -75,7 +75,7 @@ module.exports = (function() {
             selector = getFilterSelector(column, target);
 
         if(target === "headerFilter") {
-            dateInterval = module.exports.getGroupInterval(column)[values.length - 1];
+            dateInterval = this.getGroupInterval(column)[values.length - 1];
         } else if(column.dataType === "datetime") {
             dateInterval = "minute";
         }
@@ -135,7 +135,7 @@ module.exports = (function() {
             values = ("" + filterValue).split("/"),
             value = Number(values[values.length - 1]),
             isExclude = column.filterType === "exclude",
-            groupInterval = module.exports.getGroupInterval(column);
+            groupInterval = this.getGroupInterval(column);
 
         if(target === "headerFilter" && groupInterval && typeUtils.isDefined(filterValue)) {
             interval = groupInterval[values.length - 1];
@@ -311,7 +311,7 @@ module.exports = (function() {
                     return false;
                 } else {
                     for(i = 0; i < filter1.length; i++) {
-                        if(!module.exports.equalFilterParameters(filter1[i], filter2[i])) {
+                        if(!this.equalFilterParameters(filter1[i], filter2[i])) {
                             return false;
                         }
                     }
@@ -375,7 +375,7 @@ module.exports = (function() {
 
             for(i = 0; i < summaryItems.length; i++) {
                 summaryItem = summaryItems[i];
-                result += (i > 0 ? ", " : "") + module.exports.getSummaryText(summaryItem, summaryTexts);
+                result += (i > 0 ? ", " : "") + this.getSummaryText(summaryItem, summaryTexts);
             }
             return result += ")";
         },
@@ -505,8 +505,8 @@ module.exports = (function() {
         equalSortParameters: function(sortParameters1, sortParameters2, ignoreIsExpanded) {
             var i;
 
-            sortParameters1 = module.exports.normalizeSortingInfo(sortParameters1);
-            sortParameters2 = module.exports.normalizeSortingInfo(sortParameters2);
+            sortParameters1 = this.normalizeSortingInfo(sortParameters1);
+            sortParameters2 = this.normalizeSortingInfo(sortParameters2);
 
             if(Array.isArray(sortParameters1) && Array.isArray(sortParameters2)) {
                 if(sortParameters1.length !== sortParameters2.length) {

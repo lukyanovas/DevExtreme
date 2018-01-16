@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    devices = require("../../core/devices"),
-    messageLocalization = require("../../localization/message"),
-    registerComponent = require("../../core/component_registrator"),
-    extend = require("../../core/utils/extend").extend,
-    PullDownStrategy = require("./ui.scroll_view.native.pull_down"),
-    SwipeDownStrategy = require("./ui.scroll_view.native.swipe_down"),
-    SlideDownStrategy = require("./ui.scroll_view.native.slide_down"),
-    SimulatedStrategy = require("./ui.scroll_view.simulated"),
-    Scrollable = require("./ui.scrollable"),
-    LoadIndicator = require("../load_indicator"),
-    config = require("../../core/config"),
-    LoadPanel = require("../load_panel");
+import $ from '../../core/renderer';
+import devices from '../../core/devices';
+import messageLocalization from '../../localization/message';
+import registerComponent from '../../core/component_registrator';
+import { extend } from '../../core/utils/extend';
+import PullDownStrategy from './ui.scroll_view.native.pull_down';
+import SwipeDownStrategy from './ui.scroll_view.native.swipe_down';
+import SlideDownStrategy from './ui.scroll_view.native.slide_down';
+import SimulatedStrategy from './ui.scroll_view.simulated';
+import Scrollable from './ui.scrollable';
+import LoadIndicator from '../load_indicator';
+import config from '../../core/config';
+import LoadPanel from '../load_panel';
 
 var SCROLLVIEW_CLASS = "dx-scrollview",
     SCROLLVIEW_CONTENT_CLASS = SCROLLVIEW_CLASS + "-content",
@@ -358,4 +358,4 @@ var ScrollView = Scrollable.inherit({
 
 registerComponent("dxScrollView", ScrollView);
 
-module.exports = ScrollView;
+export default ScrollView;

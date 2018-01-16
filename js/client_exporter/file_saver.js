@@ -1,15 +1,18 @@
 "use strict";
 
 /* global Windows */
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
+import $ from '../core/renderer';
+
+import eventsEngine from '../events/core/events_engine';
+import errors from '../ui/widget/ui.errors';
+import browser from '../core/utils/browser';
+import * as typeUtils from '../core/utils/type';
+import domAdapter from '../core/dom_adapter';
+
+/* global Windows */
+var window = domAdapter.getWindow(),
     navigator = window.navigator,
     document = window.document,
-    eventsEngine = require("../events/core/events_engine"),
-    errors = require("../ui/widget/ui.errors"),
-    browser = require("../core/utils/browser"),
-    typeUtils = require("../core/utils/type"),
-
     FILE_EXTESIONS = {
         EXCEL: "xlsx",
         CSS: "css",
@@ -30,7 +33,7 @@ var MIME_TYPES = exports.MIME_TYPES = {
     PDF: "application/pdf"
 };
 
-exports.fileSaver = {
+export var fileSaver = {
     _getDataUri: function(format, data) {
         return "data:" + MIME_TYPES[format] + ";base64," + data;
     },

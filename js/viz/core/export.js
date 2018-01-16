@@ -1,39 +1,15 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    window = require("../../core/dom_adapter").getWindow(),
-    patchFontOptions = require("./utils").patchFontOptions,
-    _extend = extend,
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { patchFontOptions } from './utils';
+import clientExporter from '../../client_exporter';
+import messageLocalization from '../../localization/message';
+import hoverEvent from '../../events/hover';
+import pointerEvents from '../../events/pointer';
+import domAdapter from '../../core/dom_adapter';
 
-    clientExporter = require("../../client_exporter"),
-    messageLocalization = require("../../localization/message"),
-    imageExporter = clientExporter.image,
-    svgExporter = clientExporter.svg,
-    pdfExporter = clientExporter.pdf,
-
-    hoverEvent = require("../../events/hover"),
-    pointerEvents = require("../../events/pointer"),
-    pointerActions = [pointerEvents.down, pointerEvents.move].join(" "),
-
-    BUTTON_SIZE = 35,
-    ICON_COORDS = [[9, 12, 26, 12, 26, 14, 9, 14], [9, 17, 26, 17, 26, 19, 9, 19], [9, 22, 26, 22, 26, 24, 9, 24]],
-
-    LIST_PADDING_TOP = 4,
-    LIST_WIDTH = 120,
-    VERTICAL_TEXT_MARGIN = 8,
-    HORIZONTAL_TEXT_MARGIN = 15,
-    MENU_ITEM_HEIGHT = 30,
-    LIST_STROKE_WIDTH = 1,
-    MARGIN = 10,
-    SHADOW_OFFSET = 2,
-    SHADOW_BLUR = 3,
-
-    ALLOWED_EXPORT_FORMATS = ["PNG", "PDF", "JPEG", "SVG", "GIF"],
-    EXPORT_CSS_CLASS = "dx-export-menu",
-
-    EXPORT_DATA_KEY = "export-element-type",
-    FORMAT_DATA_KEY = "export-element-format";
+var window = domAdapter.getWindow(), _extend = extend, imageExporter = clientExporter.image, svgExporter = clientExporter.svg, pdfExporter = clientExporter.pdf, pointerActions = [pointerEvents.down, pointerEvents.move].join(" "), BUTTON_SIZE = 35, ICON_COORDS = [[9, 12, 26, 12, 26, 14, 9, 14], [9, 17, 26, 17, 26, 19, 9, 19], [9, 22, 26, 22, 26, 24, 9, 24]], LIST_PADDING_TOP = 4, LIST_WIDTH = 120, VERTICAL_TEXT_MARGIN = 8, HORIZONTAL_TEXT_MARGIN = 15, MENU_ITEM_HEIGHT = 30, LIST_STROKE_WIDTH = 1, MARGIN = 10, SHADOW_OFFSET = 2, SHADOW_BLUR = 3, ALLOWED_EXPORT_FORMATS = ["PNG", "PDF", "JPEG", "SVG", "GIF"], EXPORT_CSS_CLASS = "dx-export-menu", EXPORT_DATA_KEY = "export-element-type", FORMAT_DATA_KEY = "export-element-format";
 
 function validateFormat(format) {
     var validatedFormat = String(format).toUpperCase();
@@ -195,7 +171,7 @@ function createMenuItems(renderer, options) {
     return items;
 }
 
-exports.exportFromMarkup = function(markup, options) {
+export var exportFromMarkup = function(markup, options) {
     options.format = validateFormat(options.format) || "PNG";
     options.fileName = options.fileName || "file";
 
@@ -206,7 +182,7 @@ exports.exportFromMarkup = function(markup, options) {
     clientExporter.export(markup, options, getCreatorFunc(options.format));
 };
 
-exports.getMarkup = function(widgets) {
+export var getMarkup = function(widgets) {
     var svgArr = [],
         height = 0,
         width = 0;
@@ -220,7 +196,7 @@ exports.getMarkup = function(widgets) {
     return '<svg height="' + height + '" width="' + width + '" version="1.1" xmlns="http://www.w3.org/2000/svg">' + svgArr.join('') + '</svg>';
 };
 
-exports.ExportMenu = function(params) {
+export var ExportMenu = function(params) {
     var that = this,
         renderer = that._renderer = params.renderer;
     that._incidentOccurred = params.incidentOccurred;
@@ -511,7 +487,7 @@ function getExportOptions(widget, exportOptions, fileName, format) {
     };
 }
 
-exports.plugin = {
+export var plugin = {
     name: "export",
     init: function() {
         var that = this;

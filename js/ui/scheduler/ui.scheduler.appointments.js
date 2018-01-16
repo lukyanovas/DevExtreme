@@ -1,29 +1,31 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    dataUtils = require("../../core/element_data"),
-    translator = require("../../animation/translator"),
-    dateUtils = require("../../core/utils/date"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    objectUtils = require("../../core/utils/object"),
-    arrayUtils = require("../../core/utils/array"),
-    extend = require("../../core/utils/extend").extend,
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    recurrenceUtils = require("./utils.recurrence"),
-    registerComponent = require("../../core/component_registrator"),
-    publisherMixin = require("./ui.scheduler.publisher_mixin"),
-    Appointment = require("./ui.scheduler.appointment"),
-    eventUtils = require("../../events/utils"),
-    dblclickEvent = require("../../events/double_click"),
-    dateLocalization = require("../../localization/date"),
-    messageLocalization = require("../../localization/message"),
-    CollectionWidget = require("../collection/ui.collection_widget.edit"),
-    Draggable = require("../draggable"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import dataUtils from '../../core/element_data';
+import translator from '../../animation/translator';
+import dateUtils from '../../core/utils/date';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import objectUtils from '../../core/utils/object';
+import arrayUtils from '../../core/utils/array';
+import { extend } from '../../core/utils/extend';
+import { getPublicElement } from '../../core/utils/dom';
+import recurrenceUtils from './utils.recurrence';
+import registerComponent from '../../core/component_registrator';
+import publisherMixin from './ui.scheduler.publisher_mixin';
+import Appointment from './ui.scheduler.appointment';
+import * as eventUtils from '../../events/utils';
+import dblclickEvent from '../../events/double_click';
+import dateLocalization from '../../localization/date';
+import messageLocalization from '../../localization/message';
+import CollectionWidget from '../collection/ui.collection_widget.edit';
+import Draggable from '../draggable';
+import { Deferred } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var COMPONENT_CLASS = "dx-scheduler-scrollable-appointments",
     APPOINTMENT_ITEM_CLASS = "dx-scheduler-appointment",
@@ -1082,4 +1084,4 @@ var SchedulerAppointments = CollectionWidget.inherit({
 
 registerComponent("dxSchedulerAppointments", SchedulerAppointments);
 
-module.exports = SchedulerAppointments;
+export default SchedulerAppointments;

@@ -1,7 +1,7 @@
 "use strict";
 
-var registerComponent = require("../../core/component_registrator"),
-    SchedulerWorkSpace = require("./ui.scheduler.work_space.indicator");
+import registerComponent from '../../core/component_registrator';
+import SchedulerWorkSpace from './ui.scheduler.work_space.indicator';
 
 var DAY_CLASS = "dx-scheduler-work-space-day";
 
@@ -64,4 +64,4 @@ var SchedulerWorkSpaceDay = SchedulerWorkSpace.inherit({
 
 registerComponent("dxSchedulerWorkSpaceDay", SchedulerWorkSpaceDay);
 
-module.exports = SchedulerWorkSpaceDay;
+export default SchedulerWorkSpaceDay;

@@ -1,20 +1,18 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    BaseThemeManager = require("../core/base_theme_manager").BaseThemeManager,
-    _isString = typeUtils.isString,
-    _isDefined = typeUtils.isDefined,
-    _normalizeEnum = require("../core/utils").normalizeEnum,
+import { noop } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { BaseThemeManager } from '../core/base_theme_manager';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
 
+var _isString = typeUtils.isString,
+    _isDefined = typeUtils.isDefined,
     FONT = "font",
     COMMON_AXIS_SETTINGS = "commonAxisSettings",
-
     PIE_FONT_FIELDS = ["legend." + FONT, "title." + FONT, "title.subtitle." + FONT, "tooltip." + FONT, "loadingIndicator." + FONT, "export." + FONT, "commonSeriesSettings.label." + FONT],
     POLAR_FONT_FIELDS = PIE_FONT_FIELDS.concat([COMMON_AXIS_SETTINGS + ".label." + FONT, COMMON_AXIS_SETTINGS + ".title." + FONT]),
     CHART_FONT_FIELDS = POLAR_FONT_FIELDS.concat(["crosshair.label." + FONT]),
-
     chartToFontFieldsMap = {
         pie: PIE_FONT_FIELDS,
         chart: CHART_FONT_FIELDS,
@@ -202,4 +200,4 @@ var ThemeManager = BaseThemeManager.inherit((function() {
     };
 })());
 
-exports.ThemeManager = ThemeManager;
+export { ThemeManager };

@@ -1,6 +1,7 @@
 "use strict";
+import domAdapter from '../dom_adapter';
 
-var window = require("../../core/dom_adapter").getWindow();
+var window = domAdapter.getWindow();
 
 var getSizeByStyles = function(elementStyles, styles) {
     var result = 0;
@@ -65,5 +66,4 @@ var getSize = function(element, name, include) {
 };
 
 
-exports.getSize = getSize;
-exports.getElementBoxParams = getElementBoxParams;
+export { getSize, getElementBoxParams };

@@ -1,7 +1,7 @@
 "use strict";
 
-var dataUtils = require("../core/element_data"),
-    type = require("../core/utils/type").type;
+import dataUtils from '../core/element_data';
+import { type } from '../core/utils/type';
 
 var TRANSLATOR_DATA_KEY = "dxTranslator",
     TRANSFORM_MATRIX_REGEX = /matrix(3d)?\((.+?)\)/,
@@ -126,10 +126,4 @@ var getTranslateCss = function(translate) {
     return "translate(" + xValueString + ", " + yValueString + ")";
 };
 
-exports.move = move;
-exports.locate = locate;
-exports.clearCache = clearCache;
-exports.parseTranslate = parseTranslate;
-exports.getTranslate = getTranslate;
-exports.getTranslateCss = getTranslateCss;
-exports.resetPosition = resetPosition;
+export { move, locate, clearCache, parseTranslate, getTranslate, getTranslateCss, resetPosition };

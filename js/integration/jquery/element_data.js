@@ -1,9 +1,9 @@
 'use strict';
 
-var jQuery = require("jquery");
-var dataUtils = require("../../core/element_data");
-var useJQuery = require("./use_jquery")();
+import jQuery from 'jquery';
+import { setDataStrategy } from '../../core/element_data';
+import useJQueryFactory from './use_jquery';
 
-if(useJQuery) {
-    dataUtils.setDataStrategy(jQuery);
+if(useJQueryFactory()) {
+    setDataStrategy(jQuery);
 }

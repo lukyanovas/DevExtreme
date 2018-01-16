@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    gridCore = require("../data_grid/ui.data_grid.core"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    support = require("../../core/utils/support"),
-    clickEvent = require("../../events/click"),
-    messageLocalization = require("../../localization/message"),
-    eventUtils = require("../../events/utils"),
-    holdEvent = require("../../events/hold"),
-    Selection = require("../selection/selection"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import gridCore from '../data_grid/ui.data_grid.core';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import * as support from '../../core/utils/support';
+import clickEvent from '../../events/click';
+import messageLocalization from '../../localization/message';
+import * as eventUtils from '../../events/utils';
+import holdEvent from '../../events/hold';
+import Selection from '../selection/selection';
+import { Deferred } from '../../core/utils/deferred';
 
 var EDITOR_CELL_CLASS = "dx-editor-cell",
     ROW_CLASS = "dx-row",
@@ -50,7 +50,7 @@ var processLongTap = function(that, dxEvent) {
     }
 };
 
-exports.SelectionController = gridCore.Controller.inherit((function() {
+export var SelectionController = gridCore.Controller.inherit((function() {
     var isSeveralRowsSelected = function(that, selectionFilter) {
         var keyIndex = 0,
             store = that._dataController.store(),
@@ -496,7 +496,7 @@ exports.SelectionController = gridCore.Controller.inherit((function() {
     };
 })());
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
         /**

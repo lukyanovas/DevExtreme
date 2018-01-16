@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    fx = require("../animation/fx"),
-    translator = require("../animation/translator"),
-    mathUtils = require("../core/utils/math"),
-    extend = require("../core/utils/extend").extend,
-    noop = require("../core/utils/common").noop,
-    isDefined = require("../core/utils/type").isDefined,
-    devices = require("../core/devices"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    registerComponent = require("../core/component_registrator"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit"),
-    Swipeable = require("../events/gesture/swipeable"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import fx from '../animation/fx';
+import translator from '../animation/translator';
+import mathUtils from '../core/utils/math';
+import { extend } from '../core/utils/extend';
+import { noop } from '../core/utils/common';
+import { isDefined } from '../core/utils/type';
+import devices from '../core/devices';
+import { getPublicElement } from '../core/utils/dom';
+import registerComponent from '../core/component_registrator';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import Swipeable from '../events/gesture/swipeable';
+import { Deferred } from '../core/utils/deferred';
 
 
 var MULTIVIEW_CLASS = "dx-multiview",
@@ -460,7 +460,5 @@ var MultiView = CollectionWidget.inherit({
 
 registerComponent("dxMultiView", MultiView);
 
-module.exports = MultiView;
-///#DEBUG
-module.exports.animation = animation;
-///#ENDDEBUG
+export default MultiView;
+export { animation };

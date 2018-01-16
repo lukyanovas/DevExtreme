@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Class = require("../../core/class"),
-    gridCore = require("./ui.data_grid.core"),
-    normalizeSortingInfo = require("../../data/utils").normalizeSortingInfo,
-    when = require("../../core/utils/deferred").when;
+import $ from '../../core/renderer';
+import Class from '../../core/class';
+import gridCore from './ui.data_grid.core';
+import { normalizeSortingInfo } from '../../data/utils';
+import { when } from '../../core/utils/deferred';
 
-exports.createGroupFilter = function(path, storeLoadOptions) {
+export var createGroupFilter = function(path, storeLoadOptions) {
     var groups = normalizeSortingInfo(storeLoadOptions.group),
         i,
         filter = [];
@@ -21,8 +21,7 @@ exports.createGroupFilter = function(path, storeLoadOptions) {
     return gridCore.combineFilters(filter);
 };
 
-
-exports.createOffsetFilter = function(path, storeLoadOptions) {
+export var createOffsetFilter = function(path, storeLoadOptions) {
     var groups = normalizeSortingInfo(storeLoadOptions.group),
         i,
         j,
@@ -55,7 +54,7 @@ exports.createOffsetFilter = function(path, storeLoadOptions) {
     return gridCore.combineFilters([filter, storeLoadOptions.filter]);
 };
 
-exports.GroupingHelper = Class.inherit((function() {
+export var GroupingHelper = Class.inherit((function() {
 
     var findGroupInfoByKey = function(groupsInfo, key) {
         var hash = groupsInfo.hash;

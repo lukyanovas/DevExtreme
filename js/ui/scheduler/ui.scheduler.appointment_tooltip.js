@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Tooltip = require("../tooltip"),
-    tooltip = require("../tooltip/ui.tooltip"),
-    Button = require("../button"),
-    FunctionTemplate = require("../widget/function_template"),
-    messageLocalization = require("../../localization/message"),
-    dateUtils = require("../../core/utils/date");
+import $ from '../../core/renderer';
+import Tooltip from '../tooltip';
+import tooltip from '../tooltip/ui.tooltip';
+import Button from '../button';
+import FunctionTemplate from '../widget/function_template';
+import messageLocalization from '../../localization/message';
+import dateUtils from '../../core/utils/date';
 
 var APPOINTMENT_TOOLTIP_CLASS = "dx-scheduler-appointment-tooltip",
     APPOINTMENT_TOOLTIP_TITLE_CLASS = "dx-scheduler-appointment-tooltip-title",
@@ -160,4 +160,4 @@ var appointmentTooltip = {
         })).$element();
     }
 };
-module.exports = appointmentTooltip;
+export default appointmentTooltip;

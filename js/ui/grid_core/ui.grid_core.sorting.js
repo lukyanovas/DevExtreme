@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    clickEvent = require("../../events/click"),
-    isDefined = require("../../core/utils/type").isDefined,
-    map = require("../../core/utils/iterator").map,
-    extend = require("../../core/utils/extend").extend,
-    sortingMixin = require("../grid_core/ui.grid_core.sorting_mixin"),
-    messageLocalization = require("../../localization/message"),
-    eventUtils = require("../../events/utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import clickEvent from '../../events/click';
+import { isDefined } from '../../core/utils/type';
+import { map } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import sortingMixin from '../grid_core/ui.grid_core.sorting_mixin';
+import messageLocalization from '../../localization/message';
+import * as eventUtils from '../../events/utils';
 
 var COLUMN_HEADERS_VIEW_NAMESPACE = "dxDataGridColumnHeadersView";
 
@@ -135,7 +135,7 @@ var HeaderPanelSortingExtender = extend({}, sortingMixin, {
     }
 });
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

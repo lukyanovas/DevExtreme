@@ -1,21 +1,19 @@
 "use strict";
 
-var _isFunction = require("../../core/utils/type").isFunction,
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    _round = Math.round,
+import { isFunction as _isFunction } from '../../core/utils/type';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
 
-    algorithms = {},
-    defaultAlgorithm;
+var _round = Math.round, algorithms = {}, defaultAlgorithm;
 
-exports.getAlgorithm = function(value) {
+export var getAlgorithm = function(value) {
     return algorithms[_normalizeEnum(value)] || (_isFunction(value) && value) || defaultAlgorithm;
 };
 
-exports.addAlgorithm = function(name, callback) {
+export var addAlgorithm = function(name, callback) {
     algorithms[name] = callback;
 };
 
-exports.setDefaultAlgorithm = function(name) {
+export var setDefaultAlgorithm = function(name) {
     defaultAlgorithm = algorithms[name];
 };
 
@@ -27,9 +25,9 @@ var getStaticSideIndex = function(rect) {
     return (rect[2] - rect[0]) < (rect[3] - rect[1]) ? 0 : 1;
 };
 
-exports.getStaticSideIndex = getStaticSideIndex;
+export { getStaticSideIndex };
 
-exports.buildSidesData = function(rect, directions, _staticSideIndex) {
+export var buildSidesData = function(rect, directions, _staticSideIndex) {
     var staticSideIndex = _staticSideIndex !== undefined ? _staticSideIndex : getStaticSideIndex(rect),
         variedSideIndex = 1 - staticSideIndex,
         staticSideDirection = directions[staticSideIndex],
@@ -48,7 +46,7 @@ exports.buildSidesData = function(rect, directions, _staticSideIndex) {
     };
 };
 
-exports.calculateRectangles = function(nodes, head, totalRect, sidesData, rowData) {
+export var calculateRectangles = function(nodes, head, totalRect, sidesData, rowData) {
     var i,
         ii,
         variedSidePart = [0, 0, 0, 0],

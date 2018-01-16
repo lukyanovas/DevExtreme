@@ -1,16 +1,16 @@
 "use strict";
 
-var registerEventCallbacks = require("./event_registrator_callbacks");
-var extend = require("../../core/utils/extend").extend;
-var window = require("../../core/dom_adapter").getWindow();
-var injector = require("../../core/utils/dependency_injector");
-var typeUtils = require("../../core/utils/type");
-var Callbacks = require("../../core/utils/callbacks");
-var isWindow = typeUtils.isWindow;
-var isFunction = typeUtils.isFunction;
-var matches = require("../../core/polyfills/matches");
-var WeakMap = require("../../core/polyfills/weak_map");
-var hookTouchProps = require("../../events/core/hook_touch_props");
+import registerEventCallbacks from './event_registrator_callbacks';
+import { extend } from '../../core/utils/extend';
+import domAdapter from '../../core/dom_adapter';
+import injector from '../../core/utils/dependency_injector';
+import { isWindow, isFunction } from '../../core/utils/type';
+import Callbacks from '../../core/utils/callbacks';
+import matches from '../../core/polyfills/matches';
+import WeakMap from '../../core/polyfills/weak_map';
+import hookTouchProps from '../../events/core/hook_touch_props';
+
+var window = domAdapter.getWindow();
 
 var EMPTY_EVENT_NAME = "dxEmptyEventType";
 var NATIVE_EVENTS_TO_SUBSCRIBE = {
@@ -574,6 +574,7 @@ eventsEngine.subscribeGlobal = function() {
 
 ///#DEBUG
 eventsEngine.elementDataMap = elementDataMap;
+
 ///#ENDDEBUG
 
-module.exports = eventsEngine;
+export default eventsEngine;

@@ -1,13 +1,13 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    noop = require("../core/utils/common").noop,
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    eventUtils = require("../events/utils"),
-    pointerEvents = require("../events/pointer"),
-    TextBox = require("./text_box");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import { noop } from '../core/utils/common';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import * as eventUtils from '../events/utils';
+import pointerEvents from '../events/pointer';
+import TextBox from './text_box';
 
 var TEXTAREA_CLASS = "dx-textarea",
     TEXTEDITOR_INPUT_CLASS = "dx-texteditor-input";
@@ -275,4 +275,4 @@ var TextArea = TextBox.inherit({
 
 registerComponent("dxTextArea", TextArea);
 
-module.exports = TextArea;
+export default TextArea;

@@ -1,13 +1,13 @@
 "use strict";
 
-var registerComponent = require("../core/component_registrator"),
-    eventsEngine = require("../events/core/events_engine"),
-    grep = require("../core/utils/common").grep,
-    extend = require("../core/utils/extend").extend,
-    iteratorUtils = require("../core/utils/iterator"),
-    ValidationMixin = require("./validation/validation_mixin"),
-    ValidationEngine = require("./validation_engine"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit");
+import registerComponent from '../core/component_registrator';
+import eventsEngine from '../events/core/events_engine';
+import { grep } from '../core/utils/common';
+import { extend } from '../core/utils/extend';
+import iteratorUtils from '../core/utils/iterator';
+import ValidationMixin from './validation/validation_mixin';
+import ValidationEngine from './validation_engine';
+import CollectionWidget from './collection/ui.collection_widget.edit';
 
 var VALIDATION_SUMMARY_CLASS = "dx-validationsummary",
     ITEM_CLASS = VALIDATION_SUMMARY_CLASS + "-item",
@@ -370,4 +370,4 @@ var ValidationSummary = CollectionWidget.inherit({
 
 registerComponent("dxValidationSummary", ValidationSummary);
 
-module.exports = ValidationSummary;
+export default ValidationSummary;

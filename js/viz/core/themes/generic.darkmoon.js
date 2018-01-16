@@ -1,13 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    ACCENT_COLOR = "#3debd3",
-    BACKGROUND_COLOR = "#465672",
-    TITLE_COLOR = "#fff",
-    SUBTITLE_COLOR = "#919bac",
-    TEXT_COLOR = "#c7ccd4",
-    BORDER_COLOR = "#596980";
+import themeModule from '../../themes';
+
+var registerTheme = themeModule.registerTheme, ACCENT_COLOR = "#3debd3", BACKGROUND_COLOR = "#465672", TITLE_COLOR = "#fff", SUBTITLE_COLOR = "#919bac", TEXT_COLOR = "#c7ccd4", BORDER_COLOR = "#596980";
 
 registerTheme({
     name: "generic.darkmoon",

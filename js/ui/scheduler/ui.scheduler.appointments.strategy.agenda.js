@@ -1,10 +1,10 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    dateUtils = require("../../core/utils/date"),
-    each = require("../../core/utils/iterator").each,
-    arrayUtils = require("../../core/utils/array"),
-    BaseAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.base");
+import { noop } from '../../core/utils/common';
+import dateUtils from '../../core/utils/date';
+import { each } from '../../core/utils/iterator';
+import arrayUtils from '../../core/utils/array';
+import BaseAppointmentsStrategy from './ui.scheduler.appointments.strategy.base';
 
 var AgendaRenderingStrategy = BaseAppointmentsStrategy.inherit({
     ctor: function(instance) {
@@ -249,4 +249,4 @@ var AgendaRenderingStrategy = BaseAppointmentsStrategy.inherit({
     }
 });
 
-module.exports = AgendaRenderingStrategy;
+export default AgendaRenderingStrategy;

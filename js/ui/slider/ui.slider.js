@@ -1,23 +1,23 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    domUtils = require("../../core/utils/dom"),
-    numberLocalization = require("../../localization/number"),
-    devices = require("../../core/devices"),
-    extend = require("../../core/utils/extend").extend,
-    applyServerDecimalSeparator = require("../../core/utils/common").applyServerDecimalSeparator,
-    registerComponent = require("../../core/component_registrator"),
-    TrackBar = require("../track_bar"),
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    feedbackEvents = require("../../events/core/emitter.feedback"),
-    SliderHandle = require("./ui.slider_handle"),
-    inkRipple = require("../widget/utils.ink_ripple"),
-    clickEvent = require("../../events/click"),
-    Swipeable = require("../../events/gesture/swipeable"),
-    themes = require("../themes"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import domUtils from '../../core/utils/dom';
+import numberLocalization from '../../localization/number';
+import devices from '../../core/devices';
+import { extend } from '../../core/utils/extend';
+import { applyServerDecimalSeparator } from '../../core/utils/common';
+import registerComponent from '../../core/component_registrator';
+import TrackBar from '../track_bar';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import feedbackEvents from '../../events/core/emitter.feedback';
+import SliderHandle from './ui.slider_handle';
+import inkRipple from '../widget/utils.ink_ripple';
+import clickEvent from '../../events/click';
+import Swipeable from '../../events/gesture/swipeable';
+import themes from '../themes';
+import { Deferred } from '../../core/utils/deferred';
 
 var SLIDER_CLASS = "dx-slider",
     SLIDER_WRAPPER_CLASS = "dx-slider-wrapper",
@@ -705,4 +705,4 @@ var Slider = TrackBar.inherit({
 
 registerComponent("dxSlider", Slider);
 
-module.exports = Slider;
+export default Slider;

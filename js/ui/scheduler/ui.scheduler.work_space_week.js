@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    registerComponent = require("../../core/component_registrator"),
-    dateUtils = require("../../core/utils/date"),
-    dateLocalization = require("../../localization/date"),
-    each = require("../../core/utils/iterator").each,
-    SchedulerWorkSpace = require("./ui.scheduler.work_space.indicator");
+import $ from '../../core/renderer';
+import registerComponent from '../../core/component_registrator';
+import dateUtils from '../../core/utils/date';
+import dateLocalization from '../../localization/date';
+import { each } from '../../core/utils/iterator';
+import SchedulerWorkSpace from './ui.scheduler.work_space.indicator';
 
 var WEEK_CLASS = "dx-scheduler-work-space-week";
 
@@ -132,4 +132,4 @@ var SchedulerWorkSpaceWeek = SchedulerWorkSpace.inherit({
 
 registerComponent("dxSchedulerWorkSpaceWeek", SchedulerWorkSpaceWeek);
 
-module.exports = SchedulerWorkSpaceWeek;
+export default SchedulerWorkSpaceWeek;

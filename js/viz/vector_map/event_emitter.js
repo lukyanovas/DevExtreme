@@ -1,6 +1,6 @@
 "use strict";
 
-var Callbacks = require("../../core/utils/callbacks");
+import Callbacks from '../../core/utils/callbacks';
 
 var eventEmitterMethods = {
     _initEvents: function() {
@@ -41,7 +41,7 @@ var eventEmitterMethods = {
     }
 };
 
-exports.makeEventEmitter = function(target) {
+export var makeEventEmitter = function(target) {
     var proto = target.prototype,
         name;
     for(name in eventEmitterMethods) {
@@ -50,5 +50,5 @@ exports.makeEventEmitter = function(target) {
 };
 
 ///#DEBUG
-exports._TESTS_eventEmitterMethods = eventEmitterMethods;
+export var _TESTS_eventEmitterMethods = eventEmitterMethods;
 ///#ENDDEBUG

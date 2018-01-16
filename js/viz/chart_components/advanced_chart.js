@@ -1,22 +1,18 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    rangeModule = require("../translators/range"),
-    DEFAULT_AXIS_NAME = "defaultAxisName",
-    axisModule = require("../axes/base_axis"),
-    seriesFamilyModule = require("../core/series_family"),
-    BaseChart = require("./base_chart").BaseChart,
-    crosshairModule = require("./crosshair"),
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import rangeModule from '../translators/range';
+import axisModule from '../axes/base_axis';
+import seriesFamilyModule from '../core/series_family';
+import { BaseChart } from './base_chart';
+import crosshairModule from './crosshair';
+import { isDefined as _isDefined } from '../../core/utils/type';
+import { noop as _noop } from '../../core/utils/common';
+import vizUtils from '../core/utils';
 
-    _isArray = Array.isArray,
-    _isDefined = require("../../core/utils/type").isDefined,
-    _each = each,
-    _noop = require("../../core/utils/common").noop,
-    _extend = extend,
-    vizUtils = require("../core/utils"),
-    _map = vizUtils.map;
+var DEFAULT_AXIS_NAME = "defaultAxisName", _isArray = Array.isArray, _each = each, _extend = extend, _map = vizUtils.map;
 
 function prepareAxis(axisOptions) {
     return _isArray(axisOptions) ? axisOptions.length === 0 ? [{}] : axisOptions : [axisOptions];
@@ -506,4 +502,4 @@ var AdvancedChart = BaseChart.inherit({
     _correctValueAxes: _noop
 });
 
-exports.AdvancedChart = AdvancedChart;
+export { AdvancedChart };

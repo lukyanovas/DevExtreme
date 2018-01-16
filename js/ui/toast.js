@@ -3,17 +3,22 @@
 // TODOs
 // 1. animation
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    document = window.document,
-    eventsEngine = require("../events/core/events_engine"),
-    commonUtils = require("../core/utils/common"),
-    typeUtils = require("../core/utils/type"),
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    pointerEvents = require("../events/pointer"),
-    registerComponent = require("../core/component_registrator"),
-    Overlay = require("./overlay");
+import $ from '../core/renderer';
+
+import eventsEngine from '../events/core/events_engine';
+import commonUtils from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import pointerEvents from '../events/pointer';
+import registerComponent from '../core/component_registrator';
+import Overlay from './overlay';
+import domAdapter from '../core/dom_adapter';
+
+// TODOs
+// 1. animation
+
+var window = domAdapter.getWindow(), document = window.document;
 
 var TOAST_CLASS = "dx-toast",
     TOAST_CLASS_PREFIX = TOAST_CLASS + "-",
@@ -444,4 +449,4 @@ var Toast = Overlay.inherit({
 
 registerComponent(WIDGET_NAME, Toast);
 
-module.exports = Toast;
+export default Toast;

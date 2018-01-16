@@ -1,29 +1,28 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    registerComponent = require("../../core/component_registrator"),
-    Guid = require("../../core/guid"),
-    utils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    inArray = require("../../core/utils/array").inArray,
-    extend = require("../../core/utils/extend").extend,
-    stringUtils = require("../../core/utils/string"),
-    errors = require("../widget/ui.errors"),
-    browser = require("../../core/utils/browser"),
-    domUtils = require("../../core/utils/dom"),
-    messageLocalization = require("../../localization/message"),
-    Widget = require("../widget/ui.widget"),
-    windowUtils = require("../../core/utils/window"),
-    ValidationEngine = require("../validation_engine"),
-    LayoutManager = require("./ui.form.layout_manager"),
-    TabPanel = require("../tab_panel"),
-    Scrollable = require("../scroll_view/ui.scrollable"),
-    Deferred = require("../../core/utils/deferred").Deferred;
-
-require("../validation_summary");
-require("../validation_group");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import registerComponent from '../../core/component_registrator';
+import Guid from '../../core/guid';
+import utils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { inArray } from '../../core/utils/array';
+import { extend } from '../../core/utils/extend';
+import stringUtils from '../../core/utils/string';
+import errors from '../widget/ui.errors';
+import browser from '../../core/utils/browser';
+import domUtils from '../../core/utils/dom';
+import messageLocalization from '../../localization/message';
+import Widget from '../widget/ui.widget';
+import windowUtils from '../../core/utils/window';
+import ValidationEngine from '../validation_engine';
+import LayoutManager from './ui.form.layout_manager';
+import TabPanel from '../tab_panel';
+import Scrollable from '../scroll_view/ui.scrollable';
+import { Deferred } from '../../core/utils/deferred';
+import '../validation_summary';
+import '../validation_group';
 
 var FORM_CLASS = "dx-form",
     FIELD_ITEM_CLASS = "dx-field-item",
@@ -1660,10 +1659,10 @@ var Form = Widget.inherit({
 
 registerComponent("dxForm", Form);
 
-module.exports = Form;
+export default Form;
 
 //#DEBUG
-module.exports.__internals = extend({
+export var __internals = extend({
     FORM_CLASS: FORM_CLASS,
     FORM_GROUP_CLASS: FORM_GROUP_CLASS,
     FORM_GROUP_CAPTION_CLASS: FORM_GROUP_CAPTION_CLASS,

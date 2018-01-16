@@ -1,11 +1,8 @@
 "use strict";
 
-var ANDROID5_LIGHT = "android5.light",
-    themeModule = require("../../themes"),
-    registerThemeAlias = themeModule.registerThemeAlias,
-    SECONDARY_TEXT_COLOR = "#767676",
-    BORDER_COLOR = "#e8e8e8",
-    BLACK = "#000000";
+import themeModule from '../../themes';
+
+var ANDROID5_LIGHT = "android5.light", registerThemeAlias = themeModule.registerThemeAlias, SECONDARY_TEXT_COLOR = "#767676", BORDER_COLOR = "#e8e8e8", BLACK = "#000000";
 
 themeModule.registerTheme({
     name: ANDROID5_LIGHT,

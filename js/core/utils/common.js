@@ -1,11 +1,10 @@
 "use strict";
 
-var config = require("../config"),
-    deferredUtils = require("../utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    each = require("./iterator").each,
-    typeUtils = require("./type");
+import config from '../config';
+import { each } from './iterator';
+import * as typeUtils from './type';
+
+import { when, Deferred } from '../utils/deferred';
 
 var ensureDefined = function(value, defaultValue) {
     return typeUtils.isDefined(value) ? value : defaultValue;
@@ -315,29 +314,4 @@ var grep = function(elements, checkFunction, invert) {
     return result;
 };
 
-exports.ensureDefined = ensureDefined;
-
-exports.executeAsync = executeAsync;
-
-exports.deferRender = deferRender;
-exports.deferRenderer = deferRenderer;
-exports.deferUpdate = deferUpdate;
-exports.deferUpdater = deferUpdater;
-
-
-exports.splitPair = splitPair;
-exports.splitQuad = splitQuad;
-
-exports.findBestMatches = findBestMatches;
-
-exports.normalizeKey = normalizeKey;
-exports.denormalizeKey = denormalizeKey;
-exports.equalByValue = equalByValue;
-exports.getKeyHash = getKeyHash;
-
-exports.escapeRegExp = escapeRegExp;
-
-exports.applyServerDecimalSeparator = applyServerDecimalSeparator;
-
-exports.noop = noop;
-exports.grep = grep;
+export { ensureDefined, executeAsync, deferRender, deferRenderer, deferUpdate, deferUpdater, splitPair, splitQuad, findBestMatches, normalizeKey, denormalizeKey, equalByValue, getKeyHash, escapeRegExp, applyServerDecimalSeparator, noop, grep };

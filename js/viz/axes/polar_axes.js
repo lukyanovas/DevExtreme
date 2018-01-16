@@ -1,24 +1,14 @@
 "use strict";
 
-var vizUtils = require("../core/utils"),
-    isNumeric = require("../../core/utils/type").isNumeric,
-    extend = require("../../core/utils/extend").extend,
-    constants = require("./axes_constants"),
-    circularAxes,
-    xyAxesLinear = require("./xy_axes").linear,
-    tick = require("./tick").tick,
-    polarAxes,
-    _map = vizUtils.map,
+import vizUtils from '../core/utils';
+import { isNumeric } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import constants from './axes_constants';
+import { linear as xyAxesLinear } from './xy_axes';
+import { tick } from './tick';
+import { noop as _noop } from '../../core/utils/common';
 
-    _math = Math,
-    _abs = _math.abs,
-    _round = _math.round,
-    convertPolarToXY = vizUtils.convertPolarToXY,
-
-    _extend = extend,
-    _noop = require("../../core/utils/common").noop,
-
-    HALF_PI_ANGLE = 90;
+var circularAxes, polarAxes, _map = vizUtils.map, _math = Math, _abs = _math.abs, _round = _math.round, convertPolarToXY = vizUtils.convertPolarToXY, _extend = extend, HALF_PI_ANGLE = 90;
 
 function getPolarQuarter(angle) {
     var quarter;
@@ -342,7 +332,7 @@ circularAxes = polarAxes.circular = {
     }
 };
 
-exports.circularSpider = _extend({}, circularAxes, {
+export var circularSpider = _extend({}, circularAxes, {
     _createAxisElement: function() {
         return this._renderer.path([], "area");
     },

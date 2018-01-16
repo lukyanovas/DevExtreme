@@ -1,17 +1,19 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    dataUtils = require("../../core/element_data"),
-    domUtils = require("../../core/utils/dom"),
-    Widget = require("../widget/ui.widget"),
-    dateUtils = require("../../core/utils/date"),
-    extend = require("../../core/utils/extend").extend,
-    noop = require("../../core/utils/common").noop,
-    dateSerialization = require("../../core/utils/date_serialization"),
-    eventUtils = require("../../events/utils"),
-    clickEvent = require("../../events/click");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import dataUtils from '../../core/element_data';
+import domUtils from '../../core/utils/dom';
+import Widget from '../widget/ui.widget';
+import dateUtils from '../../core/utils/date';
+import { extend } from '../../core/utils/extend';
+import { noop } from '../../core/utils/common';
+import dateSerialization from '../../core/utils/date_serialization';
+import * as eventUtils from '../../events/utils';
+import clickEvent from '../../events/click';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var abstract = Widget.abstract,
 
@@ -299,4 +301,4 @@ var BaseView = Widget.inherit({
     }
 });
 
-module.exports = BaseView;
+export default BaseView;

@@ -1,20 +1,19 @@
 "use strict";
 
-require("../integration/jquery");
-
-var $ = require("jquery"),
-    Class = require("../core/class"),
-    Callbacks = require("../core/utils/callbacks"),
-    commonUtils = require("../core/utils/common"),
-    iteratorUtils = require("../core/utils/iterator"),
-    isPlainObject = require("../core/utils/type").isPlainObject,
-    extend = require("../core/utils/extend").extend,
-    navigationDevices = require("./navigation_devices"),
-    EventsMixin = require("../core/events_mixin"),
-    errors = require("./errors"),
-    hardwareBackButton = require("../mobile/process_hardware_back_button").processCallback,
-    hideTopOverlay = require("../mobile/hide_top_overlay"),
-    when = require("../core/utils/deferred").when;
+import '../integration/jquery';
+import $ from 'jquery';
+import Class from '../core/class';
+import Callbacks from '../core/utils/callbacks';
+import commonUtils from '../core/utils/common';
+import iteratorUtils from '../core/utils/iterator';
+import { isPlainObject } from '../core/utils/type';
+import { extend } from '../core/utils/extend';
+import navigationDevices from './navigation_devices';
+import EventsMixin from '../core/events_mixin';
+import errors from './errors';
+import { processCallback as hardwareBackButton } from '../mobile/process_hardware_back_button';
+import hideTopOverlay from '../mobile/hide_top_overlay';
+import { when } from '../core/utils/deferred';
 
 var NAVIGATION_TARGETS = {
         current: "current",
@@ -574,8 +573,4 @@ var NavigationStack = Class.inherit({
 
 ///#DEBUG
 HistoryBasedNavigationManager.NAVIGATION_TARGETS = NAVIGATION_TARGETS;
-///#ENDDEBUG
-
-exports.HistoryBasedNavigationManager = HistoryBasedNavigationManager;
-exports.StackBasedNavigationManager = StackBasedNavigationManager;
-exports.NavigationStack = NavigationStack;
+export { HistoryBasedNavigationManager, StackBasedNavigationManager, NavigationStack };

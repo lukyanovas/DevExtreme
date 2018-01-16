@@ -1,6 +1,6 @@
 "use strict";
 
-exports.compare = function(x, y, maxLevel) {
+export var compare = function(x, y, maxLevel) {
 
     function normalizeArg(value) {
         if(typeof value === "string") {

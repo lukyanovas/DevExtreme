@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    Action = require("../core/action"),
-    viewPortUtils = require("../core/utils/view_port"),
-    extend = require("../core/utils/extend").extend,
-    isPlainObject = require("../core/utils/type").isPlainObject,
-    Toast = require("./toast");
+import $ from '../core/renderer';
+import Action from '../core/action';
+import * as viewPortUtils from '../core/utils/view_port';
+import { extend } from '../core/utils/extend';
+import { isPlainObject } from '../core/utils/type';
+import Toast from './toast';
 
 
 var $notify = null;
@@ -51,4 +51,4 @@ var notify = function(message, /* optional */ type, displayTime) {
  * @module ui/notify
  * @export default
  */
-module.exports = notify;
+export default notify;

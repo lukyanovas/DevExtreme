@@ -1,8 +1,8 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    BaseStrategy = require("./base"),
-    Observer = require("./observer");
+import { extend } from '../../core/utils/extend';
+import BaseStrategy from './base';
+import Observer from './observer';
 
 var eventMap = {
     "dxpointerdown": "mousedown",
@@ -60,4 +60,4 @@ MouseStrategy.resetObserver = function() {
 };
 
 
-module.exports = MouseStrategy;
+export default MouseStrategy;

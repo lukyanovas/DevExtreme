@@ -1,13 +1,12 @@
 "use strict";
 
-var eventsEngine = require("../events/core/events_engine"),
-    window = require("../core/dom_adapter").getWindow(),
-    document = window.document,
-    localStorage = window.localStorage,
-    Class = require("../core/class"),
-    abstract = Class.abstract,
-    errors = require("./errors").errors,
-    ArrayStore = require("./array_store");
+import eventsEngine from '../events/core/events_engine';
+import Class from '../core/class';
+import { errors } from './errors';
+import ArrayStore from './array_store';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document, localStorage = window.localStorage, abstract = Class.abstract;
 
 var LocalStoreBackend = Class.inherit({
 
@@ -154,4 +153,4 @@ var LocalStore = ArrayStore.inherit({
     }
 }, "local");
 
-module.exports = LocalStore;
+export default LocalStore;

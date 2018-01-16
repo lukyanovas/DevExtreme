@@ -1,16 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    variableWrapper = require("../../core/utils/variable_wrapper"),
-    dataCoreUtils = require("../../core/utils/data"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    FunctionTemplate = require("../widget/function_template"),
-    DataHelperMixin = require("../../data_helper"),
-    DataSourceModule = require("../../data/data_source/data_source"),
-    ArrayStore = require("../../data/array_store"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import variableWrapper from '../../core/utils/variable_wrapper';
+import dataCoreUtils from '../../core/utils/data';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import FunctionTemplate from '../widget/function_template';
+import DataHelperMixin from '../../data_helper';
+import DataSourceModule from '../../data/data_source/data_source';
+import ArrayStore from '../../data/array_store';
+import { Deferred } from '../../core/utils/deferred';
 
 /**
 * @name DataExpressionMixin
@@ -278,4 +278,4 @@ var DataExpressionMixin = extend(DataHelperMixin, {
 * @type String
 */
 
-module.exports = DataExpressionMixin;
+export default DataExpressionMixin;

@@ -1,10 +1,12 @@
 "use strict";
 
-var isFunction = require("../core/utils/type").isFunction,
-    window = require("../core/dom_adapter").getWindow(),
-    map = require("../core/utils/iterator").map,
-    toComparable = require("../core/utils/data").toComparable,
-    Deferred = require("../core/utils/deferred").Deferred;
+import { isFunction } from '../core/utils/type';
+import { map } from '../core/utils/iterator';
+import { toComparable } from '../core/utils/data';
+import { Deferred } from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var XHR_ERROR_UNLOAD = "DEVEXTREME_XHR_ERROR_UNLOAD";
 
@@ -256,4 +258,4 @@ var utils = {
     base64_encode: base64_encode
 };
 
-module.exports = utils;
+export default utils;

@@ -1,17 +1,19 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    dataUtils = require("../../core/element_data"),
-    Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    registerEvent = require("./event_registrator"),
-    eventUtils = require("../utils"),
-    pointerEvents = require("../pointer"),
-    wheelEvent = require("./wheel");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import dataUtils from '../../core/element_data';
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import registerEvent from './event_registrator';
+import * as eventUtils from '../utils';
+import pointerEvents from '../pointer';
+import wheelEvent from './wheel';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var MANAGER_EVENT = "dxEventManager",
     EMITTER_DATA = "dxEmitter";
@@ -294,4 +296,4 @@ var registerEmitter = function(emitterConfig) {
     });
 };
 
-module.exports = registerEmitter;
+export default registerEmitter;

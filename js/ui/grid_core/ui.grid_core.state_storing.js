@@ -1,16 +1,17 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    window = require("../../core/dom_adapter").getWindow(),
-    localStorage = window.localStorage,
-    modules = require("./ui.grid_core.modules"),
-    errors = require("../widget/ui.errors"),
-    browser = require("../../core/utils/browser"),
-    sessionStorage = require("../../core/utils/storage").sessionStorage,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import eventsEngine from '../../events/core/events_engine';
+import modules from './ui.grid_core.modules';
+import errors from '../widget/ui.errors';
+import browser from '../../core/utils/browser';
+import { sessionStorage } from '../../core/utils/storage';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import { Deferred } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), localStorage = window.localStorage;
 
 var DATE_REGEX = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}(?:\.\d*)?)Z$/;
 
@@ -29,7 +30,7 @@ var parseDates = function(state) {
     });
 };
 
-exports.StateStoringController = modules.ViewController.inherit((function() {
+export var StateStoringController = modules.ViewController.inherit((function() {
     var getStorage = function(options) {
         var storage = options.type === "sessionStorage" ? sessionStorage() : localStorage;
 

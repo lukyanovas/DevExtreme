@@ -1,7 +1,7 @@
 "use strict";
 
-var typeUtils = require("./type"),
-    commonUtils = require("./common");
+import * as typeUtils from './type';
+import commonUtils from './common';
 
 var encodeHtml = (function() {
     var encodeRegExp = [new RegExp("&", "g"), new RegExp('"', "g"), new RegExp("'", "g"), new RegExp("<", "g"), new RegExp(">", "g")];
@@ -96,9 +96,5 @@ var isEmpty = (function() {
     };
 })();
 
-exports.encodeHtml = encodeHtml;
-exports.pairToObject = pairToObject;
-exports.quadToObject = quadToObject;
-exports.format = stringFormat;
-exports.replaceAll = replaceAll;
-exports.isEmpty = isEmpty;
+export var format = stringFormat;
+export { encodeHtml, pairToObject, quadToObject, replaceAll, isEmpty };

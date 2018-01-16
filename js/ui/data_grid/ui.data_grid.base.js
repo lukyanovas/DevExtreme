@@ -1,29 +1,30 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    registerComponent = require("../../core/component_registrator"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    logger = require("../../core/utils/console").logger,
-    browser = require("../../core/utils/browser"),
-    Widget = require("../widget/ui.widget"),
-    gridCore = require("./ui.data_grid.core"),
-    callModuleItemsMethod = gridCore.callModuleItemsMethod;
+import $ from '../../core/renderer';
+import registerComponent from '../../core/component_registrator';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { logger } from '../../core/utils/console';
+import browser from '../../core/utils/browser';
+import Widget from '../widget/ui.widget';
+import gridCore from './ui.data_grid.core';
+
+var callModuleItemsMethod = gridCore.callModuleItemsMethod;
 
 var DATAGRID_ROW_SELECTOR = ".dx-row",
     DATAGRID_DEPRECATED_TEMPLATE_WARNING = "Specifying grid templates with the jQuery selector name is now deprecated. Use the DOM Node or the jQuery object that references this selector instead.";
 
-require("./ui.data_grid.column_headers");
-require("./ui.data_grid.columns_controller");
-require("./ui.data_grid.data_controller");
-require("./ui.data_grid.sorting");
-require("./ui.data_grid.rows");
-require("./ui.data_grid.context_menu");
-require("./ui.data_grid.error_handling");
-require("./ui.data_grid.grid_view");
-require("./ui.data_grid.header_panel");
+import './ui.data_grid.column_headers';
+import './ui.data_grid.columns_controller';
+import './ui.data_grid.data_controller';
+import './ui.data_grid.sorting';
+import './ui.data_grid.rows';
+import './ui.data_grid.context_menu';
+import './ui.data_grid.error_handling';
+import './ui.data_grid.grid_view';
+import './ui.data_grid.header_panel';
 
 gridCore.registerModulesOrder([
     "stateStoring",
@@ -295,4 +296,4 @@ DataGrid.registerModule = gridCore.registerModule.bind(gridCore);
 
 registerComponent("dxDataGrid", DataGrid);
 
-module.exports = DataGrid;
+export default DataGrid;

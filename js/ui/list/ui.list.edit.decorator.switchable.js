@@ -1,13 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    noop = require("../../core/utils/common").noop,
-    EditDecorator = require("./ui.list.edit.decorator"),
-    abstract = EditDecorator.abstract,
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    feedbackEvents = require("../../events/core/emitter.feedback");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { noop } from '../../core/utils/common';
+import EditDecorator from './ui.list.edit.decorator';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import feedbackEvents from '../../events/core/emitter.feedback';
+
+var abstract = EditDecorator.abstract;
 
 var LIST_EDIT_DECORATOR = "dxListEditDecorator",
     POINTER_DOWN_EVENT_NAME = eventUtils.addNamespace(pointerEvents.down, LIST_EDIT_DECORATOR),
@@ -189,4 +190,4 @@ var SwitchableEditDecorator = EditDecorator.inherit({
 
 });
 
-module.exports = SwitchableEditDecorator;
+export default SwitchableEditDecorator;

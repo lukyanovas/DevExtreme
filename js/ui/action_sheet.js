@@ -1,17 +1,19 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    noop = require("../core/utils/common").noop,
-    messageLocalization = require("../localization/message"),
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    Button = require("./button"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit"),
-    Popup = require("./popup"),
-    Popover = require("./popover"),
-    BindableTemplate = require("./widget/bindable_template"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import { noop } from '../core/utils/common';
+import messageLocalization from '../localization/message';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import Button from './button';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import Popup from './popup';
+import Popover from './popover';
+import BindableTemplate from './widget/bindable_template';
+import { Deferred } from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var ACTION_SHEET_CLASS = "dx-actionsheet",
     ACTION_SHEET_CONTAINER_CLASS = "dx-actionsheet-container",
@@ -521,4 +523,4 @@ var ActionSheet = CollectionWidget.inherit({
 
 registerComponent("dxActionSheet", ActionSheet);
 
-module.exports = ActionSheet;
+export default ActionSheet;

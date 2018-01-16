@@ -1,8 +1,9 @@
 "use strict";
 
-var extend = require("./extend").extend,
-    window = require("../dom_adapter").getWindow(),
-    navigator = window.navigator;
+import { extend } from './extend';
+import domAdapter from '../dom_adapter';
+
+var window = domAdapter.getWindow(), navigator = window.navigator;
 
 var webkitRegExp = /(webkit)[ \/]([\w.]+)/,
     ieRegExp = /(msie) (\d{1,2}\.\d)/,
@@ -43,4 +44,4 @@ var browserFromUA = function(ua) {
 
     return result;
 };
-module.exports = extend({ _fromUA: browserFromUA }, browserFromUA(navigator.userAgent));
+export default extend({ _fromUA: browserFromUA }, browserFromUA(navigator.userAgent));

@@ -1,12 +1,10 @@
 "use strict";
 
-require("./core");
-
-var Globalize = require("globalize"),
-    numberLocalization = require("../number"),
-    errors = require("../../core/errors");
-
-require("globalize/number");
+import './core';
+import Globalize from 'globalize';
+import numberLocalization from '../number';
+import errors from '../../core/errors';
+import 'globalize/number';
 
 if(Globalize && Globalize.formatNumber) {
 

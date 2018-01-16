@@ -1,15 +1,10 @@
 "use strict";
 
-var iterateUtils = require("../../core/utils/iterator"),
-    BaseElement = require("./base_indicators").BaseElement,
+import iterateUtils from '../../core/utils/iterator';
+import { BaseElement } from './base_indicators';
+import { isString as _isString } from '../../core/utils/type';
 
-    _Number = Number,
-    _abs = Math.abs,
-    _isString = require("../../core/utils/type").isString,
-    _isArray = Array.isArray,
-    _isFinite = isFinite,
-    _each = iterateUtils.each,
-    _map = iterateUtils.map;
+var _Number = Number, _abs = Math.abs, _isArray = Array.isArray, _isFinite = isFinite, _each = iterateUtils.each, _map = iterateUtils.map;
 
 var BaseRangeContainer = BaseElement.inherit({
     _init: function() {
@@ -182,4 +177,4 @@ function isNotEmptySegmentDesc(start, end, threshold) {
     return start - end >= threshold;
 }
 
-module.exports = BaseRangeContainer;
+export default BaseRangeContainer;

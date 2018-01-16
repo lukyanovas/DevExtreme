@@ -1,10 +1,10 @@
 "use strict";
 
-var errors = require("../../core/errors"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    inArray = require("../../core/utils/array").inArray,
-    dateUtils = require("../../core/utils/date");
+import errors from '../../core/errors';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { inArray } from '../../core/utils/array';
+import dateUtils from '../../core/utils/date';
 
 var toMs = dateUtils.dateToMilliseconds;
 
@@ -789,4 +789,4 @@ var resultUtils = {
     getTimeZoneOffset: getTimeZoneOffset
 };
 
-module.exports = resultUtils;
+export default resultUtils;

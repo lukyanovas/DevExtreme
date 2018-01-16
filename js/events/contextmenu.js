@@ -1,13 +1,13 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    support = require("../core/utils/support"),
-    devices = require("../core/devices"),
-    Class = require("../core/class"),
-    registerEvent = require("./core/event_registrator"),
-    eventUtils = require("./utils"),
-    holdEvent = require("./hold");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import * as support from '../core/utils/support';
+import devices from '../core/devices';
+import Class from '../core/class';
+import registerEvent from './core/event_registrator';
+import * as eventUtils from './utils';
+import holdEvent from './hold';
 
 var CONTEXTMENU_NAMESPACE = "dxContexMenu",
 
@@ -65,4 +65,4 @@ var ContextMenu = Class.inherit({
 registerEvent(CONTEXTMENU_EVENT_NAME, new ContextMenu());
 
 
-exports.name = CONTEXTMENU_EVENT_NAME;
+export var name = CONTEXTMENU_EVENT_NAME;

@@ -1,21 +1,21 @@
 "use strict";
 
-var $ = require("../../../core/renderer"),
-    window = require("../../../core/dom_adapter").getWindow(),
-    Class = require("../../../core/class"),
-    stringFormat = require("../../../core/utils/string").format,
-    errors = require("../../../data/errors").errors,
-    noop = require("../../../core/utils/common").noop,
-    typeUtils = require("../../../core/utils/type"),
-    iteratorUtils = require("../../../core/utils/iterator"),
-    inArray = require("../../../core/utils/array").inArray,
-    pivotGridUtils = require("../ui.pivot_grid.utils"),
-    deferredUtils = require("../../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    getLanguageId = require("../../../localization/language_codes").getLanguageId;
+import $ from '../../../core/renderer';
+import Class from '../../../core/class';
+import { format as stringFormat } from '../../../core/utils/string';
+import { errors } from '../../../data/errors';
+import { noop } from '../../../core/utils/common';
+import * as typeUtils from '../../../core/utils/type';
+import iteratorUtils from '../../../core/utils/iterator';
+import { inArray } from '../../../core/utils/array';
+import pivotGridUtils from '../ui.pivot_grid.utils';
+import * as deferredUtils from '../../../core/utils/deferred';
+import { getLanguageId } from '../../../localization/language_codes';
+import domAdapter from '../../../core/dom_adapter';
 
-exports.XmlaStore = Class.inherit((function() {
+var window = domAdapter.getWindow(), when = deferredUtils.when, Deferred = deferredUtils.Deferred;
+
+export var XmlaStore = Class.inherit((function() {
 
     var discover = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><Discover xmlns="urn:schemas-microsoft-com:xml-analysis"><RequestType>{2}</RequestType><Restrictions><RestrictionList><CATALOG_NAME>{0}</CATALOG_NAME><CUBE_NAME>{1}</CUBE_NAME></RestrictionList></Restrictions><Properties><PropertyList><Catalog>{0}</Catalog>{3}</PropertyList></Properties></Discover></Body></Envelope>',
         execute = '<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/"><Body><Execute xmlns="urn:schemas-microsoft-com:xml-analysis"><Command><Statement>{0}</Statement></Command><Properties><PropertyList><Catalog>{1}</Catalog><ShowHiddenCubes>True</ShowHiddenCubes><SspropInitAppName>Microsoft SQL Server Management Studio</SspropInitAppName><Timeout>3600</Timeout>{2}</PropertyList></Properties></Execute></Body></Envelope>',

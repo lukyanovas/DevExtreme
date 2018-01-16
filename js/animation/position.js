@@ -116,17 +116,134 @@
 
 
 
-var $ = require("../core/renderer"),
-    commonUtils = require("../core/utils/common"),
-    each = require("../core/utils/iterator").each,
-    window = require("../core/dom_adapter").getWindow(),
-    document = window.document,
-    isWindow = require("../core/utils/type").isWindow,
-    stringUtils = require("../core/utils/string"),
-    extend = require("../core/utils/extend").extend,
+import $ from '../core/renderer';
 
-    translator = require("./translator"),
-    support = require("../core/utils/support");
+import commonUtils from '../core/utils/common';
+import { each } from '../core/utils/iterator';
+import { isWindow } from '../core/utils/type';
+import stringUtils from '../core/utils/string';
+import { extend } from '../core/utils/extend';
+import translator from './translator';
+import * as support from '../core/utils/support';
+
+/**
+* @name positionConfig
+* @publicName positionConfig
+* @namespace DevExpress
+* @type object
+*/
+
+/**
+* @name positionConfig_my
+* @publicName my
+* @type string|object
+* @acceptValues 'left'|'right'|'top'|'bottom'|'center'|'left top'|'left bottom'|'right top'|'right bottom'
+*/
+/**
+* @name positionConfig_my_x
+* @publicName x
+* @type string
+* @acceptValues 'left'|'right'|'center'
+*/
+/**
+* @name positionConfig_my_y
+* @publicName y
+* @type string
+* @acceptValues 'top'|'bottom'|'center'
+*/
+
+/**
+* @name positionConfig_at
+* @publicName at
+* @type string|object
+* @acceptValues 'left'|'right'|'top'|'bottom'|'center'|'left top'|'left bottom'|'right top'|'right bottom'
+*/
+/**
+* @name positionConfig_at_x
+* @publicName x
+* @type string
+* @acceptValues 'left'|'right'|'center'
+*/
+/**
+* @name positionConfig_at_y
+* @publicName y
+* @type string
+* @acceptValues 'top'|'bottom'|'center'
+*/
+
+/**
+* @name positionConfig_of
+* @publicName of
+* @type string|Node|jQuery|window
+*/
+
+/**
+* @name positionConfig_offset
+* @publicName offset
+* @type string|object
+*/
+/**
+* @name positionConfig_offset_x
+* @publicName x
+* @type number
+* @default 0
+*/
+/**
+* @name positionConfig_offset_y
+* @publicName y
+* @type number
+* @default 0
+*/
+
+/**
+* @name positionConfig_collision
+* @publicName collision
+* @type string|object
+* @acceptValues 'none'|'flip'|'fit'|'flipfit'|'none flip'|'flip none'|'none fit'|'fit none'|'none flipfit'|'flipfit none'|'flip fit'|'fit flip'|'fit flipfit'|'flipfit fit'
+*/
+/**
+* @name positionConfig_collision_x
+* @publicName x
+* @type string
+* @default 'none'
+* @acceptValues 'none'|'flip'|'fit'|'flipfit'
+*/
+/**
+* @name positionConfig_collision_y
+* @publicName y
+* @type string
+* @default 'none'
+* @acceptValues 'none'|'flip'|'fit'|'flipfit'
+*/
+
+/**
+* @name positionConfig_boundary
+* @publicName boundary
+* @type string|Node|jQuery|window
+*/
+
+/**
+* @name positionConfig_boundaryOffset
+* @publicName boundaryOffset
+* @type string|object
+*/
+/**
+* @name positionConfig_boundaryOffset_x
+* @publicName x
+* @type number
+* @default 0
+*/
+/**
+* @name positionConfig_boundaryOffset_y
+* @publicName y
+* @default 0
+* @type number
+*/
+
+import domAdapter from '../core/dom_adapter';
+
+
+var window = domAdapter.getWindow(), document = window.document;
 
 var horzRe = /left|right/,
     vertRe = /top|bottom/,
@@ -493,7 +610,7 @@ if(!position.normalizeAlign) {
     position.normalizeAlign = normalizeAlign;
 }
 
-module.exports = {
+export default {
     calculateScrollbarWidth: calculateScrollbarWidth,
     calculate: calculatePosition,
     setup: position,

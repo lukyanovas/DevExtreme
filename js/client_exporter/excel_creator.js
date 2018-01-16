@@ -1,15 +1,17 @@
 "use strict";
 
-var Class = require("../core/class"),
-    window = require("../core/dom_adapter").getWindow(),
-    typeUtils = require("../core/utils/type"),
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    errors = require("../ui/widget/ui.errors"),
-    stringUtils = require("../core/utils/string"),
-    JSZip = require("jszip"),
-    fileSaver = require("./file_saver"),
-    excelFormatConverter = require("./excel_format_converter"),
+import Class from '../core/class';
+import * as typeUtils from '../core/utils/type';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import errors from '../ui/widget/ui.errors';
+import stringUtils from '../core/utils/string';
+import JSZip from 'jszip';
+import fileSaver from './file_saver';
+import excelFormatConverter from './excel_format_converter';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(),
     XML_TAG = "<?xml version=\"1.0\" encoding=\"utf-8\"?>",
     GROUP_SHEET_PR_XML = "<sheetPr><outlinePr summaryBelow=\"0\"/></sheetPr>",
     SINGLE_SHEET_PR_XML = "<sheetPr/>",
@@ -36,12 +38,12 @@ var Class = require("../core/class"),
     },
     EXCEL_START_TIME = Date.UTC(1899, 11, 30),
     DAYS_COUNT_BEFORE_29_FEB_1900 = 60,
-
     BOLD_STYLES_COUNT = 4,
-    MAX_DIGIT_WIDTH_IN_PIXELS = 7, //Calibri font with 11pt size
+    //Calibri font with 11pt size
+    MAX_DIGIT_WIDTH_IN_PIXELS = 7,
     CUSTOM_FORMAT_START_INDEX = 165;
 
-exports.ExcelCreator = Class.inherit({
+export var ExcelCreator = Class.inherit({
     _getXMLTag: function(tagName, attributes, content) {
         var result = "<" + tagName,
             i,
@@ -569,7 +571,7 @@ exports.ExcelCreator = Class.inherit({
     }
 });
 
-exports.getData = function(data, options, callback) {
+export var getData = function(data, options, callback) {
     // TODO: Looks like there is no need to export ExcelCreator any more?
     var excelCreator = new exports.ExcelCreator(data, options);
 
@@ -585,7 +587,7 @@ exports.getData = function(data, options, callback) {
 };
 
 ///#DEBUG
-exports.__internals = {
+export var __internals = {
     CONTENTTYPES_FILE_NAME: CONTENTTYPES_FILE_NAME,
     RELATIONSHIP_PART_NAME: RELATIONSHIP_PART_NAME,
     XL_FOLDER_NAME: XL_FOLDER_NAME,

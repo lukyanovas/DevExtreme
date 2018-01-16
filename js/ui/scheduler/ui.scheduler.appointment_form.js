@@ -1,16 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Form = require("../form"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    messageLocalization = require("../../localization/message"),
-    clickEvent = require("../../events/click"),
-    eventsEngine = require("../../events/core/events_engine");
-
-require("./ui.scheduler.recurrence_editor");
-require("./ui.scheduler.timezone_editor");
-require("../text_area");
-require("../tag_box");
+import $ from '../../core/renderer';
+import Form from '../form';
+import dateSerialization from '../../core/utils/date_serialization';
+import messageLocalization from '../../localization/message';
+import clickEvent from '../../events/click';
+import eventsEngine from '../../events/core/events_engine';
+import './ui.scheduler.recurrence_editor';
+import './ui.scheduler.timezone_editor';
+import '../text_area';
+import '../tag_box';
 
 var RECURRENCE_EDITOR_ITEM_CLASS = "dx-scheduler-recurrence-rule-item";
 
@@ -246,4 +245,4 @@ var SchedulerAppointmentForm = {
     }
 };
 
-module.exports = SchedulerAppointmentForm;
+export default SchedulerAppointmentForm;

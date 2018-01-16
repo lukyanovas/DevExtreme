@@ -1,6 +1,6 @@
 "use strict";
 
-var errors = require("../errors");
+import errors from '../errors';
 
 var Locker = function() {
     var info = {};
@@ -34,4 +34,4 @@ var Locker = function() {
     };
 };
 
-module.exports = Locker;
+export default Locker;

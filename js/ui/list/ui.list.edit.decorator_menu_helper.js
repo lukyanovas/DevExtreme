@@ -20,4 +20,4 @@ var EditDecoratorMenuHelperMixin = {
 
 };
 
-module.exports = EditDecoratorMenuHelperMixin;
+export default EditDecoratorMenuHelperMixin;

@@ -1,7 +1,7 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Shader = require("./ui.scheduler.currentTimeShader");
+import $ from '../../core/renderer';
+import Shader from './ui.scheduler.currentTimeShader';
 
 var DATE_TIME_SHADER_ALL_DAY_CLASS = "dx-scheduler-date-time-shader-all-day",
     DATE_TIME_SHADER_TOP_CLASS = "dx-scheduler-date-time-shader-top",
@@ -81,4 +81,4 @@ var VerticalCurrentTimeShader = Shader.inherit({
     }
 });
 
-module.exports = VerticalCurrentTimeShader;
+export default VerticalCurrentTimeShader;

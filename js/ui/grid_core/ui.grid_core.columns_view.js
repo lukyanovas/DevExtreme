@@ -1,22 +1,23 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    eventsEngine = require("../../events/core/events_engine"),
-    dataUtils = require("../../core/element_data"),
-    clickEvent = require("../../events/click"),
-    browser = require("../../core/utils/browser"),
-    commonUtils = require("../../core/utils/common"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    typeUtils = require("../../core/utils/type"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    extend = require("../../core/utils/extend").extend,
-    getDefaultAlignment = require("../../core/utils/position").getDefaultAlignment,
-    devices = require("../../core/devices"),
-    modules = require("./ui.grid_core.modules"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    columnStateMixin = require("./ui.grid_core.column_state_mixin"),
-    noop = commonUtils.noop;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import dataUtils from '../../core/element_data';
+import clickEvent from '../../events/click';
+import browser from '../../core/utils/browser';
+import commonUtils from '../../core/utils/common';
+import { getPublicElement } from '../../core/utils/dom';
+import * as typeUtils from '../../core/utils/type';
+import iteratorUtils from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { getDefaultAlignment } from '../../core/utils/position';
+import devices from '../../core/devices';
+import modules from './ui.grid_core.modules';
+import gridCoreUtils from './ui.grid_core.utils';
+import columnStateMixin from './ui.grid_core.column_state_mixin';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), noop = commonUtils.noop;
 
 var SCROLL_CONTAINER_CLASS = "scroll-container",
     GROUP_SPACE_CLASS = "group-space",
@@ -83,7 +84,7 @@ var subscribeToRowClick = function(that, $table) {
     }));
 };
 
-exports.ColumnsView = modules.View.inherit(columnStateMixin).inherit({
+export var ColumnsView = modules.View.inherit(columnStateMixin).inherit({
     _createScrollableOptions: function() {
         var that = this,
             scrollingOptions = that.option("scrolling"),

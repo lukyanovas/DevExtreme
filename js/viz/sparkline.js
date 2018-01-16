@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("./sparklines/sparkline");
+export default require("./sparklines/sparkline");

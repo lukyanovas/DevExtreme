@@ -1,29 +1,20 @@
 "use strict";
 
-var Callbacks = require("../../core/utils/callbacks"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    iteratorUtils = require("../../core/utils/iterator"),
-    Class = require("../../core/class"),
-    stringUtils = require("../../core/utils/string"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    virtualScrolling = require("../grid_core/ui.grid_core.virtual_scrolling_core"),
-    stateStoring = require("../grid_core/ui.grid_core.state_storing"),
-    PivotGridDataSource = require("./data_source"),
-    pivotGridUtils = require("./ui.pivot_grid.utils"),
-    foreachTree = pivotGridUtils.foreachTree,
-    foreachTreeAsync = pivotGridUtils.foreachTreeAsync,
-    createPath = pivotGridUtils.createPath,
-    formatValue = pivotGridUtils.formatValue,
-    math = Math,
-    GRAND_TOTAL_TYPE = "GT",
-    TOTAL_TYPE = "T",
-    DATA_TYPE = "D",
-    NOT_AVAILABLE = "#N/A";
+import Callbacks from '../../core/utils/callbacks';
+import * as deferredUtils from '../../core/utils/deferred';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import iteratorUtils from '../../core/utils/iterator';
+import Class from '../../core/class';
+import stringUtils from '../../core/utils/string';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import virtualScrolling from '../grid_core/ui.grid_core.virtual_scrolling_core';
+import stateStoring from '../grid_core/ui.grid_core.state_storing';
+import PivotGridDataSource from './data_source';
+import pivotGridUtils from './ui.pivot_grid.utils';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred, foreachTree = pivotGridUtils.foreachTree, foreachTreeAsync = pivotGridUtils.foreachTreeAsync, createPath = pivotGridUtils.createPath, formatValue = pivotGridUtils.formatValue, math = Math, GRAND_TOTAL_TYPE = "GT", TOTAL_TYPE = "T", DATA_TYPE = "D", NOT_AVAILABLE = "#N/A";
 
 var proxyMethod = function(instance, methodName, defaultResult) {
     if(!instance[methodName]) {
@@ -34,7 +25,7 @@ var proxyMethod = function(instance, methodName, defaultResult) {
     }
 };
 
-exports.DataController = Class.inherit((function() {
+export var DataController = Class.inherit((function() {
 
     function getHeaderItemText(item, description, options) {
         var text = item.text;

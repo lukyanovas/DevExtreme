@@ -1,13 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
+import themeModule from '../../themes';
 
-    WHITE = "#ffffff",
-    BLACK = "#000000",
-    CONTRAST_ACTIVE = "#cf00da",
-    MARKER_COLOR = "#f8ca00",
-    AREA_LAYER_COLOR = "#686868";
+var registerTheme = themeModule.registerTheme, WHITE = "#ffffff", BLACK = "#000000", CONTRAST_ACTIVE = "#cf00da", MARKER_COLOR = "#f8ca00", AREA_LAYER_COLOR = "#686868";
 
 registerTheme({
     name: "generic.contrast",

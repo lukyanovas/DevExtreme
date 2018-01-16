@@ -1,10 +1,10 @@
 "use strict";
 
-var each = require("../../core/utils/iterator").each,
-    Class = require("../../core/class"),
-    EventsMixin = require("../../core/events_mixin"),
-    ValidationEngine = require("../../ui/validation_engine"),
-    ko = require("knockout");
+import { each } from '../../core/utils/iterator';
+import Class from '../../core/class';
+import EventsMixin from '../../core/events_mixin';
+import ValidationEngine from '../../ui/validation_engine';
+import ko from 'knockout';
 
 var koDxValidator = Class.inherit({
     ctor: function(target, option) {

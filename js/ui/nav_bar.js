@@ -1,9 +1,9 @@
 "use strict";
 
-var registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    NavBarItem = require("./nav_bar/item"),
-    Tabs = require("./tabs");
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import NavBarItem from './nav_bar/item';
+import Tabs from './tabs';
 
 var NAVBAR_CLASS = "dx-navbar",
     ITEM_CLASS = "dx-item-content",
@@ -76,4 +76,4 @@ NavBar.ItemClass = NavBarItem;
 
 registerComponent("dxNavBar", NavBar);
 
-module.exports = NavBar;
+export default NavBar;

@@ -1,7 +1,7 @@
 "use strict";
 
-var isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend;
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
 
 function getPathStyle(options) {
     return { stroke: options.color, "stroke-width": options.width, "stroke-opacity": options.opacity };
@@ -122,4 +122,4 @@ function createTick(axis, renderer, tickOptions, gridOptions, skippedCategory, s
     };
 }
 
-exports.tick = createTick;
+export var tick = createTick;

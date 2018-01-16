@@ -1,11 +1,10 @@
 "use strict";
+import { extend } from './extend';
+import { isFunction } from './type';
+import { each } from './iterator';
+import Class from '../class';
 
-module.exports = function(object) {
-    var extend = require("./extend").extend,
-        isFunction = require("./type").isFunction,
-        each = require("./iterator").each,
-        Class = require("../class");
-
+export default function(object) {
     var BaseClass = Class.inherit(object),
         InjectedClass = BaseClass,
         instance = new InjectedClass(object),
@@ -43,4 +42,4 @@ module.exports = function(object) {
     };
 
     return object;
-};
+}

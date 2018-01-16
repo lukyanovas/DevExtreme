@@ -1,7 +1,7 @@
 "use strict";
 
-var arrayQueryImpl = require("./array_query"),
-    remoteQueryImpl = require("./remote_query");
+import arrayQueryImpl from './array_query';
+import remoteQueryImpl from './remote_query';
 
 var queryImpl = {
     array: arrayQueryImpl,
@@ -31,6 +31,7 @@ var query = function() {
     var impl = Array.isArray(arguments[0]) ? "array" : "remote";
     return queryImpl[impl].apply(this, arguments);
 };
+
 /**
 * @name Query
 * @publicName Query
@@ -180,5 +181,6 @@ var query = function() {
 * @param1 getter:object
 * @return Promise<number>
 */
-module.exports = query;
-module.exports.queryImpl = queryImpl;
+export default query;
+
+export { queryImpl };

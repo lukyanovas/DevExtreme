@@ -1,8 +1,8 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    registerComponent = require("../../core/component_registrator"),
-    SchedulerTimeline = require("./ui.scheduler.timeline");
+import $ from '../../core/renderer';
+import registerComponent from '../../core/component_registrator';
+import SchedulerTimeline from './ui.scheduler.timeline';
 
 var TIMELINE_CLASS = "dx-scheduler-timeline-week",
     HEADER_PANEL_CELL_CLASS = "dx-scheduler-header-panel-cell",
@@ -84,4 +84,4 @@ var SchedulerTimelineWeek = SchedulerTimeline.inherit({
 
 registerComponent("dxSchedulerTimelineWeek", SchedulerTimelineWeek);
 
-module.exports = SchedulerTimelineWeek;
+export default SchedulerTimelineWeek;

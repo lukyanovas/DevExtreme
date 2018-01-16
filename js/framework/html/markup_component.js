@@ -1,12 +1,11 @@
 "use strict";
 
-require("../../integration/jquery");
-
-var $ = require("jquery"),
-    Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    noop = require("../../core/utils/common").noop,
-    publicComponentUtils = require("../../core/utils/public_component");
+import '../../integration/jquery';
+import $ from 'jquery';
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import { noop } from '../../core/utils/common';
+import publicComponentUtils from '../../core/utils/public_component';
 
 var MarkupComponent = Class.inherit({
 
@@ -62,4 +61,4 @@ MarkupComponent.getInstance = function($element) {
     return publicComponentUtils.getInstanceByElement($($element), this);
 };
 
-exports.MarkupComponent = MarkupComponent;
+export { MarkupComponent };

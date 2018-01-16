@@ -1,14 +1,13 @@
 "use strict";
 
-var commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    getKeyHash = commonUtils.getKeyHash,
-    dataQuery = require("../../data/query"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    errors = require("../widget/ui.errors"),
-    SelectionStrategy = require("./selection.strategy");
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import dataQuery from '../../data/query';
+import * as deferredUtils from '../../core/utils/deferred';
+import errors from '../widget/ui.errors';
+import SelectionStrategy from './selection.strategy';
+
+var getKeyHash = commonUtils.getKeyHash, when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 function SelectionFilterCreator(keyExpr, selectedItemKeys, isSelectAll, equalKeys, keyOf, equalByReference) {
 
@@ -121,7 +120,7 @@ function SelectionFilterCreator(keyExpr, selectedItemKeys, isSelectAll, equalKey
     };
 }
 
-module.exports = SelectionStrategy.inherit({
+export default SelectionStrategy.inherit({
     ctor: function(options) {
         this.callBase(options);
         this._initSelectedItemKeyHash();

@@ -1,20 +1,20 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Class = require("../../core/class"),
-    stringUtils = require("../../core/utils/string"),
-    registerComponent = require("../../core/component_registrator"),
-    commonUtils = require("../../core/utils/common"),
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    clickEvent = require("../../events/click"),
-    messageLocalization = require("../../localization/message"),
-    Widget = require("../widget/ui.widget"),
-    SelectBox = require("../select_box"),
-    NumberBox = require("../number_box"),
-    eventUtils = require("../../events/utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Class from '../../core/class';
+import stringUtils from '../../core/utils/string';
+import registerComponent from '../../core/component_registrator';
+import commonUtils from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import clickEvent from '../../events/click';
+import messageLocalization from '../../localization/message';
+import Widget from '../widget/ui.widget';
+import SelectBox from '../select_box';
+import NumberBox from '../number_box';
+import * as eventUtils from '../../events/utils';
 
 var PAGES_LIMITER = 4,
     PAGER_CLASS = 'dx-pager',
@@ -708,6 +708,6 @@ var Pager = Widget.inherit({
     }
 });
 
-module.exports = Pager;
+export default Pager;
 
 registerComponent("dxPager", Pager);

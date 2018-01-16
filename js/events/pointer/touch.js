@@ -1,9 +1,9 @@
 "use strict";
 
-var devices = require("../../core/devices"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    BaseStrategy = require("./base");
+import devices from '../../core/devices';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import BaseStrategy from './base';
 
 var eventMap = {
     "dxpointerdown": "touchstart",
@@ -66,4 +66,4 @@ TouchStrategy.map = eventMap;
 TouchStrategy.normalize = normalizeTouchEvent;
 
 
-module.exports = TouchStrategy;
+export default TouchStrategy;

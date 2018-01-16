@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = "18.1.0"; /* DevExpress.VERSION */
+export default "18.1.0"; /* DevExpress.VERSION */

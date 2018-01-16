@@ -1,16 +1,15 @@
 "use strict";
 
-var typeUtils = require("../../core/utils/type"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    extend = require("../../core/utils/extend").extend,
-    queryAdapters = require("../query_adapters"),
-    odataUtils = require("./utils"),
-    serializePropName = odataUtils.serializePropName,
-    errors = require("../errors").errors,
-    dataUtils = require("../utils"),
-    isFunction = typeUtils.isFunction,
-    isPlainObject = typeUtils.isPlainObject,
-    grep = require("../../core/utils/common").grep;
+import * as typeUtils from '../../core/utils/type';
+import iteratorUtils from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import queryAdapters from '../query_adapters';
+import odataUtils from './utils';
+import { errors } from '../errors';
+import dataUtils from '../utils';
+import { grep } from '../../core/utils/common';
+
+var serializePropName = odataUtils.serializePropName, isFunction = typeUtils.isFunction, isPlainObject = typeUtils.isPlainObject;
 
 var DEFAULT_PROTOCOL_VERSION = 2;
 
@@ -484,4 +483,4 @@ var createODataQueryAdapter = function(queryOptions) {
 
 queryAdapters.odata = createODataQueryAdapter;
 
-exports.odata = createODataQueryAdapter;
+export var odata = createODataQueryAdapter;

@@ -1,6 +1,6 @@
 "use strict";
 
-var _extend = require("../../core/utils/extend").extend;
+import { extend as _extend } from '../../core/utils/extend';
 
 function Node() { }
 
@@ -57,4 +57,4 @@ function updateGroup(content, attrs) {
     content.inner.smartAttr({ fill: attrs.fill, opacity: attrs.opacity, hatching: attrs.hatching });
 }
 
-module.exports = Node;
+export default Node;

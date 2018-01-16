@@ -1,17 +1,13 @@
 "use strict";
 
-var debug = require("../../core/utils/console").debug,
-    typeUtils = require("../../core/utils/type"),
-    _each = require("../../core/utils/iterator").each,
-    vizUtils = require("../core/utils"),
-    _isDefined = typeUtils.isDefined,
-    adjust = require("../../core/utils/math").adjust,
-    _math = Math,
-    _floor = _math.floor,
-    _max = _math.max,
-    _abs = _math.abs,
+import { debug } from '../../core/utils/console';
+import * as typeUtils from '../../core/utils/type';
+import { each as _each } from '../../core/utils/iterator';
+import vizUtils from '../core/utils';
+import { adjust } from '../../core/utils/math';
+import { map as _map } from '../core/utils';
 
-    _map = require("../core/utils").map;
+var _isDefined = typeUtils.isDefined, _math = Math, _floor = _math.floor, _max = _math.max, _abs = _math.abs;
 
 var getValueAxesPerPanes = function(valueAxes) {
     var result = {};
@@ -420,4 +416,4 @@ var multiAxesSynchronizer = {
     }
 };
 
-module.exports = multiAxesSynchronizer;
+export default multiAxesSynchronizer;

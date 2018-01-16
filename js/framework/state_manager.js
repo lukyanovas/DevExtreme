@@ -1,8 +1,8 @@
 "use strict";
 
-var Class = require("../core/class"),
-    inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each;
+import Class from '../core/class';
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
 
 var MemoryKeyValueStorage = Class.inherit({
     ctor: function() {
@@ -94,5 +94,5 @@ var StateManager = Class.inherit({
     }
 });
 
-module.exports = StateManager;
-module.exports.MemoryKeyValueStorage = MemoryKeyValueStorage;
+export default StateManager;
+export { MemoryKeyValueStorage };

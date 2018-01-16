@@ -1,31 +1,31 @@
 "use strict";
 
-require("../../integration/jquery");
+import '../../integration/jquery';
+import $ from 'jquery';
+import commonUtils from '../../core/utils/common';
+import Component from '../../core/component';
+import extendUtils from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import errors from '../errors';
+import { Application } from '../application';
+import { ConditionalViewCacheDecorator } from '../view_cache';
+import html from './presets';
+import CommandManager from './command_manager';
+import { ViewEngine } from './view_engine';
+import messageLocalization from '../../localization/message';
+import { value as viewPort } from '../../core/utils/view_port';
+import initMobileViewportModule from '../../mobile/init_mobile_viewport/init_mobile_viewport';
+import devices from '../../core/devices';
+import feedbackEvents from '../../events/core/emitter.feedback';
+import TransitionExecutorModule from '../../animation/transition_executor/transition_executor';
+import animationPresetsModule from '../../animation/presets/presets';
+import { when } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
 
-var $ = require("jquery"),
-    commonUtils = require("../../core/utils/common"),
-    window = require("../../core/dom_adapter").getWindow(),
-    document = window.document,
-    Component = require("../../core/component"),
-    extendUtils = require("../../core/utils/extend"),
-    each = require("../../core/utils/iterator").each,
-    errors = require("../errors"),
-    Application = require("../application").Application,
-    ConditionalViewCacheDecorator = require("../view_cache").ConditionalViewCacheDecorator,
-    html = require("./presets"),
-    CommandManager = require("./command_manager"),
-    ViewEngine = require("./view_engine").ViewEngine,
-    messageLocalization = require("../../localization/message"),
-    viewPort = require("../../core/utils/view_port").value,
-    initMobileViewportModule = require("../../mobile/init_mobile_viewport/init_mobile_viewport"),
-    devices = require("../../core/devices"),
-    feedbackEvents = require("../../events/core/emitter.feedback"),
-    TransitionExecutorModule = require("../../animation/transition_executor/transition_executor"),
-    animationPresetsModule = require("../../animation/presets/presets"),
-    when = require("../../core/utils/deferred").when;
+var window = domAdapter.getWindow(), document = window.document;
 
-require("./layout_controller");
-require("../../ui/themes");
+import './layout_controller';
+import '../../ui/themes';
 
 var VIEW_PORT_CLASSNAME = "dx-viewport",
     LAYOUT_CHANGE_ANIMATION_NAME = "layout-change";
@@ -743,4 +743,4 @@ var HtmlApplication = Application.inherit({
     }
 });
 
-module.exports = HtmlApplication;
+export default HtmlApplication;

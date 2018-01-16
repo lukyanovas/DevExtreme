@@ -1,8 +1,8 @@
 "use strict";
 
-var jQuery = require("jquery"),
-    easing = require("../../animation/easing");
+import jQuery from 'jquery';
+import { setEasing } from '../../animation/easing';
 
 if(jQuery) {
-    easing.setEasing(jQuery.easing);
+    setEasing(jQuery.easing);
 }

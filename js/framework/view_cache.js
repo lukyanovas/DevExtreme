@@ -1,9 +1,9 @@
 "use strict";
 
-var inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each,
-    Class = require("../core/class"),
-    EventsMixin = require("../core/events_mixin");
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
+import Class from '../core/class';
+import EventsMixin from '../core/events_mixin';
 
 /**
 * @name ViewCache
@@ -214,8 +214,5 @@ var HistoryDependentViewCacheDecorator = Class.inherit({
     }
 }).include(EventsMixin);
 
-module.exports = ViewCache;
-module.exports.NullViewCache = NullViewCache;
-module.exports.ConditionalViewCacheDecorator = ConditionalViewCacheDecorator;
-module.exports.CapacityViewCacheDecorator = CapacityViewCacheDecorator;
-module.exports.HistoryDependentViewCacheDecorator = HistoryDependentViewCacheDecorator;
+export default ViewCache;
+export { NullViewCache, ConditionalViewCacheDecorator, CapacityViewCacheDecorator, HistoryDependentViewCacheDecorator };

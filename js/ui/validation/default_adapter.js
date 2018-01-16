@@ -1,7 +1,7 @@
 "use strict";
 
-var Callbacks = require("../../core/utils/callbacks"),
-    Class = require("../../core/class");
+import Callbacks from '../../core/utils/callbacks';
+import Class from '../../core/class';
 
 var DefaultAdapter = Class.inherit({
     ctor: function(editor, validator) {
@@ -50,4 +50,4 @@ var DefaultAdapter = Class.inherit({
     }
 });
 
-module.exports = DefaultAdapter;
+export default DefaultAdapter;

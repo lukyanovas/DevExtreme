@@ -1,13 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Callbacks = require("../../core/utils/callbacks"),
-    each = require("../../core/utils/iterator").each,
-    commonUtils = require("../../core/utils/common"),
-    extend = require("../../core/utils/extend").extend,
-    math = Math,
-    simulatedStrategy = require("./ui.scrollable.simulated"),
-    LoadIndicator = require("../load_indicator");
+import $ from '../../core/renderer';
+import Callbacks from '../../core/utils/callbacks';
+import { each } from '../../core/utils/iterator';
+import commonUtils from '../../core/utils/common';
+import { extend } from '../../core/utils/extend';
+import simulatedStrategy from './ui.scrollable.simulated';
+import LoadIndicator from '../load_indicator';
+
+var math = Math;
 
 var SCROLLVIEW_PULLDOWN_REFRESHING_CLASS = "dx-scrollview-pull-down-loading",
     SCROLLVIEW_PULLDOWN_READY_CLASS = "dx-scrollview-pull-down-ready",
@@ -307,4 +308,4 @@ var SimulatedScrollViewStrategy = simulatedStrategy.SimulatedStrategy.inherit({
     }
 });
 
-module.exports = SimulatedScrollViewStrategy;
+export default SimulatedScrollViewStrategy;

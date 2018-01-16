@@ -1,21 +1,21 @@
 "use strict";
 
-var DropDownEditor = require("./drop_down_editor/ui.drop_down_editor"),
-    DataExpressionMixin = require("./editor/ui.data_expression"),
-    commonUtils = require("../core/utils/common"),
-    window = require("../core/dom_adapter").getWindow(),
-    map = require("../core/utils/iterator").map,
-    isDefined = require("../core/utils/type").isDefined,
-    selectors = require("./widget/selectors"),
-    KeyboardProcessor = require("./widget/ui.keyboard_processor"),
-    deferredUtils = require("../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    grep = require("../core/utils/common").grep,
-    extend = require("../core/utils/extend").extend,
-    registerComponent = require("../core/component_registrator");
+import DropDownEditor from './drop_down_editor/ui.drop_down_editor';
+import DataExpressionMixin from './editor/ui.data_expression';
+import commonUtils from '../core/utils/common';
+import { map } from '../core/utils/iterator';
+import { isDefined } from '../core/utils/type';
+import selectors from './widget/selectors';
+import KeyboardProcessor from './widget/ui.keyboard_processor';
+import * as deferredUtils from '../core/utils/deferred';
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import { grep } from '../core/utils/common';
+import { extend } from '../core/utils/extend';
+import registerComponent from '../core/component_registrator';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var DROP_DOWN_BOX_CLASS = "dx-dropdownbox",
     DIMENSION_DEPENDENT_OPTIONS = ["width", "height", "maxWidth", "maxHeight", "minWidth", "minHeight"];
@@ -374,4 +374,4 @@ var DropDownBox = DropDownEditor.inherit({
 
 registerComponent("dxDropDownBox", DropDownBox);
 
-module.exports = DropDownBox;
+export default DropDownBox;

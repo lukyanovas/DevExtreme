@@ -1,8 +1,8 @@
 "use strict";
 
-var isDefined = require("./type").isDefined,
-    each = require("./iterator").each,
-    objectUtils = require("./object");
+import { isDefined } from './type';
+import { each } from './iterator';
+import objectUtils from './object';
 
 var isEmpty = function(entity) {
     return Array.isArray(entity) && !entity.length;
@@ -105,10 +105,4 @@ var merge = function(array1, array2) {
     return array1;
 };
 
-exports.isEmpty = isEmpty;
-exports.wrapToArray = wrapToArray;
-exports.intersection = intersection;
-exports.removeDuplicates = removeDuplicates;
-exports.normalizeIndexes = normalizeIndexes;
-exports.inArray = inArray;
-exports.merge = merge;
+export { isEmpty, wrapToArray, intersection, removeDuplicates, normalizeIndexes, inArray, merge };

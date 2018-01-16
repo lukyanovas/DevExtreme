@@ -1,22 +1,16 @@
 "use strict";
 
-var proto = require("./tree_map.base").prototype,
-    nodeProto = require("./node").prototype,
-    expand = require("../core/helpers").expand,
-    common = require("./common"),
+import { prototype as proto } from './tree_map.base';
+import { prototype as nodeProto } from './node';
+import { expand } from '../core/helpers';
+import common from './common';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import { inArray as _inArray } from '../../core/utils/array';
 
-    _buildRectAppearance = common.buildRectAppearance,
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    _inArray = require("../../core/utils/array").inArray,
+var _buildRectAppearance = common.buildRectAppearance, MODE_NONE = 0, MODE_SINGLE = 1, MODE_MULTIPLE = 2, STATE_CODE = 2;
 
-    MODE_NONE = 0,
-    MODE_SINGLE = 1,
-    MODE_MULTIPLE = 2,
-
-    STATE_CODE = 2;
-
-require("./api");
-require("./states");
+import './api';
+import './states';
 
 proto._eventsMap.onSelectionChanged = { name: "selectionChanged" };
 

@@ -1,11 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    Callbacks = require("../../core/utils/callbacks"),
-    domUtils = require("../../core/utils/dom"),
-    Class = require("../../core/class"),
-    abstract = Class.abstract;
+import $ from '../../core/renderer';
+import Callbacks from '../../core/utils/callbacks';
+import domUtils from '../../core/utils/dom';
+import Class from '../../core/class';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, abstract = Class.abstract;
 
 
 var renderedCallbacks = Callbacks();
@@ -60,5 +61,5 @@ var TemplateBase = Class.inherit({
 
 });
 
-module.exports = TemplateBase;
-module.exports.renderedCallbacks = renderedCallbacks;
+export default TemplateBase;
+export { renderedCallbacks };

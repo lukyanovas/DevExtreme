@@ -1,7 +1,7 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    eventEmitterModule = require("./event_emitter");
+import { extend } from '../../core/utils/extend';
+import eventEmitterModule from './event_emitter';
 
 var _Number = Number,
     _min = Math.min,
@@ -510,9 +510,8 @@ function createProjectUnprojectMethods(project, unproject, p1, p2, delta) {
     };
 }
 
-exports.Projection = Projection;
-exports.projection = projection;
+export { Projection, projection };
 
 ///#DEBUG
-exports._TESTS_Engine = Engine;
+export var _TESTS_Engine = Engine;
 ///#ENDDEBUG

@@ -1,12 +1,10 @@
 "use strict";
 
-require("./core");
-
-var Globalize = require("globalize"),
-    messageLocalization = require("../message"),
-    coreLocalization = require("../core");
-
-require("globalize/message");
+import './core';
+import Globalize from 'globalize';
+import messageLocalization from '../message';
+import coreLocalization from '../core';
+import 'globalize/message';
 
 if(Globalize && Globalize.formatMessage) {
 

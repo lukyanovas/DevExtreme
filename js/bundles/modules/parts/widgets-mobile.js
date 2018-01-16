@@ -1,6 +1,6 @@
 "use strict";
 
-var ui = require("./widgets-base");
+import ui from './widgets-base';
 
 /// BUNDLER_PARTS
 /* Mobile widgets (dx.module-widgets-mobile.js) */

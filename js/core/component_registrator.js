@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("./renderer");
-var callbacks = require("./component_registrator_callbacks");
-var errors = require("./errors");
-var publicComponentUtils = require("./utils/public_component");
+import $ from './renderer';
+import callbacks from './component_registrator_callbacks';
+import errors from './errors';
+import publicComponentUtils from './utils/public_component';
 
 /**
  * @name registerComponent
@@ -77,4 +77,4 @@ var registerRendererComponent = function(name, componentClass) {
 
 callbacks.add(registerRendererComponent);
 
-module.exports = registerComponent;
+export default registerComponent;

@@ -1,9 +1,8 @@
 "use strict";
 
-var proto = require("./tree_map.base").prototype,
-    _expand = require("../core/helpers").expand;
-
-require("./api");
+import { prototype as proto } from './tree_map.base';
+import { expand as _expand } from '../core/helpers';
+import './api';
 
 proto._eventsMap.onDrill = { name: "drill" };
 

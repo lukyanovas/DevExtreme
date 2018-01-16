@@ -1,8 +1,8 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    extend = require("../../core/utils/extend").extend,
-    HorizontalMonthLineAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.horizontal_month_line");
+import { noop } from '../../core/utils/common';
+import { extend } from '../../core/utils/extend';
+import HorizontalMonthLineAppointmentsStrategy from './ui.scheduler.appointments.strategy.horizontal_month_line';
 
 var MONTH_APPOINTMENT_HEIGHT_RATIO = 0.6,
     MONTH_APPOINTMENT_MIN_OFFSET = 26,
@@ -128,4 +128,4 @@ var HorizontalMonthRenderingStrategy = HorizontalMonthLineAppointmentsStrategy.i
     }
 });
 
-module.exports = HorizontalMonthRenderingStrategy;
+export default HorizontalMonthRenderingStrategy;

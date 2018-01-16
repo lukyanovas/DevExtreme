@@ -1,26 +1,25 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    commonUtils = require("../core/utils/common"),
-    typeUtils = require("../core/utils/type"),
-    isDefined = typeUtils.isDefined,
-    isPromise = typeUtils.isPromise,
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each,
-    deferredUtils = require("../core/utils/deferred"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    Deferred = deferredUtils.Deferred,
-    errors = require("../core/errors"),
-    inkRipple = require("./widget/utils.ink_ripple"),
-    messageLocalization = require("../localization/message"),
-    registerComponent = require("../core/component_registrator"),
-    eventUtils = require("../events/utils"),
-    dataQuery = require("../data/query"),
-    DropDownList = require("./drop_down_editor/ui.drop_down_list"),
-    themes = require("./themes"),
-    clickEvent = require("../events/click");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import commonUtils from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
+import * as deferredUtils from '../core/utils/deferred';
+import { getPublicElement } from '../core/utils/dom';
+import errors from '../core/errors';
+import inkRipple from './widget/utils.ink_ripple';
+import messageLocalization from '../localization/message';
+import registerComponent from '../core/component_registrator';
+import * as eventUtils from '../events/utils';
+import dataQuery from '../data/query';
+import DropDownList from './drop_down_editor/ui.drop_down_list';
+import themes from './themes';
+import clickEvent from '../events/click';
+
+var isDefined = typeUtils.isDefined, isPromise = typeUtils.isPromise, Deferred = deferredUtils.Deferred;
 
 var DISABLED_STATE_SELECTOR = ".dx-state-disabled",
 
@@ -846,4 +845,4 @@ var SelectBox = DropDownList.inherit({
 
 registerComponent("dxSelectBox", SelectBox);
 
-module.exports = SelectBox;
+export default SelectBox;

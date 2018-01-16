@@ -1,14 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    eventsEngine = require("../../events/core/events_engine"),
-    devices = require("../../core/devices"),
-    inArray = require("../../core/utils/array").inArray,
-    extend = require("../../core/utils/extend").extend,
-    registerComponent = require("../../core/component_registrator"),
-    TextEditor = require("./ui.text_editor"),
-    eventUtils = require("../../events/utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import devices from '../../core/devices';
+import { inArray } from '../../core/utils/array';
+import { extend } from '../../core/utils/extend';
+import registerComponent from '../../core/component_registrator';
+import TextEditor from './ui.text_editor';
+import * as eventUtils from '../../events/utils';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var ua = window.navigator.userAgent,
     ignoreCode = [8, 9, 13, 33, 34, 35, 36, 37, 38, 39, 40, 46],
@@ -191,4 +193,4 @@ TextBox.__internals = {
 ///#ENDDEBUG
 registerComponent("dxTextBox", TextBox);
 
-module.exports = TextBox;
+export default TextBox;

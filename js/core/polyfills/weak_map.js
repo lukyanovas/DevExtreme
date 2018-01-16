@@ -1,8 +1,9 @@
 "use strict";
 
-var inArray = require("../../core/utils/array").inArray,
-    window = require("../../core/dom_adapter").getWindow(),
-    WeakMap = window.WeakMap;
+import { inArray } from '../../core/utils/array';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), WeakMap = window.WeakMap;
 
 if(!WeakMap) {
     // NOTE: This is an incomplete WeakMap polyfill but it is enough for creation purposes
@@ -48,4 +49,4 @@ if(!WeakMap) {
     };
 }
 
-module.exports = WeakMap;
+export default WeakMap;

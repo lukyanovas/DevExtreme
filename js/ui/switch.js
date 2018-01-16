@@ -1,21 +1,23 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    eventsEngine = require("../events/core/events_engine"),
-    devices = require("../core/devices"),
-    extend = require("../core/utils/extend").extend,
-    inkRipple = require("./widget/utils.ink_ripple"),
-    registerComponent = require("../core/component_registrator"),
-    Editor = require("./editor/editor"),
-    eventUtils = require("../events/utils"),
-    feedbackEvents = require("../events/core/emitter.feedback"),
-    themes = require("./themes"),
-    fx = require("../animation/fx"),
-    messageLocalization = require("../localization/message"),
-    clickEvent = require("../events/click"),
-    Swipeable = require("../events/gesture/swipeable"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import devices from '../core/devices';
+import { extend } from '../core/utils/extend';
+import inkRipple from './widget/utils.ink_ripple';
+import registerComponent from '../core/component_registrator';
+import Editor from './editor/editor';
+import * as eventUtils from '../events/utils';
+import feedbackEvents from '../events/core/emitter.feedback';
+import themes from './themes';
+import fx from '../animation/fx';
+import messageLocalization from '../localization/message';
+import clickEvent from '../events/click';
+import Swipeable from '../events/gesture/swipeable';
+import { Deferred } from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var SWITCH_CLASS = "dx-switch",
     SWITCH_WRAPPER_CLASS = SWITCH_CLASS + "-wrapper",
@@ -458,4 +460,4 @@ var Switch = Editor.inherit({
 
 registerComponent("dxSwitch", Switch);
 
-module.exports = Switch;
+export default Switch;

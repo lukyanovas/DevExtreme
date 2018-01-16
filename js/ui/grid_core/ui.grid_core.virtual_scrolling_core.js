@@ -1,13 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    eventsEngine = require("../../events/core/events_engine"),
-    browser = require("../../core/utils/browser"),
-    positionUtils = require("../../animation/position"),
-    each = require("../../core/utils/iterator").each,
-    Class = require("../../core/class"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import browser from '../../core/utils/browser';
+import positionUtils from '../../animation/position';
+import { each } from '../../core/utils/iterator';
+import Class from '../../core/class';
+import { Deferred } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var SCROLLING_MODE_INFINITE = "infinite",
     SCROLLING_MODE_VIRTUAL = "virtual";
@@ -20,7 +22,7 @@ var isAppendMode = function(that) {
     return that.option("scrolling.mode") === SCROLLING_MODE_INFINITE;
 };
 
-exports.getContentHeightLimit = function(browser) {
+export var getContentHeightLimit = function(browser) {
     if(browser.msie) {
         return 4000000;
     } else if(browser.mozilla) {
@@ -30,7 +32,7 @@ exports.getContentHeightLimit = function(browser) {
     return 15000000;
 };
 
-exports.subscribeToExternalScrollers = function($element, scrollChangedHandler, $targetElement) {
+export var subscribeToExternalScrollers = function($element, scrollChangedHandler, $targetElement) {
     var $scrollElement,
         scrollableArray = [],
         scrollToArray = [],
@@ -115,7 +117,7 @@ exports.subscribeToExternalScrollers = function($element, scrollChangedHandler, 
     };
 };
 
-exports.VirtualScrollController = Class.inherit((function() {
+export var VirtualScrollController = Class.inherit((function() {
     var getViewportPageCount = function(that) {
         var pageSize = that._dataSource.pageSize(),
             preventPreload = that.option('scrolling.preventPreload');
@@ -336,7 +338,7 @@ exports.VirtualScrollController = Class.inherit((function() {
 
             if(virtualItemsCount) {
                 var virtualContentSize = (virtualItemsCount.begin + virtualItemsCount.end + that.itemsCount()) * that._viewportItemSize;
-                var contentHeightLimit = exports.getContentHeightLimit(browser);
+                var contentHeightLimit = getContentHeightLimit(browser);
                 if(virtualContentSize > contentHeightLimit) {
                     that._sizeRatio = contentHeightLimit / virtualContentSize;
                 } else {
@@ -538,7 +540,7 @@ exports.VirtualScrollController = Class.inherit((function() {
         subscribeToWindowScrollEvents: function($element) {
             var that = this;
 
-            that._windowScroll = that._windowScroll || exports.subscribeToExternalScrollers($element, function(scrollTop) {
+            that._windowScroll = that._windowScroll || subscribeToExternalScrollers($element, function(scrollTop) {
                 if(that.viewportItemSize()) {
                     that.setViewportPosition(scrollTop);
                 }

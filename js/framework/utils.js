@@ -1,8 +1,8 @@
 "use strict";
 
-var ko = require("knockout"),
-    each = require("../core/utils/iterator").each,
-    KoTemplate = require("../integration/knockout/template");
+import ko from 'knockout';
+import { each } from '../core/utils/iterator';
+import KoTemplate from '../integration/knockout/template';
 
 var mergeWithReplace = function(targetArray, arrayToMerge, needReplaceFn) {
     var result = [];
@@ -65,7 +65,7 @@ var resolveIconValue = function(command, containerOptions) {
     return (showIcon || !hasText) ? iconValue : "";
 };
 
-exports.utils = {
+export var utils = {
     mergeCommands: mergeCommands,
     commandToContainer: {
         resolveIconValue: resolveIconValue,
@@ -73,7 +73,8 @@ exports.utils = {
         resolvePropertyValue: resolvePropertyValue
     }
 };
-exports.templateProvider = {
+
+export var templateProvider = {
 
     createTemplate: function(element) {
         return new KoTemplate(element);

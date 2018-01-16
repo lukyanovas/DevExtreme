@@ -1,6 +1,6 @@
 "use strict";
 
-var _squarify = require("./tiling.squarified.base");
+import _squarify from './tiling.squarified.base';
 
 function accumulate(total, current, count) {
     return ((count - 1) * total + current) / count;
@@ -11,4 +11,4 @@ function strip(data) {
 }
 
 require("./tiling").addAlgorithm("strip", strip);
-module.exports = strip;
+export default strip;

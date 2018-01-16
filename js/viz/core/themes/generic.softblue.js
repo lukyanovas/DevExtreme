@@ -1,13 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    ACCENT_COLOR = "#7ab8eb",
-    BACKGROUND_COLOR = "#fff",
-    TITLE_COLOR = "#333",
-    SUBTITLE_COLOR = "#99a1a8",
-    TEXT_COLOR = "#707070",
-    BORDER_COLOR = "#e8eaeb";
+import themeModule from '../../themes';
+
+var registerTheme = themeModule.registerTheme, ACCENT_COLOR = "#7ab8eb", BACKGROUND_COLOR = "#fff", TITLE_COLOR = "#333", SUBTITLE_COLOR = "#99a1a8", TEXT_COLOR = "#707070", BORDER_COLOR = "#e8eaeb";
 
 registerTheme({
     name: "generic.softblue",

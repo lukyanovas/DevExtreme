@@ -1,53 +1,52 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Callbacks = require("../../core/utils/callbacks"),
-    translator = require("../../animation/translator"),
-    errors = require("../widget/ui.errors"),
-    dialog = require("../dialog"),
-    recurrenceUtils = require("./utils.recurrence"),
-    domUtils = require("../../core/utils/dom"),
-    dateUtils = require("../../core/utils/date"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    dateSerialization = require("../../core/utils/date_serialization"),
-    noop = require("../../core/utils/common").noop,
-    typeUtils = require("../../core/utils/type"),
-    devices = require("../../core/devices"),
-    config = require("../../core/config"),
-    registerComponent = require("../../core/component_registrator"),
-    messageLocalization = require("../../localization/message"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    Widget = require("../widget/ui.widget"),
-    subscribes = require("./ui.scheduler.subscribes"),
-    FunctionTemplate = require("../widget/function_template"),
-    appointmentTooltip = require("./ui.scheduler.appointment_tooltip"),
-    SchedulerHeader = require("./ui.scheduler.header"),
-    SchedulerWorkSpaceDay = require("./ui.scheduler.work_space_day"),
-    SchedulerWorkSpaceWeek = require("./ui.scheduler.work_space_week"),
-    SchedulerWorkSpaceWorkWeek = require("./ui.scheduler.work_space_work_week"),
-    SchedulerWorkSpaceMonth = require("./ui.scheduler.work_space_month"),
-    SchedulerTimelineDay = require("./ui.scheduler.timeline_day"),
-    SchedulerTimelineWeek = require("./ui.scheduler.timeline_week"),
-    SchedulerTimelineWorkWeek = require("./ui.scheduler.timeline_work_week"),
-    SchedulerTimelineMonth = require("./ui.scheduler.timeline_month"),
-    SchedulerAgenda = require("./ui.scheduler.agenda"),
-    SchedulerResourceManager = require("./ui.scheduler.resource_manager"),
-    SchedulerAppointmentModel = require("./ui.scheduler.appointment_model"),
-    SchedulerAppointments = require("./ui.scheduler.appointments"),
-    SchedulerLayoutManager = require("./ui.scheduler.appointments.layout_manager"),
-    DropDownAppointments = require("./ui.scheduler.appointments.drop_down"),
-    SchedulerTimezones = require("./ui.scheduler.timezones"),
-    DataHelperMixin = require("../../data_helper"),
-    loading = require("./ui.loading"),
-    AppointmentForm = require("./ui.scheduler.appointment_form"),
-    Popup = require("../popup"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    EmptyTemplate = require("../widget/empty_template"),
-    BindableTemplate = require("../widget/bindable_template");
+import $ from '../../core/renderer';
+import Callbacks from '../../core/utils/callbacks';
+import translator from '../../animation/translator';
+import errors from '../widget/ui.errors';
+import dialog from '../dialog';
+import recurrenceUtils from './utils.recurrence';
+import domUtils from '../../core/utils/dom';
+import dateUtils from '../../core/utils/date';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import dateSerialization from '../../core/utils/date_serialization';
+import { noop } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import devices from '../../core/devices';
+import config from '../../core/config';
+import registerComponent from '../../core/component_registrator';
+import messageLocalization from '../../localization/message';
+import Widget from '../widget/ui.widget';
+import subscribes from './ui.scheduler.subscribes';
+import FunctionTemplate from '../widget/function_template';
+import appointmentTooltip from './ui.scheduler.appointment_tooltip';
+import SchedulerHeader from './ui.scheduler.header';
+import SchedulerWorkSpaceDay from './ui.scheduler.work_space_day';
+import SchedulerWorkSpaceWeek from './ui.scheduler.work_space_week';
+import SchedulerWorkSpaceWorkWeek from './ui.scheduler.work_space_work_week';
+import SchedulerWorkSpaceMonth from './ui.scheduler.work_space_month';
+import SchedulerTimelineDay from './ui.scheduler.timeline_day';
+import SchedulerTimelineWeek from './ui.scheduler.timeline_week';
+import SchedulerTimelineWorkWeek from './ui.scheduler.timeline_work_week';
+import SchedulerTimelineMonth from './ui.scheduler.timeline_month';
+import SchedulerAgenda from './ui.scheduler.agenda';
+import SchedulerResourceManager from './ui.scheduler.resource_manager';
+import SchedulerAppointmentModel from './ui.scheduler.appointment_model';
+import SchedulerAppointments from './ui.scheduler.appointments';
+import SchedulerLayoutManager from './ui.scheduler.appointments.layout_manager';
+import DropDownAppointments from './ui.scheduler.appointments.drop_down';
+import SchedulerTimezones from './ui.scheduler.timezones';
+import DataHelperMixin from '../../data_helper';
+import loading from './ui.loading';
+import AppointmentForm from './ui.scheduler.appointment_form';
+import Popup from '../popup';
+import * as deferredUtils from '../../core/utils/deferred';
+import EmptyTemplate from '../widget/empty_template';
+import BindableTemplate from '../widget/bindable_template';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var WIDGET_CLASS = "dx-scheduler",
     WIDGET_SMALL_CLASS = "dx-scheduler-small",
@@ -2904,4 +2903,4 @@ var Scheduler = Widget.inherit({
 
 registerComponent("dxScheduler", Scheduler);
 
-module.exports = Scheduler;
+export default Scheduler;

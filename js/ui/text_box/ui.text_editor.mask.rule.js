@@ -1,11 +1,12 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    typeUtils = require("../../core/utils/type"),
-    noop = require("../../core/utils/common").noop,
-    isFunction = typeUtils.isFunction;
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import * as typeUtils from '../../core/utils/type';
+import { noop } from '../../core/utils/common';
+
+var isFunction = typeUtils.isFunction;
 
 var EMPTY_CHAR = " ";
 
@@ -289,6 +290,4 @@ var StubMaskRule = MaskRule.inherit({
 
 });
 
-module.exports.MaskRule = MaskRule;
-module.exports.StubMaskRule = StubMaskRule;
-module.exports.EmptyMaskRule = EmptyMaskRule;
+export { MaskRule, StubMaskRule, EmptyMaskRule };

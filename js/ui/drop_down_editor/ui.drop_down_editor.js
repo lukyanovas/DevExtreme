@@ -1,26 +1,26 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Guid = require("../../core/guid"),
-    registerComponent = require("../../core/component_registrator"),
-    commonUtils = require("../../core/utils/common"),
-    domUtils = require("../../core/utils/dom"),
-    focused = require("../widget/selectors").focused,
-    each = require("../../core/utils/iterator").each,
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    errors = require("../widget/ui.errors"),
-    positionUtils = require("../../animation/position"),
-    getDefaultAlignment = require("../../core/utils/position").getDefaultAlignment,
-    messageLocalization = require("../../localization/message"),
-    Button = require("../button"),
-    eventUtils = require("../../events/utils"),
-    TextBox = require("../text_box"),
-    clickEvent = require("../../events/click"),
-    FunctionTemplate = require("../widget/function_template"),
-    Popup = require("../popup");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Guid from '../../core/guid';
+import registerComponent from '../../core/component_registrator';
+import commonUtils from '../../core/utils/common';
+import domUtils from '../../core/utils/dom';
+import { focused } from '../widget/selectors';
+import { each } from '../../core/utils/iterator';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { getPublicElement } from '../../core/utils/dom';
+import errors from '../widget/ui.errors';
+import positionUtils from '../../animation/position';
+import { getDefaultAlignment } from '../../core/utils/position';
+import messageLocalization from '../../localization/message';
+import Button from '../button';
+import * as eventUtils from '../../events/utils';
+import TextBox from '../text_box';
+import clickEvent from '../../events/click';
+import FunctionTemplate from '../widget/function_template';
+import Popup from '../popup';
 
 var DROP_DOWN_EDITOR_CLASS = "dx-dropdowneditor",
     DROP_DOWN_EDITOR_INPUT_WRAPPER_CLASS = "dx-dropdowneditor-input-wrapper",
@@ -872,4 +872,4 @@ var DropDownEditor = TextBox.inherit({
 
 registerComponent("dxDropDownEditor", DropDownEditor);
 
-module.exports = DropDownEditor;
+export default DropDownEditor;

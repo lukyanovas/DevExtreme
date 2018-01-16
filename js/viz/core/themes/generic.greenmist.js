@@ -1,13 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    ACCENT_COLOR = "#3cbab2",
-    BACKGROUND_COLOR = "#f5f5f5",
-    TITLE_COLOR = "#28484f",
-    SUBTITLE_COLOR = "#7eb2be",
-    TEXT_COLOR = "#657c80",
-    BORDER_COLOR = "#dedede";
+import themeModule from '../../themes';
+
+var registerTheme = themeModule.registerTheme, ACCENT_COLOR = "#3cbab2", BACKGROUND_COLOR = "#f5f5f5", TITLE_COLOR = "#28484f", SUBTITLE_COLOR = "#7eb2be", TEXT_COLOR = "#657c80", BORDER_COLOR = "#dedede";
 
 registerTheme({
     name: "generic.greenmist",

@@ -1,33 +1,29 @@
 "use strict";
 
-require("../integration/jquery");
+import '../integration/jquery';
+import $ from 'jquery';
+import Class from '../core/class';
+import Action from '../core/action';
+import commonUtils from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import iteratorUtils from '../core/utils/iterator';
+import { extend } from '../core/utils/extend';
+import { createActionExecutors } from './action_executors';
+import Router from './router';
+import NavigationManager from './navigation_manager';
+import StateManager from './state_manager';
+import dxCommand from './command';
+import messageLocalization from '../localization/message';
+import CommandMapping from './command_mapping';
+import ViewCache from './view_cache';
+import EventsMixin from '../core/events_mixin';
+import { sessionStorage } from '../core/utils/storage';
+import dataUtils from '../data/utils';
+import errors from './errors';
+import { when } from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
 
-var $ = require("jquery"),
-    Class = require("../core/class"),
-    window = require("../core/dom_adapter").getWindow(),
-    abstract = Class.abstract,
-    Action = require("../core/action"),
-    commonUtils = require("../core/utils/common"),
-    typeUtils = require("../core/utils/type"),
-    iteratorUtils = require("../core/utils/iterator"),
-    extend = require("../core/utils/extend").extend,
-    mergeCommands = require("./utils").utils.mergeCommands,
-    createActionExecutors = require("./action_executors").createActionExecutors,
-    Router = require("./router"),
-    NavigationManager = require("./navigation_manager"),
-    StateManager = require("./state_manager"),
-    dxCommand = require("./command"),
-    messageLocalization = require("../localization/message"),
-    CommandMapping = require("./command_mapping"),
-    ViewCache = require("./view_cache"),
-    EventsMixin = require("../core/events_mixin"),
-    sessionStorage = require("../core/utils/storage").sessionStorage,
-    dataUtils = require("../data/utils"),
-    errors = require("./errors"),
-    when = require("../core/utils/deferred").when,
-    BACK_COMMAND_TITLE,
-    INIT_IN_PROGRESS = "InProgress",
-    INIT_COMPLETE = "Inited";
+var window = domAdapter.getWindow(), abstract = Class.abstract, mergeCommands = require("./utils").utils.mergeCommands, BACK_COMMAND_TITLE, INIT_IN_PROGRESS = "InProgress", INIT_COMPLETE = "Inited";
 
 var Application = Class.inherit({
     ctor: function(options) {
@@ -531,4 +527,4 @@ var Application = Class.inherit({
             }*/
 }).include(EventsMixin);
 
-exports.Application = Application;
+export { Application };

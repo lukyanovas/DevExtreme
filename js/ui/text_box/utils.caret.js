@@ -1,9 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    isDefined = require("../../core/utils/type").isDefined,
-    browser = require("../../core/utils/browser"),
-    document = require("../../core/dom_adapter").getWindow().document;
+import $ from '../../core/renderer';
+import { isDefined } from '../../core/utils/type';
+import browser from '../../core/utils/browser';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var isFocusingOnCaretChange = browser.msie || browser.safari;
 
@@ -75,4 +77,4 @@ var caret = function(input, position) {
     setCaret(input, position);
 };
 
-module.exports = caret;
+export default caret;

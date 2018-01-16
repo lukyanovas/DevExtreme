@@ -1,19 +1,19 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    typeUtils = require("../../core/utils/type"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    extend = require("../../core/utils/extend").extend,
-    compileGetter = require("../../core/utils/data").compileGetter,
-    errors = require("../widget/ui.errors"),
-    gridCore = require("./ui.data_grid.core"),
-    messageLocalization = require("../../localization/message"),
-    dataSourceAdapter = require("./ui.data_grid.data_source_adapter"),
-    columnsView = require("../grid_core/ui.grid_core.columns_view"),
-    AggregateCalculator = require("./aggregate_calculator"),
-    dataQuery = require("../../data/query"),
-    dataUtils = require("../../data/utils");
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import iteratorUtils from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { compileGetter } from '../../core/utils/data';
+import errors from '../widget/ui.errors';
+import gridCore from './ui.data_grid.core';
+import messageLocalization from '../../localization/message';
+import dataSourceAdapter from './ui.data_grid.data_source_adapter';
+import columnsView from '../grid_core/ui.grid_core.columns_view';
+import AggregateCalculator from './aggregate_calculator';
+import dataQuery from '../../data/query';
+import dataUtils from '../../data/utils';
 
 var DATAGRID_TOTAL_FOOTER_CLASS = "dx-datagrid-total-footer",
     DATAGRID_SUMMARY_ITEM_CLASS = "dx-datagrid-summary-item",
@@ -61,7 +61,7 @@ var getGroupAggregates = function(data) {
 };
 
 
-exports.FooterView = columnsView.ColumnsView.inherit((function() {
+export var FooterView = columnsView.ColumnsView.inherit((function() {
     return {
         _getRows: function() {
             return this._dataController.footerItems();
@@ -264,7 +264,7 @@ var SummaryDataSourceAdapterClientExtender = (function() {
 dataSourceAdapter.extend(SummaryDataSourceAdapterExtender);
 dataSourceAdapter.extend(SummaryDataSourceAdapterClientExtender);
 
-exports.renderSummaryCell = renderSummaryCell;
+export { renderSummaryCell };
 
 gridCore.registerModule("summary", {
     defaultOptions: function() {

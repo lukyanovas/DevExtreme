@@ -1,17 +1,17 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    extend = require("../../core/utils/extend").extend,
-    isNumeric = require("../../core/utils/type").isNumeric,
-    fitIntoRange = require("../../core/utils/math").fitIntoRange,
-    inRange = require("../../core/utils/math").inRange,
-    escapeRegExp = require("../../core/utils/common").escapeRegExp,
-    number = require("../../localization/number"),
-    getLDMLFormat = require("../../localization/ldml/number").getFormat,
-    NumberBoxBase = require("./number_box.base"),
-    eventUtils = require("../../events/utils"),
-    typeUtils = require("../../core/utils/type"),
-    browser = require("../../core/utils/browser");
+import eventsEngine from '../../events/core/events_engine';
+import { extend } from '../../core/utils/extend';
+import { isNumeric } from '../../core/utils/type';
+import { fitIntoRange } from '../../core/utils/math';
+import { inRange } from '../../core/utils/math';
+import { escapeRegExp } from '../../core/utils/common';
+import number from '../../localization/number';
+import { getFormat as getLDMLFormat } from '../../localization/ldml/number';
+import NumberBoxBase from './number_box.base';
+import * as eventUtils from '../../events/utils';
+import * as typeUtils from '../../core/utils/type';
+import browser from '../../core/utils/browser';
 
 var NUMBER_FORMATTER_NAMESPACE = "dxNumberFormatter",
     MOVE_FORWARD = 1,
@@ -626,4 +626,4 @@ var NumberBoxMask = NumberBoxBase.inherit({
     }
 });
 
-module.exports = NumberBoxMask;
+export default NumberBoxMask;

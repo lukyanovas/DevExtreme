@@ -1,27 +1,18 @@
 "use strict";
 
-var _isFinite = isFinite,
-    registerComponent = require("../../core/component_registrator"),
-    objectUtils = require("../../core/utils/object"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    dxBaseGauge = require("./base_gauge").dxBaseGauge,
-    dxGauge = require("./common").dxGauge,
-    vizUtils = require("../core/utils"),
-    _normalizeAngle = vizUtils.normalizeAngle,
-    _getCosAndSin = vizUtils.getCosAndSin,
-    circularIndicatorsModule = require("./circular_indicators"),
-    createIndicatorCreator = require("./common").createIndicatorCreator,
-    CircularRangeContainer = require("./circular_range_container"),
-    ThemeManager = require("./theme_manager"),
+import registerComponent from '../../core/component_registrator';
+import objectUtils from '../../core/utils/object';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { dxBaseGauge } from './base_gauge';
+import { dxGauge } from './common';
+import vizUtils from '../core/utils';
+import circularIndicatorsModule from './circular_indicators';
+import { createIndicatorCreator } from './common';
+import CircularRangeContainer from './circular_range_container';
+import ThemeManager from './theme_manager';
 
-    _abs = Math.abs,
-    _max = Math.max,
-    _min = Math.min,
-    _round = Math.round,
-    _each = each,
-
-    PI = Math.PI;
+var _isFinite = isFinite, _normalizeAngle = vizUtils.normalizeAngle, _getCosAndSin = vizUtils.getCosAndSin, _abs = Math.abs, _max = Math.max, _min = Math.min, _round = Math.round, _each = each, PI = Math.PI;
 
 function getSides(startAngle, endAngle) {
     var startCosSin = _getCosAndSin(startAngle),
@@ -295,4 +286,4 @@ dxCircularGauge.prototype._factory.ThemeManager = ThemeManager.inherit({
 
 registerComponent("dxCircularGauge", dxCircularGauge);
 
-module.exports = dxCircularGauge;
+export default dxCircularGauge;

@@ -1,11 +1,11 @@
 "use strict";
 
-var extend = require("../../../core/utils/extend").extend,
-    symbolPoint = require("./symbol_point"),
-    _extend = extend,
-    MIN_BUBBLE_HEIGHT = 20;
+import { extend } from '../../../core/utils/extend';
+import symbolPoint from './symbol_point';
 
-module.exports = _extend({}, symbolPoint, {
+var _extend = extend, MIN_BUBBLE_HEIGHT = 20;
+
+export default _extend({}, symbolPoint, {
     correctCoordinates: function(diameter) {
         this.bubbleSize = diameter / 2;
     },

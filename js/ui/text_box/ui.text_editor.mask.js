@@ -1,19 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    caret = require("./utils.caret"),
-    domUtils = require("../../core/utils/dom"),
-    focused = require("../widget/selectors").focused,
-    isDefined = require("../../core/utils/type").isDefined,
-    stringUtils = require("../../core/utils/string"),
-    inArray = require("../../core/utils/array").inArray,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    messageLocalization = require("../../localization/message"),
-    TextEditorBase = require("./ui.text_editor.base"),
-    MaskRules = require("./ui.text_editor.mask.rule"),
-    eventUtils = require("../../events/utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import caretModule from './utils.caret';
+import domUtils from '../../core/utils/dom';
+import { focused } from '../widget/selectors';
+import { isDefined } from '../../core/utils/type';
+import stringUtils from '../../core/utils/string';
+import { inArray } from '../../core/utils/array';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import messageLocalization from '../../localization/message';
+import TextEditorBase from './ui.text_editor.base';
+import MaskRules from './ui.text_editor.mask.rule';
+import * as eventUtils from '../../events/utils';
+
+var caret = caretModule;
 
 var stubCaret = function() {
     return {};
@@ -717,4 +719,4 @@ var TextEditorMask = TextEditorBase.inherit({
 
 });
 
-module.exports = TextEditorMask;
+export default TextEditorMask;

@@ -1,18 +1,14 @@
 "use strict";
 
-var window = require("../../core/dom_adapter").getWindow(),
-    doc = window.document,
-    win = window,
-    $ = require("../../core/renderer"),
-    rendererModule = require("./renderers/renderer"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    HALF_ARROW_WIDTH = 10,
-    vizUtils = require("./utils"),
-    _format = require("./format"),
-    mathCeil = Math.ceil,
-    mathMax = Math.max,
-    mathMin = Math.min;
+import $ from '../../core/renderer';
+import rendererModule from './renderers/renderer';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import vizUtils from './utils';
+import _format from './format';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), doc = window.document, win = window, HALF_ARROW_WIDTH = 10, mathCeil = Math.ceil, mathMax = Math.max, mathMin = Math.min;
 
 function hideElement($element) {
     $element.css({ left: "-9999px" }).detach();
@@ -475,9 +471,9 @@ Tooltip.prototype = {
     }
 };
 
-exports.Tooltip = Tooltip;
+export { Tooltip };
 
-exports.plugin = {
+export var plugin = {
     name: "tooltip",
     init: function() {
         this._initTooltip();

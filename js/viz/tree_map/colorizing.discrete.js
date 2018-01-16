@@ -54,4 +54,4 @@ function discreteGroupColorizer(palette, root) {
 }
 
 require("./colorizing").addColorizer("discrete", discreteColorizer);
-module.exports = discreteColorizer;
+export default discreteColorizer;

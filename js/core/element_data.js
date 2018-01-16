@@ -1,10 +1,12 @@
 "use strict";
 
-var WeakMap = require("./polyfills/weak_map");
-var Element = require("./dom_adapter").getWindow().Element;
-var eventsEngine = require("../events/core/events_engine");
-var MemorizedCallbacks = require("./memorized_callbacks");
+import WeakMap from './polyfills/weak_map';
+import domAdapter from './dom_adapter';
+import eventsEngine from '../events/core/events_engine';
+import MemorizedCallbacks from './memorized_callbacks';
 
+
+var Element = domAdapter.getWindow().Element;
 var dataMap = new WeakMap();
 var strategy;
 
@@ -12,7 +14,7 @@ var strategyChanging = new MemorizedCallbacks();
 var beforeCleanData = function() {};
 var afterCleanData = function() {};
 
-var setDataStrategy = exports.setDataStrategy = function(value) {
+var setDataStrategy = function(value) {
     strategyChanging.fire(value);
 
     strategy = value;
@@ -77,35 +79,31 @@ setDataStrategy({
     }
 });
 
-exports.setDataStrategy = setDataStrategy;
-
-exports.getDataStrategy = function() {
+var getDataStrategy = function() {
     return strategy;
 };
 
-exports.data = function() {
+var data = function() {
     return strategy.data.apply(this, arguments);
 };
 
-exports.strategyChanging = strategyChanging;
-
-exports.beforeCleanData = function(callback) {
+var beforeCleanDataCallback = function(callback) {
     beforeCleanData = callback;
 };
 
-exports.afterCleanData = function(callback) {
+var afterCleanDataCallback = function(callback) {
     afterCleanData = callback;
 };
 
-exports.cleanData = function(nodes) {
+var cleanData = function(nodes) {
     return strategy.cleanData.call(this, nodes);
 };
 
-exports.removeData = function(element, key) {
+var removeData = function(element, key) {
     return strategy.removeData.call(this, element, key);
 };
 
-exports.cleanDataRecursive = function(element, cleanSelf) {
+var cleanDataRecursive = function(element, cleanSelf) {
     if(!(element instanceof Element)) {
         return;
     }
@@ -118,3 +116,5 @@ exports.cleanDataRecursive = function(element, cleanSelf) {
         strategy.cleanData([element]);
     }
 };
+
+export { cleanData, removeData, cleanDataRecursive, beforeCleanDataCallback as beforeCleanData, afterCleanDataCallback as afterCleanData, getDataStrategy, data, setDataStrategy, strategyChanging };

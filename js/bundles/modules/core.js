@@ -25,7 +25,7 @@ DevExpress.devices = require("../../core/devices");
 
 DevExpress.Color = require("../../color");
 
-var animationFrame = require("../../animation/frame");
+import animationFrame from '../../animation/frame';
 /**
  * @name requestAnimationFrame
  * @publicName requestAnimationFrame(callback)
@@ -137,4 +137,4 @@ DevExpress.events.GestureEmitter = require("../../events/gesture/emitter.gesture
 
 DevExpress.localization = require("../../localization");
 
-module.exports = DevExpress;
+export default DevExpress;

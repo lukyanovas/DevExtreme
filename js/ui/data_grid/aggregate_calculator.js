@@ -1,10 +1,10 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    compileGetter = require("../../core/utils/data").compileGetter,
-    isFunction = require("../../core/utils/type").isFunction,
-    errors = require("../../data/errors").errors,
-    dataUtils = require("../../data/utils");
+import Class from '../../core/class';
+import { compileGetter } from '../../core/utils/data';
+import { isFunction } from '../../core/utils/type';
+import { errors } from '../../data/errors';
+import dataUtils from '../../data/utils';
 
 function depthFirstSearch(i, depth, root, callback) {
     var j = 0;
@@ -65,7 +65,7 @@ function normalizeAggregate(aggregate) {
     };
 }
 
-module.exports = Class.inherit({
+export default Class.inherit({
     ctor: function(options) {
         this._data = options.data;
         this._groupLevel = options.groupLevel || 0;

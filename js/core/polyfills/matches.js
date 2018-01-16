@@ -1,6 +1,7 @@
 "use strict";
+import domAdapter from '../dom_adapter';
 
-var Element = require("../dom_adapter").getWindow().Element;
+var Element = domAdapter.getWindow().Element;
 
 var matches = Element.prototype.matches ||
     Element.prototype.matchesSelector ||
@@ -18,6 +19,6 @@ var matches = Element.prototype.matches ||
         }
     };
 
-module.exports = function(element, selector) {
+export default function(element, selector) {
     return matches.call(element, selector);
-};
+}

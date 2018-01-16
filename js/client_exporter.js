@@ -1,9 +1,14 @@
 "use strict";
 
-var fileSaver = require("./client_exporter/file_saver").fileSaver,
-    _isFunction = require("./core/utils/type").isFunction;
+import { fileSaver } from './client_exporter/file_saver';
+import { isFunction as _isFunction } from './core/utils/type';
+import * as ExcelCreator from './client_exporter/excel_creator';
+import * as ImageCreator from './client_exporter/image_creator';
+import * as SvgCreator from './client_exporter/svg_creator';
+import * as PdfCreator from './client_exporter/pdf_creator';
+import * as ExcelFormatConverter from './client_exporter/excel_format_converter';
 
-exports.export = function(data, options, getData) {
+var exportData = function(data, options, getData) {
     if(!data) {
         return;
     }
@@ -36,23 +41,31 @@ exports.export = function(data, options, getData) {
     }
 };
 
-exports.fileSaver = fileSaver;
-exports.excel = {
-    creator: require("./client_exporter/excel_creator").ExcelCreator,
-    getData: require("./client_exporter/excel_creator").getData,
-    formatConverter: require("./client_exporter/excel_format_converter")
+var excel = {
+    creator: ExcelCreator.ExcelCreator,
+    getData: ExcelCreator.getData,
+    formatConverter: ExcelFormatConverter
 };
+
 ///#DEBUG
-exports.excel.__internals = require("./client_exporter/excel_creator").__internals;
+excel.__internals = ExcelCreator.__internals;
+
 ///#ENDDEBUG
-exports.image = {
-    creator: require("./client_exporter/image_creator").imageCreator,
-    getData: require("./client_exporter/image_creator").getData
+var image = {
+    creator: ImageCreator.imageCreator,
+    getData: ImageCreator.getData
 };
-exports.pdf = {
-    getData: require("./client_exporter/pdf_creator").getData
+
+var pdf = {
+    getData: PdfCreator.getData
 };
-exports.svg = {
-    creator: require("./client_exporter/svg_creator").svgCreator,
-    getData: require("./client_exporter/svg_creator").getData
+
+var svg = {
+    creator: SvgCreator.svgCreator,
+    getData: SvgCreator.getData
+};
+
+export {
+    exportData as export,
+    excel, fileSaver, image, pdf, svg
 };

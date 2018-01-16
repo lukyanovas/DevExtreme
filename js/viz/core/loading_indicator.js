@@ -1,14 +1,8 @@
 "use strict";
 
-var _patchFontOptions = require("./utils").patchFontOptions,
+import { patchFontOptions as _patchFontOptions } from './utils';
 
-    STATE_HIDDEN = 0,
-    STATE_SHOWN = 1,
-
-    ANIMATION_EASING = "linear",
-    ANIMATION_DURATION = 400,
-
-    LOADING_INDICATOR_READY = "loadingIndicatorReady";
+var STATE_HIDDEN = 0, STATE_SHOWN = 1, ANIMATION_EASING = "linear", ANIMATION_DURATION = 400, LOADING_INDICATOR_READY = "loadingIndicatorReady";
 
 function LoadingIndicator(parameters) {
     var that = this,
@@ -105,9 +99,9 @@ LoadingIndicator.prototype = {
     }
 };
 
-exports.LoadingIndicator = LoadingIndicator;
+export { LoadingIndicator };
 
-exports.plugin = {
+export var plugin = {
     name: "loading_indicator",
     init: function() {
         var that = this;

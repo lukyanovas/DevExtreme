@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    Class = require("../core/class"),
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    noop = require("../core/utils/common").noop,
-    isDefined = require("../core/utils/type").isDefined,
-    styleUtils = require("../core/utils/style"),
-    each = require("../core/utils/iterator").each,
-    browser = require("../core/utils/browser"),
-    CollectionWidgetItem = require("./collection/item"),
-    devices = require("../core/devices"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import Class from '../core/class';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import { noop } from '../core/utils/common';
+import { isDefined } from '../core/utils/type';
+import * as styleUtils from '../core/utils/style';
+import { each } from '../core/utils/iterator';
+import browser from '../core/utils/browser';
+import CollectionWidgetItem from './collection/item';
+import devices from '../core/devices';
+import CollectionWidget from './collection/ui.collection_widget.edit';
 
 var BOX_CLASS = "dx-box",
     BOX_SELECTOR = ".dx-box",
@@ -791,4 +791,4 @@ Box.ItemClass = BoxItem;
 
 registerComponent("dxBox", Box);
 
-module.exports = Box;
+export default Box;

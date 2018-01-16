@@ -1,8 +1,8 @@
 "use strict";
 
-var LayoutElementModule = require("../core/layout_element"),
-    extend = require("../../core/utils/extend").extend,
-    iteratorUtils = require("../../core/utils/iterator");
+import LayoutElementModule from '../core/layout_element';
+import { extend } from '../../core/utils/extend';
+import iteratorUtils from '../../core/utils/iterator';
 
 function HeaderBlock() { }
 
@@ -101,4 +101,4 @@ extend(HeaderBlock.prototype, LayoutElementModule.LayoutElement.prototype, {
     }
 });
 
-exports.HeaderBlock = HeaderBlock;
+export { HeaderBlock };

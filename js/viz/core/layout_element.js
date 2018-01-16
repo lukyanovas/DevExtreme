@@ -1,8 +1,9 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    _round = Math.round,
-    objectUtils = require("../../core/utils/object"),
+import { noop } from '../../core/utils/common';
+import objectUtils from '../../core/utils/object';
+
+var _round = Math.round,
     defaultOffset = {
         horizontal: 0,
         vertical: 0
@@ -53,5 +54,4 @@ wrapperLayoutElementPrototype.shift = function(shiftX, shiftY) {
     this._renderElement.move(_round(shiftX - bBox.x), _round(shiftY - bBox.y));
 };
 
-exports.LayoutElement = LayoutElement;
-exports.WrapperLayoutElement = WrapperLayoutElement;
+export { LayoutElement, WrapperLayoutElement };

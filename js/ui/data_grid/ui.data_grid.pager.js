@@ -1,14 +1,14 @@
 "use strict";
 
-var gridCore = require("./ui.data_grid.core"),
-    Pager = require("./pager"),
-    inArray = require("../../core/utils/array").inArray,
-    isDefined = require("../../core/utils/type").isDefined;
+import gridCore from './ui.data_grid.core';
+import Pager from './pager';
+import { inArray } from '../../core/utils/array';
+import { isDefined } from '../../core/utils/type';
 
 var DATAGRID_PAGER_CLASS = "dx-datagrid-pager",
     MAX_PAGES_COUNT = 10;
 
-exports.PagerView = gridCore.View.inherit({
+export var PagerView = gridCore.View.inherit({
     init: function() {
         var that = this,
             dataController = that.getController("data");

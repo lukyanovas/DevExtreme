@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    noop = require("../core/utils/common").noop,
-    isDefined = require("../core/utils/type").isDefined,
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    map = require("../core/utils/iterator").map,
-    PlainEditStrategy = require("./collection/ui.collection_widget.edit.strategy.plain"),
-    SlideOutView = require("./slide_out_view"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit"),
-    List = require("./list"),
-    ChildDefaultTemplate = require("./widget/child_default_template"),
-    EmptyTemplate = require("./widget/empty_template");
+import $ from '../core/renderer';
+import { getPublicElement } from '../core/utils/dom';
+import { noop } from '../core/utils/common';
+import { isDefined } from '../core/utils/type';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import { map } from '../core/utils/iterator';
+import PlainEditStrategy from './collection/ui.collection_widget.edit.strategy.plain';
+import SlideOutView from './slide_out_view';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import List from './list';
+import ChildDefaultTemplate from './widget/child_default_template';
+import EmptyTemplate from './widget/empty_template';
 
 var SLIDEOUT_CLASS = "dx-slideout",
     SLIDEOUT_ITEM_CONTAINER_CLASS = "dx-slideout-item-container",
@@ -465,4 +465,4 @@ var SlideOut = CollectionWidget.inherit({
 
 registerComponent("dxSlideOut", SlideOut);
 
-module.exports = SlideOut;
+export default SlideOut;

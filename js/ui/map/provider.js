@@ -1,12 +1,12 @@
 "use strict";
 
-var Promise = require("../../core/polyfills/promise"),
-    Class = require("../../core/class"),
-    map = require("../../core/utils/iterator").map,
-    typeUtils = require("../../core/utils/type"),
-    eventUtils = require("../../events/utils"),
-    isPlainObject = typeUtils.isPlainObject,
-    isNumeric = typeUtils.isNumeric;
+import Promise from '../../core/polyfills/promise';
+import Class from '../../core/class';
+import { map } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import * as eventUtils from '../../events/utils';
+
+var isPlainObject = typeUtils.isPlainObject, isNumeric = typeUtils.isNumeric;
 
 var abstract = Class.abstract;
 
@@ -176,4 +176,4 @@ var Provider = Class.inherit({
 
 });
 
-module.exports = Provider;
+export default Provider;

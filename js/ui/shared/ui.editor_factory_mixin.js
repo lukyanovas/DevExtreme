@@ -1,22 +1,24 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    noop = require("../../core/utils/common").noop,
-    typeUtils = require("../../core/utils/type"),
-    isWrapped = require("../../core/utils/variable_wrapper").isWrapped,
-    compileGetter = require("../../core/utils/data").compileGetter,
-    browser = require("../../core/utils/browser"),
-    extend = require("../../core/utils/extend").extend,
-    devices = require("../../core/devices"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    normalizeDataSourceOptions = require("../../data/data_source/data_source").normalizeDataSourceOptions;
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { isWrapped } from '../../core/utils/variable_wrapper';
+import { compileGetter } from '../../core/utils/data';
+import browser from '../../core/utils/browser';
+import { extend } from '../../core/utils/extend';
+import devices from '../../core/devices';
+import { getPublicElement } from '../../core/utils/dom';
+import { normalizeDataSourceOptions } from '../../data/data_source/data_source';
+import domAdapter from '../../core/dom_adapter';
 
-require("../text_box");
-require("../number_box");
-require("../check_box");
-require("../select_box");
-require("../date_box");
+var window = domAdapter.getWindow();
+
+import '../text_box';
+import '../number_box';
+import '../check_box';
+import '../select_box';
+import '../date_box';
 
 var CHECKBOX_SIZE_CLASS = "checkbox-size",
     CELL_FOCUS_DISABLED_CLASS = "dx-cell-focus-disabled",
@@ -283,4 +285,4 @@ var EditorFactoryMixin = (function() {
     };
 })();
 
-module.exports = EditorFactoryMixin;
+export default EditorFactoryMixin;

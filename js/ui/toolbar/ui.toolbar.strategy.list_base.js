@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    extend = require("../../core/utils/extend").extend,
-    Deferred = require("../../core/utils/deferred").Deferred,
-    ToolbarStrategy = require("./ui.toolbar.strategy"),
-    translator = require("../../animation/translator"),
-    hideTopOverlayCallback = require("../../mobile/hide_top_overlay").hideCallback,
-    fx = require("../../animation/fx"),
-    Overlay = require("../overlay"),
-    List = require("../list/ui.list.base");
+import $ from '../../core/renderer';
+import { extend } from '../../core/utils/extend';
+import { Deferred } from '../../core/utils/deferred';
+import ToolbarStrategy from './ui.toolbar.strategy';
+import translator from '../../animation/translator';
+import { hideCallback as hideTopOverlayCallback } from '../../mobile/hide_top_overlay';
+import fx from '../../animation/fx';
+import Overlay from '../overlay';
+import List from '../list/ui.list.base';
 
 var TOOLBAR_LIST_VISIBLE_CLASS = "dx-toolbar-list-visible",
 
@@ -155,4 +155,4 @@ var ListStrategy = ToolbarStrategy.inherit({
 
 });
 
-module.exports = ListStrategy;
+export default ListStrategy;

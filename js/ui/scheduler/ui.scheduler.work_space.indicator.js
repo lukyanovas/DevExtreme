@@ -1,11 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    SchedulerWorkSpace = require("./ui.scheduler.work_space"),
-    registerComponent = require("../../core/component_registrator"),
-    dateUtils = require("../../core/utils/date"),
-    extend = require("../../core/utils/extend").extend,
-    toMs = dateUtils.dateToMilliseconds;
+import $ from '../../core/renderer';
+import SchedulerWorkSpace from './ui.scheduler.work_space';
+import registerComponent from '../../core/component_registrator';
+import dateUtils from '../../core/utils/date';
+import { extend } from '../../core/utils/extend';
+
+var toMs = dateUtils.dateToMilliseconds;
 
 var SCHEDULER_DATE_TIME_INDICATOR_CLASS = "dx-scheduler-date-time-indicator",
     TIME_PANEL_CURRENT_TIME_CELL_CLASS = "dx-scheduler-time-panel-current-time-cell",
@@ -261,4 +262,4 @@ var SchedulerWorkSpaceIndicator = SchedulerWorkSpace.inherit({
 });
 
 registerComponent("dxSchedulerWorkSpace", SchedulerWorkSpaceIndicator);
-module.exports = SchedulerWorkSpaceIndicator;
+export default SchedulerWorkSpaceIndicator;

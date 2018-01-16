@@ -1,19 +1,20 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    Callbacks = require("../../core/utils/callbacks"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    dragEvents = require("../../events/drag"),
-    addNamespace = eventUtils.addNamespace,
-    modules = require("./ui.grid_core.modules"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    fx = require("../../animation/fx");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Callbacks from '../../core/utils/callbacks';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import dragEvents from '../../events/drag';
+import modules from './ui.grid_core.modules';
+import gridCoreUtils from './ui.grid_core.utils';
+import fx from '../../animation/fx';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, addNamespace = eventUtils.addNamespace;
 
 var COLUMNS_SEPARATOR_CLASS = "columns-separator",
     COLUMNS_SEPARATOR_TRANSPARENT = "columns-separator-transparent",
@@ -1225,7 +1226,7 @@ var DraggingHeaderViewController = modules.ViewController.inherit({
     }
 });
 
-module.exports = {
+export default {
     views: {
         columnsSeparatorView: ColumnsSeparatorView,
         blockSeparatorView: BlockSeparatorView,

@@ -1,7 +1,8 @@
 "use strict";
 
-var states = ["normal", "hover", "selection", "selection"],
-    isDefined = require("../../core/utils/type").isDefined;
+import { isDefined } from '../../core/utils/type';
+
+var states = ["normal", "hover", "selection", "selection"];
 
 function parseStyles(color, style, baseStyle) {
     var border = style.border,
@@ -105,4 +106,4 @@ Item.prototype = {
     }
 };
 
-module.exports = Item;
+export default Item;

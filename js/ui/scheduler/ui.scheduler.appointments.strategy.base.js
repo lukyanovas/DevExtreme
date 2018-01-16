@@ -1,12 +1,12 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    errors = require("../widget/ui.errors"),
-    dateUtils = require("../../core/utils/date"),
-    isNumeric = require("../../core/utils/type").isNumeric,
-    themes = require("../themes");
+import { noop } from '../../core/utils/common';
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import errors from '../widget/ui.errors';
+import dateUtils from '../../core/utils/date';
+import { isNumeric } from '../../core/utils/type';
+import themes from '../themes';
 
 var abstract = Class.abstract;
 
@@ -654,4 +654,4 @@ var BaseRenderingStrategy = Class.inherit({
     }
 });
 
-module.exports = BaseRenderingStrategy;
+export default BaseRenderingStrategy;

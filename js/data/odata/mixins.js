@@ -1,10 +1,9 @@
 "use strict";
 
-var stringUtils = require("../../core/utils/string"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    odataUtils = require("./utils");
-
-require("./query_adapter");
+import stringUtils from '../../core/utils/string';
+import iteratorUtils from '../../core/utils/iterator';
+import odataUtils from './utils';
+import './query_adapter';
 
 var DEFAULT_PROTOCOL_VERSION = 2;
 
@@ -67,6 +66,4 @@ var SharedMethods = {
     }
 };
 
-exports.SharedMethods = SharedMethods;
-exports.escapeServiceOperationParams = escapeServiceOperationParams;
-exports.formatFunctionInvocationUrl = formatFunctionInvocationUrl;
+export { SharedMethods, escapeServiceOperationParams, formatFunctionInvocationUrl };

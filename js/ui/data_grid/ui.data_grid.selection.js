@@ -1,6 +1,6 @@
 "use strict";
 
-var gridCore = require("./ui.data_grid.core"),
-    selectionModule = require("../grid_core/ui.grid_core.selection");
+import gridCore from './ui.data_grid.core';
+import selectionModule from '../grid_core/ui.grid_core.selection';
 
 gridCore.registerModule("selection", selectionModule);

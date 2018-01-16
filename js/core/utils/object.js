@@ -1,7 +1,7 @@
 "use strict";
 
-var typeUtils = require("./type"),
-    variableWrapper = require("./variable_wrapper");
+import * as typeUtils from './type';
+import variableWrapper from './variable_wrapper';
 
 var clone = (function() {
     function Clone() { }
@@ -74,6 +74,4 @@ var deepExtendArraySafe = function(target, changes, extendComplexObject, assignB
     return target;
 };
 
-exports.clone = clone;
-exports.orderEach = orderEach;
-exports.deepExtendArraySafe = deepExtendArraySafe;
+export { clone, orderEach, deepExtendArraySafe };

@@ -1,20 +1,18 @@
 "use strict";
 
 //there are stock, candlestick
-var scatterSeries = require("./scatter_series").chart,
-    barSeries = require("./bar_series").chart.bar,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
+import { chart as scatterSeries } from './scatter_series';
 
-    _isDefined = require("../../core/utils/type").isDefined,
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    _extend = extend,
-    _each = each,
-    _noop = require("../../core/utils/common").noop,
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { isDefined as _isDefined } from '../../core/utils/type';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import { noop as _noop } from '../../core/utils/common';
 
-    DEFAULT_FINANCIAL_POINT_SIZE = 10;
+//there are stock, candlestick
+var barSeries = require("./bar_series").chart.bar, _extend = extend, _each = each, DEFAULT_FINANCIAL_POINT_SIZE = 10;
 
-exports.stock = _extend({}, scatterSeries, {
+export var stock = _extend({}, scatterSeries, {
     _animate: _noop,
 
     _applyMarkerClipRect: function(settings) {
@@ -277,7 +275,7 @@ exports.stock = _extend({}, scatterSeries, {
     }
 });
 
-exports.candlestick = _extend({}, exports.stock, {
+export var candlestick = _extend({}, exports.stock, {
     _beginUpdateData: barSeries._beginUpdateData,
 
     _parsePointStyle: function(style, defaultColor, innerColor) {

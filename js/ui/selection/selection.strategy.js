@@ -1,13 +1,14 @@
 "use strict";
 
-var dataQuery = require("../../data/query"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    getKeyHash = commonUtils.getKeyHash,
-    Class = require("../../core/class"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import dataQuery from '../../data/query';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import Class from '../../core/class';
+import { Deferred } from '../../core/utils/deferred';
 
-module.exports = Class.inherit({
+var getKeyHash = commonUtils.getKeyHash;
+
+export default Class.inherit({
     ctor: function(options) {
         this.options = options;
 

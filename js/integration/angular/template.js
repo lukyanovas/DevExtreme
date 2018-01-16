@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    TemplateBase = require("../../ui/widget/ui.template_base"),
-    isFunction = require("../../core/utils/type").isFunction,
-    domUtils = require("../../core/utils/dom");
+import $ from '../../core/renderer';
+import TemplateBase from '../../ui/widget/ui.template_base';
+import { isFunction } from '../../core/utils/type';
+import domUtils from '../../core/utils/dom';
 
 var NgTemplate = TemplateBase.inherit({
 
@@ -26,4 +26,4 @@ var NgTemplate = TemplateBase.inherit({
 
 });
 
-module.exports = NgTemplate;
+export default NgTemplate;

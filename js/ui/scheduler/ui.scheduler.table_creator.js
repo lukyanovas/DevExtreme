@@ -1,10 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    dataUtils = require("../../core/element_data"),
-    typeUtils = require("../../core/utils/type"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement;
+import $ from '../../core/renderer';
+import dataUtils from '../../core/element_data';
+import * as typeUtils from '../../core/utils/type';
+import { getPublicElement } from '../../core/utils/dom';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var SchedulerTableCreator = {
 
@@ -340,4 +342,4 @@ var SchedulerTableCreator = {
     }
 };
 
-module.exports = SchedulerTableCreator;
+export default SchedulerTableCreator;

@@ -1,24 +1,18 @@
 "use strict";
 
 //there are line, stepline, stackedline, fullstackedline, spline
-var series = require("./scatter_series"),
-    chartScatterSeries = series.chart,
-    polarScatterSeries = series.polar,
-    objectUtils = require("../../core/utils/object"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    vizUtils = require("../core/utils"),
-    normalizeAngle = vizUtils.normalizeAngle,
+import series from './scatter_series';
 
-    DISCRETE = "discrete",
+import objectUtils from '../../core/utils/object';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import vizUtils from '../core/utils';
 
-    _map = vizUtils.map,
+//there are line, stepline, stackedline, fullstackedline, spline
+var chartScatterSeries = series.chart, polarScatterSeries = series.polar, normalizeAngle = vizUtils.normalizeAngle, DISCRETE = "discrete", _map = vizUtils.map, _extend = extend, _each = each;
 
-    _extend = extend,
-    _each = each;
-
-exports.chart = {};
-exports.polar = {};
+export var chart = {};
+export var polar = {};
 
 function clonePoint(point, newX, newY, newAngle) {
     var p = objectUtils.clone(point);

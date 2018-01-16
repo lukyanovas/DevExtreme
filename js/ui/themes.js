@@ -1,17 +1,16 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    document = window.document,
-    errors = require("./widget/ui.errors"),
-    domUtils = require("../core/utils/dom"),
-    ready = require("../core/utils/ready"),
-    each = require("../core/utils/iterator").each,
-    devices = require("../core/devices"),
-    viewPortUtils = require("../core/utils/view_port"),
-    themeReadyCallback = require("./themes_callback"),
-    viewPort = viewPortUtils.value,
-    viewPortChanged = viewPortUtils.changeCallback;
+import $ from '../core/renderer';
+import errors from './widget/ui.errors';
+import domUtils from '../core/utils/dom';
+import ready from '../core/utils/ready';
+import { each } from '../core/utils/iterator';
+import devices from '../core/devices';
+import * as viewPortUtils from '../core/utils/view_port';
+import themeReadyCallback from './themes_callback';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document, viewPort = viewPortUtils.value, viewPortChanged = viewPortUtils.changeCallback;
 
 var DX_LINK_SELECTOR = "link[rel=dx-theme]",
     THEME_ATTR = "data-theme",
@@ -325,45 +324,15 @@ devices.changed.add(function() {
 });
 
 /**
- * @name ui_themes
- * @publicName themes
- * @namespace DevExpress.ui
- * @module ui/themes
- * @export default
- */
-/**
- * @name ui_themesmethods_current
- * @publicName current()
- * @static
- * @return string
- */
-/**
- * @name ui_themesmethods_current
- * @publicName current(themeName)
- * @param1 themeName:string
- * @static
- */
-exports.current = current;
-
-/**
  * @name ui_themesmethods_ready
  * @publicName ready(callback)
  * @param1 callback:function
  * @static
  */
-exports.ready = themeReady;
+export { current, init, attachCssClasses, detachCssClasses, themeNameFromDevice, waitForThemeLoad, themeReady as ready };
 
-exports.init = init;
-
-exports.attachCssClasses = attachCssClasses;
-exports.detachCssClasses = detachCssClasses;
-
-exports.themeNameFromDevice = themeNameFromDevice;
-exports.waitForThemeLoad = waitForThemeLoad;
-
-exports.resetTheme = function() {
+export var resetTheme = function() {
     $activeThemeLink && $activeThemeLink.attr("href", "about:blank");
     currentThemeName = null;
     pendingThemeName = null;
 };
-

@@ -1,22 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    iconUtils = require("../../core/utils/icon"),
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    iteratorUtils = require("../../core/utils/iterator"),
-    messageLocalization = require("../../localization/message"),
-    registerComponent = require("../../core/component_registrator"),
-    pivotGridUtils = require("./ui.pivot_grid.utils"),
-    TreeView = require("../tree_view"),
-    ContextMenu = require("../context_menu"),
-    BaseFieldChooser = require("./ui.pivot_grid.field_chooser_base"),
-    inArray = inArray,
-    each = iteratorUtils.each,
-    DIV = "<div>";
+import $ from '../../core/renderer';
+import iconUtils from '../../core/utils/icon';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import iteratorUtils from '../../core/utils/iterator';
+import messageLocalization from '../../localization/message';
+import registerComponent from '../../core/component_registrator';
+import pivotGridUtils from './ui.pivot_grid.utils';
+import TreeView from '../tree_view';
+import ContextMenu from '../context_menu';
+import BaseFieldChooser from './ui.pivot_grid.field_chooser_base';
 
-require("./data_source");
+var each = iteratorUtils.each, DIV = "<div>";
+
+import './data_source';
 
 var FIELDCHOOSER_CLASS = "dx-pivotgridfieldchooser",
     FIELDCHOOSER_CONTAINER_CLASS = "dx-pivotgridfieldchooser-container",
@@ -711,4 +710,4 @@ var FieldChooser = BaseFieldChooser.inherit({
 
 registerComponent("dxPivotGridFieldChooser", FieldChooser);
 
-module.exports = FieldChooser;
+export default FieldChooser;

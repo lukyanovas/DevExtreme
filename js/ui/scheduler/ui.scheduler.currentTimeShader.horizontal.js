@@ -1,6 +1,6 @@
 "use strict";
 
-var Shader = require("./ui.scheduler.currentTimeShader");
+import Shader from './ui.scheduler.currentTimeShader';
 
 var HorizontalCurrentTimeShader = Shader.inherit({
     _renderShader: function() {
@@ -17,4 +17,4 @@ var HorizontalCurrentTimeShader = Shader.inherit({
     },
 });
 
-module.exports = HorizontalCurrentTimeShader;
+export default HorizontalCurrentTimeShader;

@@ -1,10 +1,9 @@
 "use strict";
 
-var _format = require("../axes/smart_formatter").smartFormatter,
-    isFunction = require("../../core/utils/type").isFunction,
-    HEIGHT_COMPACT_MODE = 24,
-    POINTER_SIZE = 4,
-    EMPTY_SLIDER_MARKER_TEXT = ". . .";
+import { smartFormatter as _format } from '../axes/smart_formatter';
+import { isFunction } from '../../core/utils/type';
+
+var HEIGHT_COMPACT_MODE = 24, POINTER_SIZE = 4, EMPTY_SLIDER_MARKER_TEXT = ". . .";
 
 var utils = {
     trackerSettings: {
@@ -34,8 +33,4 @@ var formatValue = function(value, formatOptions, tickIntervalsInfo, valueType, t
     return String(isFunction(formatOptions.customizeText) ? formatOptions.customizeText.call(formatObject, formatObject) : formatObject.valueText);
 };
 
-exports.utils = utils;
-exports.consts = consts;
-exports.formatValue = formatValue;
-
-exports.HEIGHT_COMPACT_MODE = HEIGHT_COMPACT_MODE;
+export { utils, consts, formatValue, HEIGHT_COMPACT_MODE };

@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    positionUtils = require("../../animation/position"),
-    extend = require("../../core/utils/extend").extend,
-    ContextMenu = require("../context_menu");
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import { getPublicElement } from '../../core/utils/dom';
+import positionUtils from '../../animation/position';
+import { extend } from '../../core/utils/extend';
+import ContextMenu from '../context_menu';
 
 var DX_CONTEXT_MENU_CONTENT_DELIMITER_CLASS = "dx-context-menu-content-delimiter",
     DX_SUBMENU_CLASS = "dx-submenu";
@@ -173,4 +173,4 @@ var Submenu = ContextMenu.inherit({
     }
 });
 
-module.exports = Submenu;
+export default Submenu;

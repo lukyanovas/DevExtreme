@@ -1,11 +1,13 @@
 "use strict";
 
-var _eventData = require("../../events/utils").eventData,
-    document = require("../../core/dom_adapter").getWindow().document,
-    clickEventName = require("../../events/click").name,
-    downPointerEventName = require("../../events/pointer").down,
-    movePointerEventName = require("../../events/pointer").move,
-    eventsEngine = require("../../events/core/events_engine");
+import { eventData as _eventData } from '../../events/utils';
+import { name as clickEventName } from '../../events/click';
+import { down as downPointerEventName } from '../../events/pointer';
+import { move as movePointerEventName } from '../../events/pointer';
+import eventsEngine from '../../events/core/events_engine';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 function Tracker(parameters) {
     this._initHandlers(parameters);
@@ -103,4 +105,4 @@ function processTooltip(e, params) {
     }
 }
 
-module.exports.Tracker = Tracker;
+export { Tracker };

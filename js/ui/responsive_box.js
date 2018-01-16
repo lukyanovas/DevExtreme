@@ -1,17 +1,19 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    commonUtils = require("../core/utils/common"),
-    typeUtils = require("../core/utils/type"),
-    errors = require("./widget/ui.errors"),
-    window = require("../core/dom_adapter").getWindow(),
-    windowUtils = require("../core/utils/window"),
-    iteratorUtils = require("../core/utils/iterator"),
-    extend = require("../core/utils/extend").extend,
-    registerComponent = require("../core/component_registrator"),
-    Box = require("./box"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import commonUtils from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import errors from './widget/ui.errors';
+import windowUtils from '../core/utils/window';
+import iteratorUtils from '../core/utils/iterator';
+import { extend } from '../core/utils/extend';
+import registerComponent from '../core/component_registrator';
+import Box from './box';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var RESPONSIVE_BOX_CLASS = "dx-responsivebox",
     SCREEN_SIZE_CLASS_PREFIX = RESPONSIVE_BOX_CLASS + "-screen-",
@@ -409,8 +411,8 @@ var ResponsiveBox = CollectionWidget.inherit({
             return true;
         }
 
-        var result = false;
-        this._loopOverSpanning(itemInfo.location, function(cell) {
+        let result = false;
+        this._loopOverSpanning(itemInfo.location, (cell) => {
             result = result || !typeUtils.isEmptyObject(cell.item);
         });
         return result;
@@ -767,4 +769,4 @@ var ResponsiveBox = CollectionWidget.inherit({
 
 registerComponent("dxResponsiveBox", ResponsiveBox);
 
-module.exports = ResponsiveBox;
+export default ResponsiveBox;

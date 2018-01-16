@@ -1,8 +1,8 @@
 "use strict";
 
-var BaseThemeManager = require("../core/base_theme_manager").BaseThemeManager;
+import { BaseThemeManager } from '../core/base_theme_manager';
 
-exports.ThemeManager = BaseThemeManager.inherit({
+export var ThemeManager = BaseThemeManager.inherit({
     _themeSection: "map",
 
     _fontFields: [

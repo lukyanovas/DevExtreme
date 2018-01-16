@@ -1,33 +1,17 @@
 "use strict";
 
-var dxBaseGauge = require("./base_gauge").dxBaseGauge,
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    _isDefined = typeUtils.isDefined,
-    _isString = typeUtils.isString,
-    _isArray = Array.isArray,
-    _isNumber = typeUtils.isNumeric,
-    rangeModule = require("../translators/range"),
-    axisModule = require("../axes/base_axis"),
-    _map = require("../core/utils").map,
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    _compareArrays = require("./base_gauge").compareArrays,
+import { dxBaseGauge } from './base_gauge';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import rangeModule from '../translators/range';
+import axisModule from '../axes/base_axis';
+import { map as _map } from '../core/utils';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import { compareArrays as _compareArrays } from './base_gauge';
+import { noop as _noop } from '../../core/utils/common';
 
-    _isFinite = isFinite,
-    _Number = Number,
-    _min = Math.min,
-    _max = Math.max,
-
-    _extend = extend,
-    _each = each,
-    _noop = require("../../core/utils/common").noop,
-    SHIFT_ANGLE = 90,
-
-    OPTION_VALUE = "value",
-    OPTION_SUBVALUES = "subvalues",
-    DEFAULT_MINOR_AXIS_DIVISION_FACTOR = 5,
-    DEFAULT_NUMBER_MULTIPLIERS = [1, 2, 5];
+var _isDefined = typeUtils.isDefined, _isString = typeUtils.isString, _isArray = Array.isArray, _isNumber = typeUtils.isNumeric, _isFinite = isFinite, _Number = Number, _min = Math.min, _max = Math.max, _extend = extend, _each = each, SHIFT_ANGLE = 90, OPTION_VALUE = "value", OPTION_SUBVALUES = "subvalues", DEFAULT_MINOR_AXIS_DIVISION_FACTOR = 5, DEFAULT_NUMBER_MULTIPLIERS = [1, 2, 5];
 
 function processValue(value, fallbackValue) {
     if(value === null) {
@@ -40,7 +24,7 @@ function parseArrayOfNumbers(arg) {
     return _isArray(arg) ? arg : _isNumber(arg) ? [arg] : null;
 }
 
-exports.dxGauge = dxBaseGauge.inherit({
+export var dxGauge = dxBaseGauge.inherit({
     _initCore: function() {
         var that = this,
             renderer = that._renderer;
@@ -700,7 +684,7 @@ ValueIndicatorsSet.prototype = {
     }
 };
 
-exports.createIndicatorCreator = function(indicators) {
+export var createIndicatorCreator = function(indicators) {
     return function(parameters, type, _strict) {
         var indicatorType = indicators[_normalizeEnum(type)] || (!_strict && indicators._default);
         return indicatorType ? new indicatorType(parameters) : null;

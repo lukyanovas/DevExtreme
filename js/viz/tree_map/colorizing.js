@@ -1,10 +1,9 @@
 "use strict";
 
-var _normalizeEnum = require("../core/utils").normalizeEnum,
-    _noop = require("../../core/utils/common").noop,
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import { noop as _noop } from '../../core/utils/common';
 
-    colorizers = {},
-    defaultColorizerName;
+var colorizers = {}, defaultColorizerName;
 
 function wrapLeafColorGetter(getter) {
     return function(node) {
@@ -20,18 +19,18 @@ function wrapGroupColorGetter(getter) {
     };
 }
 
-exports.getColorizer = function(options, themeManager, root) {
+export var getColorizer = function(options, themeManager, root) {
     var type = _normalizeEnum(options.type || defaultColorizerName),
         colorizer = colorizers[type] && colorizers[type](options, themeManager, root);
 
     return colorizer ? (options.colorizeGroups ? wrapGroupColorGetter : wrapLeafColorGetter)(colorizer) : _noop;
 };
 
-exports.addColorizer = function(name, colorizer) {
+export var addColorizer = function(name, colorizer) {
     colorizers[name] = colorizer;
 };
 
-exports.setDefaultColorizer = function(name) {
+export var setDefaultColorizer = function(name) {
     defaultColorizerName = name;
 };
 
@@ -45,6 +44,6 @@ function createColorCodeGetter(colorCodeField) {
     };
 }
 
-exports.createColorCodeGetter = function(options) {
+export var createColorCodeGetter = function(options) {
     return options.colorCodeField ? createColorCodeGetter(options.colorCodeField) : getValueAsColorCode;
 };

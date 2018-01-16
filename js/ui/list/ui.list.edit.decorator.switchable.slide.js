@@ -1,18 +1,18 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    noop = require("../../core/utils/common").noop,
-    clickEvent = require("../../events/click"),
-    messageLocalization = require("../../localization/message"),
-    translator = require("../../animation/translator"),
-    eventUtils = require("../../events/utils"),
-    feedbackEvents = require("../../events/core/emitter.feedback"),
-    EditDecoratorMenuHelperMixin = require("./ui.list.edit.decorator_menu_helper"),
-    registerDecorator = require("./ui.list.edit.decorator_registry").register,
-    SwitchableEditDecorator = require("./ui.list.edit.decorator.switchable"),
-    fx = require("../../animation/fx"),
-    ActionSheet = require("../action_sheet");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { noop } from '../../core/utils/common';
+import clickEvent from '../../events/click';
+import messageLocalization from '../../localization/message';
+import translator from '../../animation/translator';
+import * as eventUtils from '../../events/utils';
+import feedbackEvents from '../../events/core/emitter.feedback';
+import EditDecoratorMenuHelperMixin from './ui.list.edit.decorator_menu_helper';
+import { register as registerDecorator } from './ui.list.edit.decorator_registry';
+import SwitchableEditDecorator from './ui.list.edit.decorator.switchable';
+import fx from '../../animation/fx';
+import ActionSheet from '../action_sheet';
 
 var LIST_EDIT_DECORATOR = "dxListEditDecorator",
     CLICK_EVENT_NAME = eventUtils.addNamespace(clickEvent.name, LIST_EDIT_DECORATOR),

@@ -1,15 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    document = window.document,
-    commonUtils = require("../../core/utils/common"),
-    virtualScrollingCore = require("./ui.grid_core.virtual_scrolling_core"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    each = require("../../core/utils/iterator").each,
-    browser = require("../../core/utils/browser"),
-    translator = require("../../animation/translator"),
-    LoadIndicator = require("../load_indicator");
+import $ from '../../core/renderer';
+import commonUtils from '../../core/utils/common';
+import virtualScrollingCore from './ui.grid_core.virtual_scrolling_core';
+import gridCoreUtils from './ui.grid_core.utils';
+import { each } from '../../core/utils/iterator';
+import browser from '../../core/utils/browser';
+import translator from '../../animation/translator';
+import LoadIndicator from '../load_indicator';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document;
 
 var TABLE_CLASS = "table",
     BOTTOM_LOAD_PANEL_CLASS = "bottom-load-panel",
@@ -562,7 +563,7 @@ var VirtualScrollingRowsViewExtender = (function() {
     };
 })();
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             scrolling: {

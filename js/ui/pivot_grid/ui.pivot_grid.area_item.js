@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Class = require("../../core/class"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    extend = require("../../core/utils/extend").extend,
-    isDefined = require("../../core/utils/type").isDefined;
+import $ from '../../core/renderer';
+import Class from '../../core/class';
+import { getPublicElement } from '../../core/utils/dom';
+import { extend } from '../../core/utils/extend';
+import { isDefined } from '../../core/utils/type';
 
 var PIVOTGRID_EXPAND_CLASS = "dx-expand";
 
@@ -54,11 +54,11 @@ function getFakeTableOffset(scrollPos, elementOffset, tableSize, viewPortSize) {
     return offset;
 }
 
-///#DEBUG
-exports.getRealElementWidth = getRealElementWidth;
+export { getRealElementWidth };
+
 ///#ENDDEBUG
 
-exports.AreaItem = Class.inherit({
+export var AreaItem = Class.inherit({
     _getRowElement: function(index) {
         var that = this;
         if(that._tableElement && that._tableElement.length > 0) {

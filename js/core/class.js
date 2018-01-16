@@ -1,7 +1,9 @@
 "use strict";
 
-var errors = require("./errors"),
-    window = require("./dom_adapter").getWindow();
+import errors from './errors';
+import domAdapter from './dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var wrapOverridden = function(baseProto, methodName, method) {
     return function() {
@@ -148,4 +150,4 @@ classImpl.inherit = function(members) {
 
 classImpl.abstract = abstract;
 
-module.exports = classImpl;
+export default classImpl;

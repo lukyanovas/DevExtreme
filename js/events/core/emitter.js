@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    Class = require("../../core/class"),
-    Callbacks = require("../../core/utils/callbacks"),
-    extend = require("../../core/utils/extend").extend,
-    eventUtils = require("../utils");
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import Class from '../../core/class';
+import Callbacks from '../../core/utils/callbacks';
+import { extend } from '../../core/utils/extend';
+import * as eventUtils from '../utils';
 
 var Emitter = Class.inherit({
 
@@ -105,4 +105,4 @@ var Emitter = Class.inherit({
 
 });
 
-module.exports = Emitter;
+export default Emitter;

@@ -1,19 +1,18 @@
 "use strict";
 
-var _each = require("../../core/utils/iterator").each,
-    _max = Math.max,
-    _min = Math.min,
-    _round = Math.round,
-    registerComponent = require("../../core/component_registrator"),
-    extend = require("../../core/utils/extend").extend,
-    objectUtils = require("../../core/utils/object"),
-    dxBaseGauge = require("./base_gauge").dxBaseGauge,
-    dxGauge = require("./common").dxGauge,
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    linearIndicatorsModule = require("./linear_indicators"),
-    createIndicatorCreator = require("./common").createIndicatorCreator,
-    LinearRangeContainer = require("./linear_range_container"),
-    ThemeManager = require("./theme_manager");
+import { each as _each } from '../../core/utils/iterator';
+import registerComponent from '../../core/component_registrator';
+import { extend } from '../../core/utils/extend';
+import objectUtils from '../../core/utils/object';
+import { dxBaseGauge } from './base_gauge';
+import { dxGauge } from './common';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import linearIndicatorsModule from './linear_indicators';
+import { createIndicatorCreator } from './common';
+import LinearRangeContainer from './linear_range_container';
+import ThemeManager from './theme_manager';
+
+var _max = Math.max, _min = Math.min, _round = Math.round;
 
 var dxLinearGauge = dxGauge.inherit({
     _rootClass: 'dxg-linear-gauge',
@@ -240,4 +239,4 @@ dxLinearGauge.prototype._factory.ThemeManager = ThemeManager.inherit({
 
 registerComponent("dxLinearGauge", dxLinearGauge);
 
-module.exports = dxLinearGauge;
+export default dxLinearGauge;

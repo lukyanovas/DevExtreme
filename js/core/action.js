@@ -1,12 +1,14 @@
 "use strict";
 
-var $ = require("./renderer"),
-    config = require("./config"),
-    window = require("./dom_adapter").getWindow(),
-    typeUtils = require("./utils/type"),
-    each = require("./utils/iterator").each,
-    Class = require("./class"),
-    errors = require("./errors");
+import $ from './renderer';
+import config from './config';
+import * as typeUtils from './utils/type';
+import { each } from './utils/iterator';
+import Class from './class';
+import errors from './errors';
+import domAdapter from './dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var Action = Class.inherit({
 
@@ -200,4 +202,4 @@ Action.registerExecutor({
 });
 
 
-module.exports = Action;
+export default Action;

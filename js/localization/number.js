@@ -1,13 +1,13 @@
 "use strict";
 
-var dependencyInjector = require("../core/utils/dependency_injector"),
-    inArray = require("../core/utils/array").inArray,
-    escapeRegExp = require("../core/utils/common").escapeRegExp,
-    each = require("../core/utils/iterator").each,
-    isPlainObject = require("../core/utils/type").isPlainObject,
-    ldmlNumber = require("./ldml/number"),
-    config = require("../core/config"),
-    errors = require("../core/errors");
+import dependencyInjector from '../core/utils/dependency_injector';
+import { inArray } from '../core/utils/array';
+import { escapeRegExp } from '../core/utils/common';
+import { each } from '../core/utils/iterator';
+import { isPlainObject } from '../core/utils/type';
+import ldmlNumber from './ldml/number';
+import config from '../core/config';
+import errors from '../core/errors';
 
 var MAX_LARGE_NUMBER_POWER = 4,
     DECIMAL_BASE = 10;
@@ -316,4 +316,4 @@ var numberLocalization = dependencyInjector({
     }
 });
 
-module.exports = numberLocalization;
+export default numberLocalization;

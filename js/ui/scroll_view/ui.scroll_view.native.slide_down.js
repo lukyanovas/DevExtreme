@@ -1,8 +1,8 @@
 "use strict";
 
-var Callbacks = require("../../core/utils/callbacks"),
-    NativeStrategy = require("./ui.scrollable.native"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import Callbacks from '../../core/utils/callbacks';
+import NativeStrategy from './ui.scrollable.native';
+import { Deferred } from '../../core/utils/deferred';
 
 var STATE_RELEASED = 0,
     STATE_READY = 1,
@@ -108,4 +108,4 @@ var SlideDownNativeScrollViewStrategy = NativeStrategy.inherit({
     }
 });
 
-module.exports = SlideDownNativeScrollViewStrategy;
+export default SlideDownNativeScrollViewStrategy;

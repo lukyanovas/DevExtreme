@@ -1,23 +1,17 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    isFunction = require("../../core/utils/type").isFunction,
-    BaseWidget = require("../core/base_widget"),
-    extend = require("../../core/utils/extend").extend,
+import eventsEngine from '../../events/core/events_engine';
+import { isFunction } from '../../core/utils/type';
+import BaseWidget from '../core/base_widget';
+import { extend } from '../../core/utils/extend';
+import * as eventUtils from '../../events/utils';
+import wheelEvent from '../../events/core/wheel';
+import baseThemeManagerModule from '../core/base_theme_manager';
+import translator2DModule from '../translators/translator2d';
+import { noop as _noop } from '../../core/utils/common';
+import domAdapter from '../../core/dom_adapter';
 
-    DEFAULT_LINE_SPACING = 2,
-    DEFAULT_EVENTS_DELAY = 200,
-    TOUCH_EVENTS_DELAY = 1000,
-
-    eventUtils = require("../../events/utils"),
-    wheelEvent = require("../../events/core/wheel"),
-    baseThemeManagerModule = require("../core/base_theme_manager"),
-    translator2DModule = require("../translators/translator2d"),
-
-    _abs = Math.abs,
-    _extend = extend,
-    _noop = require("../../core/utils/common").noop;
+var document = domAdapter.getWindow().document, DEFAULT_LINE_SPACING = 2, DEFAULT_EVENTS_DELAY = 200, TOUCH_EVENTS_DELAY = 1000, _abs = Math.abs, _extend = extend;
 
 function generateDefaultCustomizeTooltipCallback(fontOptions, rtlEnabled) {
     var lineSpacing = fontOptions.lineSpacing,
@@ -316,12 +310,13 @@ eventsEngine.subscribeGlobal(document, {
     "touchend.sparkline-tooltip": touchEndDocumentProcessing
 });
 
-module.exports = BaseSparkline;
+export default BaseSparkline;
 
 ///#DEBUG
-module.exports._DEBUG_reset = function() {
+export var _DEBUG_reset = function() {
     active_touch_tooltip_widget = null;
 };
+
 ///#ENDDEBUG
 
 // PLUGINS_SECTION

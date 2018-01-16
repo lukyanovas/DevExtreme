@@ -1,16 +1,15 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    dataUtils = require("./utils"),
-    isFunction = require("../core/utils/type").isFunction,
-    errors = require("./errors").errors,
-    Store = require("./abstract_store"),
-    arrayQuery = require("./array_query"),
-    queryByOptions = require("./store_helper").queryByOptions,
-    deferredUtils = require("../core/utils/deferred"),
-    Deferred = deferredUtils.Deferred,
-    when = deferredUtils.when,
-    fromPromise = deferredUtils.fromPromise;
+import $ from '../core/renderer';
+import dataUtils from './utils';
+import { isFunction } from '../core/utils/type';
+import { errors } from './errors';
+import Store from './abstract_store';
+import arrayQuery from './array_query';
+import { queryByOptions } from './store_helper';
+import * as deferredUtils from '../core/utils/deferred';
+
+var Deferred = deferredUtils.Deferred, when = deferredUtils.when, fromPromise = deferredUtils.fromPromise;
 
 var TOTAL_COUNT = "totalCount",
     LOAD = "load",
@@ -217,86 +216,86 @@ function runRawLoadWithKey(pendingDeferred, store, key) {
  * @publicName filter
  * @type object
  */
- /**
- * @name LoadOptions_sort
- * @publicName sort
- * @type object
- */
- /**
- * @name LoadOptions_select
- * @publicName select
- * @type object
- */
+/**
+* @name LoadOptions_sort
+* @publicName sort
+* @type object
+*/
+/**
+* @name LoadOptions_select
+* @publicName select
+* @type object
+*/
 /**
  * @name LoadOptions_group
  * @publicName group
  * @type object
  */
- /**
- * @name LoadOptions_skip
- * @publicName skip
- * @type number
- */
- /**
- * @name LoadOptions_skip
- * @publicName skip
- * @type number
- */
- /**
- * @name LoadOptions_take
- * @publicName take
- * @type number
- */
- /**
- * @name LoadOptions_userData
- * @publicName userData
- * @type object
- */
- /**
- * @name LoadOptions_expand
- * @publicName expand
- * @type object
- */
- /**
- * @name LoadOptions_requireTotalCount
- * @publicName requireTotalCount
- * @type boolean
- */
- /**
- * @name LoadOptions_searchValue
- * @publicName searchValue
- * @type any
- */
- /**
- * @name LoadOptions_searchOperation
- * @publicName searchOperation
- * @type string
- */
- /**
- * @name LoadOptions_searchExpr
- * @publicName searchExpr
- * @type getter|Array<getter>
- */
- /**
- * @name LoadOptions_customQueryParams
- * @publicName customQueryParams
- * @type Object
- */
- /**
- * @name LoadOptions_totalSummary
- * @publicName totalSummary
- * @type Object
- */
- /**
- * @name LoadOptions_groupSummary
- * @publicName groupSummary
- * @type Object
- */
- /**
- * @name LoadOptions_requireGroupCount
- * @publicName requireGroupCount
- * @type boolean
- */
+/**
+* @name LoadOptions_skip
+* @publicName skip
+* @type number
+*/
+/**
+* @name LoadOptions_skip
+* @publicName skip
+* @type number
+*/
+/**
+* @name LoadOptions_take
+* @publicName take
+* @type number
+*/
+/**
+* @name LoadOptions_userData
+* @publicName userData
+* @type object
+*/
+/**
+* @name LoadOptions_expand
+* @publicName expand
+* @type object
+*/
+/**
+* @name LoadOptions_requireTotalCount
+* @publicName requireTotalCount
+* @type boolean
+*/
+/**
+* @name LoadOptions_searchValue
+* @publicName searchValue
+* @type any
+*/
+/**
+* @name LoadOptions_searchOperation
+* @publicName searchOperation
+* @type string
+*/
+/**
+* @name LoadOptions_searchExpr
+* @publicName searchExpr
+* @type getter|Array<getter>
+*/
+/**
+* @name LoadOptions_customQueryParams
+* @publicName customQueryParams
+* @type Object
+*/
+/**
+* @name LoadOptions_totalSummary
+* @publicName totalSummary
+* @type Object
+*/
+/**
+* @name LoadOptions_groupSummary
+* @publicName groupSummary
+* @type Object
+*/
+/**
+* @name LoadOptions_requireGroupCount
+* @publicName requireGroupCount
+* @type boolean
+*/
 
 /**
 * @name CustomStore
@@ -514,4 +513,4 @@ var CustomStore = Store.inherit({
     }
 });
 
-module.exports = CustomStore;
+export default CustomStore;

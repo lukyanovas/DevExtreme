@@ -1,19 +1,19 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    arrayUtils = require("../../core/utils/array"),
-    grep = require("../../core/utils/common").grep,
-    isDefined = require("../../core/utils/type").isDefined,
-    objectUtils = require("../../core/utils/object"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    query = require("../../data/query"),
-    dataCoreUtils = require("../../core/utils/data"),
-    DataSourceModule = require("../../data/data_source/data_source"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import Class from '../../core/class';
+import arrayUtils from '../../core/utils/array';
+import { grep } from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import objectUtils from '../../core/utils/object';
+import iteratorUtils from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import query from '../../data/query';
+import dataCoreUtils from '../../core/utils/data';
+import DataSourceModule from '../../data/data_source/data_source';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var getValueExpr = function(resource) {
         return resource.valueExpr || "id";
@@ -488,4 +488,4 @@ var ResourceManager = Class.inherit({
 
 });
 
-module.exports = ResourceManager;
+export default ResourceManager;

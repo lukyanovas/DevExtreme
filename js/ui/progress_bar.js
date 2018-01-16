@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    TrackBar = require("./track_bar"),
-    extend = require("../core/utils/extend").extend,
-    isFunction = require("../core/utils/type").isFunction,
-    registerComponent = require("../core/component_registrator");
+import $ from '../core/renderer';
+import TrackBar from './track_bar';
+import { extend } from '../core/utils/extend';
+import { isFunction } from '../core/utils/type';
+import registerComponent from '../core/component_registrator';
 
 var PROGRESSBAR_CLASS = "dx-progressbar",
     PROGRESSBAR_CONTAINER_CLASS = "dx-progressbar-container",
@@ -292,4 +292,4 @@ var ProgressBar = TrackBar.inherit({
 
 registerComponent("dxProgressBar", ProgressBar);
 
-module.exports = ProgressBar;
+export default ProgressBar;

@@ -1,5 +1,5 @@
 "use strict";
 
-var angular = require("angular");
+import angular from 'angular';
 
-module.exports = angular.module("dx", []);
+export default angular.module("dx", []);

@@ -1,10 +1,11 @@
 "use strict";
 
-var inArray = require("./array").inArray,
-    window = require("../../core/dom_adapter").getWindow(),
-    document = window.document,
-    devices = require("../devices"),
-    styleUtils = require("./style");
+import { inArray } from './array';
+import devices from '../devices';
+import * as styleUtils from './style';
+import domAdapter from '../dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document;
 
 var transitionEndEventNames = {
     'webkitTransition': 'webkitTransitionEnd',
@@ -47,17 +48,12 @@ var touchEvents = "ontouchstart" in window && !('callPhantom' in window),
     pointerEvents = !!window.navigator.pointerEnabled || !!window.navigator.msPointerEnabled,
     touchPointersPresent = !!window.navigator.maxTouchPoints || !!window.navigator.msMaxTouchPoints;
 
-exports.touchEvents = touchEvents;
-exports.pointerEvents = pointerEvents;
-exports.touch = touchEvents || pointerEvents && touchPointersPresent;
-exports.transition = supportProp("transition");
-exports.transitionEndEventName = transitionEndEventNames[styleUtils.styleProp("transition")];
-exports.animation = supportProp("animation");
-exports.nativeScrolling = isNativeScrollingSupported();
-
-exports.styleProp = styleUtils.styleProp;
-exports.stylePropPrefix = styleUtils.stylePropPrefix;
-exports.supportProp = supportProp;
-
-exports.hasKo = !!window.ko;
-exports.inputType = inputType;
+export var touch = touchEvents || pointerEvents && touchPointersPresent;
+export var transition = supportProp("transition");
+export var transitionEndEventName = transitionEndEventNames[styleUtils.styleProp("transition")];
+export var animation = supportProp("animation");
+export var nativeScrolling = isNativeScrollingSupported();
+export var styleProp = styleUtils.styleProp;
+export var stylePropPrefix = styleUtils.stylePropPrefix;
+export var hasKo = !!window.ko;
+export { touchEvents, pointerEvents, supportProp, inputType };

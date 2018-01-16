@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    commonUtils = require("../../core/utils/common"),
-    isPlainObject = require("../../core/utils/type").isPlainObject,
-    registerComponent = require("../../core/component_registrator"),
-    inArray = require("../../core/utils/array").inArray,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    CollectionWidget = require("../collection/ui.collection_widget.edit"),
-    BindableTemplate = require("../widget/bindable_template");
+import $ from '../../core/renderer';
+import commonUtils from '../../core/utils/common';
+import { isPlainObject } from '../../core/utils/type';
+import registerComponent from '../../core/component_registrator';
+import { inArray } from '../../core/utils/array';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import CollectionWidget from '../collection/ui.collection_widget.edit';
+import BindableTemplate from '../widget/bindable_template';
 
 var TOOLBAR_CLASS = "dx-toolbar",
     TOOLBAR_BEFORE_CLASS = "dx-toolbar-before",
@@ -360,4 +360,4 @@ var ToolbarBase = CollectionWidget.inherit({
 
 registerComponent("dxToolbarBase", ToolbarBase);
 
-module.exports = ToolbarBase;
+export default ToolbarBase;

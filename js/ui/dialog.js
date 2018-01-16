@@ -1,23 +1,25 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    eventsEngine = require("../events/core/events_engine"),
-    Component = require("../core/component"),
-    isFunction = require("../core/utils/type").isFunction,
-    Action = require("../core/action"),
-    domUtils = require("../core/utils/dom"),
-    each = require("../core/utils/iterator").each,
-    viewPortUtils = require("../core/utils/view_port"),
-    extend = require("../core/utils/extend").extend,
-    isPlainObject = require("../core/utils/type").isPlainObject,
-    devices = require("../core/devices"),
-    themes = require("./themes"),
-    errors = require("./widget/ui.errors"),
-    messageLocalization = require("../localization/message"),
-    Popup = require("./popup"),
-    config = require("../core/config"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import Component from '../core/component';
+import { isFunction } from '../core/utils/type';
+import Action from '../core/action';
+import domUtils from '../core/utils/dom';
+import { each } from '../core/utils/iterator';
+import * as viewPortUtils from '../core/utils/view_port';
+import { extend } from '../core/utils/extend';
+import { isPlainObject } from '../core/utils/type';
+import devices from '../core/devices';
+import themes from './themes';
+import errors from './widget/ui.errors';
+import messageLocalization from '../localization/message';
+import Popup from './popup';
+import config from '../core/config';
+import { Deferred } from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var DEFAULT_BUTTON = {
     text: "OK",
@@ -80,9 +82,8 @@ var FakeDialogComponent = Component.inherit({
         ]);
     }
 });
-exports.FakeDialogComponent = FakeDialogComponent;
-
-exports.title = "";
+export { FakeDialogComponent };
+export var title = "";
 
 /**
  * @name ui_dialog
@@ -102,7 +103,7 @@ exports.title = "";
  * @module ui/dialog
  * @export custom
  */
-exports.custom = function(options) {
+export var custom = function(options) {
     var deferred = new Deferred();
 
     var defaultOptions = new FakeDialogComponent().option();
@@ -234,7 +235,6 @@ exports.custom = function(options) {
     };
 };
 
-
 /**
  * @name ui_dialogmethods_alert
  * @publicName alert(message,title)
@@ -245,7 +245,7 @@ exports.custom = function(options) {
  * @module ui/dialog
  * @export alert
  */
-exports.alert = function(message, title, showTitle) {
+export var alert = function(message, title, showTitle) {
     var options = isPlainObject(message)
             ? message
             : {
@@ -254,7 +254,7 @@ exports.alert = function(message, title, showTitle) {
                 showTitle: showTitle
             };
 
-    return exports.custom(options).show();
+    return custom(options).show();
 };
 
 /**
@@ -267,7 +267,7 @@ exports.alert = function(message, title, showTitle) {
  * @module ui/dialog
  * @export confirm
  */
-exports.confirm = function(message, title, showTitle) {
+export var confirm = function(message, title, showTitle) {
     var options = isPlainObject(message)
             ? message
             : {
@@ -280,5 +280,5 @@ exports.confirm = function(message, title, showTitle) {
                 ]
             };
 
-    return exports.custom(options).show();
+    return custom(options).show();
 };

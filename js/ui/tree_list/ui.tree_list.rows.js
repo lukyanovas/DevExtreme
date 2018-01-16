@@ -1,8 +1,8 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    treeListCore = require("./ui.tree_list.core"),
-    rowsViewModule = require("../grid_core/ui.grid_core.rows");
+import $ from '../../core/renderer';
+import treeListCore from './ui.tree_list.core';
+import rowsViewModule from '../grid_core/ui.grid_core.rows';
 
 var TREELIST_TEXT_CONTENT = "dx-treelist-text-content",
     TREELIST_EXPAND_ICON_CONTAINER_CLASS = "dx-treelist-icon-container",
@@ -11,7 +11,7 @@ var TREELIST_TEXT_CONTENT = "dx-treelist-text-content",
     TREELIST_EXPANDED_CLASS = "dx-treelist-expanded",
     TREELIST_COLLAPSED_CLASS = "dx-treelist-collapsed";
 
-exports.RowsView = rowsViewModule.views.rowsView.inherit((function() {
+export var RowsView = rowsViewModule.views.rowsView.inherit((function() {
     var createCellContent = function($container) {
         return $("<div>")
             .addClass(TREELIST_TEXT_CONTENT)

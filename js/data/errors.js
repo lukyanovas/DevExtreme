@@ -1,8 +1,9 @@
 "use strict";
 
-var errorUtils = require("../core/utils/error"),
-    coreErrors = require("../core/errors"),
-    handlers = {};
+import errorUtils from '../core/utils/error';
+import coreErrors from '../core/errors';
+
+var handlers = {};
 
 /**
 * @docid
@@ -204,4 +205,4 @@ handlers = {
     _errorHandler: _errorHandler
 };
 
-module.exports = handlers;
+export default handlers;

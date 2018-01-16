@@ -1,15 +1,11 @@
 "use strict";
 
-var labelModule = require("../series/points/label"),
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    extend = require("../../core/utils/extend").extend,
-    noop = require("../../core/utils/common").noop,
-    OUTSIDE_POSITION = "outside",
-    INSIDE_POSITION = "inside",
-    OUTSIDE_LABEL_INDENT = 5,
-    COLUMNS_LABEL_INDENT = 20,
-    CONNECTOR_INDENT = 4,
-    PREVENT_EMPTY_PIXEL_OFFSET = 1;
+import labelModule from '../series/points/label';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import { extend } from '../../core/utils/extend';
+import { noop } from '../../core/utils/common';
+
+var OUTSIDE_POSITION = "outside", INSIDE_POSITION = "inside", OUTSIDE_LABEL_INDENT = 5, COLUMNS_LABEL_INDENT = 20, CONNECTOR_INDENT = 4, PREVENT_EMPTY_PIXEL_OFFSET = 1;
 
 function getLabelIndent(pos) {
     pos = _normalizeEnum(pos);
@@ -157,7 +153,7 @@ function correctLabelPosition(pos, bBox, rect) {
     return pos;
 }
 
-exports.plugin = {
+export var plugin = {
     name: "lables",
     init: noop,
     dispose: noop,

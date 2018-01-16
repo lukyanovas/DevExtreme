@@ -1,23 +1,13 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    window = require("../../core/dom_adapter").getWindow(),
-    navigator = window.navigator,
-    document = window.document,
-    _math = Math,
-    _abs = _math.abs,
-    _sqrt = _math.sqrt,
-    _round = _math.round,
+import eventsEngine from '../../events/core/events_engine';
+import eventEmitterModule from './event_emitter';
+import * as eventUtils from '../../events/utils';
+import { name as wheelEventName } from '../../events/core/wheel';
+import { parseScalar as _parseScalar } from '../core/utils';
+import domAdapter from '../../core/dom_adapter';
 
-    eventEmitterModule = require("./event_emitter"),
-    eventUtils = require("../../events/utils"),
-    wheelEventName = require("../../events/core/wheel").name,
-    _addNamespace = eventUtils.addNamespace,
-    _parseScalar = require("../core/utils").parseScalar,
-    _now = Date.now,
-
-    _NAME = "dxVectorMap",
-    EVENTS = {};
+var window = domAdapter.getWindow(), navigator = window.navigator, document = window.document, _math = Math, _abs = _math.abs, _sqrt = _math.sqrt, _round = _math.round, _addNamespace = eventUtils.addNamespace, _now = Date.now, _NAME = "dxVectorMap", EVENTS = {};
 
 setupEvents();
 
@@ -497,20 +487,23 @@ var Focus = function(fire) {
 
 eventEmitterModule.makeEventEmitter(Tracker);
 
-exports.Tracker = Tracker;
-
 ///#DEBUG
 var originFocus = Focus;
-exports._DEBUG_forceEventMode = function(mode) {
+
+export var _DEBUG_forceEventMode = function(mode) {
     setupEvents(mode);
 };
-exports.Focus = Focus;
-exports._DEBUG_stubFocusType = function(focusType) {
+
+export { Tracker, Focus };
+
+export var _DEBUG_stubFocusType = function(focusType) {
     Focus = focusType;
 };
-exports._DEBUG_restoreFocusType = function() {
+
+export var _DEBUG_restoreFocusType = function() {
     Focus = originFocus;
 };
+
 ///#ENDDEBUG
 
 function getDistance(x1, y1, x2, y2) {

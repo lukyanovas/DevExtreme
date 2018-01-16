@@ -1,7 +1,7 @@
 "use strict";
 
-var errorUtils = require("../../core/utils/error"),
-    errors = require("../../core/errors");
+import errorUtils from '../../core/utils/error';
+import errors from '../../core/errors';
 
 /**
 * @docid
@@ -9,7 +9,7 @@ var errorUtils = require("../../core/utils/error"),
 * @publicName Errors and Warnings
 */
 
-module.exports = errorUtils(errors.ERROR_MESSAGES, {
+export default errorUtils(errors.ERROR_MESSAGES, {
 
     /**
     * @name Errors and Warnings_E1001

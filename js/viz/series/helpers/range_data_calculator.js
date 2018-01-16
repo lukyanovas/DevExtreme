@@ -1,8 +1,8 @@
 "use strict";
-var unique = require("../../core/utils").unique,
-    _isDefined = require("../../../core/utils/type").isDefined,
-    noop = require("../../../core/utils/common").noop,
-    DISCRETE = "discrete";
+import { unique } from '../../core/utils';
+import { isDefined as _isDefined } from '../../../core/utils/type';
+import { noop } from '../../../core/utils/common';
+var DISCRETE = "discrete";
 
 function continuousRangeCalculator(range, minValue, maxValue) {
     range.min = range.min < minValue ? range.min : minValue;
@@ -128,7 +128,7 @@ function getViewportReducer(series) {
     };
 }
 
-module.exports = {
+export default {
     getRangeData: function(series) {
         var points = series.getPoints(),
             argumentCalculator = getRangeCalculator(series.argumentAxisType, points.length > 1 && series.getArgumentAxis()),

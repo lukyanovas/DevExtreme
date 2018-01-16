@@ -1,9 +1,10 @@
 'use strict';
 
-var jQuery = require("jquery");
-var ajax = require("../../core/utils/ajax");
-var useJQuery = require("./use_jquery")();
+import jQuery from 'jquery';
+import { setStrategy } from '../../core/utils/ajax';
+import useJQueryFactory from './use_jquery';
+const useJQuery = useJQueryFactory();
 
 if(useJQuery) {
-    ajax.setStrategy(jQuery.ajax);
+    setStrategy(jQuery.ajax);
 }

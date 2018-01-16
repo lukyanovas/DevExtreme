@@ -1,10 +1,10 @@
 "use strict";
 
-var translator = require("../../animation/translator"),
-    fx = require("../../animation/fx"),
-    registerDecorator = require("./ui.list.edit.decorator_registry").register,
-    EditDecorator = require("./ui.list.edit.decorator"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import translator from '../../animation/translator';
+import fx from '../../animation/fx';
+import { register as registerDecorator } from './ui.list.edit.decorator_registry';
+import EditDecorator from './ui.list.edit.decorator';
+import { Deferred } from '../../core/utils/deferred';
 
 
 registerDecorator(

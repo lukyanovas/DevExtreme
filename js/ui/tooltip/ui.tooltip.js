@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Tooltip = require("./tooltip"),
-    extend = require("../../core/utils/extend").extend,
-    Deferred = require("../../core/utils/deferred").Deferred,
-    viewPortUtils = require("../../core/utils/view_port");
+import $ from '../../core/renderer';
+import Tooltip from './tooltip';
+import { extend } from '../../core/utils/extend';
+import { Deferred } from '../../core/utils/deferred';
+import * as viewPortUtils from '../../core/utils/view_port';
 
 var tooltip = null;
 var removeTooltipElement = null;
@@ -35,13 +35,13 @@ var removeTooltip = function() {
     tooltip = null;
 };
 
-exports.show = function(options) {
+export var show = function(options) {
     removeTooltip();
     createTooltip(options);
     return tooltip.show();
 };
 
-exports.hide = function() {
+export var hide = function() {
     if(!tooltip) {
         return new Deferred().resolve();
     }

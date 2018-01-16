@@ -1,10 +1,10 @@
 "use strict";
 
-var Component = require("../../core/component"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    devices = require("../../core/devices"),
-    fx = require("../fx");
+import Component from '../../core/component';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import devices from '../../core/devices';
+import fx from '../fx';
 
 var directionPostfixes = {
     forward: " dx-forward",
@@ -389,7 +389,7 @@ var AnimationPresetCollection = Component.inherit({
     }
 });
 
-exports.PresetCollection = AnimationPresetCollection;
+export var PresetCollection = AnimationPresetCollection;
 
 /**
 * @name animationPresetsMethods_resetToDefaults
@@ -427,4 +427,4 @@ exports.PresetCollection = AnimationPresetCollection;
 * @publicName registerDefaultPresets()
 */
 var animationPresets = new AnimationPresetCollection();
-exports.presets = animationPresets;
+export var presets = animationPresets;

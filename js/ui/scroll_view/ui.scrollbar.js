@@ -1,15 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    translator = require("../../animation/translator"),
-    Widget = require("../widget/ui.widget"),
-    eventUtils = require("../../events/utils"),
-    commonUtils = require("../../core/utils/common"),
-    isPlainObject = require("../../core/utils/type").isPlainObject,
-    extend = require("../../core/utils/extend").extend,
-    pointerEvents = require("../../events/pointer");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import translator from '../../animation/translator';
+import Widget from '../widget/ui.widget';
+import * as eventUtils from '../../events/utils';
+import commonUtils from '../../core/utils/common';
+import { isPlainObject } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import pointerEvents from '../../events/pointer';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var SCROLLBAR = "dxScrollbar",
     SCROLLABLE_SCROLLBAR_CLASS = "dx-scrollable-scrollbar",
@@ -233,4 +235,4 @@ eventsEngine.subscribeGlobal(document, eventUtils.addNamespace(pointerEvents.up,
     }
 });
 
-module.exports = Scrollbar;
+export default Scrollbar;

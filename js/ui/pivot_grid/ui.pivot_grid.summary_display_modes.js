@@ -1,16 +1,16 @@
 "use strict";
 
-var typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    isDefined = typeUtils.isDefined,
-    pivotGridUtils = require("./ui.pivot_grid.utils"),
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import pivotGridUtils from './ui.pivot_grid.utils';
+
+var isDefined = typeUtils.isDefined,
     findField = pivotGridUtils.findField,
     foreachTree = pivotGridUtils.foreachTree,
     COLUMN = "column",
     ROW = "row",
     NULL = null,
-
     calculatePercentValue = function(value, totalValue) {
         var result = value / totalValue;
         if(!isDefined(value) || isNaN(result)) {
@@ -18,18 +18,15 @@ var typeUtils = require("../../core/utils/type"),
         }
         return result;
     },
-
     percentOfGrandTotal = function(e, dimension) {
         return calculatePercentValue(e.value(), e.grandTotal(dimension).value());
     },
-
     percentOfParent = function(e, dimension) {
         var parent = e.parent(dimension),
             parentValue = parent ? parent.value() : e.value();
 
         return calculatePercentValue(e.value(), parentValue);
     },
-
     createAbsoluteVariationExp = function(allowCrossGroup) {
         return function(e) {
             var prevCell = e.prev(COLUMN, allowCrossGroup),
@@ -42,7 +39,6 @@ var typeUtils = require("../../core/utils/type"),
             return NULL;
         };
     },
-
     createPercentVariationExp = function(allowCrossGroup) {
         var absoluteExp = createAbsoluteVariationExp(allowCrossGroup);
         return function(e) {
@@ -53,7 +49,6 @@ var typeUtils = require("../../core/utils/type"),
             return absVar !== NULL && prevValue ? absVar / prevValue : NULL;
         };
     },
-
     summaryDictionary = {
         percentOfColumnTotal: function(e) {
             return percentOfParent(e, ROW);
@@ -88,7 +83,6 @@ var typeUtils = require("../../core/utils/type"),
 
         return prevCell;
     },
-
     createRunningTotalExpr = function(field) {
         if(!field.runningTotal) {
             return;
@@ -519,7 +513,7 @@ function processDataCell(data, rowIndex, columnIndex, isRunningTotalCalculation)
     data.values[rowIndex][columnIndex].allowResetting = isRunningTotalCalculation;
 }
 
-exports.applyDisplaySummaryMode = function(descriptions, data) {
+export var applyDisplaySummaryMode = function(descriptions, data) {
     var expressions = [],
         columnElements = [{ index: data.grandTotalColumnIndex, children: data.columns }],
         rowElements = [{ index: data.grandTotalRowIndex, children: data.rows }],
@@ -573,7 +567,7 @@ exports.applyDisplaySummaryMode = function(descriptions, data) {
     data.isEmptyGrandTotalColumn = columnElements[0].isEmpty;
 };
 
-exports.applyRunningTotal = function(descriptions, data) {
+export var applyRunningTotal = function(descriptions, data) {
     var expressions = [],
         columnElements = [{ index: data.grandTotalColumnIndex, children: data.columns }],
         rowElements = [{ index: data.grandTotalRowIndex, children: data.rows }],
@@ -610,7 +604,7 @@ exports.applyRunningTotal = function(descriptions, data) {
     }, false);
 };
 
-exports.createMockSummaryCell = function(descriptions, fields, indices) {
+export var createMockSummaryCell = function(descriptions, fields, indices) {
     var summaryCell = new SummaryCell([], [], {}, descriptions, 0);
     summaryCell.value = function(fieldId) {
         if(isDefined(fieldId)) {
@@ -631,8 +625,8 @@ exports.createMockSummaryCell = function(descriptions, fields, indices) {
 
     return summaryCell;
 };
+
 ///#DEBUG
-exports.Cell = SummaryCell;
-exports.summaryDictionary = summaryDictionary;
-exports.getExpression = getExpression;
-///#ENDDEBUG
+export var Cell = SummaryCell;
+
+export { summaryDictionary, getExpression };

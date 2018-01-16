@@ -1,6 +1,6 @@
 "use strict";
 
-var Class = require("./class");
+import Class from './class';
 
 /**
 * @name Guid
@@ -74,4 +74,4 @@ var Guid = Class.inherit({
 
 });
 
-module.exports = Guid;
+export default Guid;

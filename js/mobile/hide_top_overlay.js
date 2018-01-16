@@ -1,6 +1,6 @@
 "use strict";
 
-var inArray = require("../core/utils/array").inArray;
+import { inArray } from '../core/utils/array';
 
 var hideCallback = (function() {
     /* jshint laxcomma:true */
@@ -44,7 +44,8 @@ var hideCallback = (function() {
  * @namespace DevExpress
  * @export default
  */
-module.exports = function() {
+export default function() {
     return hideCallback.fire();
-};
-module.exports.hideCallback = hideCallback;
+}
+
+export { hideCallback };

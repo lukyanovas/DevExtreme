@@ -1,15 +1,12 @@
 "use strict";
 
-var typeUtils = require("../../core/utils/type"),
-    isNumber = typeUtils.isNumeric,
-    isDefined = typeUtils.isDefined,
-    dateUtils = require("../../core/utils/date"),
-    addInterval = dateUtils.addInterval,
-    dateToMilliseconds = dateUtils.dateToMilliseconds,
-    floor = Math.floor,
-    adjust = require("../../core/utils/math").adjust;
+import * as typeUtils from '../../core/utils/type';
+import dateUtils from '../../core/utils/date';
+import { adjust } from '../../core/utils/math';
 
-module.exports = {
+var isNumber = typeUtils.isNumeric, isDefined = typeUtils.isDefined, addInterval = dateUtils.addInterval, dateToMilliseconds = dateUtils.dateToMilliseconds, floor = Math.floor;
+
+export default {
     _intervalize: function(value, interval) {
         if(!isDefined(value)) {
             return undefined;

@@ -1,51 +1,14 @@
 "use strict";
 
-var vizUtils = require("../core/utils"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    layoutElementModule = require("../core/layout_element"),
-    typeUtils = require("../../core/utils/type"),
+import vizUtils from '../core/utils';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import layoutElementModule from '../core/layout_element';
+import * as typeUtils from '../../core/utils/type';
+import objectUtils from '../../core/utils/object';
+import { noop } from '../../core/utils/common';
 
-    _Number = Number,
-
-    _math = Math,
-    _round = _math.round,
-    _max = _math.max,
-    _min = _math.min,
-    _ceil = _math.ceil,
-
-    objectUtils = require("../../core/utils/object"),
-    noop = require("../../core/utils/common").noop,
-    _isDefined = typeUtils.isDefined,
-    _isFunction = typeUtils.isFunction,
-    _enumParser = vizUtils.enumParser,
-    _normalizeEnum = vizUtils.normalizeEnum,
-
-    _extend = extend,
-    _each = each,
-
-    DEFAULT_MARGIN = 10,
-    DEFAULT_MARKER_HATCHING_WIDTH = 2,
-    DEFAULT_MARKER_HATCHING_STEP = 5,
-    CENTER = "center",
-    RIGHT = "right",
-    LEFT = "left",
-    TOP = "top",
-    BOTTOM = "bottom",
-    HORIZONTAL = "horizontal",
-    VERTICAL = "vertical",
-    INSIDE = "inside",
-    OUTSIDE = "outside",
-    NONE = "none",
-    HEIGHT = "height",
-    WIDTH = "width",
-
-    parseHorizontalAlignment = _enumParser([LEFT, CENTER, RIGHT]),
-    parseVerticalAlignment = _enumParser([TOP, BOTTOM]),
-    parseOrientation = _enumParser([VERTICAL, HORIZONTAL]),
-    parseItemTextPosition = _enumParser([LEFT, RIGHT, TOP, BOTTOM]),
-    parsePosition = _enumParser([OUTSIDE, INSIDE]),
-    parseItemsAlignment = _enumParser([LEFT, CENTER, RIGHT]);
+var _Number = Number, _math = Math, _round = _math.round, _max = _math.max, _min = _math.min, _ceil = _math.ceil, _isDefined = typeUtils.isDefined, _isFunction = typeUtils.isFunction, _enumParser = vizUtils.enumParser, _normalizeEnum = vizUtils.normalizeEnum, _extend = extend, _each = each, DEFAULT_MARGIN = 10, DEFAULT_MARKER_HATCHING_WIDTH = 2, DEFAULT_MARKER_HATCHING_STEP = 5, CENTER = "center", RIGHT = "right", LEFT = "left", TOP = "top", BOTTOM = "bottom", HORIZONTAL = "horizontal", VERTICAL = "vertical", INSIDE = "inside", OUTSIDE = "outside", NONE = "none", HEIGHT = "height", WIDTH = "width", parseHorizontalAlignment = _enumParser([LEFT, CENTER, RIGHT]), parseVerticalAlignment = _enumParser([TOP, BOTTOM]), parseOrientation = _enumParser([VERTICAL, HORIZONTAL]), parseItemTextPosition = _enumParser([LEFT, RIGHT, TOP, BOTTOM]), parsePosition = _enumParser([OUTSIDE, INSIDE]), parseItemsAlignment = _enumParser([LEFT, CENTER, RIGHT]);
 
 function getState(state, color) {
     if(!state) {
@@ -861,7 +824,7 @@ extend(legendPrototype, {
 });
 
 
-exports.plugin = {
+export var plugin = {
     name: "legend",
     init: function() {
         var that = this,
@@ -948,12 +911,14 @@ exports.plugin = {
 
 ///#DEBUG
 var __getMarkerCreator = getMarkerCreator;
-exports._DEBUG_stubMarkerCreator = function(callback) {
+
+export var _DEBUG_stubMarkerCreator = function(callback) {
     getMarkerCreator = function() {
         return callback;
     };
 };
-exports._DEBUG_restoreMarkerCreator = function() {
+
+export var _DEBUG_restoreMarkerCreator = function() {
     getMarkerCreator = __getMarkerCreator;
 };
 ///#ENDDEBUG

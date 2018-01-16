@@ -1,18 +1,17 @@
 "use strict";
 
-require("../integration/jquery");
+import '../integration/jquery';
+import $ from 'jquery';
+import errors from './errors';
+import { extend } from '../core/utils/extend';
+import * as typeUtils from '../core/utils/type';
+import registerComponent from '../core/component_registrator';
+import DOMComponent from '../core/dom_component';
+import { noop } from '../core/utils/common';
 
-var $ = require("jquery"),
-    errors = require("./errors"),
-    extend = require("../core/utils/extend").extend,
-    typeUtils = require("../core/utils/type"),
-    registerComponent = require("../core/component_registrator"),
-    DOMComponent = require("../core/dom_component"),
-    isFunction = typeUtils.isFunction,
-    isPlainObject = typeUtils.isPlainObject,
-    noop = require("../core/utils/common").noop;
+var isFunction = typeUtils.isFunction, isPlainObject = typeUtils.isPlainObject;
 
-require("../integration/knockout");
+import '../integration/knockout';
 
 /**
 * @name dxaction
@@ -149,4 +148,4 @@ var Command = DOMComponent.inherit({
 
 registerComponent("dxCommand", Command);
 
-module.exports = Command;
+export default Command;

@@ -1,15 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    eventUtils = require("../../events/utils"),
-    addNamespace = eventUtils.addNamespace,
-    registerComponent = require("../../core/component_registrator"),
-    DOMComponent = require("../../core/dom_component"),
-    dragEvents = require("../../events/drag");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import * as eventUtils from '../../events/utils';
+import registerComponent from '../../core/component_registrator';
+import DOMComponent from '../../core/dom_component';
+import dragEvents from '../../events/drag';
+
+var addNamespace = eventUtils.addNamespace;
 
 var SORTABLE_NAMESPACE = "dxSortable",
     SORTABLE_CLASS = "dx-sortable",
@@ -509,10 +510,10 @@ var Sortable = DOMComponent.inherit({
     }
 });
 
-  ///#DEBUG
+///#DEBUG
 Sortable.prototype.__SCROLL_STEP = SCROLL_STEP;
 ///#ENDDEBUG
 
 registerComponent("dxSortable", Sortable);
 
-module.exports = Sortable;
+export default Sortable;

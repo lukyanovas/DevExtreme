@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("./sparklines/bullet");
+export default require("./sparklines/bullet");

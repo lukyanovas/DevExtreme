@@ -1,23 +1,15 @@
 "use strict";
 
-var extend = require("../../../core/utils/extend").extend,
-    _extend = extend,
+import { extend } from '../../../core/utils/extend';
+import symbolPoint from './symbol_point';
+import barPoint from './bar_point';
+import piePoint from './pie_point';
+import { isDefined } from '../../../core/utils/type';
+import vizUtils from '../../core/utils';
 
-    symbolPoint = require("./symbol_point"),
-    barPoint = require("./bar_point"),
-    piePoint = require("./pie_point"),
-    isDefined = require("../../../core/utils/type").isDefined,
-    vizUtils = require("../../core/utils"),
-    normalizeAngle = vizUtils.normalizeAngle,
+var _extend = extend, normalizeAngle = vizUtils.normalizeAngle, _math = Math, _max = _math.max, ERROR_BARS_ANGLE_OFFSET = 90, CANVAS_POSITION_END = "canvas_position_end", CANVAS_POSITION_DEFAULT = "canvas_position_default";
 
-    _math = Math,
-    _max = _math.max,
-
-    ERROR_BARS_ANGLE_OFFSET = 90,
-    CANVAS_POSITION_END = "canvas_position_end",
-    CANVAS_POSITION_DEFAULT = "canvas_position_default";
-
-exports.polarSymbolPoint = _extend({}, symbolPoint, {
+export var polarSymbolPoint = _extend({}, symbolPoint, {
 
     _getLabelCoords: piePoint._getLabelCoords,
 
@@ -122,7 +114,7 @@ exports.polarSymbolPoint = _extend({}, symbolPoint, {
     }
 });
 
-exports.polarBarPoint = _extend({}, barPoint, {
+export var polarBarPoint = _extend({}, barPoint, {
 
     _translateErrorBars: exports.polarSymbolPoint._translateErrorBars,
 

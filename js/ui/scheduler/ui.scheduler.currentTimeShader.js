@@ -1,7 +1,7 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Class = require("../../core/class");
+import $ from '../../core/renderer';
+import Class from '../../core/class';
 
 var DATE_TIME_SHADER_CLASS = "dx-scheduler-date-time-shader";
 
@@ -27,4 +27,4 @@ var currentTimeShader = Class.inherit({
     }
 });
 
-module.exports = currentTimeShader;
+export default currentTimeShader;

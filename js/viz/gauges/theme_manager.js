@@ -1,8 +1,9 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    _extend = extend,
-    BaseThemeManager = require("../core/base_theme_manager").BaseThemeManager;
+import { extend } from '../../core/utils/extend';
+import { BaseThemeManager } from '../core/base_theme_manager';
+
+var _extend = extend;
 
 var ThemeManager = BaseThemeManager.inherit({
     _themeSection: 'gauge',
@@ -21,4 +22,4 @@ var ThemeManager = BaseThemeManager.inherit({
     }
 });
 
-module.exports = ThemeManager;
+export default ThemeManager;

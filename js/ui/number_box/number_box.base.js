@@ -1,20 +1,22 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    commonUtils = require("../../core/utils/common"),
-    mathUtils = require("../../core/utils/math"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    focused = require("../widget/selectors").focused,
-    devices = require("../../core/devices"),
-    TextEditor = require("../text_box/ui.text_editor"),
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    wheelEvent = require("../../events/core/wheel"),
-    SpinButton = require("./number_box.spin"),
-    messageLocalization = require("../../localization/message");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import commonUtils from '../../core/utils/common';
+import mathUtils from '../../core/utils/math';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { focused } from '../widget/selectors';
+import devices from '../../core/devices';
+import TextEditor from '../text_box/ui.text_editor';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import wheelEvent from '../../events/core/wheel';
+import SpinButton from './number_box.spin';
+import messageLocalization from '../../localization/message';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var math = Math;
 
@@ -603,4 +605,4 @@ var NumberBoxBase = TextEditor.inherit({
     }
 });
 
-module.exports = NumberBoxBase;
+export default NumberBoxBase;

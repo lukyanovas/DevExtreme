@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    treeListCore = require("./ui.tree_list.core"),
-    commonUtils = require("../../core/utils/common"),
-    noop = require("../../core/utils/common").noop,
-    selectionModule = require("../grid_core/ui.grid_core.selection"),
-    extend = require("../../core/utils/extend").extend;
+import $ from '../../core/renderer';
+import treeListCore from './ui.tree_list.core';
+import commonUtils from '../../core/utils/common';
+import { noop } from '../../core/utils/common';
+import selectionModule from '../grid_core/ui.grid_core.selection';
+import { extend } from '../../core/utils/extend';
 
 var TREELIST_SELECT_ALL_CLASS = "dx-treelist-select-all",
     CELL_FOCUS_DISABLED_CLASS = "dx-cell-focus-disabled",

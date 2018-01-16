@@ -1,9 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    eventsEngine = require("../../events/core/events_engine"),
-    Callbacks = require("../../core/utils/callbacks");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Callbacks from '../../core/utils/callbacks';
+import domAdapter from '../dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var resizeCallbacks = (function() {
     var prevSize,
@@ -84,6 +86,4 @@ var getCurrentScreenFactor = function(screenFactorCallback) {
     return screenFactorFunc($(window).width());
 };
 
-exports.resizeCallbacks = resizeCallbacks;
-exports.defaultScreenFactorFunc = defaultScreenFactorFunc;
-exports.getCurrentScreenFactor = getCurrentScreenFactor;
+export { resizeCallbacks, defaultScreenFactorFunc, getCurrentScreenFactor };

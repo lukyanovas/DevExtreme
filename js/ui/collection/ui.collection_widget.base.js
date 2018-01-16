@@ -1,30 +1,32 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    commonUtils = require("../../core/utils/common"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    document = require("../../core/dom_adapter").getWindow().document,
-    isPlainObject = require("../../core/utils/type").isPlainObject,
-    when = require("../../core/utils/deferred").when,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    iteratorUtils = require("../../core/utils/iterator"),
-    Action = require("../../core/action"),
-    Guid = require("../../core/guid"),
-    domUtils = require("../../core/utils/dom"),
-    dataUtils = require("../../core/utils/data"),
-    Widget = require("../widget/ui.widget"),
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    DataHelperMixin = require("../../data_helper"),
-    CollectionWidgetItem = require("./item"),
-    selectors = require("../widget/selectors"),
-    messageLocalization = require("../../localization/message"),
-    holdEvent = require("../../events/hold"),
-    clickEvent = require("../../events/click"),
-    contextMenuEvent = require("../../events/contextmenu"),
-    BindableTemplate = require("../widget/bindable_template");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import commonUtils from '../../core/utils/common';
+import { getPublicElement } from '../../core/utils/dom';
+import { isPlainObject } from '../../core/utils/type';
+import { when } from '../../core/utils/deferred';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import iteratorUtils from '../../core/utils/iterator';
+import Action from '../../core/action';
+import Guid from '../../core/guid';
+import domUtils from '../../core/utils/dom';
+import dataUtils from '../../core/utils/data';
+import Widget from '../widget/ui.widget';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import DataHelperMixin from '../../data_helper';
+import CollectionWidgetItem from './item';
+import selectors from '../widget/selectors';
+import messageLocalization from '../../localization/message';
+import holdEvent from '../../events/hold';
+import clickEvent from '../../events/click';
+import contextMenuEvent from '../../events/contextmenu';
+import BindableTemplate from '../widget/bindable_template';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var COLLECTION_CLASS = "dx-collection",
     ITEM_CLASS = "dx-item",
@@ -1108,4 +1110,4 @@ var CollectionWidget = Widget.inherit({
 
 CollectionWidget.ItemClass = CollectionWidgetItem;
 
-module.exports = CollectionWidget;
+export default CollectionWidget;

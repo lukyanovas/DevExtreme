@@ -1,7 +1,7 @@
 "use strict";
 
-var browser = require("./browser"),
-    isExponential = require("./type").isExponential;
+import browser from './browser';
+import { isExponential } from './type';
 
 var sign = function(value) {
     if(value === 0) {
@@ -76,10 +76,4 @@ function getPrecision(value) {
     return positionOfDelimiter >= 0 ? positionOfDelimiter : mantissa[1].length;
 }
 
-exports.sign = sign;
-exports.fitIntoRange = fitIntoRange;
-exports.inRange = inRange;
-exports.adjust = adjust;
-exports.getPrecision = getPrecision;
-exports.getExponent = getExponent;
-
+export { sign, fitIntoRange, inRange, adjust, getPrecision, getExponent };

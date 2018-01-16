@@ -1,30 +1,24 @@
 "use strict";
 
-require("../../integration/jquery");
+import '../../integration/jquery';
+import $ from 'jquery';
+import eventsEngine from '../../events/core/events_engine';
+import Class from '../../core/class';
+import commonUtils from '../../core/utils/common';
+import iteratorUtils from '../../core/utils/iterator';
+import frameworkUtils from '../utils';
+import { layoutSets } from './presets';
+import EventsMixin from '../../core/events_mixin';
+import errors from '../errors';
+import domUtils from '../../core/utils/dom';
+import { when } from '../../core/utils/deferred';
+import TransitionExecutorModule from '../../animation/transition_executor/transition_executor';
+import domAdapter from '../../core/dom_adapter';
 
-var $ = require("jquery"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    Class = require("../../core/class"),
-    commonUtils = require("../../core/utils/common"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    frameworkUtils = require("../utils"),
-    layoutSets = require("./presets").layoutSets,
-    EventsMixin = require("../../core/events_mixin"),
-    errors = require("../errors"),
-    domUtils = require("../../core/utils/dom"),
-    when = require("../../core/utils/deferred").when,
-    HIDDEN_BAG_ID = "__hidden-bag",
-    TRANSITION_SELECTOR = ".dx-transition",
-    CONTENT_SELECTOR = ".dx-content",
-    DEFAULT_COMMAND_RENDER_STAGE = "onViewShown",
-    CONTENT_RENDERED_EVENT_NAME = "dxcontentrendered.layoutController",
-    PENDING_RENDERING_SELECTOR = ".dx-pending-rendering",
-    PENDING_RENDERING_MANUAL_SELECTOR = ".dx-pending-rendering-manual",
-    TransitionExecutorModule = require("../../animation/transition_executor/transition_executor");
+var document = domAdapter.getWindow().document, HIDDEN_BAG_ID = "__hidden-bag", TRANSITION_SELECTOR = ".dx-transition", CONTENT_SELECTOR = ".dx-content", DEFAULT_COMMAND_RENDER_STAGE = "onViewShown", CONTENT_RENDERED_EVENT_NAME = "dxcontentrendered.layoutController", PENDING_RENDERING_SELECTOR = ".dx-pending-rendering", PENDING_RENDERING_MANUAL_SELECTOR = ".dx-pending-rendering-manual";
 
-require("./command_container");
-require("./view_engine_components");
+import './command_container';
+import './view_engine_components';
 
 var transitionSelector = function(transitionName) {
     return ".dx-transition-" + transitionName;
@@ -716,5 +710,4 @@ var DefaultLayoutController = Class.inherit({
 layoutSets["default"] = layoutSets["default"] || [];
 layoutSets["default"].push({ controller: new DefaultLayoutController() });
 
-exports.DefaultLayoutController = DefaultLayoutController;
-exports.layoutSets = layoutSets;
+export { DefaultLayoutController, layoutSets };

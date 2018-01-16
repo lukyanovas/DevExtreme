@@ -1,12 +1,14 @@
 "use strict";
 
-var eventsEngine = require("../events/core/events_engine"),
-    domUtils = require("../core/utils/dom"),
-    document = require("../core/dom_adapter").getWindow().document,
-    Class = require("../core/class"),
-    registerEvent = require("./core/event_registrator"),
-    clickEvent = require("./click"),
-    eventUtils = require("./utils");
+import eventsEngine from '../events/core/events_engine';
+import domUtils from '../core/utils/dom';
+import Class from '../core/class';
+import registerEvent from './core/event_registrator';
+import clickEvent from './click';
+import * as eventUtils from './utils';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var DBLCLICK_EVENT_NAME = "dxdblclick",
     DBLCLICK_NAMESPACE = "dxDblClick",
@@ -62,4 +64,4 @@ var DblClick = Class.inherit({
 
 registerEvent(DBLCLICK_EVENT_NAME, new DblClick());
 
-exports.name = DBLCLICK_EVENT_NAME;
+export var name = DBLCLICK_EVENT_NAME;

@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    noop = require("../../core/utils/common").noop,
-    Class = require("../../core/class"),
-    dateLocalization = require("../../localization/date");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { noop } from '../../core/utils/common';
+import Class from '../../core/class';
+import dateLocalization from '../../localization/date';
 
 var abstract = Class.abstract;
 
@@ -133,4 +133,4 @@ var DateBoxStrategy = Class.inherit({
     }
 });
 
-module.exports = DateBoxStrategy;
+export default DateBoxStrategy;

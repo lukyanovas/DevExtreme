@@ -1,7 +1,7 @@
 "use strict";
 
-var errors = require("../errors"),
-    when = require("../../core/utils/deferred").when;
+import errors from '../errors';
+import { when } from '../../core/utils/deferred';
 
 function createQueue(discardPendingTasks) {
     var _tasks = [],
@@ -55,5 +55,5 @@ function createQueue(discardPendingTasks) {
 }
 
 
-exports.create = createQueue;
-exports.enqueue = createQueue().add; // Default global queue for UI sync, consider renaming
+export var create = createQueue;
+export var enqueue = createQueue().add; // Default global queue for UI sync, consider renaming

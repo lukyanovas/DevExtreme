@@ -1,25 +1,18 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    numericTranslator = require("./numeric_translator"),
-    categoryTranslator = require("./category_translator"),
-    intervalTranslator = require("./interval_translator"),
-    datetimeTranslator = require("./datetime_translator"),
-    logarithmicTranslator = require("./logarithmic_translator"),
-    vizUtils = require("../core/utils"),
-    typeUtils = require("../../core/utils/type"),
-    getLog = vizUtils.getLog,
-    getPower = vizUtils.getPower,
-    isDefined = typeUtils.isDefined,
-    _abs = Math.abs,
-    CANVAS_PROP = ["width", "height", "left", "top", "bottom", "right"],
-    NUMBER_EQUALITY_CORRECTION = 1,
-    DATETIME_EQUALITY_CORRECTION = 60000,
-    _noop = require("../../core/utils/common").noop,
-    _Translator2d,
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import numericTranslator from './numeric_translator';
+import categoryTranslator from './category_translator';
+import intervalTranslator from './interval_translator';
+import datetimeTranslator from './datetime_translator';
+import logarithmicTranslator from './logarithmic_translator';
+import vizUtils from '../core/utils';
+import * as typeUtils from '../../core/utils/type';
+import { noop as _noop } from '../../core/utils/common';
+import { addInterval } from '../../core/utils/date';
 
-    addInterval = require("../../core/utils/date").addInterval;
+var getLog = vizUtils.getLog, getPower = vizUtils.getPower, isDefined = typeUtils.isDefined, _abs = Math.abs, CANVAS_PROP = ["width", "height", "left", "top", "bottom", "right"], NUMBER_EQUALITY_CORRECTION = 1, DATETIME_EQUALITY_CORRECTION = 60000, _Translator2d;
 
 var validateCanvas = function(canvas) {
     each(CANVAS_PROP, function(_, prop) {
@@ -167,9 +160,11 @@ function getCheckingMethodsAboutBreaks(inverted) {
     };
 }
 
-exports.Translator2D = _Translator2d = function(businessRange, canvas, options) {
+var _Translator2d = function(businessRange, canvas, options) {
     this.update(businessRange, canvas, options);
 };
+
+export var Translator2D = _Translator2d;
 
 _Translator2d.prototype = {
     constructor: _Translator2d,

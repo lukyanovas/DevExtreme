@@ -1,7 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document;
+import $ from '../../core/renderer';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var focusable = function(element, tabIndex) {
     if(!visible(element)) {
@@ -32,7 +34,7 @@ var visible = function(element) {
     return $element.is(":visible") && $element.css("visibility") !== "hidden" && $element.parents().css("visibility") !== "hidden";
 };
 
-module.exports = {
+export default {
     focusable: function(index, element) {
         return focusable(element, $(element).attr("tabIndex"));
     },
@@ -46,4 +48,3 @@ module.exports = {
         return document.activeElement === element;
     }
 };
-

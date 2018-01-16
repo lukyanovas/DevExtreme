@@ -1,9 +1,10 @@
 'use strict';
 
-var jQuery = require("jquery");
-var deferredUtils = require("../../core/utils/deferred");
-var useJQuery = require("./use_jquery")();
-var compareVersion = require("../../core/utils/version").compare;
+import jQuery from 'jquery';
+import { setStrategy } from '../../core/utils/deferred';
+import useJQueryFactory from './use_jquery';
+const useJQuery = useJQueryFactory();
+import { compare as compareVersion } from '../../core/utils/version';
 
 if(useJQuery) {
     var Deferred = jQuery.Deferred;
@@ -21,5 +22,5 @@ if(useJQuery) {
         }
     };
 
-    deferredUtils.setStrategy(strategy);
+    setStrategy(strategy);
 }

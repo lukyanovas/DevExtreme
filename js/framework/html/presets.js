@@ -1,4 +1,5 @@
 "use strict";
+
 /**
  * @name layoutSets
  * @publicName layoutSets
@@ -6,7 +7,8 @@
  * @namespace DevExpress.framework.html
  * @hidden
  */
-exports.layoutSets = {};
+export var layoutSets = {};
+
 /**
  * @name animationSets
  * @publicName animationSets
@@ -14,7 +16,7 @@ exports.layoutSets = {};
  * @namespace DevExpress.framework.html
  * @hidden
  */
-exports.animationSets = {
+export var animationSets = {
     "native": {
         "view-content-change": [
             { animation: "slide" },

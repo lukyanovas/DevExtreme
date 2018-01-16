@@ -1,26 +1,26 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    Guid = require("../../core/guid"),
-    registerComponent = require("../../core/component_registrator"),
-    noop = require("../../core/utils/common").noop,
-    typeUtils = require("../../core/utils/type"),
-    domUtils = require("../../core/utils/dom"),
-    contains = domUtils.contains,
-    getPublicElement = domUtils.getPublicElement,
-    each = require("../../core/utils/iterator").each,
-    inArray = require("../../core/utils/array").inArray,
-    extend = require("../../core/utils/extend").extend,
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    fx = require("../../animation/fx"),
-    positionUtils = require("../../animation/position"),
-    devices = require("../../core/devices"),
-    eventUtils = require("../../events/utils"),
-    Overlay = require("../overlay"),
-    MenuBase = require("./ui.menu_base"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Guid from '../../core/guid';
+import registerComponent from '../../core/component_registrator';
+import { noop } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import domUtils from '../../core/utils/dom';
+import { each } from '../../core/utils/iterator';
+import { inArray } from '../../core/utils/array';
+import { extend } from '../../core/utils/extend';
+import { getPublicElement } from '../../core/utils/dom';
+import fx from '../../animation/fx';
+import positionUtils from '../../animation/position';
+import devices from '../../core/devices';
+import * as eventUtils from '../../events/utils';
+import Overlay from '../overlay';
+import MenuBase from './ui.menu_base';
+import { Deferred } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, contains = domUtils.contains;
 
 var DX_MENU_CLASS = "dx-menu",
     DX_MENU_ITEM_CLASS = DX_MENU_CLASS + "-item",
@@ -1031,4 +1031,4 @@ var ContextMenu = MenuBase.inherit((function() {
 
 registerComponent("dxContextMenu", ContextMenu);
 
-module.exports = ContextMenu;
+export default ContextMenu;

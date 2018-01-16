@@ -1,11 +1,11 @@
 "use strict";
 
-var queryAdapters = require("./query_adapters"),
-    errorsModule = require("./errors"),
-    each = require("../core/utils/iterator").each,
-    isFunction = require("../core/utils/type").isFunction,
-    Deferred = require("../core/utils/deferred").Deferred,
-    arrayQueryImpl = require("./array_query");
+import queryAdapters from './query_adapters';
+import errorsModule from './errors';
+import { each } from '../core/utils/iterator';
+import { isFunction } from '../core/utils/type';
+import { Deferred } from '../core/utils/deferred';
+import arrayQueryImpl from './array_query';
 
 var remoteQueryImpl = function(url, queryOptions, tasks) {
     tasks = tasks || [];
@@ -149,4 +149,4 @@ var remoteQueryImpl = function(url, queryOptions, tasks) {
     return query;
 };
 
-module.exports = remoteQueryImpl;
+export default remoteQueryImpl;

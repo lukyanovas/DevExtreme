@@ -1,25 +1,27 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    window = require("../core/dom_adapter").getWindow(),
-    support = require("../core/utils/support"),
-    commonUtils = require("../core/utils/common"),
-    domUtils = require("../core/utils/dom"),
-    typeUtils = require("../core/utils/type"),
-    each = require("../core/utils/iterator").each,
-    extend = require("../core/utils/extend").extend,
-    inkRipple = require("./widget/utils.ink_ripple"),
-    messageLocalization = require("../localization/message"),
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    eventUtils = require("../events/utils"),
-    DropDownList = require("./drop_down_editor/ui.drop_down_list"),
-    themes = require("./themes"),
-    clickEvent = require("../events/click"),
-    Popover = require("./popover"),
-    TextBox = require("./text_box"),
-    ChildDefaultTemplate = require("./widget/child_default_template");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import * as support from '../core/utils/support';
+import commonUtils from '../core/utils/common';
+import domUtils from '../core/utils/dom';
+import * as typeUtils from '../core/utils/type';
+import { each } from '../core/utils/iterator';
+import { extend } from '../core/utils/extend';
+import inkRipple from './widget/utils.ink_ripple';
+import messageLocalization from '../localization/message';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import * as eventUtils from '../events/utils';
+import DropDownList from './drop_down_editor/ui.drop_down_list';
+import themes from './themes';
+import clickEvent from '../events/click';
+import Popover from './popover';
+import TextBox from './text_box';
+import ChildDefaultTemplate from './widget/child_default_template';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var LOOKUP_CLASS = "dx-lookup",
     LOOKUP_SEARCH_CLASS = "dx-lookup-search",
@@ -1254,4 +1256,4 @@ var Lookup = DropDownList.inherit({
 
 registerComponent("dxLookup", Lookup);
 
-module.exports = Lookup;
+export default Lookup;

@@ -1,6 +1,6 @@
 "use strict";
 
-var isDefined = require("../../core/utils/type").isDefined;
+import { isDefined } from '../../core/utils/type';
 
 var SORT_CLASS = "dx-sort",
     SORT_NONE_CLASS = "dx-sort-none",
@@ -9,7 +9,7 @@ var SORT_CLASS = "dx-sort",
     HEADERS_ACTION_CLASS = "action";
 
 
-module.exports = {
+export default {
     _applyColumnState: function(options) {
         var that = this,
             side,

@@ -1,28 +1,17 @@
 "use strict";
 
 //there are pie, doughnut
-var noop = require("../../core/utils/common").noop,
-    each = require("../../core/utils/iterator").each,
-    scatterSeries = require("./scatter_series"),
-    vizUtils = require("../core/utils"),
-    extend = require("../../core/utils/extend").extend,
+import { noop } from '../../core/utils/common';
 
-    chartScatterSeries = scatterSeries.chart,
-    barSeries = require("./bar_series").chart.bar,
+import { each } from '../../core/utils/iterator';
+import scatterSeries from './scatter_series';
+import vizUtils from '../core/utils';
+import { extend } from '../../core/utils/extend';
 
-    _extend = extend,
-    _each = each,
-    _noop = noop,
+//there are pie, doughnut
+var chartScatterSeries = scatterSeries.chart, barSeries = require("./bar_series").chart.bar, _extend = extend, _each = each, _noop = noop, _map = vizUtils.map, _isFinite = isFinite, _max = Math.max, ANIMATION_DURATION = 0.7, INSIDE = "inside";
 
-    _map = vizUtils.map,
-
-    _isFinite = isFinite,
-    _max = Math.max,
-
-    ANIMATION_DURATION = 0.7,
-    INSIDE = "inside";
-
-exports.pie = _extend({}, barSeries, {
+export var pie = _extend({}, barSeries, {
     _setGroupsSettings: chartScatterSeries._setGroupsSettings,
 
     _createErrorBarGroup: _noop,
@@ -306,4 +295,4 @@ exports.pie = _extend({}, barSeries, {
     }
 });
 
-exports.doughnut = exports.donut = exports.pie;
+export var doughnut = exports.donut = exports.pie;

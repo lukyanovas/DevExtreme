@@ -1,25 +1,25 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Config = require("../../core/config"),
-    registerComponentCallbacks = require("../../core/component_registrator_callbacks"),
-    Class = require("../../core/class"),
-    Callbacks = require("../../core/utils/callbacks"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    inArray = require("../../core/utils/array").inArray,
-    Locker = require("../../core/utils/locker"),
-    Widget = require("../../ui/widget/ui.widget"),
-    Editor = require("../../ui/editor/editor"),
-    NgTemplate = require("./template"),
-    ngModule = require("./module"),
-    CollectionWidget = require("../../ui/collection/ui.collection_widget.edit"),
-    compileSetter = require("../../core/utils/data").compileSetter,
-    compileGetter = require("../../core/utils/data").compileGetter,
-    extendFromObject = require("../../core/utils/extend").extendFromObject,
-    inflector = require("../../core/utils/inflector"),
-    errors = require("../../core/errors");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Config from '../../core/config';
+import registerComponentCallbacks from '../../core/component_registrator_callbacks';
+import Class from '../../core/class';
+import Callbacks from '../../core/utils/callbacks';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { inArray } from '../../core/utils/array';
+import Locker from '../../core/utils/locker';
+import Widget from '../../ui/widget/ui.widget';
+import Editor from '../../ui/editor/editor';
+import NgTemplate from './template';
+import ngModule from './module';
+import CollectionWidget from '../../ui/collection/ui.collection_widget.edit';
+import { compileSetter } from '../../core/utils/data';
+import { compileGetter } from '../../core/utils/data';
+import { extendFromObject } from '../../core/utils/extend';
+import inflector from '../../core/utils/inflector';
+import errors from '../../core/errors';
 
 var ITEM_ALIAS_ATTRIBUTE_NAME = "dxItemAlias",
     SKIP_APPLY_ACTION_CATEGORIES = ["rendering"],

@@ -26,4 +26,4 @@
 * @export default
 */
 
-module.exports = require("./widget/jquery.template").setTemplateEngine;
+export default require("./widget/jquery.template").setTemplateEngine;

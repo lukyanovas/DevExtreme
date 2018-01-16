@@ -141,4 +141,4 @@ var getFormatter = function(format, dateParts) {
     };
 };
 
-module.exports.getFormatter = getFormatter;
+export { getFormatter };

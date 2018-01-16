@@ -20,4 +20,4 @@ var ValidationMixin = {
     }
 };
 
-module.exports = ValidationMixin;
+export default ValidationMixin;

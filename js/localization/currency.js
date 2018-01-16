@@ -1,7 +1,7 @@
 "use strict";
 
-var extend = require("../core/utils/extend").extend,
-    numberLocalization = require("./number");
+import { extend } from '../core/utils/extend';
+import numberLocalization from './number';
 
 numberLocalization.inject({
     _formatNumberCore: function(value, format, formatConfig) {

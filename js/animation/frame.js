@@ -1,6 +1,7 @@
 "use strict";
+import domAdapter from '../core/dom_adapter';
 
-var window = require("../core/dom_adapter").getWindow();
+var window = domAdapter.getWindow();
 
 var FRAME_ANIMATION_STEP_TIME = 1000 / 60,
 
@@ -63,7 +64,7 @@ if(nativeRequest && !nativeCancel) {
  * @module animation/frame
  * @export request
  */
-exports.requestAnimationFrame = request.bind(window);
+export var requestAnimationFrame = request.bind(window);
 
 /**
  * @name utils_cancelAnimationFrame
@@ -74,4 +75,4 @@ exports.requestAnimationFrame = request.bind(window);
  * @module animation/frame
  * @export cancel
  */
-exports.cancelAnimationFrame = cancel.bind(window);
+export var cancelAnimationFrame = cancel.bind(window);

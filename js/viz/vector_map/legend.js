@@ -1,11 +1,10 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    _extend = extend,
-    _each = each,
-    legendModule = require("../components/legend"),
-    _BaseLegend = legendModule.Legend;
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import legendModule from '../components/legend';
+
+var _extend = extend, _each = each, _BaseLegend = legendModule.Legend;
 
 // DEPRECATED_15_2
 var sourceMap = {
@@ -154,15 +153,17 @@ LegendsControl.prototype = {
     }
 };
 
-exports.LegendsControl = LegendsControl;
+export { LegendsControl };
 
 ///#DEBUG
 var originalLegend = Legend;
-exports._TESTS_Legend = Legend;
-exports._TESTS_stubLegendType = function(stub) {
+export var _TESTS_Legend = Legend;
+
+export var _TESTS_stubLegendType = function(stub) {
     Legend = stub;
 };
-exports._TESTS_restoreLegendType = function() {
+
+export var _TESTS_restoreLegendType = function() {
     Legend = originalLegend;
 };
 ///#ENDDEBUG

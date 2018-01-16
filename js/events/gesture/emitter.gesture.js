@@ -1,19 +1,19 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    devices = require("../../core/devices"),
-    styleUtils = require("../../core/utils/style"),
-    browser = require("../../core/utils/browser"),
-    domUtils = require("../../core/utils/dom"),
-    ready = require("../../core/utils/ready"),
-    mathUtils = require("../../core/utils/math"),
-    noop = require("../../core/utils/common").noop,
-    isDefined = require("../../core/utils/type").isDefined,
-    eventUtils = require("../utils"),
-    Emitter = require("../core/emitter"),
-    sign = mathUtils.sign,
-    abs = Math.abs;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import devices from '../../core/devices';
+import * as styleUtils from '../../core/utils/style';
+import browser from '../../core/utils/browser';
+import domUtils from '../../core/utils/dom';
+import ready from '../../core/utils/ready';
+import mathUtils from '../../core/utils/math';
+import { noop } from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import * as eventUtils from '../utils';
+import Emitter from '../core/emitter';
+
+var sign = mathUtils.sign, abs = Math.abs;
 
 var SLEEP = 0,
     INITED = 1,
@@ -229,4 +229,4 @@ GestureEmitter.touchBoundary = function(newBoundary) {
     return TOUCH_BOUNDARY;
 };
 
-module.exports = GestureEmitter;
+export default GestureEmitter;

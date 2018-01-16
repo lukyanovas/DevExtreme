@@ -2,7 +2,7 @@
 
 "use strict";
 
-var eventsEngine = require("events/core/events_engine");
+import eventsEngine from 'events/core/events_engine';
 
 var originalJQueryEvent;
 var originalJQueryMethods = {};

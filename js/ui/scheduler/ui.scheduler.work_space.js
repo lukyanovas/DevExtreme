@@ -1,30 +1,30 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    dataUtils = require("../../core/element_data"),
-    dateUtils = require("../../core/utils/date"),
-    typeUtils = require("../../core/utils/type"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    messageLocalization = require("../../localization/message"),
-    dateLocalization = require("../../localization/date"),
-    toMs = dateUtils.dateToMilliseconds,
-    Widget = require("../widget/ui.widget"),
-    abstract = Widget.abstract,
-    noop = require("../../core/utils/common").noop,
-    isDefined = require("../../core/utils/type").isDefined,
-    publisherMixin = require("./ui.scheduler.publisher_mixin"),
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    errors = require("../widget/ui.errors"),
-    clickEvent = require("../../events/click"),
-    dragEvents = require("../../events/drag"),
-    Scrollable = require("../scroll_view/ui.scrollable"),
-    tableCreator = require("./ui.scheduler.table_creator"),
-    VerticalShader = require("./ui.scheduler.currentTimeShader.vertical");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import dataUtils from '../../core/element_data';
+import dateUtils from '../../core/utils/date';
+import * as typeUtils from '../../core/utils/type';
+import { getPublicElement } from '../../core/utils/dom';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import messageLocalization from '../../localization/message';
+import dateLocalization from '../../localization/date';
+import Widget from '../widget/ui.widget';
+import { noop } from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import publisherMixin from './ui.scheduler.publisher_mixin';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import errors from '../widget/ui.errors';
+import clickEvent from '../../events/click';
+import dragEvents from '../../events/drag';
+import Scrollable from '../scroll_view/ui.scrollable';
+import tableCreator from './ui.scheduler.table_creator';
+import VerticalShader from './ui.scheduler.currentTimeShader.vertical';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, toMs = dateUtils.dateToMilliseconds, abstract = Widget.abstract;
 
 var COMPONENT_CLASS = "dx-scheduler-work-space",
     GROUPED_WORKSPACE_CLASS = "dx-scheduler-work-space-grouped",
@@ -2017,4 +2017,4 @@ var SchedulerWorkSpace = Widget.inherit({
 
 }).include(publisherMixin);
 
-module.exports = SchedulerWorkSpace;
+export default SchedulerWorkSpace;

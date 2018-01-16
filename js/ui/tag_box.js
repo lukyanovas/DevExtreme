@@ -1,30 +1,29 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    dataUtils = require("../core/element_data"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    devices = require("../core/devices"),
-    commonUtils = require("../core/utils/common"),
-    noop = commonUtils.noop,
-    isDefined = require("../core/utils/type").isDefined,
-    arrayUtils = require("../core/utils/array"),
-    typeUtils = require("../core/utils/type"),
-    iteratorUtils = require("../core/utils/iterator"),
-    extend = require("../core/utils/extend").extend,
-    messageLocalization = require("../localization/message"),
-    registerComponent = require("../core/component_registrator"),
-    eventUtils = require("../events/utils"),
-    SelectBox = require("./select_box"),
-    clickEvent = require("../events/click"),
-    caret = require("./text_box/utils.caret"),
-    browser = require("../core/utils/browser"),
-    deferredUtils = require("../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    BindableTemplate = require("./widget/bindable_template"),
-    inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import dataUtils from '../core/element_data';
+import { getPublicElement } from '../core/utils/dom';
+import devices from '../core/devices';
+import commonUtils from '../core/utils/common';
+import { isDefined } from '../core/utils/type';
+import arrayUtils from '../core/utils/array';
+import * as typeUtils from '../core/utils/type';
+import iteratorUtils from '../core/utils/iterator';
+import { extend } from '../core/utils/extend';
+import messageLocalization from '../localization/message';
+import registerComponent from '../core/component_registrator';
+import * as eventUtils from '../events/utils';
+import SelectBox from './select_box';
+import clickEvent from '../events/click';
+import caret from './text_box/utils.caret';
+import browser from '../core/utils/browser';
+import * as deferredUtils from '../core/utils/deferred';
+import BindableTemplate from './widget/bindable_template';
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
+
+var noop = commonUtils.noop, when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var TAGBOX_TAG_DATA_KEY = "dxTagData";
 
@@ -1303,4 +1302,4 @@ var TagBox = SelectBox.inherit({
 
 registerComponent("dxTagBox", TagBox);
 
-module.exports = TagBox;
+export default TagBox;

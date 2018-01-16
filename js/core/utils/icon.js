@@ -1,6 +1,6 @@
 "use strict";
 
-var $ = require("../../core/renderer");
+import $ from '../../core/renderer';
 
 var getImageSourceType = function(source) {
     if(!source || typeof source !== "string") {
@@ -33,5 +33,4 @@ var getImageContainer = function(source) {
     }
 };
 
-exports.getImageSourceType = getImageSourceType;
-exports.getImageContainer = getImageContainer;
+export { getImageSourceType, getImageContainer };

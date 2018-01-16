@@ -1,13 +1,13 @@
 "use strict";
 
-var errorUtils = require("./utils/error");
+import errorUtils from './utils/error';
 
 /**
 * @docid
 * @name Errors and Warnings
 * @publicName Errors and Warnings
 */
-module.exports = errorUtils({
+export default errorUtils({
 
     /**
     * @name Errors and Warnings_E0001

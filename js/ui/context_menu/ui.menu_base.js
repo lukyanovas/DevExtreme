@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    inkRipple = require("../widget/utils.ink_ripple"),
-    HierarchicalCollectionWidget = require("../hierarchical_collection/ui.hierarchical_collection_widget"),
-    MenuBaseEditStrategy = require("./ui.menu_base.edit.strategy"),
-    devices = require("../../core/devices"),
-    themes = require("../themes");
+import $ from '../../core/renderer';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import inkRipple from '../widget/utils.ink_ripple';
+import HierarchicalCollectionWidget from '../hierarchical_collection/ui.hierarchical_collection_widget';
+import MenuBaseEditStrategy from './ui.menu_base.edit.strategy';
+import devices from '../../core/devices';
+import themes from '../themes';
 
 var DX_MENU_CLASS = "dx-menu",
     DX_MENU_NO_ICONS_CLASS = DX_MENU_CLASS + "-no-icons",
@@ -863,4 +863,4 @@ var MenuBase = HierarchicalCollectionWidget.inherit({
     }
 });
 
-module.exports = MenuBase;
+export default MenuBase;

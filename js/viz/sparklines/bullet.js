@@ -1,20 +1,9 @@
 "use strict";
 
-var each = require("../../core/utils/iterator").each,
-    BaseSparkline = require("./base_sparkline"),
+import { each } from '../../core/utils/iterator';
+import BaseSparkline from './base_sparkline';
 
-    TARGET_MIN_Y = 0.02,
-    TARGET_MAX_Y = 0.98,
-    BAR_VALUE_MIN_Y = 0.1,
-    BAR_VALUE_MAX_Y = 0.9,
-
-    DEFAULT_CANVAS_WIDTH = 300,
-    DEFAULT_CANVAS_HEIGHT = 30,
-    DEFAULT_HORIZONTAL_MARGIN = 1,
-    DEFAULT_VERTICAL_MARGIN = 2,
-
-    _Number = Number,
-    _isFinite = isFinite;
+var TARGET_MIN_Y = 0.02, TARGET_MAX_Y = 0.98, BAR_VALUE_MIN_Y = 0.1, BAR_VALUE_MAX_Y = 0.9, DEFAULT_CANVAS_WIDTH = 300, DEFAULT_CANVAS_HEIGHT = 30, DEFAULT_HORIZONTAL_MARGIN = 1, DEFAULT_VERTICAL_MARGIN = 2, _Number = Number, _isFinite = isFinite;
 
 var dxBullet = BaseSparkline.inherit({
     _rootClassPrefix: "dxb",
@@ -263,4 +252,4 @@ each(["color", "targetColor", "targetWidth", "showTarget", "showZeroLevel",
 
 require("../../core/component_registrator")("dxBullet", dxBullet);
 
-module.exports = dxBullet;
+export default dxBullet;

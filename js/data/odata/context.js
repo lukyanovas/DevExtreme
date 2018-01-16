@@ -1,17 +1,17 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    errorsModule = require("../errors"),
-    ODataStore = require("./store"),
-    mixins = require("./mixins"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import errorsModule from '../errors';
+import ODataStore from './store';
+import mixins from './mixins';
+import * as deferredUtils from '../../core/utils/deferred';
 
-require("./query_adapter");
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
+
+import './query_adapter';
 
 /**
 * @name ODataContext
@@ -171,4 +171,4 @@ var ODataContext = Class.inherit({
 })
 .include(mixins.SharedMethods);
 
-module.exports = ODataContext;
+export default ODataContext;

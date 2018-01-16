@@ -1,20 +1,15 @@
 "use strict";
 
-var lineSeries = require("./line_series").chart.line,
-    scatterSeries = require("./scatter_series").chart,
-    areaSeries = require("./area_series").chart.area,
-    barSeries = require("./bar_series"),
-    chartBarSeries = barSeries.chart.bar,
-    polarBarSeries = barSeries.polar.bar,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
+import { chart as scatterSeries } from './scatter_series';
+import barSeries from './bar_series';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { isDefined as _isDefined } from '../../core/utils/type';
+import { noop as _noop } from '../../core/utils/common';
 
-    _isDefined = require("../../core/utils/type").isDefined,
-    _extend = extend,
-    _each = each,
-    _noop = require("../../core/utils/common").noop;
+var lineSeries = require("./line_series").chart.line, areaSeries = require("./area_series").chart.area, chartBarSeries = barSeries.chart.bar, polarBarSeries = barSeries.polar.bar, _extend = extend, _each = each;
 
-exports.chart = {};
+export var chart = {};
 exports.chart.bubble = _extend({}, scatterSeries, {
     _fillErrorBars: _noop,
 

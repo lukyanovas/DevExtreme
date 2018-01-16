@@ -44,5 +44,4 @@ var each = function(values, callback) {
     return values;
 };
 
-exports.map = map;
-exports.each = each;
+export { map, each };

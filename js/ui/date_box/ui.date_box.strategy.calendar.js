@@ -1,12 +1,12 @@
 "use strict";
 
-var Calendar = require("../calendar"),
-    DateBoxStrategy = require("./ui.date_box.strategy"),
-    dateUtils = require("../../core/utils/date"),
-    commonUtils = require("../../core/utils/common"),
-    isFunction = require("../../core/utils/type").isFunction,
-    extend = require("../../core/utils/extend").extend,
-    messageLocalization = require("../../localization/message");
+import Calendar from '../calendar';
+import DateBoxStrategy from './ui.date_box.strategy';
+import dateUtils from '../../core/utils/date';
+import commonUtils from '../../core/utils/common';
+import { isFunction } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import messageLocalization from '../../localization/message';
 
 var CalendarStrategy = DateBoxStrategy.inherit({
 
@@ -160,4 +160,4 @@ var CalendarStrategy = DateBoxStrategy.inherit({
     }
 });
 
-module.exports = CalendarStrategy;
+export default CalendarStrategy;

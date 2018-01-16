@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    fx = require("../../animation/fx"),
-    Button = require("../button"),
-    messageLocalization = require("../../localization/message"),
-    registerDecorator = require("./ui.list.edit.decorator_registry").register,
-    SwitchableEditDecorator = require("./ui.list.edit.decorator.switchable");
+import $ from '../../core/renderer';
+import fx from '../../animation/fx';
+import Button from '../button';
+import messageLocalization from '../../localization/message';
+import { register as registerDecorator } from './ui.list.edit.decorator_registry';
+import SwitchableEditDecorator from './ui.list.edit.decorator.switchable';
 
 var SWITCHABLE_DELETE_BUTTON_CONTAINER_CLASS = "dx-list-switchable-delete-button-container",
     SWITCHABLE_DELETE_BUTTON_WRAPPER_CLASS = "dx-list-switchable-delete-button-wrapper",
@@ -150,4 +150,4 @@ registerDecorator(
     })
 );
 
-module.exports = SwitchableButtonEditDecorator;
+export default SwitchableButtonEditDecorator;

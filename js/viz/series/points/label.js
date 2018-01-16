@@ -1,18 +1,10 @@
 "use strict";
 
-var _format = require("../../core/format"),
-    vizUtils = require("../../core/utils"),
-    each = require("../../../core/utils/iterator").each,
-    _degreesToRadians = vizUtils.degreesToRadians,
-    _patchFontOptions = vizUtils.patchFontOptions,
-    _math = Math,
-    _round = _math.round,
-    _floor = _math.floor,
-    _getCosAndSin = vizUtils.getCosAndSin,
-    _rotateBBox = vizUtils.rotateBBox,
+import _format from '../../core/format';
+import vizUtils from '../../core/utils';
+import { each } from '../../../core/utils/iterator';
 
-    LABEL_BACKGROUND_PADDING_X = 8,
-    LABEL_BACKGROUND_PADDING_Y = 4;
+var _degreesToRadians = vizUtils.degreesToRadians, _patchFontOptions = vizUtils.patchFontOptions, _math = Math, _round = _math.round, _floor = _math.floor, _getCosAndSin = vizUtils.getCosAndSin, _rotateBBox = vizUtils.rotateBBox, LABEL_BACKGROUND_PADDING_X = 8, LABEL_BACKGROUND_PADDING_Y = 4;
 
 function getClosestCoord(point, coords) {
     var closestDistance = Infinity,
@@ -422,7 +414,7 @@ Label.prototype = {
     }
 };
 
-exports.Label = Label;
+export { Label };
 
 ///#DEBUG
 Label._DEBUG_formatText = formatText;

@@ -1,22 +1,22 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    fx = require("../animation/fx"),
-    clickEvent = require("../events/click"),
-    devices = require("../core/devices"),
-    extend = require("../core/utils/extend").extend,
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    iteratorUtils = require("../core/utils/iterator"),
-    isPlainObject = require("../core/utils/type").isPlainObject,
-    registerComponent = require("../core/component_registrator"),
-    eventUtils = require("../events/utils"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit"),
-    deferredUtils = require("../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    BindableTemplate = require("./widget/bindable_template"),
-    iconUtils = require("../core/utils/icon");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import fx from '../animation/fx';
+import clickEvent from '../events/click';
+import devices from '../core/devices';
+import { extend } from '../core/utils/extend';
+import { getPublicElement } from '../core/utils/dom';
+import iteratorUtils from '../core/utils/iterator';
+import { isPlainObject } from '../core/utils/type';
+import registerComponent from '../core/component_registrator';
+import * as eventUtils from '../events/utils';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import * as deferredUtils from '../core/utils/deferred';
+import BindableTemplate from './widget/bindable_template';
+import iconUtils from '../core/utils/icon';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var ACCORDION_CLASS = "dx-accordion",
     ACCORDION_WRAPPER_CLASS = "dx-accordion-wrapper",
@@ -498,4 +498,4 @@ var Accordion = CollectionWidget.inherit({
 
 registerComponent("dxAccordion", Accordion);
 
-module.exports = Accordion;
+export default Accordion;

@@ -1,15 +1,15 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    inflector = require("../core/utils/inflector"),
-    iteratorUtils = require("../core/utils/iterator"),
-    isDefined = require("../core/utils/type").isDefined,
-    extend = require("../core/utils/extend").extend,
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    ScrollView = require("./scroll_view"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit");
+import $ from '../core/renderer';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import inflector from '../core/utils/inflector';
+import iteratorUtils from '../core/utils/iterator';
+import { isDefined } from '../core/utils/type';
+import { extend } from '../core/utils/extend';
+import { getPublicElement } from '../core/utils/dom';
+import ScrollView from './scroll_view';
+import CollectionWidget from './collection/ui.collection_widget.edit';
 
 var TILEVIEW_CLASS = "dx-tileview",
     TILEVIEW_CONTAINER_CLASS = "dx-tileview-wrapper",
@@ -588,4 +588,4 @@ var TileView = CollectionWidget.inherit({
 
 registerComponent("dxTileView", TileView);
 
-module.exports = TileView;
+export default TileView;

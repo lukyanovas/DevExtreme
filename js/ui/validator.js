@@ -1,15 +1,15 @@
 "use strict";
 
-var dataUtils = require("../core/element_data"),
-    Callbacks = require("../core/utils/callbacks"),
-    errors = require("./widget/ui.errors"),
-    DOMComponent = require("../core/dom_component"),
-    extend = require("../core/utils/extend").extend,
-    map = require("../core/utils/iterator").map,
-    ValidationMixin = require("./validation/validation_mixin"),
-    ValidationEngine = require("./validation_engine"),
-    DefaultAdapter = require("./validation/default_adapter"),
-    registerComponent = require("../core/component_registrator");
+import dataUtils from '../core/element_data';
+import Callbacks from '../core/utils/callbacks';
+import errors from './widget/ui.errors';
+import DOMComponent from '../core/dom_component';
+import { extend } from '../core/utils/extend';
+import { map } from '../core/utils/iterator';
+import ValidationMixin from './validation/validation_mixin';
+import ValidationEngine from './validation_engine';
+import DefaultAdapter from './validation/default_adapter';
+import registerComponent from '../core/component_registrator';
 
 var VALIDATOR_CLASS = "dx-validator";
 
@@ -291,4 +291,4 @@ var Validator = DOMComponent.inherit({
 
 registerComponent("dxValidator", Validator);
 
-module.exports = Validator;
+export default Validator;

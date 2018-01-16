@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Widget = require("../widget/ui.widget"),
-    Tooltip = require("../tooltip"),
-    translator = require("../../animation/translator"),
-    positionUtils = require("../../animation/position"),
-    mathUtils = require("../../core/utils/math"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    numberLocalization = require("../../localization/number");
+import $ from '../../core/renderer';
+import Widget from '../widget/ui.widget';
+import Tooltip from '../tooltip';
+import translator from '../../animation/translator';
+import positionUtils from '../../animation/position';
+import mathUtils from '../../core/utils/math';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import numberLocalization from '../../localization/number';
 
 var SLIDER_CLASS = "dx-slider",
     SLIDER_HANDLE_CLASS = "dx-slider-handle";
@@ -269,4 +269,4 @@ var SliderHandle = Widget.inherit({
     }
 });
 
-module.exports = SliderHandle;
+export default SliderHandle;

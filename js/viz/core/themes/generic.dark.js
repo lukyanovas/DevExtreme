@@ -1,18 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    registerThemeAlias = themeModule.registerThemeAlias,
+import themeModule from '../../themes';
 
-    WHITE = "#ffffff",
-    BLACK = "#000000",
-    SOME_GREY = "#2b2b2b",
-    RANGE_COLOR = "#b5b5b5",
-    GREY_GREEN = "#303030",
-    AREA_LAYER_COLOR = "#686868",
-    LINE_COLOR = "#c7c7c7",
-    TARGET_COLOR = "#8e8e8e",
-    POSITIVE_COLOR = "#b8b8b8";
+var registerTheme = themeModule.registerTheme, registerThemeAlias = themeModule.registerThemeAlias, WHITE = "#ffffff", BLACK = "#000000", SOME_GREY = "#2b2b2b", RANGE_COLOR = "#b5b5b5", GREY_GREEN = "#303030", AREA_LAYER_COLOR = "#686868", LINE_COLOR = "#c7c7c7", TARGET_COLOR = "#8e8e8e", POSITIVE_COLOR = "#b8b8b8";
 
 registerTheme({
     name: "generic.dark",

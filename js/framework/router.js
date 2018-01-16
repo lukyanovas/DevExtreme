@@ -1,10 +1,10 @@
 "use strict";
 
-var extend = require("../core/utils/extend").extend,
-    typeUtils = require("../core/utils/type"),
-    iteratorUtils = require("../core/utils/iterator"),
-    inArray = require("../core/utils/array").inArray,
-    Class = require("../core/class");
+import { extend } from '../core/utils/extend';
+import * as typeUtils from '../core/utils/type';
+import iteratorUtils from '../core/utils/iterator';
+import { inArray } from '../core/utils/array';
+import Class from '../core/class';
 
 // NOTE: replaceState crushes on WP8 if url contains ':' character (T108063)
 var JSON_URI_PREFIX = encodeURIComponent("json:");
@@ -305,7 +305,9 @@ var Router = Class.inherit({
 Route.__internals = {
     JSON_URI_PREFIX: JSON_URI_PREFIX
 };
+
 ///#ENDDEBUG
 
-module.exports = Router;
-module.exports.Route = Route;
+export default Router;
+
+export { Route };

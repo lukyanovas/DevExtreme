@@ -1,7 +1,7 @@
 "use strict";
 
-var each = require("../core/utils/iterator").each,
-    Callbacks = require("./utils/callbacks");
+import { each } from '../core/utils/iterator';
+import Callbacks from './utils/callbacks';
 
 var MemorizedCallbacks = function() {
 
@@ -26,4 +26,4 @@ var MemorizedCallbacks = function() {
 
 };
 
-module.exports = MemorizedCallbacks;
+export default MemorizedCallbacks;

@@ -1,25 +1,27 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    translator = require("../animation/translator"),
-    camelize = require("../core/utils/inflector").camelize,
-    noop = require("../core/utils/common").noop,
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    each = require("../core/utils/iterator").each,
-    isDefined = require("../core/utils/type").isDefined,
-    inArray = require("../core/utils/array").inArray,
-    extend = require("../core/utils/extend").extend,
-    messageLocalization = require("../localization/message"),
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    Button = require("./button"),
-    themes = require("./themes"),
-    Overlay = require("./overlay"),
-    EmptyTemplate = require("./widget/empty_template"),
-    domUtils = require("../core/utils/dom");
+import $ from '../core/renderer';
+import translator from '../animation/translator';
+import { camelize } from '../core/utils/inflector';
+import { noop } from '../core/utils/common';
+import { getPublicElement } from '../core/utils/dom';
+import { each } from '../core/utils/iterator';
+import { isDefined } from '../core/utils/type';
+import { inArray } from '../core/utils/array';
+import { extend } from '../core/utils/extend';
+import messageLocalization from '../localization/message';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import Button from './button';
+import themes from './themes';
+import Overlay from './overlay';
+import EmptyTemplate from './widget/empty_template';
+import domUtils from '../core/utils/dom';
+import domAdapter from '../core/dom_adapter';
 
-require("./toolbar/ui.toolbar.base");
+var window = domAdapter.getWindow();
+
+import './toolbar/ui.toolbar.base';
 
 var POPUP_CLASS = "dx-popup",
     POPUP_WRAPPER_CLASS = "dx-popup-wrapper",
@@ -793,4 +795,4 @@ var Popup = Overlay.inherit({
 
 registerComponent("dxPopup", Popup);
 
-module.exports = Popup;
+export default Popup;

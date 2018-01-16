@@ -1,30 +1,29 @@
 "use strict";
 
-var commonUtils = require("../../core/utils/common"),
-    noop = commonUtils.noop,
-    eventsEngine = require("../../events/core/events_engine"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    eventUtils = require("../../events/utils"),
-    BaseWidget = require("../core/base_widget"),
-    legendModule = require("../components/legend"),
-    dataValidatorModule = require("../components/data_validator"),
-    seriesModule = require("../series/base_series"),
-    chartThemeManagerModule = require("../components/chart_theme_manager"),
-    LayoutManagerModule = require("./layout_manager"),
-    trackerModule = require("./tracker"),
-    headerBlockModule = require("./header_block"),
+import commonUtils from '../../core/utils/common';
+import eventsEngine from '../../events/core/events_engine';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import * as eventUtils from '../../events/utils';
+import BaseWidget from '../core/base_widget';
+import legendModule from '../components/legend';
+import dataValidatorModule from '../components/data_validator';
+import seriesModule from '../series/base_series';
+import chartThemeManagerModule from '../components/chart_theme_manager';
+import LayoutManagerModule from './layout_manager';
+import trackerModule from './tracker';
+import headerBlockModule from './header_block';
+import vizUtils from '../core/utils';
 
+var noop = commonUtils.noop,
     REINIT_REFRESH_ACTION = "_reinit",
     REINIT_DATA_SOURCE_REFRESH_ACTION = "_updateDataSource",
     DATA_INIT_REFRESH_ACTION = "_dataInit",
     FORCE_RENDER_REFRESH_ACTION = "_forceRender",
     RESIZE_REFRESH_ACTION = "_resize",
     ACTIONS_BY_PRIORITY = [REINIT_REFRESH_ACTION, REINIT_DATA_SOURCE_REFRESH_ACTION, DATA_INIT_REFRESH_ACTION, FORCE_RENDER_REFRESH_ACTION, RESIZE_REFRESH_ACTION],
-
-    vizUtils = require("../core/utils"),
     _map = vizUtils.map,
     _each = each,
     _extend = extend,
@@ -32,7 +31,6 @@ var commonUtils = require("../../core/utils/common"),
     _isDefined = typeUtils.isDefined,
     _setCanvasValues = vizUtils.setCanvasValues,
     DEFAULT_OPACITY = 0.3,
-
     REFRESH_SERIES_DATA_INIT_ACTION_OPTIONS = [
         "series",
         "commonSeriesSettings",
@@ -42,7 +40,6 @@ var commonUtils = require("../../core/utils/common"),
         "pointSelectionMode",
         "synchronizeMultiAxes"
     ],
-
     REFRESH_SERIES_FAMILIES_ACTION_OPTIONS = [
         "equalBarWidth",
         "minBubbleSize",
@@ -51,7 +48,6 @@ var commonUtils = require("../../core/utils/common"),
         "negativesAsZeroes",
         "negativesAsZeros" //misspelling case
     ],
-
     FORCE_RENDER_REFRESH_ACTION_OPTIONS = [
         "adaptiveLayout",
         "crosshair",
@@ -1291,9 +1287,7 @@ REFRESH_SERIES_FAMILIES_ACTION_OPTIONS.forEach(function(name) {
     BaseChart.prototype._optionChangesMap[name] = "REFRESH_SERIES_FAMILIES";
 });
 
-exports.overlapping = overlapping;
-
-exports.BaseChart = BaseChart;
+export { overlapping, BaseChart };
 
 // PLUGINS_SECTION
 BaseChart.addPlugin(require("../core/export").plugin);

@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    columnsView = require("./ui.grid_core.columns_view"),
-    isDefined = require("../../core/utils/type").isDefined,
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    messageLocalization = require("../../localization/message");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import columnsView from './ui.grid_core.columns_view';
+import { isDefined } from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import messageLocalization from '../../localization/message';
 
 var CELL_CONTENT_CLASS = "text-content",
     HEADERS_CLASS = "headers",
@@ -22,7 +22,7 @@ var CELL_CONTENT_CLASS = "text-content",
     SORT_INDICATOR_CLASS = "dx-sort-indicator",
     HEADER_FILTER_INDICATOR_CLASS = "dx-header-filter-indicator";
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

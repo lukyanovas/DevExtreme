@@ -1,19 +1,19 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    noop = require("../core/utils/common").noop,
-    fx = require("../animation/fx"),
-    clickEvent = require("../events/click"),
-    translator = require("../animation/translator"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    hideTopOverlayCallback = require("../mobile/hide_top_overlay").hideCallback,
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    Widget = require("./widget/ui.widget"),
-    Swipeable = require("../events/gesture/swipeable"),
-    EmptyTemplate = require("./widget/empty_template"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import { noop } from '../core/utils/common';
+import fx from '../animation/fx';
+import clickEvent from '../events/click';
+import translator from '../animation/translator';
+import { getPublicElement } from '../core/utils/dom';
+import { hideCallback as hideTopOverlayCallback } from '../mobile/hide_top_overlay';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import Widget from './widget/ui.widget';
+import Swipeable from '../events/gesture/swipeable';
+import EmptyTemplate from './widget/empty_template';
+import { Deferred } from '../core/utils/deferred';
 
 var SLIDEOUTVIEW_CLASS = "dx-slideoutview",
     SLIDEOUTVIEW_WRAPPER_CLASS = "dx-slideoutview-wrapper",
@@ -458,8 +458,5 @@ var SlideOutView = Widget.inherit({
 
 registerComponent("dxSlideOutView", SlideOutView);
 
-module.exports = SlideOutView;
-
-///#DEBUG
-module.exports.animation = animation;
-///#ENDDEBUG
+export default SlideOutView;
+export { animation };

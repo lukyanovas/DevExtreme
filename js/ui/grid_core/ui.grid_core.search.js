@@ -1,13 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    isDefined = require("../../core/utils/type").isDefined,
-    compileGetter = require("../../core/utils/data").compileGetter,
-    each = require("../../core/utils/iterator").each,
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    messageLocalization = require("../../localization/message"),
-    dataQuery = require("../../data/query");
+import $ from '../../core/renderer';
+import { isDefined } from '../../core/utils/type';
+import { compileGetter } from '../../core/utils/data';
+import { each } from '../../core/utils/iterator';
+import gridCoreUtils from './ui.grid_core.utils';
+import messageLocalization from '../../localization/message';
+import dataQuery from '../../data/query';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var SEARCH_PANEL_CLASS = "search-panel",
     SEARCH_TEXT_CLASS = "search-text",
@@ -28,7 +30,7 @@ function parseValue(column, text) {
 }
 
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
          /**

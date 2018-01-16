@@ -1,9 +1,8 @@
 "use strict";
 
-var proto = require("./tree_map.base").prototype,
-    expand = require("../core/helpers").expand;
-
-require("./api");
+import { prototype as proto } from './tree_map.base';
+import { expand } from '../core/helpers';
+import './api';
 
 expand(proto, "_extendProxyType", function(proto) {
     var that = this;

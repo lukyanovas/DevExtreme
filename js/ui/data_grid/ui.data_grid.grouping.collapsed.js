@@ -1,19 +1,18 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    gridCore = require("./ui.data_grid.core"),
-    normalizeSortingInfo = gridCore.normalizeSortingInfo,
-    groupingCore = require("./ui.data_grid.grouping.core"),
-    createGroupFilter = groupingCore.createGroupFilter,
-    createOffsetFilter = groupingCore.createOffsetFilter,
-    errors = require("../widget/ui.errors"),
-    dataErrors = require("../../data/errors").errors,
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import gridCore from './ui.data_grid.core';
+import groupingCore from './ui.data_grid.grouping.core';
+import errors from '../widget/ui.errors';
+import { errors as dataErrors } from '../../data/errors';
+import * as deferredUtils from '../../core/utils/deferred';
 
-exports.GroupingHelper = groupingCore.GroupingHelper.inherit((function() {
+var normalizeSortingInfo = gridCore.normalizeSortingInfo, createGroupFilter = groupingCore.createGroupFilter, createOffsetFilter = groupingCore.createOffsetFilter, when = deferredUtils.when, Deferred = deferredUtils.Deferred;
+///#DEBUG
+export var getContinuationGroupCount;
+///#ENDDEBUG
+export var GroupingHelper = groupingCore.GroupingHelper.inherit((function() {
     var foreachExpandedGroups = function(that, callback, updateGroups) {
         return that.foreachGroups(function(groupInfo, parents) {
             if(groupInfo.isExpanded) {
@@ -154,7 +153,7 @@ exports.GroupingHelper = groupingCore.GroupingHelper.inherit((function() {
         return totalOffset;
     };
 
-    var getContinuationGroupCount = function(groupOffset, pageSize, groupSize, groupIndex) {
+    getContinuationGroupCount = function(groupOffset, pageSize, groupSize, groupIndex) {
         groupIndex = groupIndex || 0;
         if(pageSize > 1 && groupSize > 0) {
             var pageOffset = (groupOffset - Math.floor(groupOffset / pageSize) * pageSize) || pageSize;
@@ -166,10 +165,6 @@ exports.GroupingHelper = groupingCore.GroupingHelper.inherit((function() {
         }
         return 0;
     };
-
-    ///#DEBUG
-    exports.getContinuationGroupCount = getContinuationGroupCount;
-    ///#ENDDEBUG
 
     function applyContinuationToGroupItem(options, expandedInfo, groupLevel, expandedItemIndex) {
         var item = expandedInfo.items[expandedItemIndex],

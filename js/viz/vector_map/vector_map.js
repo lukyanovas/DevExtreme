@@ -1,31 +1,23 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    _parseScalar = require("../core/utils").parseScalar,
-    extend = require("../../core/utils/extend").extend,
-    iteratorUtils = require("../../core/utils/iterator"),
-    projectionModule = require("./projection.main"),
-    controlBarModule = require("./control_bar"),
-    gestureHandlerModule = require("./gesture_handler"),
-    trackerModule = require("./tracker"),
-    themeManagerModule = require("./theme_manager"),
-    dataExchangerModule = require("./data_exchanger"),
-    legendModule = require("./legend"),
-    layoutModule = require("./layout"),
-    mapLayerModule = require("./map_layer"),
-    tooltipViewerModule = require("./tooltip_viewer"),
-    _noop = noop,
-    _extend = extend,
+import { noop } from '../../core/utils/common';
+import { parseScalar as _parseScalar } from '../core/utils';
+import { extend } from '../../core/utils/extend';
+import iteratorUtils from '../../core/utils/iterator';
+import projectionModule from './projection.main';
+import controlBarModule from './control_bar';
+import gestureHandlerModule from './gesture_handler';
+import trackerModule from './tracker';
+import themeManagerModule from './theme_manager';
+import dataExchangerModule from './data_exchanger';
+import legendModule from './legend';
+import layoutModule from './layout';
+import mapLayerModule from './map_layer';
+import tooltipViewerModule from './tooltip_viewer';
 
-    DEFAULT_WIDTH = 800,
-    DEFAULT_HEIGHT = 400,
+var _noop = noop, _extend = extend, DEFAULT_WIDTH = 800, DEFAULT_HEIGHT = 400, nextDataKey = 1, RE_STARTS_LAYERS = /^layers/, RE_ENDS_DATA_SOURCE = /\.(dataSource|data)$/;   // DEPRECATED_15_2 ("|data)")
 
-    nextDataKey = 1,
-
-    RE_STARTS_LAYERS = /^layers/,
-    RE_ENDS_DATA_SOURCE = /\.(dataSource|data)$/;   // DEPRECATED_15_2 ("|data)")
-
-require("./projection");
+import './projection';
 
 function generateDataKey() {
     return "vectormap-data-" + nextDataKey++;
@@ -545,12 +537,13 @@ function applyDeprecatedMode(map) {
 
 require("../../core/component_registrator")("dxVectorMap", dxVectorMap);
 
-module.exports = dxVectorMap;
+export default dxVectorMap;
 
 ///#DEBUG
-module.exports._TESTS_resetDataKey = function() {
+export var _TESTS_resetDataKey = function() {
     nextDataKey = 1;
 };
+
 ///#ENDDEBUG
 
 // PLUGINS_SECTION

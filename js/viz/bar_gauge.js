@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("./gauges/bar_gauge").dxBarGauge;
+export default require("./gauges/bar_gauge").dxBarGauge;

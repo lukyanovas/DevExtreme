@@ -1,13 +1,13 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    BaseView = require("./ui.calendar.base_view"),
-    dateUtils = require("../../core/utils/date"),
-    extend = require("../../core/utils/extend").extend,
-    dateLocalization = require("../../localization/date"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    typeUtils = require("../../core/utils/type");
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import BaseView from './ui.calendar.base_view';
+import dateUtils from '../../core/utils/date';
+import { extend } from '../../core/utils/extend';
+import dateLocalization from '../../localization/date';
+import dateSerialization from '../../core/utils/date_serialization';
+import * as typeUtils from '../../core/utils/type';
 
 var CALENDAR_OTHER_MONTH_CLASS = "dx-calendar-other-month",
     CALENDAR_OTHER_VIEW_CLASS = "dx-calendar-other-view";
@@ -342,4 +342,4 @@ var Views = {
     })
 };
 
-module.exports = Views;
+export default Views;

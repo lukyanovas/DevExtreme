@@ -1,26 +1,20 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    each = require("../../core/utils/iterator").each,
-    version = require("../../core/version"),
-    _windowResizeCallbacks = require("../../core/utils/window").resizeCallbacks,
-    _stringFormat = require("../../core/utils/string").format,
-    _isObject = require("../../core/utils/type").isObject,
-    extend = require("../../core/utils/extend").extend,
+import { noop } from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import version from '../../core/version';
+import { resizeCallbacks as _windowResizeCallbacks } from '../../core/utils/window';
+import { format as _stringFormat } from '../../core/utils/string';
+import { isObject as _isObject } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import DOMComponent from '../../core/dom_component';
+import helpers from './helpers';
+import { parseScalar as _parseScalar } from './utils';
+import errors from './errors_warnings';
+import rendererModule from './renderers/renderer';
+import _Layout from './layout';
 
-    _floor = Math.floor,
-    DOMComponent = require("../../core/dom_component"),
-    helpers = require("./helpers"),
-    _parseScalar = require("./utils").parseScalar,
-    errors = require("./errors_warnings"),
-    _log = errors.log,
-    rendererModule = require("./renderers/renderer"),
-
-    _Layout = require("./layout"),
-
-    OPTION_RTL_ENABLED = "rtlEnabled",
-
-    _option = DOMComponent.prototype.option;
+var _floor = Math.floor, _log = errors.log, OPTION_RTL_ENABLED = "rtlEnabled", _option = DOMComponent.prototype.option;
 
 function getTrue() {
     return true;
@@ -93,7 +87,7 @@ function pickPositiveValue(value, defaultValue) {
 //         }
 //     }]
 
-module.exports = DOMComponent.inherit({
+export default DOMComponent.inherit({
     _eventsMap: {
         "onIncidentOccurred": { name: "incidentOccurred" },
         "onDrawn": { name: "drawn" }
@@ -552,14 +546,19 @@ function createEventTrigger(eventsMap, callbackGetter) {
         complete && complete();
     }
 }
+
 ///#DEBUG
-module.exports.DEBUG_createEventTrigger = createEventTrigger;
-module.exports.DEBUG_createIncidentOccurred = createIncidentOccurred;
-module.exports.DEBUG_stub_createIncidentOccurred = function(stub) {
+export var DEBUG_createEventTrigger = createEventTrigger;
+
+export var DEBUG_createIncidentOccurred = createIncidentOccurred;
+
+export var DEBUG_stub_createIncidentOccurred = function(stub) {
     createIncidentOccurred = stub;
 };
-module.exports.DEBUG_restore_createIncidentOccurred = function() {
+
+export var DEBUG_restore_createIncidentOccurred = function() {
     createIncidentOccurred = module.exports.DEBUG_createIncidentOccurred;
 };
-module.exports.DEBUG_createResizeHandler = createResizeHandler;
+
+export var DEBUG_createResizeHandler = createResizeHandler;
 ///#ENDDEBUG

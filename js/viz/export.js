@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("./core/export");
+export default require("./core/export");

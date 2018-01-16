@@ -1,9 +1,10 @@
 "use strict";
 
-var isDefined = require("../../core/utils/type").isDefined,
-    round = Math.round;
+import { isDefined } from '../../core/utils/type';
 
-module.exports = {
+var round = Math.round;
+
+export default {
     translate: function(category, directionOffset) {
         var that = this,
             canvasOptions = that._canvasOptions,

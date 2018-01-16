@@ -1,20 +1,21 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    extend = require("./utils/extend").extend,
-    config = require("./config"),
-    errors = require("./errors"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    windowResizeCallbacks = require("./utils/window").resizeCallbacks,
-    commonUtils = require("./utils/common"),
-    each = require("./utils/iterator").each,
-    typeUtils = require("./utils/type"),
-    inArray = require("./utils/array").inArray,
-    publicComponentUtils = require("./utils/public_component"),
-    dataUtils = require("./element_data"),
-    Component = require("./component"),
-    abstract = Component.abstract;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import { extend } from './utils/extend';
+import config from './config';
+import errors from './errors';
+import { getPublicElement } from '../core/utils/dom';
+import { resizeCallbacks as windowResizeCallbacks } from './utils/window';
+import commonUtils from './utils/common';
+import { each } from './utils/iterator';
+import * as typeUtils from './utils/type';
+import { inArray } from './utils/array';
+import publicComponentUtils from './utils/public_component';
+import dataUtils from './element_data';
+import Component from './component';
+
+var abstract = Component.abstract;
 
 var RTL_DIRECTION_CLASS = "dx-rtl",
     VISIBILITY_CHANGE_CLASS = "dx-visibility-change-handler",
@@ -444,4 +445,4 @@ DOMComponent.defaultOptions = function(rule) {
 };
 
 
-module.exports = DOMComponent;
+export default DOMComponent;

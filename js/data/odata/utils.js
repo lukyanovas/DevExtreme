@@ -1,16 +1,16 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    ajax = require("../../core/utils/ajax"),
-    Guid = require("../../core/guid"),
-    isDefined = typeUtils.isDefined,
-    Deferred = require("../../core/utils/deferred").Deferred,
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import ajax from '../../core/utils/ajax';
+import Guid from '../../core/guid';
+import { Deferred } from '../../core/utils/deferred';
+import { errors } from '../errors';
+import dataUtils from '../utils';
 
-    errors = require("../errors").errors,
-    dataUtils = require("../utils");
+var isDefined = typeUtils.isDefined;
 
 var GUID_REGEX = /^(\{{0,1}([0-9a-fA-F]){8}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){4}-([0-9a-fA-F]){12}\}{0,1})$/;
 
@@ -556,17 +556,10 @@ var convertPrimitiveValue = function(type, value) {
     return converter(value);
 };
 
-exports.sendRequest = sendRequest;
-exports.serializePropName = serializePropName;
-exports.serializeValue = serializeValue;
-exports.serializeKey = serializeKey;
-exports.keyConverters = keyConverters;
-exports.convertPrimitiveValue = convertPrimitiveValue;
-
-exports.EdmLiteral = EdmLiteral;
+export { sendRequest, serializePropName, serializeValue, serializeKey, keyConverters, convertPrimitiveValue, EdmLiteral };
 
 ///#DEBUG
-exports.OData__internals = {
+export var OData__internals = {
     interpretJsonFormat: interpretJsonFormat
 };
 ///#ENDDEBUG

@@ -1,12 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    CalendarStrategy = require("./ui.date_box.strategy.calendar"),
-    TimeView = require("./ui.time_view"),
-    dateLocalization = require("../../localization/date"),
-    extend = require("../../core/utils/extend").extend,
-    Box = require("../box");
+import $ from '../../core/renderer';
+import CalendarStrategy from './ui.date_box.strategy.calendar';
+import TimeView from './ui.time_view';
+import dateLocalization from '../../localization/date';
+import { extend } from '../../core/utils/extend';
+import Box from '../box';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var SHRINK_VIEW_SCREEN_WIDTH = 573,
     DATEBOX_ADAPTIVITY_MODE_CLASS = "dx-datebox-adaptivity-mode";
@@ -188,4 +190,4 @@ var CalendarWithTimeStrategy = CalendarStrategy.inherit({
     }
 });
 
-module.exports = CalendarWithTimeStrategy;
+export default CalendarWithTimeStrategy;

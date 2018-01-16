@@ -1,7 +1,7 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    CollectionWidgetItem = require("../collection/item");
+import $ from '../../core/renderer';
+import CollectionWidgetItem from '../collection/item';
 
 var PANORAMA_ITEM_TITLE_CLASS = "dx-panorama-item-title";
 
@@ -26,4 +26,4 @@ var PanoramaItem = CollectionWidgetItem.inherit({
 
 });
 
-module.exports = PanoramaItem;
+export default PanoramaItem;

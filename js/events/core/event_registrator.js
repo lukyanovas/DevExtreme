@@ -1,7 +1,7 @@
 "use strict";
 
-var each = require("../../core/utils/iterator").each,
-    callbacks = require("./event_registrator_callbacks");
+import { each } from '../../core/utils/iterator';
+import callbacks from './event_registrator_callbacks';
 
 var registerEvent = function(name, eventObject) {
     var strategy = {};
@@ -34,4 +34,4 @@ var registerEvent = function(name, eventObject) {
 };
 registerEvent.callbacks = callbacks;
 
-module.exports = registerEvent;
+export default registerEvent;

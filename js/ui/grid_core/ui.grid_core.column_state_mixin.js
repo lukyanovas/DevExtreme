@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    extend = require("../../core/utils/extend").extend,
-    getDefaultAlignment = require("../../core/utils/position").getDefaultAlignment,
-    commonUtils = require("../../core/utils/common");
+import $ from '../../core/renderer';
+import { extend } from '../../core/utils/extend';
+import { getDefaultAlignment } from '../../core/utils/position';
+import commonUtils from '../../core/utils/common';
 
 var COLUMN_INDICATORS_CLASS = "dx-column-indicators",
     GROUP_PANEL_ITEM_CLASS = "dx-group-panel-item";
 
-module.exports = {
+export default {
     _applyColumnState: function(options) {
         var that = this,
             rtlEnabled = this.option("rtlEnabled"),

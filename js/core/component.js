@@ -1,21 +1,21 @@
 "use strict";
 
-var Config = require("./config"),
-    window = require("./dom_adapter").getWindow(),
-    extend = require("./utils/extend").extend,
-    Class = require("./class"),
-    Action = require("./action"),
-    errors = require("./errors"),
-    coreDataUtils = require("./utils/data"),
-    commonUtils = require("./utils/common"),
-    typeUtils = require("./utils/type"),
-    map = require("../core/utils/iterator").map,
-    Callbacks = require("./utils/callbacks"),
-    EventsMixin = require("./events_mixin"),
-    publicComponentUtils = require("./utils/public_component"),
-    devices = require("./devices"),
-    isFunction = typeUtils.isFunction,
-    noop = commonUtils.noop;
+import Config from './config';
+import { extend } from './utils/extend';
+import Class from './class';
+import Action from './action';
+import errors from './errors';
+import coreDataUtils from './utils/data';
+import commonUtils from './utils/common';
+import * as typeUtils from './utils/type';
+import { map } from '../core/utils/iterator';
+import Callbacks from './utils/callbacks';
+import EventsMixin from './events_mixin';
+import publicComponentUtils from './utils/public_component';
+import devices from './devices';
+import domAdapter from './dom_adapter';
+
+var window = domAdapter.getWindow(), isFunction = typeUtils.isFunction, noop = commonUtils.noop;
 
 var cachedGetters = {};
 var cachedSetters = {};
@@ -660,4 +660,4 @@ var Component = Class.inherit({
     }
 }).include(EventsMixin);
 
-module.exports = Component;
+export default Component;

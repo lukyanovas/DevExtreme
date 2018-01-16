@@ -1,10 +1,8 @@
 "use strict";
 
-var typeUtils = require("../utils/type");
-var isPromise = typeUtils.isPromise;
-var isDeferred = typeUtils.isDeferred;
-var extend = require("../utils/extend").extend;
-var Callbacks = require("../utils/callbacks");
+import { isPromise, isDeferred } from '../utils/type';
+import { extend } from '../utils/extend';
+import Callbacks from '../utils/callbacks';
 
 var deferredConfig = [{
     method: "resolve",
@@ -106,7 +104,7 @@ deferredConfig.forEach(function(config) {
     };
 });
 
-exports.fromPromise = function(promise, context) {
+export var fromPromise = function(promise, context) {
     if(isDeferred(promise)) {
         return promise;
     } else if(isPromise(promise)) {
@@ -124,7 +122,7 @@ exports.fromPromise = function(promise, context) {
 
 var when = function() {
     if(arguments.length === 1) {
-        return exports.fromPromise(arguments[0]);
+        return fromPromise(arguments[0]);
     }
 
     var values = [].slice.call(arguments),
@@ -160,16 +158,15 @@ var when = function() {
     return deferred.promise();
 };
 
-exports.setStrategy = function(value) {
+export var setStrategy = function(value) {
     Deferred = value.Deferred;
     when = value.when;
 };
 
-exports.Deferred = function() {
+export var Deferred = function() {
     return new Deferred();
 };
 
-exports.when = function() {
+export var when = function() {
     return when.apply(this, arguments);
 };
-

@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Guid = require("../../core/guid"),
-    registerComponent = require("../../core/component_registrator"),
-    extend = require("../../core/utils/extend").extend,
-    Popover = require("../popover"),
-    TOOLTIP_CLASS = "dx-tooltip",
-    TOOLTIP_WRAPPER_CLASS = "dx-tooltip-wrapper";
+import $ from '../../core/renderer';
+import Guid from '../../core/guid';
+import registerComponent from '../../core/component_registrator';
+import { extend } from '../../core/utils/extend';
+import Popover from '../popover';
+
+var TOOLTIP_CLASS = "dx-tooltip", TOOLTIP_WRAPPER_CLASS = "dx-tooltip-wrapper";
 
 var Tooltip = Popover.inherit({
     _getDefaultOptions: function() {
@@ -92,4 +92,4 @@ var Tooltip = Popover.inherit({
 
 registerComponent("dxTooltip", Tooltip);
 
-module.exports = Tooltip;
+export default Tooltip;

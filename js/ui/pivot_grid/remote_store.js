@@ -1,16 +1,15 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    grep = require("../../core/utils/common").grep,
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    DataSourceModule = require("../../data/data_source/data_source"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    pivotGridUtils = require("./ui.pivot_grid.utils"),
-    getFiltersByPath = pivotGridUtils.getFiltersByPath;
+import Class from '../../core/class';
+import { grep } from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import DataSourceModule from '../../data/data_source/data_source';
+import * as deferredUtils from '../../core/utils/deferred';
+import pivotGridUtils from './ui.pivot_grid.utils';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred, getFiltersByPath = pivotGridUtils.getFiltersByPath;
 
 function createGroupingOptions(dimensionOptions) {
     var groupingOptions = [];
@@ -421,7 +420,7 @@ function prepareFields(fields) {
     });
 }
 
-module.exports = Class.inherit((function() {
+export default Class.inherit((function() {
     return {
         ctor: function(options) {
             this._dataSource = new DataSourceModule.DataSource(options);
@@ -529,5 +528,5 @@ module.exports = Class.inherit((function() {
 })());
 
 ///#DEBUG
-module.exports.__forEachGroup = forEachGroup;
+export var __forEachGroup = forEachGroup;
 ///#ENDDEBUG

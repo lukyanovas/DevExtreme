@@ -1,17 +1,13 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    window = require("../../core/dom_adapter").getWindow(),
-    each = require("../../core/utils/iterator").each,
-    adjust = require("../../core/utils/math").adjust,
-    isDefined = typeUtils.isDefined,
-    isNumber = typeUtils.isNumeric,
-    isExponential = typeUtils.isExponential,
-    _math = Math,
-    _round = _math.round,
-    _sqrt = Math.sqrt;
+import { noop } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { adjust } from '../../core/utils/math';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), isDefined = typeUtils.isDefined, isNumber = typeUtils.isNumeric, isExponential = typeUtils.isExponential, _math = Math, _round = _math.round, _sqrt = Math.sqrt;
 
 var PI = Math.PI,
     MAX_PIXEL_COUNT = 1E10,
@@ -396,20 +392,4 @@ extend(exports, {
     }
 });
 
-exports.getLog = getLog;
-exports.getAdjustedLog10 = getAdjustedLog10;
-exports.raiseTo = raiseTo;
-
-exports.normalizeAngle = normalizeAngle;
-exports.convertAngleToRendererSpace = convertAngleToRendererSpace;
-exports.degreesToRadians = degreesToRadians;
-exports.getCosAndSin = getCosAndSin;
-exports.getDecimalOrder = getDecimalOrder;
-exports.getAppropriateFormat = getAppropriateFormat;
-exports.getDistance = getDistance;
-
-exports.roundValue = roundValue;
-exports.getPower = getPower;
-
-exports.rotateBBox = rotateBBox;
-exports.normalizeBBox = normalizeBBox;
+export { getLog, getAdjustedLog10, raiseTo, normalizeAngle, convertAngleToRendererSpace, degreesToRadians, getCosAndSin, getDecimalOrder, getAppropriateFormat, getDistance, roundValue, getPower, rotateBBox, normalizeBBox };

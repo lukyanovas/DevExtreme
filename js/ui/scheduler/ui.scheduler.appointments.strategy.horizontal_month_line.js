@@ -1,8 +1,8 @@
 "use strict";
 
-var HorizontalAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.horizontal"),
-    dateUtils = require("../../core/utils/date"),
-    query = require("../../data/query");
+import HorizontalAppointmentsStrategy from './ui.scheduler.appointments.strategy.horizontal';
+import dateUtils from '../../core/utils/date';
+import query from '../../data/query';
 
 var HorizontalMonthLineRenderingStrategy = HorizontalAppointmentsStrategy.inherit({
 
@@ -47,4 +47,4 @@ var HorizontalMonthLineRenderingStrategy = HorizontalAppointmentsStrategy.inheri
     }
 });
 
-module.exports = HorizontalMonthLineRenderingStrategy;
+export default HorizontalMonthLineRenderingStrategy;

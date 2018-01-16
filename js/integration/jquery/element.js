@@ -1,7 +1,8 @@
 "use strict";
 
-var setPublicElementWrapper = require("../../core/utils/dom").setPublicElementWrapper;
-var useJQuery = require("./use_jquery")();
+import { setPublicElementWrapper } from '../../core/utils/dom';
+import useJQueryFactory from './use_jquery';
+const useJQuery = useJQueryFactory();
 
 var getPublicElement = function($element) {
     return $element;

@@ -1,6 +1,6 @@
 "use strict";
 
-var isFunction = require("../../core/utils/type").isFunction;
+import { isFunction } from '../../core/utils/type';
 
 var Callback = function(options) {
     this._options = options || {};
@@ -110,4 +110,4 @@ var Callbacks = function(options) {
     return new Callback(options);
 };
 
-module.exports = Callbacks;
+export default Callbacks;

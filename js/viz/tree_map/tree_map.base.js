@@ -1,16 +1,15 @@
 "use strict";
 
-var common = require("./common"),
-    Node = require("./node"),
+import common from './common';
+import Node from './node';
+import { getAlgorithm as _getTilingAlgorithm } from './tiling';
+import { getColorizer as _getColorizer } from './colorizing';
+import { patchFontOptions as _patchFontOptions } from '../core/utils';
+import { noop as _noop } from '../../core/utils/common';
 
-    _getTilingAlgorithm = require("./tiling").getAlgorithm,
-    _getColorizer = require("./colorizing").getColorizer,
-    _patchFontOptions = require("../core/utils").patchFontOptions,
-    _buildRectAppearance = common.buildRectAppearance,
+var _buildRectAppearance = common.buildRectAppearance,
     _buildTextAppearance = common.buildTextAppearance,
-    _noop = require("../../core/utils/common").noop,
     _max = Math.max,
-
     directions = {
         "lefttoprightbottom": [+1, +1],
         "leftbottomrighttop": [+1, -1],
@@ -19,11 +18,13 @@ var common = require("./common"),
     };
 
 // At least one algorithm is required.
-require("./tiling.squarified");
+import './tiling.squarified';
+
 require("./tiling").setDefaultAlgorithm("squarified");
 
 // By design discrete colorizing is used by default.
-require("./colorizing.discrete");
+import './colorizing.discrete';
+
 require("./colorizing").setDefaultColorizer("discrete");
 
 function pickPositiveInteger(val) {
@@ -612,7 +613,7 @@ var ThemeManager = require("../core/base_theme_manager").BaseThemeManager.inheri
 
 require("../../core/component_registrator")("dxTreeMap", dxTreeMap);
 
-module.exports = dxTreeMap;
+export default dxTreeMap;
 
 // PLUGINS_SECTION
 dxTreeMap.addPlugin(require("../core/data_source").plugin);

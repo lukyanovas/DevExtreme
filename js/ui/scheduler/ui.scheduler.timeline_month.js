@@ -1,8 +1,8 @@
 "use strict";
 
-var registerComponent = require("../../core/component_registrator"),
-    SchedulerTimeline = require("./ui.scheduler.timeline"),
-    dateUtils = require("../../core/utils/date");
+import registerComponent from '../../core/component_registrator';
+import SchedulerTimeline from './ui.scheduler.timeline';
+import dateUtils from '../../core/utils/date';
 
 var TIMELINE_CLASS = "dx-scheduler-timeline-month",
     DAY_IN_MILLISECONDS = 86400000;
@@ -112,4 +112,4 @@ var SchedulerTimelineMonth = SchedulerTimeline.inherit({
 
 registerComponent("dxSchedulerTimelineMonth", SchedulerTimelineMonth);
 
-module.exports = SchedulerTimelineMonth;
+export default SchedulerTimelineMonth;

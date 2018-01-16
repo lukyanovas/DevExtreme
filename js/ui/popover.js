@@ -1,19 +1,20 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    document = window.document,
-    eventsEngine = require("../events/core/events_engine"),
-    registerComponent = require("../core/component_registrator"),
-    stringUtils = require("../core/utils/string"),
-    extend = require("../core/utils/extend").extend,
-    translator = require("../animation/translator"),
-    positionUtils = require("../animation/position"),
-    noop = require("../core/utils/common").noop,
-    typeUtils = require("../core/utils/type"),
-    mathUtils = require("../core/utils/math"),
-    eventUtils = require("../events/utils"),
-    Popup = require("./popup");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import registerComponent from '../core/component_registrator';
+import stringUtils from '../core/utils/string';
+import { extend } from '../core/utils/extend';
+import translator from '../animation/translator';
+import positionUtils from '../animation/position';
+import { noop } from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import mathUtils from '../core/utils/math';
+import * as eventUtils from '../events/utils';
+import Popup from './popup';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document;
 
 var POPOVER_CLASS = "dx-popover",
     POPOVER_WRAPPER_CLASS = "dx-popover-wrapper",
@@ -688,4 +689,4 @@ var Popover = Popup.inherit({
 
 registerComponent("dxPopover", Popover);
 
-module.exports = Popover;
+export default Popover;

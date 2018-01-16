@@ -1,17 +1,11 @@
 "use strict";
 
-var vizUtils = require("./core/utils"),
-    _floor = Math.floor,
-    _ceil = Math.ceil,
-    _Color = require("../color"),
-    extend = require("../core/utils/extend").extend,
-    _isArray = Array.isArray,
-    _isString = require("../core/utils/type").isString,
-    _extend = extend,
-    _normalizeEnum = vizUtils.normalizeEnum,
-    HIGHLIGHTING_STEP = 50,
-    DEFAULT = "default",
-    currentPaletteName = DEFAULT;
+import vizUtils from './core/utils';
+import _Color from '../color';
+import { extend } from '../core/utils/extend';
+import { isString as _isString } from '../core/utils/type';
+
+var _floor = Math.floor, _ceil = Math.ceil, _isArray = Array.isArray, _extend = extend, _normalizeEnum = vizUtils.normalizeEnum, HIGHLIGHTING_STEP = 50, DEFAULT = "default", currentPaletteName = DEFAULT;
 
 var palettes = {
     "default": {
@@ -261,5 +255,5 @@ _extend(exports, {
 });
 
 ///#DEBUG
-exports._DEBUG_palettes = palettes;
+export var _DEBUG_palettes = palettes;
 ///#ENDDEBUG

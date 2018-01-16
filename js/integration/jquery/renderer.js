@@ -1,8 +1,9 @@
 "use strict";
 
-var jQuery = require("jquery");
-var rendererBase = require("../../core/renderer_base");
-var useJQuery = require("./use_jquery")();
+import jQuery from 'jquery';
+import rendererBase from '../../core/renderer_base';
+import useJQueryFactory from './use_jquery';
+const useJQuery = useJQueryFactory();
 
 if(useJQuery) {
     rendererBase.set(jQuery);

@@ -1,15 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    noop = require("../../core/utils/common").noop,
-    each = require("../../core/utils/iterator").each,
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    registerComponent = require("../../core/component_registrator"),
-    SchedulerWorkSpace = require("./ui.scheduler.work_space"),
-    extend = require("../../core/utils/extend").extend,
-    dateLocalization = require("../../localization/date"),
-    tableCreator = require("./ui.scheduler.table_creator");
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import { getPublicElement } from '../../core/utils/dom';
+import registerComponent from '../../core/component_registrator';
+import SchedulerWorkSpace from './ui.scheduler.work_space';
+import { extend } from '../../core/utils/extend';
+import dateLocalization from '../../localization/date';
+import tableCreator from './ui.scheduler.table_creator';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var AGENDA_CLASS = "dx-scheduler-agenda",
     AGENDA_DATE_CLASS = "dx-scheduler-agenda-date",
@@ -473,4 +475,4 @@ var SchedulerAgenda = SchedulerWorkSpace.inherit({
 
 registerComponent("dxSchedulerAgenda", SchedulerAgenda);
 
-module.exports = SchedulerAgenda;
+export default SchedulerAgenda;

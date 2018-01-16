@@ -1,31 +1,28 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    paletteModule = require("../palette"),
-    _isString = typeUtils.isString,
-    _parseScalar = require("./utils").parseScalar,
-    themeModule = require("../themes"),
-    _findTheme = themeModule.findTheme,
-    _addCacheItem = themeModule.addCacheItem,
-    _removeCacheItem = themeModule.removeCacheItem,
-    _extend = extend,
-    _each = each;
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import paletteModule from '../palette';
+import { parseScalar as _parseScalar } from './utils';
+import themeModule from '../themes';
+
+var _isString = typeUtils.isString, _findTheme = themeModule.findTheme, _addCacheItem = themeModule.addCacheItem, _removeCacheItem = themeModule.removeCacheItem, _extend = extend, _each = each;
 
 //register themes
-require("./themes/generic.light");
-require("./themes/generic.dark");
-require("./themes/generic.contrast");
-require("./themes/generic.carmine");
-require("./themes/generic.darkmoon");
-require("./themes/generic.softblue");
-require("./themes/generic.darkviolet");
-require("./themes/generic.greenmist");
-require("./themes/ios");
-require("./themes/android");
-require("./themes/win");
+import './themes/generic.light';
+
+import './themes/generic.dark';
+import './themes/generic.contrast';
+import './themes/generic.carmine';
+import './themes/generic.darkmoon';
+import './themes/generic.softblue';
+import './themes/generic.darkviolet';
+import './themes/generic.greenmist';
+import './themes/ios';
+import './themes/android';
+import './themes/win';
 
 function getThemePart(theme, path) {
     var _theme = theme;
@@ -35,7 +32,7 @@ function getThemePart(theme, path) {
     return _theme;
 }
 
-exports.BaseThemeManager = Class.inherit({//TODO: test hack
+export var BaseThemeManager = Class.inherit({//TODO: test hack
     ctor: function() {
         _addCacheItem(this);
     },

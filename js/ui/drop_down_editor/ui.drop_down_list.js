@@ -1,25 +1,27 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    eventsEngine = require("../../events/core/events_engine"),
-    Guid = require("../../core/guid"),
-    registerComponent = require("../../core/component_registrator"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    DropDownEditor = require("./ui.drop_down_editor"),
-    List = require("../list"),
-    errors = require("../widget/ui.errors"),
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    devices = require("../../core/devices"),
-    DataExpressionMixin = require("../editor/ui.data_expression"),
-    messageLocalization = require("../../localization/message"),
-    themes = require("../themes"),
-    ChildDefaultTemplate = require("../widget/child_default_template"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Guid from '../../core/guid';
+import registerComponent from '../../core/component_registrator';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import DropDownEditor from './ui.drop_down_editor';
+import List from '../list';
+import errors from '../widget/ui.errors';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import devices from '../../core/devices';
+import DataExpressionMixin from '../editor/ui.data_expression';
+import messageLocalization from '../../localization/message';
+import themes from '../themes';
+import ChildDefaultTemplate from '../widget/child_default_template';
+import { Deferred } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var LIST_ITEM_SELECTOR = ".dx-list-item",
     LIST_ITEM_DATA_KEY = "dxListItemData",
@@ -925,4 +927,4 @@ var DropDownList = DropDownEditor.inherit({
 
 registerComponent("dxDropDownList", DropDownList);
 
-module.exports = DropDownList;
+export default DropDownList;

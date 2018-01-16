@@ -1,10 +1,10 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend;
+import { extend } from '../../core/utils/extend';
 
-exports.registry = {};
+export var registry = {};
 
-exports.register = function(option, type, decoratorClass) {
+export var register = function(option, type, decoratorClass) {
     var decoratorsRegistry = exports.registry;
 
     var decoratorConfig = {};

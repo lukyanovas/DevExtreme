@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    ko = require("knockout"),
-    isPlainObject = require("../../core/utils/type").isPlainObject,
-    eventRegistratorCallbacks = require("../../events/core/event_registrator_callbacks"),
-    eventUtils = require("../../events/utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import ko from 'knockout';
+import { isPlainObject } from '../../core/utils/type';
+import eventRegistratorCallbacks from '../../events/core/event_registrator_callbacks';
+import * as eventUtils from '../../events/utils';
 
 eventRegistratorCallbacks.add(function(name) {
     var koBindingEventName = eventUtils.addNamespace(name, name + "Binding");

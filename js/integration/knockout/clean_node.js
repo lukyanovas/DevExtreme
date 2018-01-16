@@ -1,10 +1,10 @@
 "use strict";
 
-var elementData = require("../../core/element_data"),
-    afterCleanData = elementData.afterCleanData,
-    strategyChanging = elementData.strategyChanging,
-    ko = require("knockout"),
-    compareVersion = require("../../core/utils/version").compare;
+import elementData from '../../core/element_data';
+import ko from 'knockout';
+import { compare as compareVersion } from '../../core/utils/version';
+
+var afterCleanData = elementData.afterCleanData, strategyChanging = elementData.strategyChanging;
 
 var originalKOCleanExternalData = ko.utils.domNodeDisposal.cleanExternalData;
 

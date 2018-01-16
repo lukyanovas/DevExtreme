@@ -1,21 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    isNumeric = require("../../core/utils/type").isNumeric,
-    errors = require("../widget/ui.errors"),
-    dateUtils = require("../../core/utils/date"),
-    extend = require("../../core/utils/extend").extend,
-    registerComponent = require("../../core/component_registrator"),
-    devices = require("../../core/devices"),
-    Widget = require("../widget/ui.widget"),
-    Button = require("../button"),
-    Calendar = require("../calendar"),
-    Popover = require("../popover"),
-    Popup = require("../popup"),
-    publisherMixin = require("./ui.scheduler.publisher_mixin"),
-    dateLocalization = require("../../localization/date"),
-    isDefined = require("../../core/utils/type").isDefined;
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import { isNumeric } from '../../core/utils/type';
+import errors from '../widget/ui.errors';
+import dateUtils from '../../core/utils/date';
+import { extend } from '../../core/utils/extend';
+import registerComponent from '../../core/component_registrator';
+import devices from '../../core/devices';
+import Widget from '../widget/ui.widget';
+import Button from '../button';
+import Calendar from '../calendar';
+import Popover from '../popover';
+import Popup from '../popup';
+import publisherMixin from './ui.scheduler.publisher_mixin';
+import dateLocalization from '../../localization/date';
+import { isDefined } from '../../core/utils/type';
 
 var ELEMENT_CLASS = "dx-scheduler-navigator",
     CALENDAR_CLASS = "dx-scheduler-navigator-calendar",
@@ -445,4 +445,4 @@ var SchedulerNavigator = Widget.inherit({
 
 registerComponent("dxSchedulerNavigator", SchedulerNavigator);
 
-module.exports = SchedulerNavigator;
+export default SchedulerNavigator;

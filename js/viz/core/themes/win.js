@@ -1,14 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    registerThemeSchemeAlias = themeModule.registerThemeSchemeAlias,
-    BLACK = "#000000",
-    WHITE = "#ffffff",
-    WIN10_WHITE = "win10.white",
-    WIN10_BLACK = "win10.black",
-    WIN8_WHITE = "win8.white",
-    WIN8_BLACK = "win8.black";
+import themeModule from '../../themes';
+
+var registerTheme = themeModule.registerTheme, registerThemeSchemeAlias = themeModule.registerThemeSchemeAlias, BLACK = "#000000", WHITE = "#ffffff", WIN10_WHITE = "win10.white", WIN10_BLACK = "win10.black", WIN8_WHITE = "win8.white", WIN8_BLACK = "win8.black";
 
 registerTheme({
     name: WIN10_BLACK,

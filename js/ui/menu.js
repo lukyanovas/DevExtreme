@@ -8,4 +8,4 @@
 * @module ui/menu
 * @export default
 */
-module.exports = require("./menu/ui.menu");
+export default require("./menu/ui.menu");

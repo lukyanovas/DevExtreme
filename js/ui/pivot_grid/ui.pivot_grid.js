@@ -1,57 +1,35 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    eventsEngine = require("../../events/core/events_engine"),
-    registerComponent = require("../../core/component_registrator"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    stringUtils = require("../../core/utils/string"),
-    commonUtils = require("../../core/utils/common"),
-    each = require("../../core/utils/iterator").each,
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    clickEvent = require("../../events/click"),
-    messageLocalization = require("../../localization/message"),
-    Widget = require("../widget/ui.widget"),
-    eventUtils = require("../../events/utils"),
-    gridCoreUtils = require("../grid_core/ui.grid_core.utils"),
-    pivotGridUtils = require("./ui.pivot_grid.utils"),
-    pivotGridDataController = require("./ui.pivot_grid.data_controller"),
-    PivotGridDataSource = require("./data_source"),
-    dataAreaNamespace = require("./ui.pivot_grid.data_area"),
-    headersArea = require("./ui.pivot_grid.headers_area"),
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import registerComponent from '../../core/component_registrator';
+import { getPublicElement } from '../../core/utils/dom';
+import stringUtils from '../../core/utils/string';
+import commonUtils from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import clickEvent from '../../events/click';
+import messageLocalization from '../../localization/message';
+import Widget from '../widget/ui.widget';
+import * as eventUtils from '../../events/utils';
+import gridCoreUtils from '../grid_core/ui.grid_core.utils';
+import pivotGridUtils from './ui.pivot_grid.utils';
+import pivotGridDataController from './ui.pivot_grid.data_controller';
+import PivotGridDataSource from './data_source';
+import dataAreaNamespace from './ui.pivot_grid.data_area';
+import headersArea from './ui.pivot_grid.headers_area';
+import fieldsArea from './ui.pivot_grid.fields_area';
+import PivotGridFieldChooser from './ui.pivot_grid.field_chooser';
+import PivotGridFieldChooserBase from './ui.pivot_grid.field_chooser_base';
+import { ExportMixin } from './ui.pivot_grid.export';
+import chartIntegrationMixin from './ui.pivot_grid.chart_integration';
+import Popup from '../popup';
+import ContextMenu from '../context_menu';
+import * as deferredUtils from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
 
-    fieldsArea = require("./ui.pivot_grid.fields_area"),
-
-    PivotGridFieldChooser = require("./ui.pivot_grid.field_chooser"),
-    PivotGridFieldChooserBase = require("./ui.pivot_grid.field_chooser_base"),
-    ExportMixin = require("./ui.pivot_grid.export").ExportMixin,
-    chartIntegrationMixin = require("./ui.pivot_grid.chart_integration"),
-    Popup = require("../popup"),
-    ContextMenu = require("../context_menu"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-
-    DATA_AREA_CELL_CLASS = "dx-area-data-cell",
-    ROW_AREA_CELL_CLASS = "dx-area-row-cell",
-    COLUMN_AREA_CELL_CLASS = "dx-area-column-cell",
-    DESCRIPTION_AREA_CELL_CLASS = "dx-area-description-cell",
-    BORDERS_CLASS = "dx-pivotgrid-border",
-    PIVOTGRID_CLASS = "dx-pivotgrid",
-    ROW_LINES_CLASS = "dx-row-lines",
-    BOTTOM_ROW_CLASS = "dx-bottom-row",
-    BOTTOM_BORDER_CLASS = "dx-bottom-border",
-    FIELDS_CONTAINER_CLASS = "dx-pivotgrid-fields-container",
-    FIELDS_CLASS = "dx-area-fields",
-    FIELD_CHOOSER_POPUP_CLASS = "dx-fieldchooser-popup",
-    INCOMPRESSIBLE_FIELDS_CLASS = "dx-incompressible-fields",
-    OVERFLOW_HIDDEN_CLASS = "dx-overflow-hidden",
-
-    TR = "<tr>",
-    TD = "<td>",
-    DIV = "<div>",
-    TEST_HEIGHT = 66666;
+var window = domAdapter.getWindow(), when = deferredUtils.when, Deferred = deferredUtils.Deferred, DATA_AREA_CELL_CLASS = "dx-area-data-cell", ROW_AREA_CELL_CLASS = "dx-area-row-cell", COLUMN_AREA_CELL_CLASS = "dx-area-column-cell", DESCRIPTION_AREA_CELL_CLASS = "dx-area-description-cell", BORDERS_CLASS = "dx-pivotgrid-border", PIVOTGRID_CLASS = "dx-pivotgrid", ROW_LINES_CLASS = "dx-row-lines", BOTTOM_ROW_CLASS = "dx-bottom-row", BOTTOM_BORDER_CLASS = "dx-bottom-border", FIELDS_CONTAINER_CLASS = "dx-pivotgrid-fields-container", FIELDS_CLASS = "dx-area-fields", FIELD_CHOOSER_POPUP_CLASS = "dx-fieldchooser-popup", INCOMPRESSIBLE_FIELDS_CLASS = "dx-incompressible-fields", OVERFLOW_HIDDEN_CLASS = "dx-overflow-hidden", TR = "<tr>", TD = "<td>", DIV = "<div>", TEST_HEIGHT = 66666;
 
 function getArraySum(array) {
     var sum = 0;
@@ -1950,4 +1928,4 @@ var PivotGrid = Widget.inherit({
 
 registerComponent("dxPivotGrid", PivotGrid);
 
-module.exports = PivotGrid;
+export default PivotGrid;

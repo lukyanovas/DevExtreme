@@ -1,13 +1,10 @@
 "use strict";
 
-var commonModule = require("./common"),
-    animationSettings = commonModule.utils.animationSettings,
-    formatValue = commonModule.formatValue,
-    SliderMarker = require("./slider_marker"),
-    support = require("../../core/utils/support"),
+import commonModule from './common';
+import SliderMarker from './slider_marker';
+import * as support from '../../core/utils/support';
 
-    SPLITTER_WIDTH = 8,
-    TOUCH_SPLITTER_WIDTH = 20;
+var animationSettings = commonModule.utils.animationSettings, formatValue = commonModule.formatValue, SPLITTER_WIDTH = 8, TOUCH_SPLITTER_WIDTH = 20;
 
 function getSliderTrackerWidth(sliderHandleWidth) {
     return support.touchEvents || support.pointer ? TOUCH_SPLITTER_WIDTH : (SPLITTER_WIDTH < sliderHandleWidth ? sliderHandleWidth : SPLITTER_WIDTH);
@@ -108,4 +105,4 @@ Slider.prototype = {
     }
 };
 
-module.exports = Slider;
+export default Slider;

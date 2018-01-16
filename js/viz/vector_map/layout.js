@@ -1,19 +1,18 @@
 "use strict";
 
-var inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    _round = Math.round,
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+
+var _round = Math.round,
     _min = Math.min,
     _max = Math.max,
     _each = each,
     _inArray = inArray,
-
     horizontalAlignmentMap = {
         "left": 0,
         "center": 1,
         "right": 2
     },
-
     verticalAlignmentMap = {
         "top": 0,
         "bottom": 1
@@ -247,4 +246,4 @@ LayoutControl.prototype = {
     }
 };
 
-exports.LayoutControl = LayoutControl;
+export { LayoutControl };

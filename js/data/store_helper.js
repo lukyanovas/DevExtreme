@@ -1,10 +1,10 @@
 "use strict";
 
-var grep = require("../core/utils/common").grep,
-    extend = require("../core/utils/extend").extend,
-    each = require("../core/utils/iterator").each,
-    arrayQuery = require("./array_query"),
-    normalizeSortingInfo = require("./utils").normalizeSortingInfo;
+import { grep } from '../core/utils/common';
+import { extend } from '../core/utils/extend';
+import { each } from '../core/utils/iterator';
+import arrayQuery from './array_query';
+import { normalizeSortingInfo } from './utils';
 
 function multiLevelGroup(query, groupInfo) {
     query = query.groupBy(groupInfo[0].selector);
@@ -81,7 +81,7 @@ function queryByOptions(query, options, isCountQuery) {
     return query;
 }
 
-module.exports = {
+export default {
     multiLevelGroup: multiLevelGroup,
     arrangeSortingInfo: arrangeSortingInfo,
     queryByOptions: queryByOptions

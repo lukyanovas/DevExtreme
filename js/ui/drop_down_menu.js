@@ -1,16 +1,18 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    Widget = require("./widget/ui.widget"),
-    Button = require("./button"),
-    Popover = require("./popover"),
-    DataHelperMixin = require("../data_helper"),
-    List = require("./list"),
-    ChildDefaultTemplate = require("./widget/child_default_template");
+import $ from '../core/renderer';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import Widget from './widget/ui.widget';
+import Button from './button';
+import Popover from './popover';
+import DataHelperMixin from '../data_helper';
+import List from './list';
+import ChildDefaultTemplate from './widget/child_default_template';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var DROP_DOWN_MENU_CLASS = "dx-dropdownmenu",
     DROP_DOWN_MENU_POPUP_CLASS = "dx-dropdownmenu-popup",
@@ -552,4 +554,4 @@ var DropDownMenu = Widget.inherit({
 
 registerComponent("dxDropDownMenu", DropDownMenu);
 
-module.exports = DropDownMenu;
+export default DropDownMenu;

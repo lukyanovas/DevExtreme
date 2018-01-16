@@ -1,13 +1,13 @@
 "use strict";
 
-var jQuery = require("jquery");
-var config = require("../../core/config");
+import jQuery from 'jquery';
+import config from '../../core/config';
 var useJQuery = config().useJQuery;
 
 if(jQuery && useJQuery !== false) {
     config({ useJQuery: true });
 }
 
-module.exports = function() {
+export default function() {
     return jQuery && config().useJQuery;
-};
+}

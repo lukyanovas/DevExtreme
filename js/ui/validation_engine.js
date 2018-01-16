@@ -1,15 +1,15 @@
 "use strict";
 
-var Class = require("../core/class"),
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each,
-    EventsMixin = require("../core/events_mixin"),
-    errors = require("../core/errors"),
-    commonUtils = require("../core/utils/common"),
-    typeUtils = require("../core/utils/type"),
-    numberLocalization = require("../localization/number"),
-    messageLocalization = require("../localization/message");
+import Class from '../core/class';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
+import EventsMixin from '../core/events_mixin';
+import errors from '../core/errors';
+import commonUtils from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import numberLocalization from '../localization/number';
+import messageLocalization from '../localization/message';
 
 var BaseRuleValidator = Class.inherit({
     NAME: "base",
@@ -683,4 +683,4 @@ var ValidationEngine = {
 
 ValidationEngine.initGroups();
 
-module.exports = ValidationEngine;
+export default ValidationEngine;

@@ -1,22 +1,22 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    Button = require("./button"),
-    inkRipple = require("./widget/utils.ink_ripple"),
-    eventUtils = require("../events/utils"),
-    extend = require("../core/utils/extend").extend,
-    isPlainObject = require("../core/utils/type").isPlainObject,
-    pointerEvents = require("../events/pointer"),
-    TabsItem = require("./tabs/item"),
-    themes = require("./themes"),
-    holdEvent = require("../events/hold"),
-    Scrollable = require("./scroll_view/ui.scrollable"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit"),
-    iconUtils = require("../core/utils/icon"),
-    BindableTemplate = require("./widget/bindable_template");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import Button from './button';
+import inkRipple from './widget/utils.ink_ripple';
+import * as eventUtils from '../events/utils';
+import { extend } from '../core/utils/extend';
+import { isPlainObject } from '../core/utils/type';
+import pointerEvents from '../events/pointer';
+import TabsItem from './tabs/item';
+import themes from './themes';
+import holdEvent from '../events/hold';
+import Scrollable from './scroll_view/ui.scrollable';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import iconUtils from '../core/utils/icon';
+import BindableTemplate from './widget/bindable_template';
 
 var TABS_CLASS = "dx-tabs",
     TABS_WRAPPER_CLASS = "dx-tabs-wrapper",
@@ -497,4 +497,4 @@ Tabs.ItemClass = TabsItem;
 
 registerComponent("dxTabs", Tabs);
 
-module.exports = Tabs;
+export default Tabs;

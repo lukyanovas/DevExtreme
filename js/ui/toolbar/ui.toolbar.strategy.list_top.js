@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    ListStrategy = require("./ui.toolbar.strategy.list_base"),
-    extend = require("../../core/utils/extend").extend,
-    translator = require("../../animation/translator");
+import $ from '../../core/renderer';
+import ListStrategy from './ui.toolbar.strategy.list_base';
+import { extend } from '../../core/utils/extend';
+import translator from '../../animation/translator';
 
 var ListTopStrategy = ListStrategy.inherit({
 
@@ -59,4 +59,4 @@ var ListTopStrategy = ListStrategy.inherit({
 
 });
 
-module.exports = ListTopStrategy;
+export default ListTopStrategy;

@@ -1,14 +1,14 @@
 "use strict";
 
-var extend = require("../core/utils/extend").extend,
-    typeUtils = require("../core/utils/type"),
-    Guid = require("../core/guid"),
-    objectUtils = require("../core/utils/object"),
-    keysEqual = require("./utils").keysEqual,
-    Query = require("./query"),
-    errors = require("./errors").errors,
-    Store = require("./abstract_store"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import { extend } from '../core/utils/extend';
+import * as typeUtils from '../core/utils/type';
+import Guid from '../core/guid';
+import objectUtils from '../core/utils/object';
+import { keysEqual } from './utils';
+import Query from './query';
+import { errors } from './errors';
+import Store from './abstract_store';
+import { Deferred } from '../core/utils/deferred';
 
 var hasKey = function(target, keyOrKeys) {
     var key,
@@ -171,4 +171,4 @@ var ArrayStore = Store.inherit({
     }
 }, "array");
 
-module.exports = ArrayStore;
+export default ArrayStore;

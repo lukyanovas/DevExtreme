@@ -1,20 +1,20 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    document = window.document,
-    eventsEngine = require("../events/core/events_engine"),
-    registerComponent = require("../core/component_registrator"),
-    commonUtils = require("../core/utils/common"),
-    extend = require("../core/utils/extend").extend,
-    each = require("../core/utils/iterator").each,
-    domUtils = require("../core/utils/dom"),
-    TransitionExecutorModule = require("../animation/transition_executor/transition_executor"),
-    Widget = require("./widget/ui.widget"),
-    LoadIndicator = require("./load_indicator"),
-    isPromise = require("../core/utils/type").isPromise,
-    deferredUtils = require("../core/utils/deferred"),
-    Deferred = deferredUtils.Deferred;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import registerComponent from '../core/component_registrator';
+import commonUtils from '../core/utils/common';
+import { extend } from '../core/utils/extend';
+import { each } from '../core/utils/iterator';
+import domUtils from '../core/utils/dom';
+import TransitionExecutorModule from '../animation/transition_executor/transition_executor';
+import Widget from './widget/ui.widget';
+import LoadIndicator from './load_indicator';
+import { isPromise } from '../core/utils/type';
+import * as deferredUtils from '../core/utils/deferred';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document, Deferred = deferredUtils.Deferred;
 
 var WIDGET_CLASS = "dx-widget",
     DEFER_RENDERING_CLASS = "dx-deferrendering",
@@ -321,4 +321,4 @@ var DeferRendering = Widget.inherit({
 
 registerComponent("dxDeferRendering", DeferRendering);
 
-module.exports = DeferRendering;
+export default DeferRendering;

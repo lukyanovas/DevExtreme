@@ -1,8 +1,8 @@
 "use strict";
 
-var TemplateBase = require("./ui.template_base");
+import TemplateBase from './ui.template_base';
 
-module.exports = TemplateBase.inherit({
+export default TemplateBase.inherit({
 
     ctor: function(name) {
         this.name = name;

@@ -1,6 +1,7 @@
 "use strict";
+import domAdapter from '../dom_adapter';
 
-var window = require("../../core/dom_adapter").getWindow();
+var window = domAdapter.getWindow();
 
 var getSessionStorage = function() {
     var sessionStorage;
@@ -12,4 +13,4 @@ var getSessionStorage = function() {
     return sessionStorage;
 };
 
-exports.sessionStorage = getSessionStorage;
+export var sessionStorage = getSessionStorage;

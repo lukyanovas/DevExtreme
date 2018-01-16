@@ -1,24 +1,15 @@
 "use strict";
 
-var each = require("../../../core/utils/iterator").each,
-    extend = require("../../../core/utils/extend").extend,
-    noop = require("../../../core/utils/common").noop,
-    labelModule = require("./label"),
-    symbolPoint = require("./symbol_point"),
+import { each } from '../../../core/utils/iterator';
+import { extend } from '../../../core/utils/extend';
+import { noop } from '../../../core/utils/common';
+import labelModule from './label';
+import symbolPoint from './symbol_point';
+import { isDefined as _isDefined } from '../../../core/utils/type';
 
-    _extend = extend,
-    _isDefined = require("../../../core/utils/type").isDefined,
+var _extend = extend, _math = Math, _abs = _math.abs, _min = _math.min, _max = _math.max, _round = _math.round, DEFAULT_IMAGE_WIDTH = 20, DEFAULT_IMAGE_HEIGHT = 20;
 
-    _math = Math,
-    _abs = _math.abs,
-    _min = _math.min,
-    _max = _math.max,
-    _round = _math.round,
-
-    DEFAULT_IMAGE_WIDTH = 20,
-    DEFAULT_IMAGE_HEIGHT = 20;
-
-module.exports = _extend({}, symbolPoint, {
+export default _extend({}, symbolPoint, {
     deleteLabel: function() {
         var that = this;
         that._topLabel.dispose();

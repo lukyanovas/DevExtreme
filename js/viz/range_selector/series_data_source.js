@@ -1,16 +1,17 @@
 "use strict";
 
-var seriesModule = require("../series/base_series"),
-    seriesFamilyModule = require("../core/series_family"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    vizUtils = require("../core/utils"),
-    rangeModule = require("../translators/range"),
-    dataValidatorModule = require("../components/data_validator"),
-    ChartThemeManager = require("../components/chart_theme_manager").ThemeManager,
-    SeriesDataSource;
+import seriesModule from '../series/base_series';
+import seriesFamilyModule from '../core/series_family';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import vizUtils from '../core/utils';
+import rangeModule from '../translators/range';
+import dataValidatorModule from '../components/data_validator';
+import { ThemeManager as ChartThemeManager } from '../components/chart_theme_manager';
+
+var SeriesDataSource;
 
 var createThemeManager = function(chartOptions) {
     return new ChartThemeManager(chartOptions, 'rangeSelector.chart');
@@ -278,4 +279,4 @@ SeriesDataSource.prototype = {
     }
 };
 
-exports.SeriesDataSource = SeriesDataSource;
+export { SeriesDataSource };

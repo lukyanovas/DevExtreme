@@ -1,15 +1,14 @@
 "use strict";
 
-var typeUtils = require("./core/utils/type"),
-    dateUtils = require("./core/utils/date"),
-    numberLocalization = require("./localization/number"),
-    dateLocalization = require("./localization/date"),
-    dependencyInjector = require("./core/utils/dependency_injector"),
-    logger = require("./core/utils/console").logger;
+import * as typeUtils from './core/utils/type';
+import dateUtils from './core/utils/date';
+import numberLocalization from './localization/number';
+import dateLocalization from './localization/date';
+import dependencyInjector from './core/utils/dependency_injector';
+import { logger } from './core/utils/console';
+import './localization/currency';
 
-require("./localization/currency");
-
-module.exports = dependencyInjector({
+export default dependencyInjector({
     format: function(value, format, precision) {
         var formatIsValid = typeUtils.isString(format) && format !== '' || typeUtils.isPlainObject(format) || typeUtils.isFunction(format),
             valueIsValid = typeUtils.isNumeric(value) || typeUtils.isDate(value);

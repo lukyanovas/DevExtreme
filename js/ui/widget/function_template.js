@@ -1,7 +1,7 @@
 "use strict";
 
-var TemplateBase = require("./ui.template_base"),
-    domUtils = require("../../core/utils/dom");
+import TemplateBase from './ui.template_base';
+import domUtils from '../../core/utils/dom';
 
 var FunctionTemplate = TemplateBase.inherit({
 
@@ -16,4 +16,4 @@ var FunctionTemplate = TemplateBase.inherit({
 });
 
 
-module.exports = FunctionTemplate;
+export default FunctionTemplate;

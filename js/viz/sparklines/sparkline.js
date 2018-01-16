@@ -1,18 +1,18 @@
 "use strict";
 
-var BaseSparkline = require("./base_sparkline"),
+import BaseSparkline from './base_sparkline';
+import dataValidatorModule from '../components/data_validator';
+import seriesModule from '../series/base_series';
+import vizUtils from '../core/utils';
+import { isDefined as _isDefined } from '../../core/utils/type';
 
-    dataValidatorModule = require("../components/data_validator"),
-    seriesModule = require("../series/base_series"),
-    MIN_BAR_WIDTH = 1,
+var MIN_BAR_WIDTH = 1,
     MAX_BAR_WIDTH = 50,
     DEFAULT_BAR_INTERVAL = 4,
-
     DEFAULT_CANVAS_WIDTH = 250,
     DEFAULT_CANVAS_HEIGHT = 30,
     DEFAULT_HORIZONTAL_MARGIN = 5,
     DEFAULT_VERTICAL_MARGIN = 3,
-
     ALLOWED_TYPES = {
         "line": true,
         "spline": true,
@@ -23,17 +23,14 @@ var BaseSparkline = require("./base_sparkline"),
         "bar": true,
         "winloss": true
     },
-
     _math = Math,
     _abs = _math.abs,
     _round = _math.round,
     _max = _math.max,
     _min = _math.min,
     _isFinite = isFinite,
-    vizUtils = require("../core/utils"),
     _map = vizUtils.map,
     _normalizeEnum = vizUtils.normalizeEnum,
-    _isDefined = require("../../core/utils/type").isDefined,
     _Number = Number,
     _String = String;
 
@@ -539,6 +536,6 @@ _map(["lineColor", "lineWidth", "areaOpacity", "minColor", "maxColor", "barPosit
 
 require("../../core/component_registrator")("dxSparkline", dxSparkline);
 
-module.exports = dxSparkline;
+export default dxSparkline;
 // PLUGINS_SECTION
 dxSparkline.addPlugin(require("../core/data_source").plugin);

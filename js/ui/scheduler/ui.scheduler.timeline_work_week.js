@@ -1,9 +1,10 @@
 "use strict";
 
-var registerComponent = require("../../core/component_registrator"),
-    SchedulerTimelineWeek = require("./ui.scheduler.timeline_week"),
-    dateUtils = require("../../core/utils/date"),
-    toMs = dateUtils.dateToMilliseconds;
+import registerComponent from '../../core/component_registrator';
+import SchedulerTimelineWeek from './ui.scheduler.timeline_week';
+import dateUtils from '../../core/utils/date';
+
+var toMs = dateUtils.dateToMilliseconds;
 
 var TIMELINE_CLASS = "dx-scheduler-timeline-work-week",
     MONDAY_INDEX = 1;
@@ -53,4 +54,4 @@ var SchedulerTimelineWorkWeek = SchedulerTimelineWeek.inherit({
 
 registerComponent("dxSchedulerTimelineWorkWeek", SchedulerTimelineWorkWeek);
 
-module.exports = SchedulerTimelineWorkWeek;
+export default SchedulerTimelineWorkWeek;

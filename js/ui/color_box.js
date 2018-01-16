@@ -9,4 +9,4 @@
 * @module ui/color_box
 * @export default
 */
-module.exports = require("./color_box/color_box");
+export default require("./color_box/color_box");

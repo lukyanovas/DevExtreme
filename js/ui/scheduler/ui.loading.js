@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    viewPortUtils = require("../../core/utils/view_port"),
-    LoadPanel = require("../load_panel"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import * as viewPortUtils from '../../core/utils/view_port';
+import LoadPanel from '../load_panel';
+import { Deferred } from '../../core/utils/deferred';
 
 var loading = null;
 
@@ -21,13 +21,13 @@ var removeLoadPanel = function() {
     loading = null;
 };
 
-exports.show = function(options) {
+export var show = function(options) {
     removeLoadPanel();
     loading = createLoadPanel(options);
     return loading.show();
 };
 
-exports.hide = function() {
+export var hide = function() {
     //todo: hot fix for case without viewport
 
     if(!loading) {

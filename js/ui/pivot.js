@@ -1,21 +1,23 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    fx = require("../animation/fx"),
-    swipeEvents = require("../events/swipe"),
-    translator = require("../animation/translator"),
-    domUtils = require("../core/utils/dom"),
-    extend = require("../core/utils/extend").extend,
-    isDefined = require("../core/utils/type").isDefined,
-    registerComponent = require("../core/component_registrator"),
-    eventUtils = require("../events/utils"),
-    config = require("../core/config"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit"),
-    PivotTabs = require("./pivot/ui.pivot_tabs"),
-    EmptyTemplate = require("./widget/empty_template"),
-    ChildDefaultTemplate = require("./widget/child_default_template"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import fx from '../animation/fx';
+import swipeEvents from '../events/swipe';
+import translator from '../animation/translator';
+import domUtils from '../core/utils/dom';
+import { extend } from '../core/utils/extend';
+import { isDefined } from '../core/utils/type';
+import registerComponent from '../core/component_registrator';
+import * as eventUtils from '../events/utils';
+import config from '../core/config';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import PivotTabsModule from './pivot/ui.pivot_tabs';
+import EmptyTemplate from './widget/empty_template';
+import ChildDefaultTemplate from './widget/child_default_template';
+import { Deferred } from '../core/utils/deferred';
+
+var PivotTabs = PivotTabsModule;
 
 var PIVOT_CLASS = "dx-pivot",
     PIVOT_AUTOHEIGHT_CLASS = "dx-pivot-autoheight",
@@ -557,11 +559,11 @@ var Pivot = CollectionWidget.inherit({
 
 registerComponent("dxPivot", Pivot);
 
-module.exports = Pivot;
+export default Pivot;
 
 ///#DEBUG
-module.exports.mockPivotTabs = function(Mock) {
+export var mockPivotTabs = function(Mock) {
     PivotTabs = Mock;
 };
-module.exports.animation = animation;
-///#ENDDEBUG
+
+export { animation };

@@ -1,25 +1,8 @@
 "use strict";
 
-var projectionModule = require("./projection.main"),
-    projection = projectionModule.projection,
+import projectionModule from './projection.main';
 
-    _min = Math.min,
-    _max = Math.max,
-    _sin = Math.sin,
-    _asin = Math.asin,
-    _tan = Math.tan,
-    _atan = Math.atan,
-    _exp = Math.exp,
-    _log = Math.log,
-
-    PI = Math.PI,
-    PI_DIV_4 = PI / 4,
-    GEO_LON_BOUND = 180,
-    GEO_LAT_BOUND = 90,
-    RADIANS = PI / 180,
-
-    MERCATOR_LAT_BOUND = (2 * _atan(_exp(PI)) - PI / 2) / RADIANS,
-    MILLER_LAT_BOUND = (2.5 * _atan(_exp(0.8 * PI)) - 0.625 * PI) / RADIANS;
+var projection = projectionModule.projection, _min = Math.min, _max = Math.max, _sin = Math.sin, _asin = Math.asin, _tan = Math.tan, _atan = Math.atan, _exp = Math.exp, _log = Math.log, PI = Math.PI, PI_DIV_4 = PI / 4, GEO_LON_BOUND = 180, GEO_LAT_BOUND = 90, RADIANS = PI / 180, MERCATOR_LAT_BOUND = (2 * _atan(_exp(PI)) - PI / 2) / RADIANS, MILLER_LAT_BOUND = (2.5 * _atan(_exp(0.8 * PI)) - 0.625 * PI) / RADIANS;
 
 function clamp(value, threshold) {
     return _max(_min(value, +threshold), -threshold);
@@ -101,4 +84,4 @@ projection.add("miller", projection({
     }
 }));
 
-exports.projection = projection;
+export { projection };

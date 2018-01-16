@@ -1,8 +1,8 @@
 "use strict";
 
-var DataSourceAdapter = require("../grid_core/ui.grid_core.data_source_adapter");
-
-module.exports = {
+import DataSourceAdapterModule from '../grid_core/ui.grid_core.data_source_adapter';
+var DataSourceAdapter = DataSourceAdapterModule;
+export default {
     extend: function(extender) {
         DataSourceAdapter = DataSourceAdapter.inherit(extender);
     },

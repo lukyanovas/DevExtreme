@@ -1,9 +1,8 @@
 "use strict";
 
-var patchFontOptions = require("../core/utils").patchFontOptions,
+import { patchFontOptions } from '../core/utils';
 
-    SLIDER_MARKER_UPDATE_DELAY = 75,
-    POINTER_SIZE = require("./common").consts.pointerSize;
+var SLIDER_MARKER_UPDATE_DELAY = 75, POINTER_SIZE = require("./common").consts.pointerSize;
 
 function SliderMarker(renderer, root, isLeftPointer) {
     var that = this;
@@ -204,4 +203,4 @@ SliderMarker.prototype = {
     }
 };
 
-module.exports = SliderMarker;
+export default SliderMarker;

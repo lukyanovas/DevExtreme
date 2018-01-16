@@ -1,9 +1,9 @@
 "use strict";
 
-var registerComponent = require("../../core/component_registrator"),
-    searchBoxMixin = require("../widget/ui.search_box_mixin"),
-    extend = require("../../core/utils/extend").extend,
-    TreeViewBase = require("./ui.tree_view.base");
+import registerComponent from '../../core/component_registrator';
+import searchBoxMixin from '../widget/ui.search_box_mixin';
+import { extend } from '../../core/utils/extend';
+import TreeViewBase from './ui.tree_view.base';
 
 var NODE_CONTAINER_CLASS = "dx-treeview-node-container";
 
@@ -97,4 +97,4 @@ var TreeViewSearch = TreeViewBase.inherit(searchBoxMixin).inherit({
 
 registerComponent("dxTreeView", TreeViewSearch);
 
-module.exports = TreeViewSearch;
+export default TreeViewSearch;

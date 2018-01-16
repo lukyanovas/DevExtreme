@@ -1,13 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    ACCENT_COLOR = "#9c63ff",
-    BACKGROUND_COLOR = "#17171f",
-    TITLE_COLOR = "#f5f6f7",
-    SUBTITLE_COLOR = "#fff",
-    TEXT_COLOR = "#b2b2b6",
-    BORDER_COLOR = "#343840";
+import themeModule from '../../themes';
+
+var registerTheme = themeModule.registerTheme, ACCENT_COLOR = "#9c63ff", BACKGROUND_COLOR = "#17171f", TITLE_COLOR = "#f5f6f7", SUBTITLE_COLOR = "#fff", TEXT_COLOR = "#b2b2b6", BORDER_COLOR = "#343840";
 
 registerTheme({
     name: "generic.darkviolet",

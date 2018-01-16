@@ -1,11 +1,11 @@
 "use strict";
 
-var registerComponent = require("../../core/component_registrator"),
-    dateUtils = require("../../core/utils/date"),
-    toMs = dateUtils.dateToMilliseconds,
-    SchedulerWorkSpaceWeek = require("./ui.scheduler.work_space_week"),
-    dateUtils = require("../../core/utils/date"),
-    dateLocalization = require("../../localization/date");
+import registerComponent from '../../core/component_registrator';
+import dateUtils from '../../core/utils/date';
+import SchedulerWorkSpaceWeek from './ui.scheduler.work_space_week';
+import dateLocalization from '../../localization/date';
+
+var toMs = dateUtils.dateToMilliseconds;
 
 var WORK_WEEK_CLASS = "dx-scheduler-work-space-work-week";
 
@@ -80,4 +80,4 @@ var SchedulerWorkSpaceWorkWeek = SchedulerWorkSpaceWeek.inherit({
 
 registerComponent("dxSchedulerWorkSpaceWorkWeek", SchedulerWorkSpaceWorkWeek);
 
-module.exports = SchedulerWorkSpaceWorkWeek;
+export default SchedulerWorkSpaceWorkWeek;

@@ -8,4 +8,4 @@
 * @module ui/scheduler
 * @export default
 */
-module.exports = require("./scheduler/ui.scheduler");
+export default require("./scheduler/ui.scheduler");

@@ -1,16 +1,16 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    devices = require("../../core/devices"),
-    extend = require("../../core/utils/extend").extend,
-    registerComponent = require("../../core/component_registrator"),
-    Editor = require("../editor/editor"),
-    inkRipple = require("../widget/utils.ink_ripple"),
-    DataExpressionMixin = require("../editor/ui.data_expression"),
-    themes = require("../themes"),
-    CollectionWidget = require("../collection/ui.collection_widget.edit"),
-    ChildDefaultTemplate = require("../widget/child_default_template");
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import devices from '../../core/devices';
+import { extend } from '../../core/utils/extend';
+import registerComponent from '../../core/component_registrator';
+import Editor from '../editor/editor';
+import inkRipple from '../widget/utils.ink_ripple';
+import DataExpressionMixin from '../editor/ui.data_expression';
+import themes from '../themes';
+import CollectionWidget from '../collection/ui.collection_widget.edit';
+import ChildDefaultTemplate from '../widget/child_default_template';
 
 var RADIO_GROUP_CLASS = "dx-radiogroup",
     RADIO_GROUP_VERTICAL_CLASS = "dx-radiogroup-vertical",
@@ -372,4 +372,4 @@ var RadioGroup = Editor.inherit({
 
 registerComponent("dxRadioGroup", RadioGroup);
 
-module.exports = RadioGroup;
+export default RadioGroup;

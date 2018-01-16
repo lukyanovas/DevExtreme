@@ -1,17 +1,17 @@
 "use strict";
 
-var typeUtils = require("../../core/utils/type"),
-    ajax = require("../../core/utils/ajax"),
-    dataCoreUtils = require("../../core/utils/data"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    extend = require("../../core/utils/extend").extend,
-    dateLocalization = require("../../localization/date"),
-    formatHelper = require("../../format_helper"),
-    DataSourceModule = require("../../data/data_source/data_source"),
-    ArrayStore = require("../../data/array_store"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import * as typeUtils from '../../core/utils/type';
+import ajax from '../../core/utils/ajax';
+import dataCoreUtils from '../../core/utils/data';
+import iteratorUtils from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import dateLocalization from '../../localization/date';
+import formatHelper from '../../format_helper';
+import DataSourceModule from '../../data/data_source/data_source';
+import ArrayStore from '../../data/array_store';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var setFieldProperty = exports.setFieldProperty = function(field, property, value, isInitialization) {
     var initProperties = field._initProperties = field._initProperties || {},
@@ -24,7 +24,7 @@ var setFieldProperty = exports.setFieldProperty = function(field, property, valu
     field[property] = value;
 };
 
-exports.sendRequest = function(options) {
+export var sendRequest = function(options) {
     return ajax.sendRequest(options);
 };
 
@@ -92,11 +92,10 @@ function createForeachTreeFunc(isAsync) {
     return foreachTreeFunc;
 }
 
-exports.foreachTree = createForeachTreeFunc(false);
+export var foreachTree = createForeachTreeFunc(false);
+export var foreachTreeAsync = createForeachTreeFunc(true);
 
-exports.foreachTreeAsync = createForeachTreeFunc(true);
-
-exports.findField = function(fields, id) {
+export var findField = function(fields, id) {
     var i,
         field;
 
@@ -111,7 +110,7 @@ exports.findField = function(fields, id) {
     return -1;
 };
 
-exports.formatValue = function(value, options) {
+export var formatValue = function(value, options) {
     var formatObject = {
         value: value,
         valueText: formatHelper.format(value, options.format, options.precision) || ''
@@ -119,7 +118,7 @@ exports.formatValue = function(value, options) {
     return options.customizeText ? options.customizeText.call(options, formatObject) : formatObject.valueText;
 };
 
-exports.getCompareFunction = function(valueSelector) {
+export var getCompareFunction = function(valueSelector) {
     return function(a, b) {
         var result = 0;
         if(valueSelector(a) > valueSelector(b)) {
@@ -131,7 +130,7 @@ exports.getCompareFunction = function(valueSelector) {
     };
 };
 
-exports.createPath = function(items) {
+export var createPath = function(items) {
     var result = [],
         i;
     for(i = items.length - 1; i >= 0; i--) {
@@ -140,7 +139,7 @@ exports.createPath = function(items) {
     return result;
 };
 
-exports.foreachDataLevel = function foreachDataLevel(data, callback, index, childrenField) {
+export var foreachDataLevel = function foreachDataLevel(data, callback, index, childrenField) {
     var item,
         i;
     index = index || 0;
@@ -158,8 +157,7 @@ exports.foreachDataLevel = function foreachDataLevel(data, callback, index, chil
     }
 };
 
-
-exports.mergeArraysByMaxValue = function(values1, values2) {
+export var mergeArraysByMaxValue = function(values1, values2) {
     var result = [],
         i;
 
@@ -169,7 +167,7 @@ exports.mergeArraysByMaxValue = function(values1, values2) {
     return result;
 };
 
-exports.getExpandedLevel = function(options, axisName) {
+export var getExpandedLevel = function(options, axisName) {
     var dimensions = options[axisName],
         expandLevel = 0,
         expandedPaths = (axisName === "columns" ? options.columnExpandedPaths : options.rowExpandedPaths) || [];
@@ -234,12 +232,12 @@ function parseFields(dataSource, fieldsList, path, fieldsDataType) {
     return result;
 }
 
-exports.discoverObjectFields = function(items, fields) {
-    var fieldsDataType = exports.getFieldsDataType(fields);
+export var discoverObjectFields = function(items, fields) {
+    var fieldsDataType = getFieldsDataType(fields);
     return parseFields(items, items[0], "", fieldsDataType);
 };
 
-exports.getFieldsDataType = function(fields) {
+export var getFieldsDataType = function(fields) {
     var result = {};
     iteratorUtils.each(fields, function(_, field) {
         result[field.dataField] = result[field.dataField] || field.dataType;
@@ -259,7 +257,7 @@ var DATE_INTERVAL_FORMATS = {
     }
 };
 
-exports.setDefaultFieldValueFormatting = function(field) {
+export var setDefaultFieldValueFormatting = function(field) {
     if(field.dataType === 'date') {
         if(!field.format) {
             setFieldProperty(field, "format", DATE_INTERVAL_FORMATS[field.groupInterval]);
@@ -278,7 +276,7 @@ exports.setDefaultFieldValueFormatting = function(field) {
     }
 };
 
-exports.getFiltersByPath = function(fields, path) {
+export var getFiltersByPath = function(fields, path) {
     var result = [];
     path = path || [];
 
@@ -294,7 +292,7 @@ exports.getFiltersByPath = function(fields, path) {
     return result;
 };
 
-exports.storeDrillDownMixin = {
+export var storeDrillDownMixin = {
     createDrillDownDataSource: function(descriptions, params) {
         function createCustomStoreMethod(methodName) {
             return function(options) {
@@ -326,6 +324,6 @@ exports.storeDrillDownMixin = {
     }
 };
 
-exports.capitalizeFirstLetter = function(string) {
+export var capitalizeFirstLetter = function(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };

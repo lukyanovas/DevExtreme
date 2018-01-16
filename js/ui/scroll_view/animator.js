@@ -1,9 +1,10 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    Class = require("../../core/class"),
-    abstract = Class.abstract,
-    animationFrame = require("../../animation/frame");
+import { noop } from '../../core/utils/common';
+import Class from '../../core/class';
+import animationFrame from '../../animation/frame';
+
+var abstract = Class.abstract;
 
 var Animator = Class.inherit({
 
@@ -56,4 +57,4 @@ var Animator = Class.inherit({
 
 });
 
-module.exports = Animator;
+export default Animator;

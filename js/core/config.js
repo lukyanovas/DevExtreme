@@ -1,7 +1,9 @@
 "use strict";
 
-var extendUtils = require("./utils/extend"),
-    window = require("./dom_adapter").getWindow();
+import { extend } from './utils/extend';
+import domAdapter from './dom_adapter';
+
+var window = domAdapter.getWindow();
 /**
 * @name globalConfig
 * @section commonObjectStructures
@@ -70,7 +72,7 @@ var configMethod = function() {
         return config;
     }
 
-    extendUtils.extend(config, arguments[0]);
+    extend(config, arguments[0]);
 };
 
 if(window && window.DevExpress && window.DevExpress.config) {
@@ -94,4 +96,4 @@ if(window && window.DevExpress && window.DevExpress.config) {
  * @module core/config
  * @export default
  */
-module.exports = configMethod;
+export default configMethod;

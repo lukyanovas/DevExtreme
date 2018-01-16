@@ -1,35 +1,15 @@
 "use strict";
 
-var PI_DIV_180 = Math.PI / 180,
-    _abs = Math.abs,
-    _round = Math.round,
-    _floor = Math.floor,
-    _min = Math.min,
-    _max = Math.max,
+import registerComponent from '../../core/component_registrator';
+import objectUtils from '../../core/utils/object';
+import commonUtils from '../../core/utils/common';
+import { extend } from '../../core/utils/extend';
+import baseGaugeModule from './base_gauge';
+import dxCircularGauge from './circular_gauge';
+import { BaseThemeManager } from '../core/base_theme_manager';
+import vizUtils from '../core/utils';
 
-    registerComponent = require("../../core/component_registrator"),
-    objectUtils = require("../../core/utils/object"),
-    commonUtils = require("../../core/utils/common"),
-    extend = require("../../core/utils/extend").extend,
-
-    baseGaugeModule = require("./base_gauge"),
-    dxBaseGauge = baseGaugeModule.dxBaseGauge,
-    _getSampleText = baseGaugeModule.getSampleText,
-    _formatValue = baseGaugeModule.formatValue,
-    _compareArrays = baseGaugeModule.compareArrays,
-    dxCircularGauge = require("./circular_gauge"),
-    BaseThemeManager = require("../core/base_theme_manager").BaseThemeManager,
-    _isArray = Array.isArray,
-    vizUtils = require("../core/utils"),
-    _convertAngleToRendererSpace = vizUtils.convertAngleToRendererSpace,
-    _getCosAndSin = vizUtils.getCosAndSin,
-    _patchFontOptions = vizUtils.patchFontOptions,
-    _Number = Number,
-    _isFinite = isFinite,
-    _noop = commonUtils.noop,
-    _extend = extend,
-
-    OPTION_VALUES = "values";
+var PI_DIV_180 = Math.PI / 180, _abs = Math.abs, _round = Math.round, _floor = Math.floor, _min = Math.min, _max = Math.max, dxBaseGauge = baseGaugeModule.dxBaseGauge, _getSampleText = baseGaugeModule.getSampleText, _formatValue = baseGaugeModule.formatValue, _compareArrays = baseGaugeModule.compareArrays, _isArray = Array.isArray, _convertAngleToRendererSpace = vizUtils.convertAngleToRendererSpace, _getCosAndSin = vizUtils.getCosAndSin, _patchFontOptions = vizUtils.patchFontOptions, _Number = Number, _isFinite = isFinite, _noop = commonUtils.noop, _extend = extend, OPTION_VALUES = "values";
 
 var dxBarGauge = dxBaseGauge.inherit({
     _rootClass: "dxbg-bar-gauge",
@@ -481,16 +461,18 @@ dxBarGauge.prototype._factory.ThemeManager = BaseThemeManager.inherit({
 
 registerComponent("dxBarGauge", dxBarGauge);
 
-exports.dxBarGauge = dxBarGauge;
+export { dxBarGauge };
 
 ///#DEBUG
 var __BarWrapper = BarWrapper;
 
-exports.BarWrapper = __BarWrapper;
-exports.stubBarWrapper = function(barWrapperType) {
+export var BarWrapper = __BarWrapper;
+
+export var stubBarWrapper = function(barWrapperType) {
     BarWrapper = barWrapperType;
 };
-exports.restoreBarWrapper = function() {
+
+export var restoreBarWrapper = function() {
     BarWrapper = __BarWrapper;
 };
 ///#ENDDEBUG

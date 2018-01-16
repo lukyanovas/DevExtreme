@@ -1,22 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    modules = require("./ui.grid_core.modules"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    ArrayStore = require("../../data/array_store"),
-    CustomStore = require("../../data/custom_store"),
-    errors = require("../widget/ui.errors"),
-    commonUtils = require("../../core/utils/common"),
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    DataHelperMixin = require("../../data_helper"),
-    equalKeys = commonUtils.equalByValue,
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import $ from '../../core/renderer';
+import modules from './ui.grid_core.modules';
+import gridCoreUtils from './ui.grid_core.utils';
+import ArrayStore from '../../data/array_store';
+import CustomStore from '../../data/custom_store';
+import errors from '../widget/ui.errors';
+import commonUtils from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import DataHelperMixin from '../../data_helper';
+import * as deferredUtils from '../../core/utils/deferred';
 
-module.exports = {
+var equalKeys = commonUtils.equalByValue, when = deferredUtils.when, Deferred = deferredUtils.Deferred;
+
+export default {
     defaultOptions: function() {
         return {
             loadingTimeout: 0,

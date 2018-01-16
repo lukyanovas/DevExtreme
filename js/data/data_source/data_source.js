@@ -1,27 +1,22 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    commonUtils = require("../../core/utils/common"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    ajax = require("../../core/utils/ajax"),
-    typeUtils = require("../../core/utils/type"),
-    dataUtils = require("../utils"),
-    Store = require("../abstract_store"),
-    ArrayStore = require("../array_store"),
-    CustomStore = require("../custom_store"),
-    EventsMixin = require("../../core/events_mixin"),
-    errors = require("../errors").errors,
-    array = require("../../core/utils/array"),
-    queue = require("../../core/utils/queue"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import commonUtils from '../../core/utils/common';
+import iteratorUtils from '../../core/utils/iterator';
+import ajax from '../../core/utils/ajax';
+import * as typeUtils from '../../core/utils/type';
+import dataUtils from '../utils';
+import Store from '../abstract_store';
+import ArrayStore from '../array_store';
+import CustomStore from '../custom_store';
+import EventsMixin from '../../core/events_mixin';
+import { errors } from '../errors';
+import array from '../../core/utils/array';
+import queue from '../../core/utils/queue';
+import * as deferredUtils from '../../core/utils/deferred';
 
-    __isString = typeUtils.isString,
-    __isNumber = typeUtils.isNumeric,
-    __isBoolean = typeUtils.isBoolean,
-    __isDefined = typeUtils.isDefined;
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred, __isString = typeUtils.isString, __isNumber = typeUtils.isNumeric, __isBoolean = typeUtils.isBoolean, __isDefined = typeUtils.isDefined;
 
 var CANCELED_TOKEN = "canceled";
 
@@ -1044,5 +1039,4 @@ var DataSource = Class.inherit({
     }
 }).include(EventsMixin);
 
-exports.DataSource = DataSource;
-exports.normalizeDataSourceOptions = normalizeDataSourceOptions;
+export { DataSource, normalizeDataSourceOptions };

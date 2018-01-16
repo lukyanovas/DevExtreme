@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    modules = require("./ui.grid_core.modules"),
-    commonUtils = require("../../core/utils/common"),
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    messageLocalization = require("../../localization/message"),
-    when = require("../../core/utils/deferred").when;
+import $ from '../../core/renderer';
+import modules from './ui.grid_core.modules';
+import commonUtils from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import messageLocalization from '../../localization/message';
+import { when } from '../../core/utils/deferred';
 
 var TABLE_CLASS = "table",
     BORDERS_CLASS = "borders",
@@ -641,7 +641,7 @@ var GridView = modules.View.inherit({
     }
 });
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

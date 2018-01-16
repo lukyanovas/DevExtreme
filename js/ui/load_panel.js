@@ -1,13 +1,13 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    noop = require("../core/utils/common").noop,
-    messageLocalization = require("../localization/message"),
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    LoadIndicator = require("./load_indicator"),
-    Overlay = require("./overlay"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import { noop } from '../core/utils/common';
+import messageLocalization from '../localization/message';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import LoadIndicator from './load_indicator';
+import Overlay from './overlay';
+import { Deferred } from '../core/utils/deferred';
 
 var LOADPANEL_CLASS = "dx-loadpanel",
     LOADPANEL_WRAPPER_CLASS = "dx-loadpanel-wrapper",
@@ -335,4 +335,4 @@ var LoadPanel = Overlay.inherit({
 
 registerComponent("dxLoadPanel", LoadPanel);
 
-module.exports = LoadPanel;
+export default LoadPanel;

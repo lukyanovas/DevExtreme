@@ -1,6 +1,6 @@
 "use strict";
 
-var _extend = require("../../core/utils/extend").extend;
+import { extend as _extend } from '../../core/utils/extend';
 
 function Flags() {
     this.reset();
@@ -109,7 +109,7 @@ function addPlugin(plugin) {
     }
 }
 
-exports.replaceInherit = function(widget) {
+export var replaceInherit = function(widget) {
     var _inherit = widget.inherit;
     widget.inherit = function() {
         var proto = this.prototype,
@@ -141,8 +141,8 @@ exports.replaceInherit = function(widget) {
     widget.addPlugin = addPlugin;
 };
 
-exports.changes = function() {
+export var changes = function() {
     return new Flags();
 };
 
-exports.expand = expand;
+export { expand };

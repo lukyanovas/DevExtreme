@@ -1,10 +1,9 @@
 "use strict";
 
-var BaseRangeContainer = require("./base_range_container"),
+import BaseRangeContainer from './base_range_container';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
 
-    _Number = Number,
-    _max = Math.max,
-    _normalizeEnum = require("../core/utils").normalizeEnum;
+var _Number = Number, _max = Math.max;
 
 var LinearRangeContainer = BaseRangeContainer.inherit({
     _processOptions: function() {
@@ -86,4 +85,4 @@ var LinearRangeContainer = BaseRangeContainer.inherit({
     }
 });
 
-module.exports = LinearRangeContainer;
+export default LinearRangeContainer;

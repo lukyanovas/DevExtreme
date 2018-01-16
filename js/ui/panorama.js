@@ -1,22 +1,23 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    noop = require("../core/utils/common").noop,
-    when = require("../core/utils/deferred").when,
-    fx = require("../animation/fx"),
-    translator = require("../animation/translator"),
-    Class = require("../core/class"),
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each,
-    abstract = abstract,
-    registerComponent = require("../core/component_registrator"),
-    PanoramaItem = require("./panorama/item"),
-    swipeEvents = require("../events/swipe"),
-    eventUtils = require("../events/utils"),
-    config = require("../core/config"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import { noop } from '../core/utils/common';
+import { when } from '../core/utils/deferred';
+import fx from '../animation/fx';
+import translator from '../animation/translator';
+import Class from '../core/class';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
+import registerComponent from '../core/component_registrator';
+import PanoramaItem from './panorama/item';
+import swipeEvents from '../events/swipe';
+import * as eventUtils from '../events/utils';
+import config from '../core/config';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+
+var abstract = abstract;
 
 var PANORAMA_CLASS = "dx-panorama",
 
@@ -1025,8 +1026,5 @@ Panorama.ItemClass = PanoramaItem;
 
 registerComponent("dxPanorama", Panorama);
 
-module.exports = Panorama;
-
-///#DEBUG
-module.exports.animation = animation;
-///#ENDDEBUG
+export default Panorama;
+export { animation };

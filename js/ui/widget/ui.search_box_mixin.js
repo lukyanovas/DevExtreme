@@ -1,11 +1,13 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    extend = require("../../core/utils/extend").extend,
-    messageLocalization = require("../../localization/message"),
-    TextBox = require("../text_box"),
-    errors = require("../widget/ui.errors");
+import $ from '../../core/renderer';
+import { extend } from '../../core/utils/extend';
+import messageLocalization from '../../localization/message';
+import TextBox from '../text_box';
+import errors from '../widget/ui.errors';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 /**
 * @name SearchBoxMixin
@@ -15,7 +17,7 @@ var $ = require("../../core/renderer"),
 * @hidden
 */
 
-module.exports = {
+export default {
     _getDefaultOptions: function() {
         return extend(this.callBase(), {
             /**

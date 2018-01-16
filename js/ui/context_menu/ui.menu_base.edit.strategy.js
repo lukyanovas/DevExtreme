@@ -1,8 +1,8 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    map = require("../../core/utils/iterator").map,
-    PlainEditStrategy = require("../collection/ui.collection_widget.edit.strategy.plain");
+import $ from '../../core/renderer';
+import { map } from '../../core/utils/iterator';
+import PlainEditStrategy from '../collection/ui.collection_widget.edit.strategy.plain';
 
 var MenuBaseEditStrategy = PlainEditStrategy.inherit({
     _getPlainItems: function() {
@@ -35,4 +35,4 @@ var MenuBaseEditStrategy = PlainEditStrategy.inherit({
     }
 });
 
-module.exports = MenuBaseEditStrategy;
+export default MenuBaseEditStrategy;

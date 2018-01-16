@@ -1,8 +1,8 @@
 "use strict";
 
-var ko = require("knockout"),
-    compareVersion = require("../../core/utils/version").compare,
-    strategyChanging = require("../../core/element_data").strategyChanging;
+import ko from 'knockout';
+import { compare as compareVersion } from '../../core/utils/version';
+import { strategyChanging } from '../../core/element_data';
 
 var patchCleanData = function(jQuery) {
     var cleanKoData = function(element, andSelf) {

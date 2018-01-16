@@ -1,31 +1,37 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    eventsEngine = require("../events/core/events_engine"),
-    Promise = require("../core/polyfills/promise"),
-    fromPromise = require("../core/utils/deferred").fromPromise,
-    registerComponent = require("../core/component_registrator"),
-    errors = require("./widget/ui.errors"),
-    devices = require("../core/devices"),
-    Widget = require("./widget/ui.widget"),
-    inflector = require("../core/utils/inflector"),
-    each = require("../core/utils/iterator").each,
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    isNumeric = require("../core/utils/type").isNumeric,
-    eventUtils = require("../events/utils"),
-    pointerEvents = require("../events/pointer"),
-    config = require("../core/config"),
-    wrapToArray = require("../core/utils/array").wrapToArray;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import Promise from '../core/polyfills/promise';
+import { fromPromise } from '../core/utils/deferred';
+import registerComponent from '../core/component_registrator';
+import errors from './widget/ui.errors';
+import devices from '../core/devices';
+import Widget from './widget/ui.widget';
+import inflector from '../core/utils/inflector';
+import { each } from '../core/utils/iterator';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import { isNumeric } from '../core/utils/type';
+import * as eventUtils from '../events/utils';
+import pointerEvents from '../events/pointer';
+import config from '../core/config';
+import { wrapToArray } from '../core/utils/array';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow();
+
+import googleStatic from './map/provider.google_static';
+import google from './map/provider.dynamic.google';
+import bing from './map/provider.dynamic.bing';
 
 // NOTE external urls must have protocol explicitly specified (because inside Cordova package the protocol is "file:")
 
 
 var PROVIDERS = {
-    googleStatic: require("./map/provider.google_static"),
-    google: require("./map/provider.dynamic.google"),
-    bing: require("./map/provider.dynamic.bing")
+    googleStatic,
+    google,
+    bing
 };
 
 
@@ -471,7 +477,7 @@ var Map = Widget.inherit({
 
         this._saveRendered("markers");
         this._saveRendered("routes");
-        this._provider = new PROVIDERS[this.option("provider")](this, this._$container);
+        this._provider = new (PROVIDERS[this.option("provider")])(this, this._$container);
         this._queueAsyncAction("render", this._rendered.markers, this._rendered.routes);
     },
 
@@ -720,4 +726,4 @@ var Map = Widget.inherit({
 
 registerComponent("dxMap", Map);
 
-module.exports = Map;
+export default Map;

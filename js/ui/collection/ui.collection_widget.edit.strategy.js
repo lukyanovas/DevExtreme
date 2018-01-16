@@ -1,9 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Class = require("../../core/class"),
-    commonUtils = require("../../core/utils/common"),
-    abstract = Class.abstract;
+import $ from '../../core/renderer';
+import Class from '../../core/class';
+import commonUtils from '../../core/utils/common';
+
+var abstract = Class.abstract;
 
 
 var EditStrategy = Class.inherit({
@@ -133,4 +134,4 @@ var EditStrategy = Class.inherit({
 });
 
 
-module.exports = EditStrategy;
+export default EditStrategy;

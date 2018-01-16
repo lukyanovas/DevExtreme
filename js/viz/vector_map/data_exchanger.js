@@ -1,6 +1,6 @@
 "use strict";
 
-var Callbacks = require("../../core/utils/callbacks");
+import Callbacks from '../../core/utils/callbacks';
 
 function DataExchanger() {
     this._store = {};
@@ -40,4 +40,4 @@ DataExchanger.prototype = {
     }
 };
 
-exports.DataExchanger = DataExchanger;
+export { DataExchanger };

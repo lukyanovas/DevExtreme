@@ -1,17 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    ko = require("knockout"),
-    Callbacks = require("../../core/utils/callbacks"),
-    errors = require("../../core/errors"),
-    inflector = require("../../core/utils/inflector"),
-    isPlainObject = require("../../core/utils/type").isPlainObject,
-    registerComponentCallbacks = require("../../core/component_registrator_callbacks"),
-    Widget = require("../../ui/widget/ui.widget"),
-    KoTemplate = require("./template"),
-    Editor = require("../../ui/editor/editor"),
-    Locker = require("../../core/utils/locker"),
-    config = require("../../core/config");
+import $ from '../../core/renderer';
+import ko from 'knockout';
+import Callbacks from '../../core/utils/callbacks';
+import errors from '../../core/errors';
+import inflector from '../../core/utils/inflector';
+import { isPlainObject } from '../../core/utils/type';
+import registerComponentCallbacks from '../../core/component_registrator_callbacks';
+import Widget from '../../ui/widget/ui.widget';
+import KoTemplate from './template';
+import Editor from '../../ui/editor/editor';
+import Locker from '../../core/utils/locker';
+import config from '../../core/config';
 
 var LOCKS_DATA_KEY = "dxKoLocks",
     CREATED_WITH_KO_DATA_KEY = "dxKoCreation";

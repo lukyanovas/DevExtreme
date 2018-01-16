@@ -1,12 +1,13 @@
 "use strict";
 
-var typeUtils = require("../core/utils/type"),
-    stringUtils = require("../core/utils/string"),
-    numberFormatter = require("../localization/number"),
-    dateLocalization = require("../localization/date"),
-    getDateLDMLFormat = require("../localization/ldml/date.format").getFormat,
-    getLanguageID = require("../localization/language_codes").getLanguageId,
-    UNSUPPORTED_FORMAT_MAPPING = {
+import * as typeUtils from '../core/utils/type';
+import stringUtils from '../core/utils/string';
+import numberFormatter from '../localization/number';
+import dateLocalization from '../localization/date';
+import { getFormat as getDateLDMLFormat } from '../localization/ldml/date.format';
+import { getLanguageId as getLanguageID } from '../localization/language_codes';
+
+var UNSUPPORTED_FORMAT_MAPPING = {
         quarter: "shortDate",
         quarterAndYear: "shortDate",
         minute: "longTime",
@@ -33,9 +34,9 @@ var PERIOD_REGEXP = /a+/g,
     SLASH_REGEXP = /\//g,
     ANY_REGEXP = /./g;
 
-require("../localization/currency");
+import '../localization/currency';
 
-var excelFormatConverter = module.exports = {
+var excelFormatConverter = {
     _applyPrecision: function(format, precision) {
         var result,
             i;
@@ -138,3 +139,4 @@ var excelFormatConverter = module.exports = {
         }
     }
 };
+export default excelFormatConverter;

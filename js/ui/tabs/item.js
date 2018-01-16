@@ -1,7 +1,7 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    CollectionWidgetItem = require("../collection/item");
+import $ from '../../core/renderer';
+import CollectionWidgetItem from '../collection/item';
 
 var TABS_ITEM_BADGE_CLASS = "dx-tabs-item-badge",
     BADGE_CLASS = "dx-badge";
@@ -31,4 +31,4 @@ var TabsItem = CollectionWidgetItem.inherit({
 
 });
 
-module.exports = TabsItem;
+export default TabsItem;

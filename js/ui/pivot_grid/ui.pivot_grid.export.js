@@ -1,24 +1,18 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    formatHelper = require("../../format_helper"),
-    numberLocalization = require("../../localization/number"),
-    clientExporter = require("../../client_exporter"),
-    excelExporter = clientExporter.excel,
-    DEFAULT_DATA_TYPE = "string",
-    exportMixin = require("../grid_core/ui.grid_core.export_mixin"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    COLUMN_HEADER_STYLE_ID = 0,
-    ROW_HEADER_STYLE_ID = 1,
-    DATA_STYLE_OFFSET = 2,
-    DEFAUL_COLUMN_WIDTH = 100;
+import Class from '../../core/class';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import formatHelper from '../../format_helper';
+import numberLocalization from '../../localization/number';
+import clientExporter from '../../client_exporter';
+import exportMixin from '../grid_core/ui.grid_core.export_mixin';
+import * as deferredUtils from '../../core/utils/deferred';
 
-exports.ExportMixin = extend({}, exportMixin, {
+var excelExporter = clientExporter.excel, DEFAULT_DATA_TYPE = "string", when = deferredUtils.when, Deferred = deferredUtils.Deferred, COLUMN_HEADER_STYLE_ID = 0, ROW_HEADER_STYLE_ID = 1, DATA_STYLE_OFFSET = 2, DEFAUL_COLUMN_WIDTH = 100;
+
+export var ExportMixin = extend({}, exportMixin, {
     /**
     * @name dxPivotGridMethods_exportToExcel
     * @publicName exportToExcel()
@@ -122,7 +116,7 @@ function getCellDataType(field) {
     return DEFAULT_DATA_TYPE;
 }
 
-exports.DataProvider = Class.inherit({
+export var DataProvider = Class.inherit({
     ctor: function(options) {
         this._options = options;
         this._styles = [];

@@ -1,13 +1,13 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    commonModule = require("./common"),
-    animationSettings = commonModule.utils.animationSettings,
-    emptySliderMarkerText = commonModule.consts.emptySliderMarkerText,
-    Slider = require("./slider"),
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    isNumeric = require("../../core/utils/type").isNumeric,
-    adjust = require("../../core/utils/math").adjust;
+import { noop } from '../../core/utils/common';
+import commonModule from './common';
+import Slider from './slider';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import { isNumeric } from '../../core/utils/type';
+import { adjust } from '../../core/utils/math';
+
+var animationSettings = commonModule.utils.animationSettings, emptySliderMarkerText = commonModule.consts.emptySliderMarkerText;
 
 function buildRectPoints(left, top, right, bottom) {
     return [left, top, right, top, right, bottom, left, bottom];
@@ -460,4 +460,4 @@ SlidersController.prototype = {
     }
 };
 
-exports.SlidersController = SlidersController;
+export { SlidersController };

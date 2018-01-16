@@ -1,15 +1,11 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    layoutElementModule = require("../core/layout_element"),
-    _isNumber = require("../../core/utils/type").isNumeric,
-    _min = Math.min,
-    _max = Math.max,
-    _floor = Math.floor,
-    _sqrt = Math.sqrt,
-    consts = require("../components/consts"),
-    pieLabelIndent = consts.pieLabelIndent,
-    pieLabelSpacing = consts.pieLabelSpacing;
+import { extend } from '../../core/utils/extend';
+import layoutElementModule from '../core/layout_element';
+import { isNumeric as _isNumber } from '../../core/utils/type';
+import consts from '../components/consts';
+
+var _min = Math.min, _max = Math.max, _floor = Math.floor, _sqrt = Math.sqrt, pieLabelIndent = consts.pieLabelIndent, pieLabelSpacing = consts.pieLabelSpacing;
 
 function getNearestCoord(firstCoord, secondCoord, pointCenterCoord) {
     var nearestCoord;
@@ -391,4 +387,4 @@ LayoutManager.prototype = {
     }
 };
 
-exports.LayoutManager = LayoutManager;
+export { LayoutManager };

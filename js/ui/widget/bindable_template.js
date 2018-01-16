@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    TemplateBase = require("./ui.template_base"),
-    eventsEngine = require("../../events/core/events_engine"),
-    removeEvent = require("../../core/remove_event"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    isPrimitive = require("../../core/utils/type").isPrimitive;
+import $ from '../../core/renderer';
+import TemplateBase from './ui.template_base';
+import eventsEngine from '../../events/core/events_engine';
+import removeEvent from '../../core/remove_event';
+import iteratorUtils from '../../core/utils/iterator';
+import { isPrimitive } from '../../core/utils/type';
 
 var watchChanges = (function() {
 
@@ -78,7 +78,7 @@ var watchChanges = (function() {
 
 })();
 
-module.exports = TemplateBase.inherit({
+export default TemplateBase.inherit({
 
     ctor: function(render, fields, watchMethod, fieldsMap) {
         this._render = render;

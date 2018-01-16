@@ -1,10 +1,8 @@
 "use strict";
 
-var dragEvents = require("../../events/drag"),
-    SHUTTER_EVENTS_NS = ".shutter-zoom",
-    DRAG_START_EVENT_NAME = dragEvents.start + SHUTTER_EVENTS_NS,
-    DRAG_UPDATE_EVENT_NAME = dragEvents.move + SHUTTER_EVENTS_NS,
-    DRAG_END_EVENT_NAME = dragEvents.end + SHUTTER_EVENTS_NS;
+import dragEvents from '../../events/drag';
+
+var SHUTTER_EVENTS_NS = ".shutter-zoom", DRAG_START_EVENT_NAME = dragEvents.start + SHUTTER_EVENTS_NS, DRAG_UPDATE_EVENT_NAME = dragEvents.move + SHUTTER_EVENTS_NS, DRAG_END_EVENT_NAME = dragEvents.end + SHUTTER_EVENTS_NS;
 
 function getPointerCoord(rootOffset, canvas, rotated, e) {
     var coord = Math.floor(rotated ? (e.pageY - rootOffset.top) : (e.pageX - rootOffset.left)),
@@ -118,7 +116,7 @@ function shutterZoom(options) {
     return shutter;
 }
 
-module.exports = {
+export default {
     name: "shutter_zoom",
 
     init: function() {

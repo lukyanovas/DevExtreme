@@ -1,29 +1,31 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    errors = require("./ui.errors"),
-    Action = require("../../core/action"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    domUtils = require("../../core/utils/dom"),
-    devices = require("../../core/devices"),
-    DOMComponent = require("../../core/dom_component"),
-    Template = require("./jquery.template"),
-    FunctionTemplate = require("./function_template"),
-    EmptyTemplate = require("./empty_template"),
-    ChildDefaultTemplate = require("./child_default_template"),
-    KeyboardProcessor = require("./ui.keyboard_processor"),
-    selectors = require("./selectors"),
-    eventUtils = require("../../events/utils"),
-    hoverEvents = require("../../events/hover"),
-    feedbackEvents = require("../../events/core/emitter.feedback"),
-    clickEvent = require("../../events/click"),
-    inflector = require("../../core/utils/inflector");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import errors from './ui.errors';
+import Action from '../../core/action';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import domUtils from '../../core/utils/dom';
+import devices from '../../core/devices';
+import DOMComponent from '../../core/dom_component';
+import Template from './jquery.template';
+import FunctionTemplate from './function_template';
+import EmptyTemplate from './empty_template';
+import ChildDefaultTemplate from './child_default_template';
+import KeyboardProcessor from './ui.keyboard_processor';
+import selectors from './selectors';
+import * as eventUtils from '../../events/utils';
+import hoverEvents from '../../events/hover';
+import feedbackEvents from '../../events/core/emitter.feedback';
+import clickEvent from '../../events/click';
+import inflector from '../../core/utils/inflector';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var UI_FEEDBACK = "UIFeedback",
     WIDGET_CLASS = "dx-widget",
@@ -960,4 +962,4 @@ var Widget = DOMComponent.inherit({
     }
 });
 
-module.exports = Widget;
+export default Widget;

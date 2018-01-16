@@ -1,21 +1,22 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    stringUtils = require("../../core/utils/string"),
-    getDefaultAlignment = require("../../core/utils/position").getDefaultAlignment,
-    compileGetter = require("../../core/utils/data").compileGetter,
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    columnsView = require("./ui.grid_core.columns_view"),
-    Scrollable = require("../scroll_view/ui.scrollable"),
-    removeEvent = require("../../core/remove_event"),
-    messageLocalization = require("../../localization/message"),
-    isDefined = typeUtils.isDefined;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import stringUtils from '../../core/utils/string';
+import { getDefaultAlignment } from '../../core/utils/position';
+import { compileGetter } from '../../core/utils/data';
+import gridCoreUtils from './ui.grid_core.utils';
+import columnsView from './ui.grid_core.columns_view';
+import Scrollable from '../scroll_view/ui.scrollable';
+import removeEvent from '../../core/remove_event';
+import messageLocalization from '../../localization/message';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, isDefined = typeUtils.isDefined;
 
 var ROWS_VIEW_CLASS = "rowsview",
     CONTENT_CLASS = "content",
@@ -31,7 +32,7 @@ var ROWS_VIEW_CLASS = "rowsview",
 
     LOADPANEL_HIDE_TIMEOUT = 200;
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             hoverStateEnabled: false,

@@ -1,21 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    registerComponent = require("../../core/component_registrator"),
-    commonUtils = require("../../core/utils/common"),
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    hoverEvents = require("../../events/hover"),
-    MenuBase = require("../context_menu/ui.menu_base"),
-    Overlay = require("../overlay"),
-    Submenu = require("./ui.submenu"),
-    Button = require("../button"),
-    TreeView = require("../tree_view");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import registerComponent from '../../core/component_registrator';
+import commonUtils from '../../core/utils/common';
+import { getPublicElement } from '../../core/utils/dom';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import hoverEvents from '../../events/hover';
+import MenuBase from '../context_menu/ui.menu_base';
+import Overlay from '../overlay';
+import Submenu from './ui.submenu';
+import Button from '../button';
+import TreeView from '../tree_view';
 
 var DX_MENU_CLASS = "dx-menu",
     DX_MENU_VERTICAL_CLASS = DX_MENU_CLASS + "-vertical",
@@ -1037,4 +1037,4 @@ var Menu = MenuBase.inherit({
 
 registerComponent("dxMenu", Menu);
 
-module.exports = Menu;
+export default Menu;

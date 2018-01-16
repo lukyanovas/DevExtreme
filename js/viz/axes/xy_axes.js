@@ -1,26 +1,15 @@
 "use strict";
 
-var formatHelper = require("../../format_helper"),
-    dateUtils = require("../../core/utils/date"),
-    extend = require("../../core/utils/extend").extend,
-    generateDateBreaks = require("./datetime_breaks").generateDateBreaks,
-    getNextDateUnit = dateUtils.getNextDateUnit,
-    correctDateWithUnitBeginning = dateUtils.correctDateWithUnitBeginning,
-    noop = require("../../core/utils/common").noop,
-    vizUtils = require("../core/utils"),
-    isDefined = require("../../core/utils/type").isDefined,
-    constants = require("./axes_constants"),
-    _extend = extend,
-    _math = Math,
-    _max = _math.max,
+import formatHelper from '../../format_helper';
+import dateUtils from '../../core/utils/date';
+import { extend } from '../../core/utils/extend';
+import { generateDateBreaks } from './datetime_breaks';
+import { noop } from '../../core/utils/common';
+import vizUtils from '../core/utils';
+import { isDefined } from '../../core/utils/type';
+import constants from './axes_constants';
 
-    TOP = constants.top,
-    BOTTOM = constants.bottom,
-    LEFT = constants.left,
-    RIGHT = constants.right,
-    CENTER = constants.center,
-    SCALE_BREAK_OFFSET = 3,
-    RANGE_RATIO = 0.3;
+var getNextDateUnit = dateUtils.getNextDateUnit, correctDateWithUnitBeginning = dateUtils.correctDateWithUnitBeginning, _extend = extend, _math = Math, _max = _math.max, TOP = constants.top, BOTTOM = constants.bottom, LEFT = constants.left, RIGHT = constants.right, CENTER = constants.center, SCALE_BREAK_OFFSET = 3, RANGE_RATIO = 0.3;
 
 function prepareDatesDifferences(datesDifferences, tickInterval) {
     var dateUnitInterval,
@@ -269,7 +258,7 @@ function generateAutoBreaks(options, series, viewport) {
     return breaks;
 }
 
-module.exports = {
+export default {
     linear: {
         _getStep: function(boxes, rotationAngle) {
             var spacing = this._options.label.minSpacing,

@@ -1,8 +1,8 @@
 "use strict";
 
-var _createColorCodeGetter = require("./colorizing").createColorCodeGetter,
-    _min = Math.min,
-    _max = Math.max;
+import { createColorCodeGetter as _createColorCodeGetter } from './colorizing';
+
+var _min = Math.min, _max = Math.max;
 
 function createSimpleColorizer(getColor, range) {
     return function(node) {
@@ -51,4 +51,4 @@ function gradientColorizer(options, themeManager) {
 }
 
 require("./colorizing").addColorizer("gradient", gradientColorizer);
-module.exports = gradientColorizer;
+export default gradientColorizer;

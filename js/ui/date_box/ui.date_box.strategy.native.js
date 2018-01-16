@@ -1,11 +1,11 @@
 "use strict";
 
-var noop = require("../../core/utils/common").noop,
-    DateBoxStrategy = require("./ui.date_box.strategy"),
-    support = require("../../core/utils/support"),
-    inArray = require("../../core/utils/array").inArray,
-    dateUtils = require("./ui.date_utils"),
-    dateSerialization = require("../../core/utils/date_serialization");
+import { noop } from '../../core/utils/common';
+import DateBoxStrategy from './ui.date_box.strategy';
+import * as support from '../../core/utils/support';
+import { inArray } from '../../core/utils/array';
+import dateUtils from './ui.date_utils';
+import dateSerialization from '../../core/utils/date_serialization';
 
 var NativeStrategy = DateBoxStrategy.inherit({
 
@@ -63,4 +63,4 @@ var NativeStrategy = DateBoxStrategy.inherit({
     }
 });
 
-module.exports = NativeStrategy;
+export default NativeStrategy;

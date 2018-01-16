@@ -1,19 +1,13 @@
 "use strict";
 
-var utils = require("../core/utils"),
-    dateUtils = require("../../core/utils/date"),
-    typeUtils = require("../../core/utils/type"),
-    adjust = require("../../core/utils/math").adjust,
-    vizUtils = require("../core/utils"),
-    extend = require("../../core/utils/extend").extend,
-    convertDateUnitToMilliseconds = dateUtils.convertDateUnitToMilliseconds,
-    dateToMilliseconds = dateUtils.dateToMilliseconds,
-    getLog = utils.getLog,
-    math = Math,
-    mathAbs = math.abs,
-    mathFloor = math.floor,
-    mathCeil = math.ceil,
-    mathPow = math.pow;
+import utils from '../core/utils';
+import dateUtils from '../../core/utils/date';
+import * as typeUtils from '../../core/utils/type';
+import { adjust } from '../../core/utils/math';
+import vizUtils from '../core/utils';
+import { extend } from '../../core/utils/extend';
+
+var convertDateUnitToMilliseconds = dateUtils.convertDateUnitToMilliseconds, dateToMilliseconds = dateUtils.dateToMilliseconds, getLog = utils.getLog, math = Math, mathAbs = math.abs, mathFloor = math.floor, mathCeil = math.ceil, mathPow = math.pow;
 
 var NUMBER_MULTIPLIERS = [1, 2, 2.5, 5],
     LOGARITHMIC_MULTIPLIERS = [1, 2, 3, 5],
@@ -733,7 +727,7 @@ function dateGenerator(options) {
     );
 }
 
-exports.tickGenerator = function(options) {
+export var tickGenerator = function(options) {
     var result;
 
     if(options.axisType === "discrete") {

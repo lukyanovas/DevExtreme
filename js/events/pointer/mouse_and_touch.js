@@ -1,10 +1,10 @@
 "use strict";
 
-var extend = require("../../core/utils/extend").extend,
-    BaseStrategy = require("./base"),
-    MouseStrategy = require("./mouse"),
-    TouchStrategy = require("./touch"),
-    eventUtils = require("../utils");
+import { extend } from '../../core/utils/extend';
+import BaseStrategy from './base';
+import MouseStrategy from './mouse';
+import TouchStrategy from './touch';
+import * as eventUtils from '../utils';
 
 var eventMap = {
     "dxpointerdown": "touchstart mousedown",
@@ -85,4 +85,4 @@ MouseAndTouchStrategy.map = eventMap;
 MouseAndTouchStrategy.resetObserver = MouseStrategy.resetObserver;
 
 
-module.exports = MouseAndTouchStrategy;
+export default MouseAndTouchStrategy;

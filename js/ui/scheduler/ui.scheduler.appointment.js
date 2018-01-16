@@ -1,19 +1,19 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    translator = require("../../animation/translator"),
-    recurrenceUtils = require("./utils.recurrence"),
-    extend = require("../../core/utils/extend").extend,
-    registerComponent = require("../../core/component_registrator"),
-    tooltip = require("../tooltip/ui.tooltip"),
-    publisherMixin = require("./ui.scheduler.publisher_mixin"),
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    DOMComponent = require("../../core/dom_component"),
-    Resizable = require("../resizable"),
-    messageLocalization = require("../../localization/message"),
-    dateLocalization = require("../../localization/date");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import translator from '../../animation/translator';
+import recurrenceUtils from './utils.recurrence';
+import { extend } from '../../core/utils/extend';
+import registerComponent from '../../core/component_registrator';
+import tooltip from '../tooltip/ui.tooltip';
+import publisherMixin from './ui.scheduler.publisher_mixin';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import DOMComponent from '../../core/dom_component';
+import Resizable from '../resizable';
+import messageLocalization from '../../localization/message';
+import dateLocalization from '../../localization/date';
 
 var REDUCED_APPOINTMENT_POINTERENTER_EVENT_NAME = eventUtils.addNamespace(pointerEvents.enter, "dxSchedulerAppointment"),
     REDUCED_APPOINTMENT_POINTERLEAVE_EVENT_NAME = eventUtils.addNamespace(pointerEvents.leave, "dxSchedulerAppointment");
@@ -228,4 +228,4 @@ var Appointment = DOMComponent.inherit({
 
 registerComponent("dxSchedulerAppointment", Appointment);
 
-module.exports = Appointment;
+export default Appointment;

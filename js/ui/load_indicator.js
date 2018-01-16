@@ -1,15 +1,16 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    navigator = window.navigator,
-    support = require("../core/utils/support"),
-    themes = require("./themes"),
-    browser = require("../core/utils/browser"),
-    extend = require("../core/utils/extend").extend,
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    Widget = require("./widget/ui.widget");
+import $ from '../core/renderer';
+import * as support from '../core/utils/support';
+import themes from './themes';
+import browser from '../core/utils/browser';
+import { extend } from '../core/utils/extend';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import Widget from './widget/ui.widget';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), navigator = window.navigator;
 
 var LOADINDICATOR_CLASS = "dx-loadindicator",
     LOADINDICATOR_WRAPPER_CLASS = "dx-loadindicator-wrapper",
@@ -280,4 +281,4 @@ var LoadIndicator = Widget.inherit({
 
 registerComponent("dxLoadIndicator", LoadIndicator);
 
-module.exports = LoadIndicator;
+export default LoadIndicator;

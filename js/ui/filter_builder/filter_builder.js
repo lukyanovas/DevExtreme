@@ -1,17 +1,19 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    Class = require("../../core/class"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Widget = require("../widget/ui.widget"),
-    registerComponent = require("../../core/component_registrator"),
-    extend = require("../../core/utils/extend").extend,
-    messageLocalization = require("../../localization/message"),
-    utils = require("./utils"),
-    TreeView = require("../tree_view"),
-    Popup = require("../popup"),
-    EditorFactoryMixin = require("../shared/ui.editor_factory_mixin");
+import $ from '../../core/renderer';
+import Class from '../../core/class';
+import eventsEngine from '../../events/core/events_engine';
+import Widget from '../widget/ui.widget';
+import registerComponent from '../../core/component_registrator';
+import { extend } from '../../core/utils/extend';
+import messageLocalization from '../../localization/message';
+import utils from './utils';
+import TreeView from '../tree_view';
+import Popup from '../popup';
+import EditorFactoryMixin from '../shared/ui.editor_factory_mixin';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var FILTER_BUILDER_CLASS = "dx-filterbuilder",
     FILTER_BUILDER_GROUP_CLASS = "dx-filterbuilder-group",
@@ -966,4 +968,4 @@ var FilterBuilder = Widget.inherit({
 
 registerComponent("dxFilterBuilder", FilterBuilder);
 
-module.exports = FilterBuilder;
+export default FilterBuilder;

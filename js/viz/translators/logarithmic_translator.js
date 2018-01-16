@@ -1,12 +1,12 @@
 "use strict";
 
-var numericTranslator = require("./numeric_translator"),
-    vizUtils = require("../core/utils"),
-    isDefined = require("../../core/utils/type").isDefined,
-    raiseTo = vizUtils.raiseTo,
-    getLog = vizUtils.getLog;
+import numericTranslator from './numeric_translator';
+import vizUtils from '../core/utils';
+import { isDefined } from '../../core/utils/type';
 
-module.exports = {
+var raiseTo = vizUtils.raiseTo, getLog = vizUtils.getLog;
+
+export default {
     translate: function(bp, direction) {
         var that = this,
             specialValue = that.translateSpecialCase(bp);

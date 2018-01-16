@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    registerComponent = require("../core/component_registrator"),
-    DOMComponent = require("../core/dom_component"),
-    ValidationSummary = require("./validation_summary"),
-    ValidationEngine = require("./validation_engine"),
-    Validator = require("./validator");
+import $ from '../core/renderer';
+import registerComponent from '../core/component_registrator';
+import DOMComponent from '../core/dom_component';
+import ValidationSummary from './validation_summary';
+import ValidationEngine from './validation_engine';
+import Validator from './validator';
 
 var VALIDATION_ENGINE_CLASS = "dx-validationgroup";
 /**
@@ -101,4 +101,4 @@ var ValidationGroup = DOMComponent.inherit({
 
 registerComponent("dxValidationGroup", ValidationGroup);
 
-module.exports = ValidationGroup;
+export default ValidationGroup;

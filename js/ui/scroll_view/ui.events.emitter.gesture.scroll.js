@@ -1,14 +1,14 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    Class = require("../../core/class"),
-    abstract = Class.abstract,
-    eventUtils = require("../../events/utils"),
-    GestureEmitter = require("../../events/gesture/emitter.gesture"),
-    registerEmitter = require("../../events/core/emitter_registrator"),
-    animationFrame = require("../../animation/frame"),
-    realDevice = require("../../core/devices").real(),
-    compareVersions = require("../../core/utils/version").compare;
+import eventsEngine from '../../events/core/events_engine';
+import Class from '../../core/class';
+import * as eventUtils from '../../events/utils';
+import GestureEmitter from '../../events/gesture/emitter.gesture';
+import registerEmitter from '../../events/core/emitter_registrator';
+import animationFrame from '../../animation/frame';
+import { compare as compareVersions } from '../../core/utils/version';
+
+var abstract = Class.abstract, realDevice = require("../../core/devices").real();
 
 
 var SCROLL_INIT_EVENT = "dxscrollinit",
@@ -347,7 +347,7 @@ registerEmitter({
     ]
 });
 
-module.exports = {
+export default {
     init: SCROLL_INIT_EVENT,
     start: SCROLL_START_EVENT,
     move: SCROLL_MOVE_EVENT,

@@ -1,15 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    Widget = require("../widget/ui.widget"),
-    extend = require("../../core/utils/extend").extend,
-    eventUtils = require("../../events/utils"),
-    pointerEvents = require("../../events/pointer"),
-    feedbackEvents = require("../../events/core/emitter.feedback"),
-    holdEvent = require("../../events/hold"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Widget from '../widget/ui.widget';
+import { extend } from '../../core/utils/extend';
+import * as eventUtils from '../../events/utils';
+import pointerEvents from '../../events/pointer';
+import feedbackEvents from '../../events/core/emitter.feedback';
+import holdEvent from '../../events/hold';
+import { Deferred } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var SPIN_CLASS = "dx-numberbox-spin",
     SPIN_BUTTON_CLASS = "dx-numberbox-spin-button",
@@ -99,4 +101,4 @@ var SpinButton = Widget.inherit({
     }
 });
 
-module.exports = SpinButton;
+export default SpinButton;

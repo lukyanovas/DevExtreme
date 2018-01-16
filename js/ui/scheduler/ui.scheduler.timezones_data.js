@@ -3503,7 +3503,7 @@ var timezones = [{
 }
 ];
 
-module.exports = {
+export default {
     displayNames: displayNames,
     timezones: timezones
 };

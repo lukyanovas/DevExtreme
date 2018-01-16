@@ -1,7 +1,7 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    areaItem = require("./ui.pivot_grid.area_item");
+import $ from '../../core/renderer';
+import areaItem from './ui.pivot_grid.area_item';
 
 var PIVOTGRID_AREA_CLASS = "dx-pivotgrid-area",
     PIVOTGRID_AREA_DATA_CLASS = "dx-pivotgrid-area-data",
@@ -9,7 +9,7 @@ var PIVOTGRID_AREA_CLASS = "dx-pivotgrid-area",
     PIVOTGRID_GRAND_TOTAL_CLASS = "dx-grandtotal",
     PIVOTGRID_ROW_TOTAL_CLASS = "dx-row-total";
 
-exports.DataArea = areaItem.AreaItem.inherit({
+export var DataArea = areaItem.AreaItem.inherit({
     _getAreaName: function() {
         return "data";
     },

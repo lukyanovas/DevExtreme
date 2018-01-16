@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    grep = require("../../core/utils/common").grep,
-    each = require("../../core/utils/iterator").each,
-    isDefined = require("../../core/utils/type").isDefined;
+import $ from '../../core/renderer';
+import gridCoreUtils from './ui.grid_core.utils';
+import { grep } from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import { isDefined } from '../../core/utils/type';
 
 var MASTER_DETAIL_CELL_CLASS = "dx-master-detail-cell",
     MASTER_DETAIL_ROW_CLASS = "dx-master-detail-row",
@@ -12,7 +12,7 @@ var MASTER_DETAIL_CELL_CLASS = "dx-master-detail-cell",
     ROW_LINES_CLASS = "dx-row-lines";
 
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

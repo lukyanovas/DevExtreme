@@ -1,14 +1,15 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    document = window.document,
-    eventsEngine = require("../../events/core/events_engine"),
-    extend = require("../../core/utils/extend").extend,
-    resizeCallbacks = require("../../core/utils/window").resizeCallbacks,
-    support = require("../../core/utils/support"),
-    styleUtils = require("../../core/utils/style"),
-    devices = require("../../core/devices");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import { extend } from '../../core/utils/extend';
+import { resizeCallbacks } from '../../core/utils/window';
+import * as support from '../../core/utils/support';
+import * as styleUtils from '../../core/utils/style';
+import devices from '../../core/devices';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document;
 
 var initMobileViewport = function(options) {
     options = extend({}, options);
@@ -93,4 +94,4 @@ var initMobileViewport = function(options) {
     }
 };
 
-exports.initMobileViewport = initMobileViewport;
+export { initMobileViewport };

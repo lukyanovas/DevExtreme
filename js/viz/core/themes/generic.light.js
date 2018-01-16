@@ -1,27 +1,8 @@
 "use strict";
 
-var WHITE = "#ffffff",
-    BLACK = "#000000",
-    LIGHT_GREY = "#d3d3d3",
-    GREY_GREEN = "#303030",
-    SOME_GREY = "#2b2b2b",
-    RED = "#ff0000",
-    PRIMARY_TITLE_COLOR = "#232323",
-    SECONDARY_TITLE_COLOR = "#767676",
+import themeModule from '../../themes';
 
-    NONE = "none",
-    SOLID = "solid",
-    TOP = "top",
-    RIGHT = "right",
-    BOTTOM = "bottom",
-    LEFT = "left",
-    CENTER = "center",
-    INSIDE = "inside",
-    OUTSIDE = "outside",
-
-    themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    registerThemeAlias = themeModule.registerThemeAlias;
+var WHITE = "#ffffff", BLACK = "#000000", LIGHT_GREY = "#d3d3d3", GREY_GREEN = "#303030", SOME_GREY = "#2b2b2b", RED = "#ff0000", PRIMARY_TITLE_COLOR = "#232323", SECONDARY_TITLE_COLOR = "#767676", NONE = "none", SOLID = "solid", TOP = "top", RIGHT = "right", BOTTOM = "bottom", LEFT = "left", CENTER = "center", INSIDE = "inside", OUTSIDE = "outside", registerTheme = themeModule.registerTheme, registerThemeAlias = themeModule.registerThemeAlias;
 
 registerTheme({
     name: "generic.light",

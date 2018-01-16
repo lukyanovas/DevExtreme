@@ -1,14 +1,16 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    window = require("../../core/dom_adapter").getWindow(),
-    commonUtils = require("../../core/utils/common"),
-    contains = require("../../core/utils/dom").contains,
-    devices = require("../../core/devices"),
-    eventUtils = require("../utils"),
-    pointerEvents = require("../pointer"),
-    Emitter = require("./emitter"),
-    registerEmitter = require("./emitter_registrator");
+import Class from '../../core/class';
+import commonUtils from '../../core/utils/common';
+import { contains } from '../../core/utils/dom';
+import devices from '../../core/devices';
+import * as eventUtils from '../utils';
+import pointerEvents from '../pointer';
+import Emitter from './emitter';
+import registerEmitter from './emitter_registrator';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow();
 
 var ACTIVE_EVENT_NAME = "dxactive",
     INACTIVE_EVENT_NAME = "dxinactive",
@@ -173,6 +175,6 @@ registerEmitter({
     ]
 });
 
-exports.lock = FeedbackEmitter.lock;
-exports.active = ACTIVE_EVENT_NAME;
-exports.inactive = INACTIVE_EVENT_NAME;
+export var lock = FeedbackEmitter.lock;
+export var active = ACTIVE_EVENT_NAME;
+export var inactive = INACTIVE_EVENT_NAME;

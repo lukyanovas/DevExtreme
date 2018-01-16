@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    registerComponent = require("../../core/component_registrator"),
-    extend = require("../../core/utils/extend").extend,
-    publisherMixin = require("./ui.scheduler.publisher_mixin"),
-    messageLocalization = require("../../localization/message"),
-    Editor = require("../editor/editor"),
-    SelectBox = require("../select_box");
+import $ from '../../core/renderer';
+import registerComponent from '../../core/component_registrator';
+import { extend } from '../../core/utils/extend';
+import publisherMixin from './ui.scheduler.publisher_mixin';
+import messageLocalization from '../../localization/message';
+import Editor from '../editor/editor';
+import SelectBox from '../select_box';
 
 var TIMEZONE_EDITOR_CLASS = "dx-timezone-editor",
     TIMEZONE_DISPLAY_NAME_SELECTBOX_CLASS = "dx-timezone-display-name",
@@ -128,4 +128,4 @@ var SchedulerTimezoneEditor = Editor.inherit({
 
 registerComponent("dxSchedulerTimezoneEditor", {}, SchedulerTimezoneEditor);
 
-module.exports = SchedulerTimezoneEditor;
+export default SchedulerTimezoneEditor;

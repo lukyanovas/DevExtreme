@@ -1,3 +1,3 @@
 "use strict";
 
-exports.refreshPaths = require("./core/renderers/renderer").refreshPaths;
+export var refreshPaths = require("./core/renderers/renderer").refreshPaths;

@@ -1,13 +1,12 @@
 "use strict";
 
-var animationFrame = require("../../../animation/frame"),
-    noop = function() { },
+import animationFrame from '../../../animation/frame';
+
+var noop = function() { },
     easingFunctions = {
         easeOutCubic: function(pos, start, end) { return (pos === 1) ? end : ((1 - Math.pow((1 - pos), 3)) * (end - start) + (+start)); },
         linear: function(pos, start, end) { return (pos === 1) ? end : (pos * (end - start) + (+start)); }
     };
-
-exports.easingFunctions = easingFunctions;
 
 var animationSvgStep = {
     segments: function(elem, params, progress, easing, currentParams) {
@@ -134,7 +133,6 @@ function AnimationController(element) {
     that._animations = {};
     that.element = element;
 }
-exports.AnimationController = AnimationController;
 
 AnimationController.prototype = {
     _loop: function() {
@@ -224,9 +222,4 @@ AnimationController.prototype = {
     }
 };
 
-exports.animationSvgStep = animationSvgStep;
-
-///#DEBUG
-exports.Animation = Animation;
-exports.noop = noop;
-///#ENDDEBUG
+export { easingFunctions, AnimationController, animationSvgStep, Animation, noop };

@@ -201,4 +201,4 @@ var getFormat = function(formatter) {
     }
 };
 
-exports.getFormat = getFormat;
+export { getFormat };

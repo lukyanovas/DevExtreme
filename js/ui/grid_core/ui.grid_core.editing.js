@@ -1,30 +1,28 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    Guid = require("../../core/guid"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    deepExtendArraySafe = require("../../core/utils/object").deepExtendArraySafe,
-    extend = require("../../core/utils/extend").extend,
-    modules = require("./ui.grid_core.modules"),
-    clickEvent = require("../../events/click"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    getIndexByKey = gridCoreUtils.getIndexByKey,
-    eventUtils = require("../../events/utils"),
-    addNamespace = eventUtils.addNamespace,
-    dialog = require("../dialog"),
-    messageLocalization = require("../../localization/message"),
-    Button = require("../button"),
-    Popup = require("../popup"),
-    errors = require("../widget/ui.errors"),
-    devices = require("../../core/devices"),
-    Form = require("../form"),
-    holdEvent = require("../../events/hold"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Guid from '../../core/guid';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import { deepExtendArraySafe } from '../../core/utils/object';
+import { extend } from '../../core/utils/extend';
+import modules from './ui.grid_core.modules';
+import clickEvent from '../../events/click';
+import gridCoreUtils from './ui.grid_core.utils';
+import * as eventUtils from '../../events/utils';
+import dialog from '../dialog';
+import messageLocalization from '../../localization/message';
+import Button from '../button';
+import Popup from '../popup';
+import errors from '../widget/ui.errors';
+import devices from '../../core/devices';
+import Form from '../form';
+import holdEvent from '../../events/hold';
+import * as deferredUtils from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, getIndexByKey = gridCoreUtils.getIndexByKey, addNamespace = eventUtils.addNamespace, when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var EDIT_FORM_CLASS = "edit-form",
     EDIT_FORM_ITEM_CLASS = "edit-form-item",
@@ -1679,7 +1677,7 @@ var EditingController = modules.ViewController.inherit((function() {
     };
 })());
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../core/renderer");
-var eventsEngine = require("./core/events_engine");
-var errors = require("../core/errors");
-var focused = require("../ui/widget/selectors").focused;
-var extend = require("../core/utils/extend").extend;
-var each = require("../core/utils/iterator").each;
+import $ from '../core/renderer';
+import eventsEngine from './core/events_engine';
+import errors from '../core/errors';
+import { focused } from '../ui/widget/selectors';
+import { extend } from '../core/utils/extend';
+import { each } from '../core/utils/iterator';
 
 var eventSource = (function() {
     var EVENT_SOURCES_REGEX = {
@@ -156,23 +156,23 @@ var addNamespace = function(eventNames, namespace) {
 };
 
 
-module.exports = {
-    eventSource: eventSource,
-    isPointerEvent: isPointerEvent,
-    isMouseEvent: isMouseEvent,
-    isTouchEvent: isTouchEvent,
-    isKeyboardEvent: isKeyboardEvent,
+export {
+    eventSource,
+    isPointerEvent,
+    isMouseEvent,
+    isTouchEvent,
+    isKeyboardEvent,
 
-    isFakeClickEvent: isFakeClickEvent,
+    isFakeClickEvent,
 
-    hasTouches: hasTouches,
-    eventData: eventData,
-    eventDelta: eventDelta,
-    needSkipEvent: needSkipEvent,
+    hasTouches,
+    eventData,
+    eventDelta,
+    needSkipEvent,
 
-    createEvent: createEvent,
-    fireEvent: fireEvent,
+    createEvent,
+    fireEvent,
 
-    addNamespace: addNamespace,
-    setEventFixMethod: setEventFixMethod
+    addNamespace,
+    setEventFixMethod
 };

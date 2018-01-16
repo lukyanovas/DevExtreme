@@ -1,9 +1,9 @@
 "use strict";
 
-var BaseAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.base"),
-    extend = require("../../core/utils/extend").extend,
-    isNumeric = require("../../core/utils/type").isNumeric,
-    dateUtils = require("../../core/utils/date");
+import BaseAppointmentsStrategy from './ui.scheduler.appointments.strategy.base';
+import { extend } from '../../core/utils/extend';
+import { isNumeric } from '../../core/utils/type';
+import dateUtils from '../../core/utils/date';
 
 var WEEK_APPOINTMENT_DEFAULT_OFFSET = 25,
     ALLDAY_APPOINTMENT_MIN_OFFSET = 5,
@@ -259,4 +259,4 @@ var VerticalRenderingStrategy = BaseAppointmentsStrategy.inherit({
     }
 });
 
-module.exports = VerticalRenderingStrategy;
+export default VerticalRenderingStrategy;

@@ -1,22 +1,22 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    registerComponent = require("../core/component_registrator"),
-    commonUtils = require("../core/utils/common"),
-    typeUtils = require("../core/utils/type"),
-    extend = require("../core/utils/extend").extend,
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    fx = require("../animation/fx"),
-    clickEvent = require("../events/click"),
-    translator = require("../animation/translator"),
-    devices = require("../core/devices"),
-    Widget = require("./widget/ui.widget"),
-    eventUtils = require("../events/utils"),
-    CollectionWidget = require("./collection/ui.collection_widget.edit"),
-    Swipeable = require("../events/gesture/swipeable"),
-    BindableTemplate = require("./widget/bindable_template"),
-    Deferred = require("../core/utils/deferred").Deferred;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import registerComponent from '../core/component_registrator';
+import commonUtils from '../core/utils/common';
+import * as typeUtils from '../core/utils/type';
+import { extend } from '../core/utils/extend';
+import { getPublicElement } from '../core/utils/dom';
+import fx from '../animation/fx';
+import clickEvent from '../events/click';
+import translator from '../animation/translator';
+import devices from '../core/devices';
+import Widget from './widget/ui.widget';
+import * as eventUtils from '../events/utils';
+import CollectionWidget from './collection/ui.collection_widget.edit';
+import Swipeable from '../events/gesture/swipeable';
+import BindableTemplate from './widget/bindable_template';
+import { Deferred } from '../core/utils/deferred';
 
 var GALLERY_CLASS = "dx-gallery",
     GALLERY_WRAPPER_CLASS = GALLERY_CLASS + "-wrapper",
@@ -1198,4 +1198,4 @@ var Gallery = CollectionWidget.inherit({
 
 registerComponent("dxGallery", Gallery);
 
-module.exports = Gallery;
+export default Gallery;

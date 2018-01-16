@@ -1,17 +1,10 @@
 "use strict";
 
-var extend = require("../core/utils/extend").extend,
-    each = require("../core/utils/iterator").each,
-    vizUtils = require("./core/utils"),
-    themes = {},
-    themesMapping = {},
-    themesSchemeMapping = {},
-    _extend = extend,
-    _each = each,
-    _normalizeEnum = vizUtils.normalizeEnum,
-    currentThemeName = null,
-    nextCacheUid = 0,
-    widgetsCache = {};
+import { extend } from '../core/utils/extend';
+import { each } from '../core/utils/iterator';
+import vizUtils from './core/utils';
+
+var themes = {}, themesMapping = {}, themesSchemeMapping = {}, _extend = extend, _each = each, _normalizeEnum = vizUtils.normalizeEnum, currentThemeName = null, nextCacheUid = 0, widgetsCache = {};
 
 function findTheme(themeName) {
     var name = _normalizeEnum(themeName);

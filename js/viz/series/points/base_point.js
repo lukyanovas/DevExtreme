@@ -1,23 +1,24 @@
 "use strict";
 
+import { states as statesConsts } from '../../components/consts';
+import symbolPoint from './symbol_point';
+import barPoint from './bar_point';
+import bubblePoint from './bubble_point';
+import piePoint from './pie_point';
+import rangeSymbolPoint from './range_symbol_point';
+import rangeBarPoint from './range_bar_point';
+import candlestickPoint from './candlestick_point';
+import stockPoint from './stock_point';
+import polarPoints from './polar_point';
+import { normalizeEnum as _normalizeEnum } from '../../core/utils';
+import { extend } from '../../../core/utils/extend';
+import { each } from '../../../core/utils/iterator';
+import { isDefined as _isDefined } from '../../../core/utils/type';
+import { noop as _noop } from '../../../core/utils/common';
+
 var mixins = {},
-    statesConsts = require("../../components/consts").states,
-    symbolPoint = require("./symbol_point"),
-    barPoint = require("./bar_point"),
-    bubblePoint = require("./bubble_point"),
-    piePoint = require("./pie_point"),
-    rangeSymbolPoint = require("./range_symbol_point"),
-    rangeBarPoint = require("./range_bar_point"),
-    candlestickPoint = require("./candlestick_point"),
-    stockPoint = require("./stock_point"),
-    polarPoints = require("./polar_point"),
-    _normalizeEnum = require("../../core/utils").normalizeEnum,
-    extend = require("../../../core/utils/extend").extend,
-    each = require("../../../core/utils/iterator").each,
     _each = each,
     _extend = extend,
-    _isDefined = require("../../../core/utils/type").isDefined,
-    _noop = require("../../../core/utils/common").noop,
     SYMBOL_POINT = "symbolPoint",
     POLAR_SYMBOL_POINT = "polarSymbolPoint",
     BAR_POINT = "barPoint",
@@ -29,7 +30,6 @@ var mixins = {},
     HOVER = statesConsts.hover,
     NORMAL = statesConsts.normal,
     SELECTION = statesConsts.selection,
-
     pointTypes = {
         chart: {
             "scatter": SYMBOL_POINT,
@@ -90,7 +90,7 @@ function Point(series, dataItem, options) {
     };
 }
 
-exports.Point = Point;
+export { Point };
 
 mixins.symbolPoint = symbolPoint;
 mixins.barPoint = barPoint;

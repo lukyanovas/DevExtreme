@@ -1,56 +1,26 @@
 "use strict";
 
-var registerComponent = require("../../core/component_registrator"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    vizUtils = require("../core/utils"),
-    dateUtils = require("../../core/utils/date"),
-    adjust = require("../../core/utils/math").adjust,
-    addInterval = dateUtils.addInterval,
-    dateToMilliseconds = dateUtils.dateToMilliseconds,
-    getSequenceByInterval = dateUtils.getSequenceByInterval,
-    rangeModule = require("../translators/range"),
-    axisModule = require("../axes/base_axis"),
-    patchFontOptions = vizUtils.patchFontOptions,
-    parseUtils = require("../components/parse_utils"),
-    _normalizeEnum = vizUtils.normalizeEnum,
-    formatHelper = require("../../format_helper"),
-    commonModule = require("./common"),
-    slidersControllerModule = require("./sliders_controller"),
-    trackerModule = require("./tracker"),
-    rangeViewModule = require("./range_view"),
-    seriesDataSourceModule = require("./series_data_source"),
-    themeManagerModule = require("./theme_manager"),
-    tickGeneratorModule = require("../axes/tick_generator"),
-    log = require("../../core/errors").log,
+import registerComponent from '../../core/component_registrator';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import vizUtils from '../core/utils';
+import dateUtils from '../../core/utils/date';
+import { adjust } from '../../core/utils/math';
+import rangeModule from '../translators/range';
+import axisModule from '../axes/base_axis';
+import parseUtils from '../components/parse_utils';
+import formatHelper from '../../format_helper';
+import commonModule from './common';
+import slidersControllerModule from './sliders_controller';
+import trackerModule from './tracker';
+import rangeViewModule from './range_view';
+import seriesDataSourceModule from './series_data_source';
+import themeManagerModule from './theme_manager';
+import tickGeneratorModule from '../axes/tick_generator';
+import { log } from '../../core/errors';
 
-    _isDefined = typeUtils.isDefined,
-    _isNumber = typeUtils.isNumeric,
-    _isDate = typeUtils.isDate,
-    _max = Math.max,
-    _ceil = Math.ceil,
-    _floor = Math.floor,
-
-    START_VALUE = "startValue",
-    END_VALUE = "endValue",
-    DATETIME = "datetime",
-    SELECTED_RANGE = "selectedRange",
-    VALUE = "value",
-    DISCRETE = "discrete",
-    SEMIDISCRETE = "semidiscrete",
-    STRING = "string",
-    SELECTED_RANGE_CHANGED = SELECTED_RANGE + "Changed",
-    VALUE_CHANGED = VALUE + "Changed",
-    CONTAINER_BACKGROUND_COLOR = "containerBackgroundColor",
-    SLIDER_MARKER = "sliderMarker",
-    OPTION_BACKGROUND = "background",
-    LOGARITHMIC = "logarithmic",
-    INVISIBLE_POS = -1000,
-    SEMIDISCRETE_GRID_SPACING_FACTOR = 50,
-    DEFAULT_AXIS_DIVISION_FACTOR = 30,
-    DEFAULT_MINOR_AXIS_DIVISION_FACTOR = 15,
-    logarithmBase = 10;
+var addInterval = dateUtils.addInterval, dateToMilliseconds = dateUtils.dateToMilliseconds, getSequenceByInterval = dateUtils.getSequenceByInterval, patchFontOptions = vizUtils.patchFontOptions, _normalizeEnum = vizUtils.normalizeEnum, _isDefined = typeUtils.isDefined, _isNumber = typeUtils.isNumeric, _isDate = typeUtils.isDate, _max = Math.max, _ceil = Math.ceil, _floor = Math.floor, START_VALUE = "startValue", END_VALUE = "endValue", DATETIME = "datetime", SELECTED_RANGE = "selectedRange", VALUE = "value", DISCRETE = "discrete", SEMIDISCRETE = "semidiscrete", STRING = "string", SELECTED_RANGE_CHANGED = SELECTED_RANGE + "Changed", VALUE_CHANGED = VALUE + "Changed", CONTAINER_BACKGROUND_COLOR = "containerBackgroundColor", SLIDER_MARKER = "sliderMarker", OPTION_BACKGROUND = "background", LOGARITHMIC = "logarithmic", INVISIBLE_POS = -1000, SEMIDISCRETE_GRID_SPACING_FACTOR = 50, DEFAULT_AXIS_DIVISION_FACTOR = 30, DEFAULT_MINOR_AXIS_DIVISION_FACTOR = 15, logarithmBase = 10;
 
 function calculateMarkerHeight(renderer, value, sliderMarkerOptions) {
     var formattedText = (value === undefined ? commonModule.consts.emptySliderMarkerText : commonModule.formatValue(value, sliderMarkerOptions)),
@@ -1171,7 +1141,7 @@ AxisWrapper.prototype = {
 
 registerComponent("dxRangeSelector", dxRangeSelector);
 
-module.exports = dxRangeSelector;
+export default dxRangeSelector;
 
 // PLUGINS_SECTION
 dxRangeSelector.addPlugin(require("../core/export").plugin);

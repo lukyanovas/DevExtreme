@@ -1,20 +1,19 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    dependencyInjector = require("../core/utils/dependency_injector"),
-    extend = require("../core/utils/extend").extend,
-    each = require("../core/utils/iterator").each,
-    stringFormat = require("../core/utils/string").format,
-    humanize = require("../core/utils/inflector").humanize,
-    coreLocalization = require("./core");
-
-require("./core");
+import $ from '../core/renderer';
+import dependencyInjector from '../core/utils/dependency_injector';
+import { extend } from '../core/utils/extend';
+import { each } from '../core/utils/iterator';
+import { format as stringFormat } from '../core/utils/string';
+import { humanize } from '../core/utils/inflector';
+import coreLocalization from './core';
+import './core';
+import * as messages from './default_messages';
+import parentLocales from './cldr-data/parentLocales';
 
 var PARENT_LOCALE_SEPARATOR = "-";
 
-var baseDictionary = extend(true, {}, require("./default_messages"));
-
-var parentLocales = require("./cldr-data/parentLocales");
+var baseDictionary = extend(true, {}, messages);
 
 var getParentLocale = function(locale) {
     var parentLocale = parentLocales[locale];
@@ -151,4 +150,4 @@ var messageLocalization = dependencyInjector({
     }
 });
 
-module.exports = messageLocalization;
+export default messageLocalization;

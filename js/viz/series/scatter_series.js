@@ -40,8 +40,8 @@ var extend = require("../../core/utils/extend").extend,
     LOGARITHMIC = "logarithmic",
     DATETIME = "datetime";
 
-exports.chart = {};
-exports.polar = {};
+var chart = {};
+var polar = {};
 
 function sum(array) {
     var result = 0;
@@ -492,7 +492,7 @@ var baseScatterMethods = {
     }
 };
 
-exports.chart = _extend({}, baseScatterMethods, {
+chart = _extend({}, baseScatterMethods, {
     drawTrackers: function() {
         var that = this,
             trackers,
@@ -581,9 +581,9 @@ exports.chart = _extend({}, baseScatterMethods, {
     }
 });
 
-exports.polar = _extend({}, baseScatterMethods, {
+polar = _extend({}, baseScatterMethods, {
     drawTrackers: function() {
-        exports.chart.drawTrackers.call(this);
+        chart.drawTrackers.call(this);
         var cat = this._trackersTranslator,
             index;
 
@@ -603,7 +603,7 @@ exports.polar = _extend({}, baseScatterMethods, {
 
     getNeighborPoint: function(x, y) {
         var pos = vizUtils.convertXYToPolar(this.getValueAxis().getCenter(), x, y);
-        return exports.chart.getNeighborPoint.call(this, pos.phi, pos.r);
+        return chart.getNeighborPoint.call(this, pos.phi, pos.r);
     },
 
     _applyVisibleArea: function() {
@@ -617,3 +617,5 @@ exports.polar = _extend({}, baseScatterMethods, {
         };
     }
 });
+
+export { chart, polar };

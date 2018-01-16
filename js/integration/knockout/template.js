@@ -1,11 +1,13 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    ko = require("knockout"),
-    typeUtils = require("../../core/utils/type"),
-    TemplateBase = require("../../ui/widget/ui.template_base"),
-    domUtils = require("../../core/utils/dom");
+import $ from '../../core/renderer';
+import ko from 'knockout';
+import * as typeUtils from '../../core/utils/type';
+import TemplateBase from '../../ui/widget/ui.template_base';
+import domUtils from '../../core/utils/dom';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var getParentContext = function(data) {
     var parentNode = document.createElement("div");
@@ -79,4 +81,4 @@ var KoTemplate = TemplateBase.inherit({
 
 });
 
-module.exports = KoTemplate;
+export default KoTemplate;

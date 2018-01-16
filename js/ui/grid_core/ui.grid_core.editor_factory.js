@@ -1,18 +1,19 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    eventsEngine = require("../../events/core/events_engine"),
-    modules = require("./ui.grid_core.modules"),
-    clickEvent = require("../../events/click"),
-    contextMenuEvent = require("../../events/contextmenu"),
-    pointerEvents = require("../../events/pointer"),
-    positionUtils = require("../../animation/position"),
-    eventUtils = require("../../events/utils"),
-    addNamespace = eventUtils.addNamespace,
-    browser = require("../../core/utils/browser"),
-    extend = require("../../core/utils/extend").extend,
-    EditorFactoryMixin = require("../shared/ui.editor_factory_mixin");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import modules from './ui.grid_core.modules';
+import clickEvent from '../../events/click';
+import contextMenuEvent from '../../events/contextmenu';
+import pointerEvents from '../../events/pointer';
+import positionUtils from '../../animation/position';
+import * as eventUtils from '../../events/utils';
+import browser from '../../core/utils/browser';
+import { extend } from '../../core/utils/extend';
+import EditorFactoryMixin from '../shared/ui.editor_factory_mixin';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document, addNamespace = eventUtils.addNamespace;
 
 var EDITOR_INLINE_BLOCK = "dx-editor-inline-block",
     CELL_FOCUS_DISABLED_CLASS = "dx-cell-focus-disabled",
@@ -224,7 +225,7 @@ var EditorFactory = modules.ViewController.inherit({
     }
 }).include(EditorFactoryMixin);
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

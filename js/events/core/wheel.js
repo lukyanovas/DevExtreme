@@ -1,10 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    document = require("../../core/dom_adapter").getWindow().document,
-    registerEvent = require("./event_registrator"),
-    eventUtils = require("../utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import registerEvent from './event_registrator';
+import * as eventUtils from '../utils';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var EVENT_NAME = "dxmousewheel",
     EVENT_NAMESPACE = "dxWheel";
@@ -45,4 +47,4 @@ var wheel = {
 
 registerEvent(EVENT_NAME, wheel);
 
-exports.name = EVENT_NAME;
+export var name = EVENT_NAME;

@@ -1,17 +1,17 @@
 "use strict";
 
 //there are rangebar, rangearea
-var extend = require("../../core/utils/extend").extend,
-    _extend = extend,
-    _isDefined = require("../../core/utils/type").isDefined,
-    _map = require("../core/utils").map,
-    _noop = require("../../core/utils/common").noop,
+import { extend } from '../../core/utils/extend';
 
-    scatterSeries = require("./scatter_series").chart,
-    barSeries = require("./bar_series").chart.bar,
-    areaSeries = require("./area_series").chart.area;
+import { isDefined as _isDefined } from '../../core/utils/type';
+import { map as _map } from '../core/utils';
+import { noop as _noop } from '../../core/utils/common';
+import { chart as scatterSeries } from './scatter_series';
 
-exports.chart = {};
+//there are rangebar, rangearea
+var _extend = extend, barSeries = require("./bar_series").chart.bar, areaSeries = require("./area_series").chart.area;
+
+export var chart = {};
 
 var baseRangeSeries = {
     _beginUpdateData: _noop,

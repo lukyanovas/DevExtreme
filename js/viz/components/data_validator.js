@@ -1,27 +1,9 @@
 "use strict";
 
-var typeUtils = require("../../core/utils/type"),
+import * as typeUtils from '../../core/utils/type';
+import { getParser as _getParser } from './parse_utils';
 
-    STRING = "string",
-    NUMERIC = "numeric",
-    DATETIME = "datetime",
-    DISCRETE = "discrete",
-    SEMIDISCRETE = "semidiscrete",
-    CONTINUOUS = "continuous",
-    LOGARITHMIC = "logarithmic",
-    VALUE_TYPE = "valueType",
-    ARGUMENT_TYPE = "argumentType",
-
-    axisTypeParser = require("../core/utils").enumParser([STRING, NUMERIC, DATETIME]),
-    _getParser = require("./parse_utils").getParser,
-
-    _isDefined = typeUtils.isDefined,
-    _isFunction = typeUtils.isFunction,
-    _isArray = Array.isArray,
-    _isString = typeUtils.isString,
-    _isDate = typeUtils.isDate,
-    _isNumber = typeUtils.isNumeric,
-    _isObject = typeUtils.isObject;
+var STRING = "string", NUMERIC = "numeric", DATETIME = "datetime", DISCRETE = "discrete", SEMIDISCRETE = "semidiscrete", CONTINUOUS = "continuous", LOGARITHMIC = "logarithmic", VALUE_TYPE = "valueType", ARGUMENT_TYPE = "argumentType", axisTypeParser = require("../core/utils").enumParser([STRING, NUMERIC, DATETIME]), _isDefined = typeUtils.isDefined, _isFunction = typeUtils.isFunction, _isArray = Array.isArray, _isString = typeUtils.isString, _isDate = typeUtils.isDate, _isNumber = typeUtils.isNumeric, _isObject = typeUtils.isObject;
 
 function groupingValues(data, others, valueField, index) {
     if(index >= 0) {
@@ -511,4 +493,4 @@ function validateData(data, groupsData, incidentOccurred, options) {
     return dataByArgumentFields;
 }
 
-exports.validateData = validateData;
+export { validateData };

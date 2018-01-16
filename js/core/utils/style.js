@@ -1,7 +1,9 @@
 "use strict";
 
-var camelize = require("./inflector").camelize,
-    document = require("../dom_adapter").getWindow().document;
+import { camelize } from './inflector';
+import domAdapter from '../dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var jsPrefixes = ["", "Webkit", "Moz", "O", "Ms"],
     cssPrefixes = {
@@ -59,5 +61,4 @@ var stylePropPrefix = function(prop) {
     });
 };
 
-exports.styleProp = styleProp;
-exports.stylePropPrefix = stylePropPrefix;
+export { styleProp, stylePropPrefix };

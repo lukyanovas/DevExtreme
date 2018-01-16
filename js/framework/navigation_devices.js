@@ -1,15 +1,16 @@
 "use strict";
 
-require("../integration/jquery");
+import '../integration/jquery';
+import $ from 'jquery';
+import { noop } from '../core/utils/common';
+import Class from '../core/class';
+import Callbacks from '../core/utils/callbacks';
+import browserAdapters from './browser_adapters';
+import { sessionStorage as SessionStorage } from '../core/utils/storage';
+import devices from '../core/devices';
+import domAdapter from '../core/dom_adapter';
 
-var $ = require("jquery"),
-    noop = require("../core/utils/common").noop,
-    window = require("../core/dom_adapter").getWindow(),
-    Class = require("../core/class"),
-    Callbacks = require("../core/utils/callbacks"),
-    browserAdapters = require("./browser_adapters"),
-    SessionStorage = require("../core/utils/storage").sessionStorage,
-    devices = require("../core/devices");
+var window = domAdapter.getWindow();
 
 var SESSION_KEY = "dxPhoneJSApplication";
 
@@ -170,5 +171,4 @@ var StackBasedNavigationDevice = HistoryBasedNavigationDevice.inherit({
     }
 });
 
-exports.HistoryBasedNavigationDevice = HistoryBasedNavigationDevice;
-exports.StackBasedNavigationDevice = StackBasedNavigationDevice;
+export { HistoryBasedNavigationDevice, StackBasedNavigationDevice };

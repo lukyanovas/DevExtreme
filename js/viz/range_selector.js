@@ -1,3 +1,3 @@
 "use strict";
 
-module.exports = require("./range_selector/range_selector");
+export default require("./range_selector/range_selector");

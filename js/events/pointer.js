@@ -1,13 +1,13 @@
 "use strict";
 
-var support = require("../core/utils/support"),
-    each = require("../core/utils/iterator").each,
-    devices = require("../core/devices"),
-    registerEvent = require("./core/event_registrator"),
-    TouchStrategy = require("./pointer/touch"),
-    MsPointerStrategy = require("./pointer/mspointer"),
-    MouseStrategy = require("./pointer/mouse"),
-    MouseAndTouchStrategy = require("./pointer/mouse_and_touch");
+import * as support from '../core/utils/support';
+import { each } from '../core/utils/iterator';
+import devices from '../core/devices';
+import registerEvent from './core/event_registrator';
+import TouchStrategy from './pointer/touch';
+import MsPointerStrategy from './pointer/mspointer';
+import MouseStrategy from './pointer/mouse';
+import MouseAndTouchStrategy from './pointer/mouse_and_touch';
 
 /**
   * @name ui events_dxpointerdown
@@ -95,7 +95,7 @@ each(EventStrategy.map, function(pointerEvent, originalEvents) {
     registerEvent(pointerEvent, new EventStrategy(pointerEvent, originalEvents));
 });
 
-module.exports = {
+export default {
     down: "dxpointerdown",
     up: "dxpointerup",
     move: "dxpointermove",

@@ -1,11 +1,11 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Class = require("../../core/class"),
-    inArray = require("../../core/utils/array").inArray,
-    each = require("../../core/utils/iterator").each,
-    eventUtils = require("../../events/utils");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import Class from '../../core/class';
+import { inArray } from '../../core/utils/array';
+import { each } from '../../core/utils/iterator';
+import * as eventUtils from '../../events/utils';
 
 var KeyboardProcessor = Class.inherit({
     _keydown: eventUtils.addNamespace("keydown", "KeyboardProcessor"),
@@ -111,4 +111,4 @@ var KeyboardProcessor = Class.inherit({
 
 });
 
-module.exports = KeyboardProcessor;
+export default KeyboardProcessor;

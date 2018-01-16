@@ -1,13 +1,13 @@
 "use strict";
 
-var Class = require("../core/class"),
-    typeUtils = require("../core/utils/type"),
-    iteratorUtils = require("../core/utils/iterator"),
-    compileGetter = require("../core/utils/data").compileGetter,
-    toComparable = require("../core/utils/data").toComparable,
-    Deferred = require("../core/utils/deferred").Deferred,
-    errorsModule = require("./errors"),
-    dataUtils = require("./utils");
+import Class from '../core/class';
+import * as typeUtils from '../core/utils/type';
+import iteratorUtils from '../core/utils/iterator';
+import { compileGetter } from '../core/utils/data';
+import { toComparable } from '../core/utils/data';
+import { Deferred } from '../core/utils/deferred';
+import errorsModule from './errors';
+import dataUtils from './utils';
 
 var Iterator = Class.inherit({
 
@@ -657,4 +657,4 @@ var arrayQueryImpl = function(iter, queryOptions) {
     };
 };
 
-module.exports = arrayQueryImpl;
+export default arrayQueryImpl;

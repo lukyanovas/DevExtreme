@@ -1,7 +1,7 @@
 "use strict";
 
-var BaseAppointmentsStrategy = require("./ui.scheduler.appointments.strategy.base"),
-    dateUtils = require("../../core/utils/date");
+import BaseAppointmentsStrategy from './ui.scheduler.appointments.strategy.base';
+import dateUtils from '../../core/utils/date';
 
 var MAX_APPOINTMENT_HEIGHT = 100,
     BOTTOM_CELL_GAP = 20,
@@ -98,4 +98,4 @@ var HorizontalRenderingStrategy = BaseAppointmentsStrategy.inherit({
     }
 });
 
-module.exports = HorizontalRenderingStrategy;
+export default HorizontalRenderingStrategy;

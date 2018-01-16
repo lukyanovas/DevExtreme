@@ -1,12 +1,13 @@
 "use strict";
 
-var noop = require("../../../core/utils/common").noop,
-    extend = require("../../../core/utils/extend").extend,
-    barPoint = require("./bar_point"),
-    rangeSymbolPointMethods = require("./range_symbol_point"),
-    _extend = extend;
+import { noop } from '../../../core/utils/common';
+import { extend } from '../../../core/utils/extend';
+import barPoint from './bar_point';
+import rangeSymbolPointMethods from './range_symbol_point';
 
-module.exports = _extend({}, barPoint, {
+var _extend = extend;
+
+export default _extend({}, barPoint, {
     deleteLabel: rangeSymbolPointMethods.deleteLabel,
 
     _getFormatObject: rangeSymbolPointMethods._getFormatObject,

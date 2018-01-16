@@ -1,23 +1,23 @@
 "use strict";
 
-var dxTreeMap = module.exports = require("./tree_map.base");
+import dxTreeMap from './tree_map.base';
 
-require("./tiling.squarified");
-require("./tiling.strip");
-require("./tiling.slice_and_dice");
-require("./tiling.rotated_slice_and_dice");
+export default dxTreeMap;
 
-require("./colorizing.discrete");
-require("./colorizing.gradient");
-require("./colorizing.range");
-
-require("./api");
-require("./hover");
-require("./selection");
-require("./tooltip");
-require("./tracker");
-require("./drilldown");
-require("./plain_data_source");
+import './tiling.squarified';
+import './tiling.strip';
+import './tiling.slice_and_dice';
+import './tiling.rotated_slice_and_dice';
+import './colorizing.discrete';
+import './colorizing.gradient';
+import './colorizing.range';
+import './api';
+import './hover';
+import './selection';
+import './tooltip';
+import './tracker';
+import './drilldown';
+import './plain_data_source';
 
 // PLUGINS_SECTION
 dxTreeMap.addPlugin(require("../core/export").plugin);

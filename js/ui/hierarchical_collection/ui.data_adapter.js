@@ -1,16 +1,16 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    commonUtils = require("../../core/utils/common"),
-    iteratorUtils = require("../../core/utils/iterator"),
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    errors = require("../../ui/widget/ui.errors"),
-    inArray = require("../../core/utils/array").inArray,
-    query = require("../../data/query"),
-    storeHelper = require("../../data/store_helper"),
-    HierarchicalDataConverter = require("./ui.data_converter");
+import Class from '../../core/class';
+import commonUtils from '../../core/utils/common';
+import iteratorUtils from '../../core/utils/iterator';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import errors from '../../ui/widget/ui.errors';
+import { inArray } from '../../core/utils/array';
+import query from '../../data/query';
+import storeHelper from '../../data/store_helper';
+import HierarchicalDataConverter from './ui.data_converter';
 
 var EXPANDED = "expanded",
     SELECTED = "selected",
@@ -506,4 +506,4 @@ var DataAdapter = Class.inherit({
 
 });
 
-module.exports = DataAdapter;
+export default DataAdapter;

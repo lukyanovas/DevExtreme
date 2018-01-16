@@ -1,13 +1,8 @@
 "use strict";
 
-var themeModule = require("../../themes"),
-    registerTheme = themeModule.registerTheme,
-    ACCENT_COLOR = "#f05b41",
-    BACKGROUND_COLOR = "#fff",
-    TITLE_COLOR = "#333",
-    SUBTITLE_COLOR = "#8899a8",
-    TEXT_COLOR = "#707070",
-    BORDER_COLOR = "#dee1e3";
+import themeModule from '../../themes';
+
+var registerTheme = themeModule.registerTheme, ACCENT_COLOR = "#f05b41", BACKGROUND_COLOR = "#fff", TITLE_COLOR = "#333", SUBTITLE_COLOR = "#8899a8", TEXT_COLOR = "#707070", BORDER_COLOR = "#dee1e3";
 
 registerTheme({
     name: "generic.carmine",

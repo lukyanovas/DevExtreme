@@ -1,27 +1,27 @@
 "use strict";
 
-var noop = require("../core/utils/common").noop,
-    _extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each,
-    registerComponent = require("../core/component_registrator"),
-    vizUtils = require("./core/utils"),
-    overlapping = require("./chart_components/base_chart").overlapping,
-    LayoutManagerModule = require("./chart_components/layout_manager"),
-    multiAxesSynchronizer = require("./chart_components/multi_axes_synchronizer"),
-    AdvancedChart = require("./chart_components/advanced_chart").AdvancedChart,
-    scrollBarModule = require("./chart_components/scroll_bar"),
-    crosshairModule = require("./chart_components/crosshair"),
-    DEFAULT_PANE_NAME = "default",
+import { noop } from '../core/utils/common';
+import { extend as _extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
+import registerComponent from '../core/component_registrator';
+import vizUtils from './core/utils';
+import { overlapping } from './chart_components/base_chart';
+import LayoutManagerModule from './chart_components/layout_manager';
+import multiAxesSynchronizer from './chart_components/multi_axes_synchronizer';
+import { AdvancedChart } from './chart_components/advanced_chart';
+import scrollBarModule from './chart_components/scroll_bar';
+import crosshairModule from './chart_components/crosshair';
+import { isDefined as _isDefined } from '../core/utils/type';
+
+var DEFAULT_PANE_NAME = "default",
     DEFAULT_PANES = [{
         name: DEFAULT_PANE_NAME,
         border: {}
     }],
-
     _map = vizUtils.map,
     _each = each,
-    _isArray = Array.isArray,
-    _isDefined = require("../core/utils/type").isDefined;
+    _isArray = Array.isArray;
 
 function getFirstAxisNameForPane(axes, paneName, defaultPane) {
     var result;
@@ -1140,10 +1140,10 @@ var dxChart = AdvancedChart.inherit({
 dxChart.addPlugin(require("./chart_components/shutter_zoom"));
 
 registerComponent("dxChart", dxChart);
-module.exports = dxChart;
+export default dxChart;
 
 ///#DEBUG
-module.exports._test_prepareSegmentRectPoints = function() {
+export var _test_prepareSegmentRectPoints = function() {
     var original = prepareSegmentRectPoints.original || prepareSegmentRectPoints;
     if(arguments[0]) {
         prepareSegmentRectPoints = arguments[0];

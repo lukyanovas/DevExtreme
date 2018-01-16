@@ -1,17 +1,13 @@
 "use strict";
 
-var isNumeric = require("../../core/utils/type").isNumeric,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    inArray = require("../../core/utils/array").inArray,
-    _math = Math,
-    _round = _math.round,
-    _abs = _math.abs,
-    _pow = _math.pow,
-    _each = each,
-    _noop = require("../../core/utils/common").noop,
-    vizUtils = require("./utils"),
-    _normalizeEnum = vizUtils.normalizeEnum;
+import { isNumeric } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { inArray } from '../../core/utils/array';
+import { noop as _noop } from '../../core/utils/common';
+import vizUtils from './utils';
+
+var _math = Math, _round = _math.round, _abs = _math.abs, _pow = _math.pow, _each = each, _normalizeEnum = vizUtils.normalizeEnum;
 
 function getStacksWithArgument(stackKeepers, argument) {
     var stacksWithArgument = [];
@@ -454,7 +450,7 @@ function SeriesFamily(options) {
 }
 
 
-exports.SeriesFamily = SeriesFamily;
+export { SeriesFamily };
 
 SeriesFamily.prototype = {
     constructor: SeriesFamily,

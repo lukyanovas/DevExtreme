@@ -537,4 +537,4 @@ Color.prototype = {
     colorIsInvalid: false
 };
 
-module.exports = Color;
+export default Color;

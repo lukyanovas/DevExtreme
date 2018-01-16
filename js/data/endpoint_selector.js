@@ -1,9 +1,12 @@
 "use strict";
 
 /* global Debug*/
-var errors = require("../core/errors"),
-    window = require("../core/dom_adapter").getWindow(),
-    proxyUrlFormatter = require("./proxy_url_formatter");
+import errors from '../core/errors';
+import proxyUrlFormatter from './proxy_url_formatter';
+import domAdapter from '../core/dom_adapter';
+
+/* global Debug*/
+var window = domAdapter.getWindow();
 
 var location = window.location,
     IS_WINJS_ORIGIN = location.protocol === "ms-appx:",
@@ -60,4 +63,4 @@ EndpointSelector.prototype = {
 
 };
 
-module.exports = EndpointSelector;
+export default EndpointSelector;

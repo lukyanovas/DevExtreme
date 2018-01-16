@@ -1,13 +1,11 @@
 "use strict";
 
-require("../../integration/jquery");
-
-var $ = require("jquery"),
-    MarkupComponent = require("./markup_component").MarkupComponent,
-    isPlainObject = require("../../core/utils/type").isPlainObject,
-    registerComponent = require("../../core/component_registrator");
-
-require("../../integration/knockout");
+import '../../integration/jquery';
+import $ from 'jquery';
+import { MarkupComponent } from './markup_component';
+import { isPlainObject } from '../../core/utils/type';
+import registerComponent from '../../core/component_registrator';
+import '../../integration/knockout';
 
 /**
 * @name dxCommandContainer
@@ -45,4 +43,4 @@ var CommandContainer = MarkupComponent.inherit({
 
 registerComponent("dxCommandContainer", CommandContainer);
 
-module.exports = CommandContainer;
+export default CommandContainer;

@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventUtils = require("../../events/utils"),
-    extend = require("../../core/utils/extend").extend,
-    GroupedEditStrategy = require("./ui.list.edit.strategy.grouped"),
-    messageLocalization = require("../../localization/message"),
-    EditProvider = require("./ui.list.edit.provider"),
-    ListBase = require("./ui.list.base");
+import $ from '../../core/renderer';
+import * as eventUtils from '../../events/utils';
+import { extend } from '../../core/utils/extend';
+import GroupedEditStrategy from './ui.list.edit.strategy.grouped';
+import messageLocalization from '../../localization/message';
+import EditProvider from './ui.list.edit.provider';
+import ListBase from './ui.list.base';
 
 var LIST_ITEM_SELECTED_CLASS = "dx-list-item-selected",
     LIST_ITEM_RESPONSE_WAIT_CLASS = "dx-list-item-response-wait";
@@ -537,4 +537,4 @@ var ListEdit = ListBase.inherit({
     */
 });
 
-module.exports = ListEdit;
+export default ListEdit;

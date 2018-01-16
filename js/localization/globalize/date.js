@@ -1,8 +1,8 @@
 "use strict";
 
-require("./core");
-require("./number");
-require("globalize/date");
+import './core';
+import './number';
+import 'globalize/date';
 
 var timeData = {
     "supplemental": {
@@ -563,11 +563,11 @@ var weekData = {
 
 var ACCEPTABLE_JSON_FORMAT_PROPERTIES = ["skeleton", "date", "time", "datetime", "raw"];
 
-var Globalize = require("globalize"),
-    dateLocalization = require("../date"),
-    isObject = require("../../core/utils/type").isObject,
-    inArray = require("../../core/utils/array").inArray,
-    iteratorUtils = require("../../core/utils/iterator");
+import Globalize from 'globalize';
+import dateLocalization from '../date';
+import { isObject } from '../../core/utils/type';
+import { inArray } from '../../core/utils/array';
+import iteratorUtils from '../../core/utils/iterator';
 
 if(Globalize && Globalize.formatDate) {
 

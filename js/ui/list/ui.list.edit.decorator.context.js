@@ -1,12 +1,12 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    EditDecoratorMenuHelperMixin = require("./ui.list.edit.decorator_menu_helper"),
-    messageLocalization = require("../../localization/message"),
-    registerDecorator = require("./ui.list.edit.decorator_registry").register,
-    EditDecorator = require("./ui.list.edit.decorator"),
-    Overlay = require("../overlay"),
-    ListBase = require("./ui.list.base");
+import $ from '../../core/renderer';
+import EditDecoratorMenuHelperMixin from './ui.list.edit.decorator_menu_helper';
+import messageLocalization from '../../localization/message';
+import { register as registerDecorator } from './ui.list.edit.decorator_registry';
+import EditDecorator from './ui.list.edit.decorator';
+import Overlay from '../overlay';
+import ListBase from './ui.list.base';
 
 var CONTEXTMENU_CLASS = "dx-list-context-menu",
     CONTEXTMENU_MENUCONTENT_CLASS = "dx-list-context-menucontent";

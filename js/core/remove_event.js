@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("./renderer");
-var beforeCleanData = require("./element_data").beforeCleanData;
-var eventsEngine = require("../events/core/events_engine");
-var registerEvent = require("../events/core/event_registrator");
+import $ from './renderer';
+import { beforeCleanData } from './element_data';
+import eventsEngine from '../events/core/events_engine';
+import registerEvent from '../events/core/event_registrator';
 
 var eventName = "dxremove";
 var eventPropName = "dxRemoveEvent";
@@ -34,4 +34,4 @@ registerEvent(eventName, {
     }
 });
 
-module.exports = eventName;
+export default eventName;

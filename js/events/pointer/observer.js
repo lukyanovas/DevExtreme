@@ -1,7 +1,9 @@
 "use strict";
 
-var each = require("../../core/utils/iterator").each,
-    document = require("../../core/dom_adapter").getWindow().document;
+import { each } from '../../core/utils/iterator';
+import domAdapter from '../../core/dom_adapter';
+
+var document = domAdapter.getWindow().document;
 
 var addEventsListener = function(events, handler) {
     events
@@ -65,4 +67,4 @@ var Observer = function(eventMap, pointerEquals, onPointerAdding) {
 
 };
 
-module.exports = Observer;
+export default Observer;

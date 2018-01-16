@@ -1,19 +1,20 @@
 "use strict";
 
-var proto = require("./funnel").prototype,
-    Tracker = require("../components/tracker").Tracker,
-    DATA_KEY_BASE = "__funnel_data_",
-    isDefined = require("../../core/utils/type").isDefined,
-    dataKeyModifier = 0;
+import { prototype as proto } from './funnel';
+import { Tracker } from '../components/tracker';
+import { isDefined } from '../../core/utils/type';
+
+var DATA_KEY_BASE = "__funnel_data_", dataKeyModifier = 0;
 
 proto._eventsMap.onItemClick = { name: "itemClick" };
 proto._eventsMap.onLegendClick = { name: "legendClick" };
 
-exports.plugin = {
+var dataKey;
+export var plugin = {
     name: "tracker",
     init: function() {
+        dataKey = DATA_KEY_BASE + dataKeyModifier++;
         var that = this,
-            dataKey = DATA_KEY_BASE + dataKeyModifier++,
             getProxyData = function(e) {
                 var rootOffset = that._renderer.getRootOffset(),
                     x = Math.floor(e.pageX - rootOffset.left),
@@ -54,11 +55,6 @@ exports.plugin = {
                 });
             }
         });
-
-        ///#DEBUG
-        exports._TESTS_dataKey = dataKey;
-        ///#ENDDEBUG
-
         this._dataKey = dataKey;
     },
     dispose: function() {
@@ -73,4 +69,6 @@ exports.plugin = {
         }
     }
 };
-
+///#DEBUG
+export var _TESTS_dataKey = dataKey;
+///#ENDDEBUG

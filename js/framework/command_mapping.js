@@ -1,11 +1,11 @@
 "use strict";
 
-var Class = require("../core/class"),
-    grep = require("../core/utils/common").grep,
-    extend = require("../core/utils/extend").extend,
-    each = require("../core/utils/iterator").each,
-    inArray = require("../core/utils/array").inArray,
-    errors = require("./errors");
+import Class from '../core/class';
+import { grep } from '../core/utils/common';
+import { extend } from '../core/utils/extend';
+import { each } from '../core/utils/iterator';
+import { inArray } from '../core/utils/array';
+import errors from './errors';
 
 var CommandMapping = Class.inherit({
     ctor: function() {
@@ -210,4 +210,4 @@ CommandMapping.defaultMapping = {
     }
 };
 
-module.exports = CommandMapping;
+export default CommandMapping;

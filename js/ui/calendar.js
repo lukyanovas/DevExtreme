@@ -9,4 +9,4 @@
 * @module ui/calendar
 * @export default
 */
-module.exports = require("./calendar/ui.calendar");
+export default require("./calendar/ui.calendar");

@@ -1,17 +1,17 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    gridCore = require("./ui.data_grid.core"),
-    ExpandedGroupingHelper = require("./ui.data_grid.grouping.expanded").GroupingHelper,
-    CollapsedGroupingHelper = require("./ui.data_grid.grouping.collapsed").GroupingHelper,
-    messageLocalization = require("../../localization/message"),
-    dataSourceAdapter = require("./ui.data_grid.data_source_adapter"),
-    typeUtils = require("../../core/utils/type"),
-    each = require("../../core/utils/iterator").each,
-    devices = require("../../core/devices"),
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred;
+import $ from '../../core/renderer';
+import gridCore from './ui.data_grid.core';
+import { GroupingHelper as ExpandedGroupingHelper } from './ui.data_grid.grouping.expanded';
+import { GroupingHelper as CollapsedGroupingHelper } from './ui.data_grid.grouping.collapsed';
+import messageLocalization from '../../localization/message';
+import dataSourceAdapter from './ui.data_grid.data_source_adapter';
+import * as typeUtils from '../../core/utils/type';
+import { each } from '../../core/utils/iterator';
+import devices from '../../core/devices';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var when = deferredUtils.when, Deferred = deferredUtils.Deferred;
 
 var DATAGRID_GROUP_PANEL_CLASS = "dx-datagrid-group-panel",
     DATAGRID_GROUP_PANEL_MESSAGE_CLASS = "dx-group-panel-message",
@@ -542,7 +542,7 @@ var GroupingHeaderPanelExtender = (function() {
     };
 })();
 
-exports.GroupingHeaderPanelExtender = GroupingHeaderPanelExtender;
+export { GroupingHeaderPanelExtender };
 
 
 var GroupingRowsViewExtender = (function() {

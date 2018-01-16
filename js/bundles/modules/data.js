@@ -1,8 +1,8 @@
 "use strict";
 
-var DevExpress = require("./core");
+import DevExpress from './core';
 
-module.exports = DevExpress.data = DevExpress.data || {};
+export default DevExpress.data = DevExpress.data || {};
 
 Object.defineProperty(DevExpress.data, 'errorHandler', {
     get: function() {
@@ -42,7 +42,7 @@ DevExpress.EndpointSelector = require("../../data/endpoint_selector");
 DevExpress.data.queryImpl = require("../../data/query").queryImpl;
 DevExpress.data.queryAdapters = require("../../data/query_adapters");
 
-var dataUtils = require("../../data/utils");
+import dataUtils from '../../data/utils';
 
 DevExpress.data.utils.normalizeBinaryCriterion = dataUtils.normalizeBinaryCriterion;
 DevExpress.data.utils.normalizeSortingInfo = dataUtils.normalizeSortingInfo;

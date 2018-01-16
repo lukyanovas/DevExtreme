@@ -1,18 +1,10 @@
 "use strict";
 
-var typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    _isDefined = typeUtils.isDefined,
-    _isDate = typeUtils.isDate,
-    unique = require("../core/utils").unique,
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { unique } from '../core/utils';
 
-    minSelector = "min",
-    maxSelector = "max",
-    minVisibleSelector = "minVisible",
-    maxVisibleSelector = "maxVisible",
-    baseSelector = "base",
-    axisTypeSelector = "axisType",
-    _Range;
+var _isDefined = typeUtils.isDefined, _isDate = typeUtils.isDate, minSelector = "min", maxSelector = "max", minVisibleSelector = "minVisible", maxVisibleSelector = "maxVisible", baseSelector = "base", axisTypeSelector = "axisType", _Range;
 
 function otherLessThan(thisValue, otherValue) {
     return otherValue < thisValue;

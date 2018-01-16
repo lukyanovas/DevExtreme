@@ -1,9 +1,10 @@
 "use strict";
 
-var jQuery = require("jquery");
-var eventsEngine = require("../../events/core/events_engine");
-var useJQuery = require("./use_jquery")();
-var registerEventCallbacks = require("../../events/core/event_registrator_callbacks");
+import jQuery from 'jquery';
+import eventsEngine from '../../events/core/events_engine';
+import useJQueryFactory from './use_jquery';
+const useJQuery = useJQueryFactory();
+import registerEventCallbacks from '../../events/core/event_registrator_callbacks';
 
 if(useJQuery) {
     registerEventCallbacks.add(function(name, eventObject) {

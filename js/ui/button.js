@@ -1,20 +1,20 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    iconUtils = require("../core/utils/icon"),
-    domUtils = require("../core/utils/dom"),
-    devices = require("../core/devices"),
-    registerComponent = require("../core/component_registrator"),
-    extend = require("../core/utils/extend").extend,
-    ValidationMixin = require("./validation/validation_mixin"),
-    ValidationEngine = require("./validation_engine"),
-    Widget = require("./widget/ui.widget"),
-    inkRipple = require("./widget/utils.ink_ripple"),
-    eventUtils = require("../events/utils"),
-    themes = require("./themes"),
-    clickEvent = require("../events/click"),
-    FunctionTemplate = require("./widget/function_template");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import iconUtils from '../core/utils/icon';
+import domUtils from '../core/utils/dom';
+import devices from '../core/devices';
+import registerComponent from '../core/component_registrator';
+import { extend } from '../core/utils/extend';
+import ValidationMixin from './validation/validation_mixin';
+import ValidationEngine from './validation_engine';
+import Widget from './widget/ui.widget';
+import inkRipple from './widget/utils.ink_ripple';
+import * as eventUtils from '../events/utils';
+import themes from './themes';
+import clickEvent from '../events/click';
+import FunctionTemplate from './widget/function_template';
 
 var BUTTON_CLASS = "dx-button",
     BUTTON_CONTENT_CLASS = "dx-button-content",
@@ -430,4 +430,4 @@ var Button = Widget.inherit({
 
 registerComponent("dxButton", Button);
 
-module.exports = Button;
+export default Button;

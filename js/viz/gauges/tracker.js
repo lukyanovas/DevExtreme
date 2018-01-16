@@ -1,15 +1,11 @@
 "use strict";
 
-var eventsEngine = require("../../events/core/events_engine"),
-    _abs = Math.abs,
-    Class = require("../../core/class"),
-    window = require("../../core/dom_adapter").getWindow(),
-    wheelEvent = require("../../events/core/wheel"),
+import eventsEngine from '../../events/core/events_engine';
+import Class from '../../core/class';
+import wheelEvent from '../../events/core/wheel';
+import domAdapter from '../../core/dom_adapter';
 
-    TOOLTIP_SHOW_DELAY = 300,
-    TOOLTIP_HIDE_DELAY = 300,
-    TOOLTIP_TOUCH_SHOW_DELAY = 400,
-    TOOLTIP_TOUCH_HIDE_DELAY = 300;
+var _abs = Math.abs, window = domAdapter.getWindow(), TOOLTIP_SHOW_DELAY = 300, TOOLTIP_HIDE_DELAY = 300, TOOLTIP_TOUCH_SHOW_DELAY = 400, TOOLTIP_TOUCH_HIDE_DELAY = 300;
 
 var Tracker = Class.inherit({
     ctor: function(parameters) {
@@ -227,4 +223,4 @@ eventsEngine.subscribeGlobal(window.document, {
     'touchend.gauge-tooltip': handleTooltipDocumentTouchEnd
 });
 
-module.exports = Tracker;
+export default Tracker;

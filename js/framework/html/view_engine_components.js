@@ -1,11 +1,10 @@
 "use strict";
 
-var errors = require("../errors"),
-    domUtils = require("../../core/utils/dom"),
-    registerComponent = require("../../core/component_registrator"),
-    MarkupComponent = require("./markup_component").MarkupComponent;
-
-require("../../integration/knockout");
+import errors from '../errors';
+import domUtils from '../../core/utils/dom';
+import registerComponent from '../../core/component_registrator';
+import { MarkupComponent } from './markup_component';
+import '../../integration/knockout';
 
 /**
 * @name dxview
@@ -310,9 +309,9 @@ registerComponent("dxContentPlaceholder", ContentPlaceholder);
 registerComponent("dxTransition", Transition);
 registerComponent("dxContent", Content);
 
-exports.dxView = View;
-exports.dxLayout = Layout;
-exports.dxViewPlaceholder = ViewPlaceholder;
-exports.dxContentPlaceholder = ContentPlaceholder;
-exports.dxTransition = Transition;
-exports.dxContent = Content;
+export var dxView = View;
+export var dxLayout = Layout;
+export var dxViewPlaceholder = ViewPlaceholder;
+export var dxContentPlaceholder = ContentPlaceholder;
+export var dxTransition = Transition;
+export var dxContent = Content;

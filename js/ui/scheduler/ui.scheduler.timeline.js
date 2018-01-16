@@ -1,13 +1,13 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    noop = require("../../core/utils/common").noop,
-    extend = require("../../core/utils/extend").extend,
-    registerComponent = require("../../core/component_registrator"),
-    SchedulerWorkSpace = require("./ui.scheduler.work_space.indicator"),
-    dateUtils = require("../../core/utils/date"),
-    tableCreator = require("./ui.scheduler.table_creator"),
-    HorizontalShader = require("./ui.scheduler.currentTimeShader.horizontal");
+import $ from '../../core/renderer';
+import { noop } from '../../core/utils/common';
+import { extend } from '../../core/utils/extend';
+import registerComponent from '../../core/component_registrator';
+import SchedulerWorkSpace from './ui.scheduler.work_space.indicator';
+import dateUtils from '../../core/utils/date';
+import tableCreator from './ui.scheduler.table_creator';
+import HorizontalShader from './ui.scheduler.currentTimeShader.horizontal';
 
 var TIMELINE_CLASS = "dx-scheduler-timeline",
     GROUP_TABLE_CLASS = "dx-scheduler-group-table",
@@ -469,4 +469,4 @@ var SchedulerTimeline = SchedulerWorkSpace.inherit({
 
 registerComponent("dxSchedulerTimeline", SchedulerTimeline);
 
-module.exports = SchedulerTimeline;
+export default SchedulerTimeline;

@@ -1,25 +1,25 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    navigator = window.navigator,
-    document = window.document,
-    eventsEngine = require("../../events/core/events_engine"),
-    support = require("../../core/utils/support"),
-    browser = require("../../core/utils/browser"),
-    commonUtils = require("../../core/utils/common"),
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    getPublicElement = require("../../core/utils/dom").getPublicElement,
-    devices = require("../../core/devices"),
-    registerComponent = require("../../core/component_registrator"),
-    DOMComponent = require("../../core/dom_component"),
-    selectors = require("../widget/selectors"),
-    eventUtils = require("../../events/utils"),
-    scrollEvents = require("./ui.events.emitter.gesture.scroll"),
-    simulatedStrategy = require("./ui.scrollable.simulated"),
-    NativeStrategy = require("./ui.scrollable.native"),
-    when = require("../../core/utils/deferred").when;
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import * as support from '../../core/utils/support';
+import browser from '../../core/utils/browser';
+import commonUtils from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { getPublicElement } from '../../core/utils/dom';
+import devices from '../../core/devices';
+import registerComponent from '../../core/component_registrator';
+import DOMComponent from '../../core/dom_component';
+import selectors from '../widget/selectors';
+import * as eventUtils from '../../events/utils';
+import scrollEvents from './ui.events.emitter.gesture.scroll';
+import simulatedStrategy from './ui.scrollable.simulated';
+import NativeStrategy from './ui.scrollable.native';
+import { when } from '../../core/utils/deferred';
+import domAdapter from '../../core/dom_adapter';
+
+var window = domAdapter.getWindow(), navigator = window.navigator, document = window.document;
 
 var SCROLLABLE = "dxScrollable",
     SCROLLABLE_STRATEGY = "dxScrollableStrategy",
@@ -734,6 +734,5 @@ var Scrollable = DOMComponent.inherit({
 
 registerComponent(SCROLLABLE, Scrollable);
 
-module.exports = Scrollable;
-
-module.exports.deviceDependentOptions = deviceDependentOptions;
+export default Scrollable;
+export { deviceDependentOptions };

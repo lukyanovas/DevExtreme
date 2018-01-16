@@ -1,28 +1,24 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    window = require("../core/dom_adapter").getWindow(),
-    eventsEngine = require("../events/core/events_engine"),
-    errors = require("../core/errors"),
-    getPublicElement = require("../core/utils/dom").getPublicElement,
-    extend = require("../core/utils/extend").extend,
-    typeUtils = require("../core/utils/type"),
-    iteratorUtils = require("../core/utils/iterator"),
-    translator = require("./translator"),
-    easing = require("./easing"),
-    animationFrame = require("./frame"),
-    support = require("../core/utils/support"),
-    positionUtils = require("./position"),
-    removeEvent = require("../core/remove_event"),
-    eventUtils = require("../events/utils"),
-    deferredUtils = require("../core/utils/deferred"),
-    when = deferredUtils.when,
-    Deferred = deferredUtils.Deferred,
-    transitionEndEventName = support.transitionEndEventName + ".dxFX",
-    removeEventName = eventUtils.addNamespace(removeEvent, "dxFX"),
-    isFunction = typeUtils.isFunction,
-    isPlainObject = typeUtils.isPlainObject,
-    noop = require("../core/utils/common").noop;
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import errors from '../core/errors';
+import { getPublicElement } from '../core/utils/dom';
+import { extend } from '../core/utils/extend';
+import * as typeUtils from '../core/utils/type';
+import iteratorUtils from '../core/utils/iterator';
+import translator from './translator';
+import easing from './easing';
+import animationFrame from './frame';
+import * as support from '../core/utils/support';
+import positionUtils from './position';
+import removeEvent from '../core/remove_event';
+import * as eventUtils from '../events/utils';
+import * as deferredUtils from '../core/utils/deferred';
+import { noop } from '../core/utils/common';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), when = deferredUtils.when, Deferred = deferredUtils.Deferred, transitionEndEventName = support.transitionEndEventName + ".dxFX", removeEventName = eventUtils.addNamespace(removeEvent, "dxFX"), isFunction = typeUtils.isFunction, isPlainObject = typeUtils.isPlainObject;
 
 
 var RELATIVE_VALUE_REGEX = /^([+-])=(.*)/i,
@@ -922,4 +918,4 @@ var fx = {
     _simulatedTransitionEndDelay: 100
 };
 
-module.exports = fx;
+export default fx;

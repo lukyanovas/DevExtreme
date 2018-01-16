@@ -1,47 +1,23 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    window = require("../../core/dom_adapter").getWindow(),
-    document = window.document,
-    eventsEngine = require("../../events/core/events_engine"),
-    clickEvent = require("../../events/click"),
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    consts = require("../components/consts"),
-    eventsConsts = consts.events,
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import clickEvent from '../../events/click';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import consts from '../components/consts';
+import vizUtils from '../core/utils';
+import pointerEvents from '../../events/pointer';
+import wheelEvent from '../../events/core/wheel';
+import holdEvent from '../../events/hold';
+import { addNamespace } from '../../events/utils';
+import devices from '../../core/devices';
+import { isDefined } from '../../core/utils/type';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
+import { noop as _noop } from '../../core/utils/common';
+import domAdapter from '../../core/dom_adapter';
 
-    vizUtils = require("../core/utils"),
-    pointerEvents = require("../../events/pointer"),
-    wheelEvent = require("../../events/core/wheel"),
-    holdEvent = require("../../events/hold"),
-    addNamespace = require("../../events/utils").addNamespace,
-    devices = require("../../core/devices"),
-    isDefined = require("../../core/utils/type").isDefined,
-    _normalizeEnum = require("../core/utils").normalizeEnum,
-    _floor = Math.floor,
-    _each = each,
-    _noop = require("../../core/utils/common").noop,
-
-    HOVER_STATE = consts.states.hoverMark,
-    NORMAL_STATE = consts.states.normalMark,
-
-    EVENT_NS = "dxChartTracker",
-    DOT_EVENT_NS = "." + EVENT_NS,
-    POINTER_ACTION = addNamespace([pointerEvents.down, pointerEvents.move], EVENT_NS),
-    LEGEND_CLICK = "legendClick",
-    SERIES_CLICK = "seriesClick",
-    POINT_CLICK = "pointClick",
-    ZOOM_START = "zoomStart",
-    POINT_DATA = "chart-data-point",
-    SERIES_DATA = "chart-data-series",
-    ARG_DATA = "chart-data-argument",
-    DELAY = 100,
-
-    NONE_MODE = "none",
-    ALL_ARGUMENT_POINTS_MODE = "allargumentpoints",
-    INCLUDE_POINTS_MODE = "includepoints",
-    EXLUDE_POINTS_MODE = "excludepoints",
-    LEGEND_HOVER_MODES = [INCLUDE_POINTS_MODE, EXLUDE_POINTS_MODE, NONE_MODE];
+var window = domAdapter.getWindow(), document = window.document, eventsConsts = consts.events, _floor = Math.floor, _each = each, HOVER_STATE = consts.states.hoverMark, NORMAL_STATE = consts.states.normalMark, EVENT_NS = "dxChartTracker", DOT_EVENT_NS = "." + EVENT_NS, POINTER_ACTION = addNamespace([pointerEvents.down, pointerEvents.move], EVENT_NS), LEGEND_CLICK = "legendClick", SERIES_CLICK = "seriesClick", POINT_CLICK = "pointClick", ZOOM_START = "zoomStart", POINT_DATA = "chart-data-point", SERIES_DATA = "chart-data-series", ARG_DATA = "chart-data-argument", DELAY = 100, NONE_MODE = "none", ALL_ARGUMENT_POINTS_MODE = "allargumentpoints", INCLUDE_POINTS_MODE = "includepoints", EXLUDE_POINTS_MODE = "excludepoints", LEGEND_HOVER_MODES = [INCLUDE_POINTS_MODE, EXLUDE_POINTS_MODE, NONE_MODE];
 
 function getData(event, dataKey) {
     var target = event.target;
@@ -850,5 +826,4 @@ extend(PieTracker.prototype, baseTrackerPrototype, {
     _notifyLegendOnHoverArgument: true
 });
 
-exports.ChartTracker = ChartTracker;
-exports.PieTracker = PieTracker;
+export { ChartTracker, PieTracker };

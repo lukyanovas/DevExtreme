@@ -15,4 +15,4 @@ var publisherMixin = {
         }
     }
 };
-module.exports = publisherMixin;
+export default publisherMixin;

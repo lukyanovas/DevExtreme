@@ -1,12 +1,12 @@
 "use strict";
 
-var eventsEngine = require("../events/core/events_engine"),
-    dataUtils = require("../core/element_data"),
-    Class = require("../core/class"),
-    devices = require("../core/devices"),
-    registerEvent = require("./core/event_registrator"),
-    eventUtils = require("./utils"),
-    pointerEvents = require("./pointer");
+import eventsEngine from '../events/core/events_engine';
+import dataUtils from '../core/element_data';
+import Class from '../core/class';
+import devices from '../core/devices';
+import registerEvent from './core/event_registrator';
+import * as eventUtils from './utils';
+import pointerEvents from './pointer';
 
 var HOVERSTART_NAMESPACE = "dxHoverStart",
     HOVERSTART = "dxhoverstart",
@@ -111,5 +111,5 @@ var HoverEnd = Hover.inherit({
 registerEvent(HOVERSTART, new HoverStart());
 registerEvent(HOVEREND, new HoverEnd());
 
-exports.start = HOVERSTART;
-exports.end = HOVEREND;
+export var start = HOVERSTART;
+export var end = HOVEREND;

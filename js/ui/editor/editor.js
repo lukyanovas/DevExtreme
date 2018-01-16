@@ -1,14 +1,14 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    dataUtils = require("../../core/element_data"),
-    Callbacks = require("../../core/utils/callbacks"),
-    commonUtils = require("../../core/utils/common"),
-    getDefaultAlignment = require("../../core/utils/position").getDefaultAlignment,
-    extend = require("../../core/utils/extend").extend,
-    Widget = require("../widget/ui.widget"),
-    ValidationMixin = require("../validation/validation_mixin"),
-    Overlay = require("../overlay");
+import $ from '../../core/renderer';
+import dataUtils from '../../core/element_data';
+import Callbacks from '../../core/utils/callbacks';
+import commonUtils from '../../core/utils/common';
+import { getDefaultAlignment } from '../../core/utils/position';
+import { extend } from '../../core/utils/extend';
+import Widget from '../widget/ui.widget';
+import ValidationMixin from '../validation/validation_mixin';
+import Overlay from '../overlay';
 
 var READONLY_STATE_CLASS = "dx-state-readonly",
     INVALID_CLASS = "dx-invalid",
@@ -335,4 +335,4 @@ var Editor = Widget.inherit({
     }
 }).include(ValidationMixin);
 
-module.exports = Editor;
+export default Editor;

@@ -1,13 +1,13 @@
 "use strict";
 
-var Class = require("../../core/class"),
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    iteratorUtils = require("../../core/utils/iterator"),
-    commandToContainer = require("../utils").utils.commandToContainer,
-    fx = require("../../animation/fx"),
-    TransitionExecutorModule = require("../../animation/transition_executor/transition_executor"),
-    DX_COMMAND_TO_WIDGET_ADAPTER = "dxCommandToWidgetAdapter";
+import Class from '../../core/class';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import iteratorUtils from '../../core/utils/iterator';
+import fx from '../../animation/fx';
+import TransitionExecutorModule from '../../animation/transition_executor/transition_executor';
+
+var commandToContainer = require("../utils").utils.commandToContainer, DX_COMMAND_TO_WIDGET_ADAPTER = "dxCommandToWidgetAdapter";
 
 /* Base Implementation */
 
@@ -432,27 +432,24 @@ var dxSlideOutAdapter = WidgetAdapterBase.inherit({
     }
 });
 
-exports.dxToolbar = new CommandToWidgetAdapter(function($widgetElement) {
+export var dxToolbar = new CommandToWidgetAdapter(function($widgetElement) {
     return new dxToolbarAdapter($widgetElement);
 });
 
-exports.dxList = new CommandToWidgetAdapter(function($widgetElement) {
+export var dxList = new CommandToWidgetAdapter(function($widgetElement) {
     return new dxListAdapter($widgetElement);
 });
 
-exports.dxNavBar = new CommandToWidgetAdapter(function($widgetElement) {
+export var dxNavBar = new CommandToWidgetAdapter(function($widgetElement) {
     return new dxNavBarAdapter($widgetElement);
 });
 
-exports.dxPivot = new CommandToWidgetAdapter(function($widgetElement) {
+export var dxPivot = new CommandToWidgetAdapter(function($widgetElement) {
     return new dxPivotAdapter($widgetElement);
 });
 
-exports.dxSlideOut = new CommandToWidgetAdapter(function($widgetElement) {
+export var dxSlideOut = new CommandToWidgetAdapter(function($widgetElement) {
     return new dxSlideOutAdapter($widgetElement);
 });
 
-///#DEBUG
-exports.WidgetItemWrapperBase = WidgetItemWrapperBase;
-exports.WidgetAdapterBase = WidgetAdapterBase;
-///#ENDDEBUG
+export { WidgetItemWrapperBase, WidgetAdapterBase };

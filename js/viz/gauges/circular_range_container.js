@@ -1,10 +1,9 @@
 "use strict";
 
-var BaseRangeContainer = require("./base_range_container"),
+import BaseRangeContainer from './base_range_container';
+import { normalizeEnum as _normalizeEnum } from '../core/utils';
 
-    _Number = Number,
-    _max = Math.max,
-    _normalizeEnum = require("../core/utils").normalizeEnum;
+var _Number = Number, _max = Math.max;
 
 var CircularRangeContainer = BaseRangeContainer.inherit({
     _processOptions: function() {
@@ -45,4 +44,4 @@ var CircularRangeContainer = BaseRangeContainer.inherit({
     }
 });
 
-module.exports = CircularRangeContainer;
+export default CircularRangeContainer;

@@ -1,25 +1,25 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Guid = require("../../core/guid"),
-    registerComponent = require("../../core/component_registrator"),
-    noop = require("../../core/utils/common").noop,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    Button = require("../button"),
-    Editor = require("../editor/editor"),
-    Swipeable = require("../../events/gesture/swipeable"),
-    Navigator = require("./ui.calendar.navigator"),
-    Views = require("./ui.calendar.views"),
-    translator = require("../../animation/translator"),
-    browser = require("../../core/utils/browser"),
-    dateUtils = require("../../core/utils/date"),
-    dateSerialization = require("../../core/utils/date_serialization"),
-    devices = require("../../core/devices"),
-    config = require("../../core/config"),
-    fx = require("../../animation/fx"),
-    messageLocalization = require("../../localization/message"),
-    FunctionTemplate = require("../widget/function_template");
+import $ from '../../core/renderer';
+import Guid from '../../core/guid';
+import registerComponent from '../../core/component_registrator';
+import { noop } from '../../core/utils/common';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import Button from '../button';
+import Editor from '../editor/editor';
+import Swipeable from '../../events/gesture/swipeable';
+import Navigator from './ui.calendar.navigator';
+import Views from './ui.calendar.views';
+import translator from '../../animation/translator';
+import browser from '../../core/utils/browser';
+import dateUtils from '../../core/utils/date';
+import dateSerialization from '../../core/utils/date_serialization';
+import devices from '../../core/devices';
+import config from '../../core/config';
+import fx from '../../animation/fx';
+import messageLocalization from '../../localization/message';
+import FunctionTemplate from '../widget/function_template';
 
 var CALENDAR_CLASS = "dx-calendar",
     CALENDAR_BODY_CLASS = "dx-calendar-body",
@@ -1247,4 +1247,4 @@ var Calendar = Editor.inherit({
 
 registerComponent("dxCalendar", Calendar);
 
-module.exports = Calendar;
+export default Calendar;

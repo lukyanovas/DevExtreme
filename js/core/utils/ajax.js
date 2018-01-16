@@ -1,12 +1,15 @@
 "use strict";
 
-var Deferred = require("./deferred").Deferred;
-var window = require("../../core/dom_adapter").getWindow();
+import domAdapter from '../dom_adapter';
+import { Deferred } from './deferred';
+import { extendFromObject } from './extend';
+import { isDefined } from './type';
+import Promise from '../polyfills/promise';
+
+
+var window = domAdapter.getWindow();
 var document = window.document;
 var location = window.location;
-var extendFromObject = require("./extend").extendFromObject;
-var isDefined = require("./type").isDefined;
-var Promise = require("../polyfills/promise");
 var ajaxStrategy;
 
 var SUCCESS = "success",
@@ -335,7 +338,8 @@ var sendRequest = function(options) {
     return result;
 };
 
-exports.sendRequest = sendRequest;
-exports.setStrategy = function(s) {
+export { sendRequest };
+
+export var setStrategy = function(s) {
     ajaxStrategy = s;
 };

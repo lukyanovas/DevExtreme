@@ -1,9 +1,9 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    registerComponent = require("../../core/component_registrator"),
-    each = require("../../core/utils/iterator").each,
-    List = require("../list/ui.list.base");
+import $ from '../../core/renderer';
+import registerComponent from '../../core/component_registrator';
+import { each } from '../../core/utils/iterator';
+import List from '../list/ui.list.base';
 
 var TOOLBAR_MENU_ACTION_CLASS = "dx-toolbar-menu-action",
     TOOLBAR_HIDDEN_BUTTON_CLASS = "dx-toolbar-hidden-button",
@@ -99,4 +99,4 @@ var ToolbarMenu = List.inherit({
 
 registerComponent("dxToolbarMenu", ToolbarMenu);
 
-module.exports = ToolbarMenu;
+export default ToolbarMenu;

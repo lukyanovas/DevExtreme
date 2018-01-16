@@ -1,10 +1,11 @@
 "use strict";
 
-var Promise = require("../../core/polyfills/promise"),
-    extend = require("../../core/utils/extend").extend,
-    iteratorUtils = require("../../core/utils/iterator"),
-    Provider = require("./provider"),
-    abstract = Provider.abstract;
+import Promise from '../../core/polyfills/promise';
+import { extend } from '../../core/utils/extend';
+import iteratorUtils from '../../core/utils/iterator';
+import Provider from './provider';
+
+var abstract = Provider.abstract;
 
 var DynamicProvider = Provider.inherit({
     _geocodeLocation: function(location) {
@@ -231,4 +232,4 @@ var DynamicProvider = Provider.inherit({
 
 });
 
-module.exports = DynamicProvider;
+export default DynamicProvider;

@@ -1,23 +1,24 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    modules = require("./ui.grid_core.modules"),
-    gridCoreUtils = require("./ui.grid_core.utils"),
-    commonUtils = require("../../core/utils/common"),
-    each = require("../../core/utils/iterator").each,
-    typeUtils = require("../../core/utils/type"),
-    extend = require("../../core/utils/extend").extend,
-    focused = require("../widget/selectors").focused,
-    deepExtendArraySafe = require("../../core/utils/object").deepExtendArraySafe,
-    equalByValue = commonUtils.equalByValue,
-    messageLocalization = require("../../localization/message"),
-    Button = require("../button"),
-    pointerEvents = require("../../events/pointer"),
-    ValidationEngine = require("../validation_engine"),
-    Validator = require("../validator"),
-    Tooltip = require("../tooltip"),
-    Overlay = require("../overlay");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import modules from './ui.grid_core.modules';
+import gridCoreUtils from './ui.grid_core.utils';
+import commonUtils from '../../core/utils/common';
+import { each } from '../../core/utils/iterator';
+import * as typeUtils from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { focused } from '../widget/selectors';
+import { deepExtendArraySafe } from '../../core/utils/object';
+import messageLocalization from '../../localization/message';
+import Button from '../button';
+import pointerEvents from '../../events/pointer';
+import ValidationEngine from '../validation_engine';
+import Validator from '../validator';
+import Tooltip from '../tooltip';
+import Overlay from '../overlay';
+
+var equalByValue = commonUtils.equalByValue;
 
 var INVALIDATE_CLASS = "invalid",
     REVERT_TOOLTIP_CLASS = "revert-tooltip",
@@ -247,7 +248,7 @@ var ValidatingController = modules.Controller.inherit((function() {
     };
 })());
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

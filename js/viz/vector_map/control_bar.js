@@ -1,17 +1,16 @@
 "use strict";
 
+import vizUtils from '../core/utils';
+
 var _math = Math,
     _min = _math.min,
     _max = _math.max,
     _round = _math.round,
     _floor = _math.floor,
     _sqrt = _math.sqrt,
-
-    vizUtils = require("../core/utils"),
     _parseScalar = vizUtils.parseScalar,
     parseHorizontalAlignment = vizUtils.enumParser(["left", "center", "right"]),
     parseVerticalAlignment = vizUtils.enumParser(["top", "bottom"]),
-
     COMMAND_RESET = "command-reset",
     COMMAND_MOVE_UP = "command-move-up",
     COMMAND_MOVE_RIGHT = "command-move-right",
@@ -21,12 +20,9 @@ var _math = Math,
     COMMAND_ZOOM_OUT = "command-zoom-out",
     COMMAND_ZOOM_DRAG_LINE = "command-zoom-drag-line",
     COMMAND_ZOOM_DRAG = "command-zoom-drag",
-
     EVENT_TARGET_TYPE = "control-bar",
-
     FLAG_CENTERING = 1,
     FLAG_ZOOMING = 2,
-
     // TODO: This should be specified in options - seems like everything can be calculated from "buttonSize" and "zoomSliderLength"
     SIZE_OPTIONS = {
         bigCircleSize: 58,
@@ -46,7 +42,6 @@ var _math = Math,
     OFFSET_Y = 30.5,
     TOTAL_WIDTH = 61,
     TOTAL_HEIGHT = 274,
-
     COMMAND_TO_TYPE_MAP = {};
 
 COMMAND_TO_TYPE_MAP[COMMAND_RESET] = ResetCommand;
@@ -411,14 +406,16 @@ ZoomDragCommand.prototype.finish = function() {
     disposeCommand(this);
 };
 
-exports.ControlBar = ControlBar;
+export { ControlBar };
 
 ///#DEBUG
 var COMMAND_TO_TYPE_MAP__ORIGINAL = COMMAND_TO_TYPE_MAP;
-exports._TESTS_stubCommandToTypeMap = function(map) {
+
+export var _TESTS_stubCommandToTypeMap = function(map) {
     COMMAND_TO_TYPE_MAP = map;
 };
-exports._TESTS_restoreCommandToTypeMap = function() {
+
+export var _TESTS_restoreCommandToTypeMap = function() {
     COMMAND_TO_TYPE_MAP = COMMAND_TO_TYPE_MAP__ORIGINAL;
 };
 ///#ENDDEBUG

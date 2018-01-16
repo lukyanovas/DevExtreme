@@ -1,4 +1,5 @@
 "use strict";
+
 /**
 * @name dxSlider
 * @isEditor
@@ -8,4 +9,4 @@
 * @module ui/slider
 * @export default
 */
-module.exports = require("./slider/ui.slider");
+export default require("./slider/ui.slider");

@@ -1,21 +1,21 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    typeUtils = require("../../core/utils/type"),
-    noop = require("../../core/utils/common").noop,
-    isDefined = require("../../core/utils/type").isDefined,
-    extend = require("../../core/utils/extend").extend,
-    each = require("../../core/utils/iterator").each,
-    inArray = require("../../core/utils/array").inArray,
-    camelize = require("../../core/utils/inflector").camelize,
-    registerComponent = require("../../core/component_registrator"),
-    Widget = require("../widget/ui.widget"),
-    publisherMixin = require("./ui.scheduler.publisher_mixin"),
-    SchedulerNavigator = require("./ui.scheduler.navigator"),
-    DropDownMenu = require("../drop_down_menu"),
-    Tabs = require("../tabs"),
-    errors = require("../../core/errors"),
-    messageLocalization = require("../../localization/message");
+import $ from '../../core/renderer';
+import * as typeUtils from '../../core/utils/type';
+import { noop } from '../../core/utils/common';
+import { isDefined } from '../../core/utils/type';
+import { extend } from '../../core/utils/extend';
+import { each } from '../../core/utils/iterator';
+import { inArray } from '../../core/utils/array';
+import { camelize } from '../../core/utils/inflector';
+import registerComponent from '../../core/component_registrator';
+import Widget from '../widget/ui.widget';
+import publisherMixin from './ui.scheduler.publisher_mixin';
+import SchedulerNavigator from './ui.scheduler.navigator';
+import DropDownMenu from '../drop_down_menu';
+import Tabs from '../tabs';
+import errors from '../../core/errors';
+import messageLocalization from '../../localization/message';
 
 
 var COMPONENT_CLASS = "dx-scheduler-header",
@@ -242,4 +242,4 @@ var SchedulerHeader = Widget.inherit({
 
 registerComponent("dxSchedulerHeader", SchedulerHeader);
 
-module.exports = SchedulerHeader;
+export default SchedulerHeader;

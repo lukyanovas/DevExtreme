@@ -1,7 +1,7 @@
 "use strict";
 
-var inArray = require("../../core/utils/array").inArray,
-    EditStrategy = require("./ui.collection_widget.edit.strategy");
+import { inArray } from '../../core/utils/array';
+import EditStrategy from './ui.collection_widget.edit.strategy';
 
 
 var PlainEditStrategy = EditStrategy.inherit({
@@ -100,4 +100,4 @@ var PlainEditStrategy = EditStrategy.inherit({
 
 });
 
-module.exports = PlainEditStrategy;
+export default PlainEditStrategy;

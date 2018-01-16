@@ -1,17 +1,15 @@
 "use strict";
 
-var Class = require("../core/class"),
-    abstract = Class.abstract,
-    EventsMixin = require("../core/events_mixin"),
-    each = require("../core/utils/iterator").each,
-    errorsModule = require("./errors"),
-    dataUtils = require("./utils"),
-    compileGetter = require("../core/utils/data").compileGetter,
-    storeHelper = require("./store_helper"),
-    queryByOptions = storeHelper.queryByOptions,
-    Deferred = require("../core/utils/deferred").Deferred,
+import Class from '../core/class';
+import EventsMixin from '../core/events_mixin';
+import { each } from '../core/utils/iterator';
+import errorsModule from './errors';
+import dataUtils from './utils';
+import { compileGetter } from '../core/utils/data';
+import storeHelper from './store_helper';
+import { Deferred } from '../core/utils/deferred';
 
-    storeImpl = {};
+var abstract = Class.abstract, queryByOptions = storeHelper.queryByOptions, storeImpl = {};
 
 /**
 * @name Store
@@ -337,4 +335,4 @@ Store.inherit = function(inheritor) {
     };
 }(Store.inherit);
 
-module.exports = Store;
+export default Store;

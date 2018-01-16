@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend;
+import $ from '../../core/renderer';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
 
-module.exports = {
+export default {
     _getEmptyCell: function() {
         return {
             text: '',

@@ -1,23 +1,14 @@
 "use strict";
 
-var extend = require("../../../core/utils/extend").extend,
-    each = require("../../../core/utils/iterator").each,
-    noop = require("../../../core/utils/common").noop,
-    window = require("../../../core/dom_adapter").getWindow(),
-    labelModule = require("./label"),
-    _extend = extend,
-    _isDefined = require("../../../core/utils/type").isDefined,
-    _normalizeEnum = require("../../core/utils").normalizeEnum,
+import { extend } from '../../../core/utils/extend';
+import { each } from '../../../core/utils/iterator';
+import { noop } from '../../../core/utils/common';
+import labelModule from './label';
+import { isDefined as _isDefined } from '../../../core/utils/type';
+import { normalizeEnum as _normalizeEnum } from '../../core/utils';
+import domAdapter from '../../../core/dom_adapter';
 
-    _math = Math,
-    _round = _math.round,
-    _floor = _math.floor,
-    _ceil = _math.ceil,
-
-    DEFAULT_IMAGE_WIDTH = 20,
-    DEFAULT_IMAGE_HEIGHT = 20,
-    LABEL_OFFSET = 10,
-    CANVAS_POSITION_DEFAULT = "canvas_position_default";
+var window = domAdapter.getWindow(), _extend = extend, _math = Math, _round = _math.round, _floor = _math.floor, _ceil = _math.ceil, DEFAULT_IMAGE_WIDTH = 20, DEFAULT_IMAGE_HEIGHT = 20, LABEL_OFFSET = 10, CANVAS_POSITION_DEFAULT = "canvas_position_default";
 
 function getSquareMarkerCoords(radius) {
     return [
@@ -79,7 +70,7 @@ function getTriangleUpMarkerCoords(radius) {
     ];
 }
 
-module.exports = {
+export default {
     deleteLabel: function() {
         this._label.dispose();
         this._label = null;

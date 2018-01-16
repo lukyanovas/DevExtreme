@@ -1,10 +1,10 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    eventsEngine = require("../../events/core/events_engine"),
-    clickEvent = require("../../events/click"),
-    each = require("../../core/utils/iterator").each,
-    modules = require("./ui.grid_core.modules");
+import $ from '../../core/renderer';
+import eventsEngine from '../../events/core/events_engine';
+import clickEvent from '../../events/click';
+import { each } from '../../core/utils/iterator';
+import modules from './ui.grid_core.modules';
 
 var ERROR_ROW_CLASS = "dx-error-row",
     ERROR_MESSAGE_CLASS = "dx-error-message",
@@ -109,7 +109,7 @@ var ErrorHandlingController = modules.ViewController.inherit({
     }
 });
 
-module.exports = {
+export default {
     defaultOptions: function() {
         return {
             /**

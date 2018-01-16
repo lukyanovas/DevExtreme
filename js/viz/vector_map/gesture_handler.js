@@ -102,4 +102,4 @@ GestureHandler.prototype = {
     }
 };
 
-exports.GestureHandler = GestureHandler;
+export { GestureHandler };

@@ -1,6 +1,6 @@
 "use strict";
 
-var escapeRegExp = require("../../core/utils/common").escapeRegExp;
+import { escapeRegExp } from '../../core/utils/common';
 
 var FORMAT_TYPES = {
     "3": "abbreviated",
@@ -265,4 +265,4 @@ var getParser = function(format, dateParts) {
     };
 };
 
-exports.getParser = getParser;
+export { getParser };

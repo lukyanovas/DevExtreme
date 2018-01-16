@@ -9,6 +9,7 @@
     "unused": "vars",
     "strict": "global",
     "validthis": true,
+    "esversion": 6,
 
     "browser": true,
     "devel": true,

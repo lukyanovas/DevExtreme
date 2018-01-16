@@ -1,11 +1,12 @@
 "use strict";
 
-var tiling = require("./tiling"),
-    dynamicSlope = require("./tiling.funnel"),
-    dynamicHeight = require("./tiling.pyramid"),
-    noop = require("../../core/utils/common").noop,
-    Item = require("./item"),
-    NODES_CREATE_CHANGE = "NODES_CREATE";
+import tiling from './tiling';
+import dynamicSlope from './tiling.funnel';
+import dynamicHeight from './tiling.pyramid';
+import { noop } from '../../core/utils/common';
+import Item from './item';
+
+var NODES_CREATE_CHANGE = "NODES_CREATE";
 
 tiling.addAlgorithm("dynamicslope", dynamicSlope, true);
 tiling.addAlgorithm("dynamicheight", dynamicHeight);
@@ -266,7 +267,7 @@ var ThemeManager = require("../core/base_theme_manager").BaseThemeManager.inheri
 });
 
 require("../../core/component_registrator")("dxFunnel", dxFunnel);
-module.exports = dxFunnel;
+export default dxFunnel;
 
 // PLUGINS_SECTION
 dxFunnel.addPlugin(require("../core/data_source").plugin);

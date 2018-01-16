@@ -1,48 +1,23 @@
 "use strict";
 
-var vizUtils = require("../core/utils"),
-    typeUtils = require("../../core/utils/type"),
-    formatHelper = require("../../format_helper"),
-    each = require("../../core/utils/iterator").each,
-    extend = require("../../core/utils/extend").extend,
-    inArray = require("../../core/utils/array").inArray,
-    constants = require("./axes_constants"),
-    parseUtils = require("../components/parse_utils"),
-    tickGeneratorModule = require("./tick_generator"),
-    Translator2DModule = require("../translators/translator2d"),
-    rangeModule = require("../translators/range"),
-    tick = require("./tick").tick,
-    _format = require("./smart_formatter").smartFormatter,
-    adjust = require("../../core/utils/math").adjust,
-    dateToMilliseconds = require("../../core/utils/date").dateToMilliseconds,
-    convertTicksToValues = constants.convertTicksToValues,
+import vizUtils from '../core/utils';
+import * as typeUtils from '../../core/utils/type';
+import formatHelper from '../../format_helper';
+import { each } from '../../core/utils/iterator';
+import { extend } from '../../core/utils/extend';
+import { inArray } from '../../core/utils/array';
+import constants from './axes_constants';
+import parseUtils from '../components/parse_utils';
+import tickGeneratorModule from './tick_generator';
+import Translator2DModule from '../translators/translator2d';
+import rangeModule from '../translators/range';
+import { tick } from './tick';
+import { smartFormatter as _format } from './smart_formatter';
+import { adjust } from '../../core/utils/math';
+import { dateToMilliseconds } from '../../core/utils/date';
+import { noop as _noop } from '../../core/utils/common';
 
-    isDefined = typeUtils.isDefined,
-    isFunction = typeUtils.isFunction,
-    isNumeric = typeUtils.isNumeric,
-    patchFontOptions = vizUtils.patchFontOptions,
-
-    _math = Math,
-    _abs = _math.abs,
-    _max = _math.max,
-    _min = _math.min,
-
-    _each = each,
-    _noop = require("../../core/utils/common").noop,
-
-    DEFAULT_AXIS_LABEL_SPACING = 5,
-    MAX_GRID_BORDER_ADHENSION = 4,
-
-    TOP = constants.top,
-    BOTTOM = constants.bottom,
-    LEFT = constants.left,
-    RIGHT = constants.right,
-    CENTER = constants.center,
-
-    DEFAULT_AXIS_DIVISION_FACTOR = 50,
-    DEFAULT_MINOR_AXIS_DIVISION_FACTOR = 15,
-
-    Axis;
+var convertTicksToValues = constants.convertTicksToValues, isDefined = typeUtils.isDefined, isFunction = typeUtils.isFunction, isNumeric = typeUtils.isNumeric, patchFontOptions = vizUtils.patchFontOptions, _math = Math, _abs = _math.abs, _max = _math.max, _min = _math.min, _each = each, DEFAULT_AXIS_LABEL_SPACING = 5, MAX_GRID_BORDER_ADHENSION = 4, TOP = constants.top, BOTTOM = constants.bottom, LEFT = constants.left, RIGHT = constants.right, CENTER = constants.center, DEFAULT_AXIS_DIVISION_FACTOR = 50, DEFAULT_MINOR_AXIS_DIVISION_FACTOR = 15, Axis;
 
 function getTickGenerator(options, incidentOccurred, skipTickGeneration) {
     return tickGeneratorModule.tickGenerator({

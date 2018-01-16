@@ -1,19 +1,20 @@
 "use strict";
 
-var $ = require("../../core/renderer"),
-    Class = require("../../core/class"),
-    translator = require("../../animation/translator"),
-    typeUtils = require("../../core/utils/type"),
-    dragEvents = require("../../events/drag"),
-    eventUtils = require("../../events/utils"),
-    eventsEngine = require("../../events/core/events_engine"),
-    Button = require("../button"),
-    DropDownMenu = require("../drop_down_menu"),
-    FunctionTemplate = require("../widget/function_template"),
-    messageLocalization = require("../../localization/message"),
-    extendFromObject = require("../../core/utils/extend").extendFromObject,
-    deferredUtils = require("../../core/utils/deferred"),
-    when = deferredUtils.when;
+import $ from '../../core/renderer';
+import Class from '../../core/class';
+import translator from '../../animation/translator';
+import * as typeUtils from '../../core/utils/type';
+import dragEvents from '../../events/drag';
+import * as eventUtils from '../../events/utils';
+import eventsEngine from '../../events/core/events_engine';
+import Button from '../button';
+import DropDownMenu from '../drop_down_menu';
+import FunctionTemplate from '../widget/function_template';
+import messageLocalization from '../../localization/message';
+import { extendFromObject } from '../../core/utils/extend';
+import * as deferredUtils from '../../core/utils/deferred';
+
+var when = deferredUtils.when;
 
 var DROPDOWN_APPOINTMENTS_CLASS = "dx-scheduler-dropdown-appointments",
     DROPDOWN_APPOINTMENTS_CONTENT_CLASS = "dx-scheduler-dropdown-appointments-content",
@@ -333,4 +334,4 @@ var dropDownAppointments = Class.inherit({
     }
 });
 
-module.exports = dropDownAppointments;
+export default dropDownAppointments;

@@ -1,12 +1,9 @@
 "use strict";
 
-var each = require("../core/utils/iterator").each,
-    window = require("../core/dom_adapter").getWindow(),
-    document = window.document,
-    location = window.location,
-    DXPROXY_HOST = "dxproxy.devexpress.com:8000",
-    IS_DXPROXY_ORIGIN = location.host === DXPROXY_HOST,
-    urlMapping = {};
+import { each } from '../core/utils/iterator';
+import domAdapter from '../core/dom_adapter';
+
+var window = domAdapter.getWindow(), document = window.document, location = window.location, DXPROXY_HOST = "dxproxy.devexpress.com:8000", IS_DXPROXY_ORIGIN = location.host === DXPROXY_HOST, urlMapping = {};
 
 var parseUrl = (function() {
     var a = document.createElement("a"),
@@ -35,7 +32,7 @@ var extractProxyAppId = function() {
     return location.pathname.split("/")[1];
 };
 
-module.exports = {
+export default {
     parseUrl: parseUrl,
 
     isProxyUsed: function() {

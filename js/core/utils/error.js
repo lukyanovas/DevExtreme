@@ -1,13 +1,13 @@
 "use strict";
 
-var extend = require("./extend").extend,
-    consoleUtils = require("./console"),
-    stringUtils = require("./string"),
-    version = require("../version");
+import { extend } from './extend';
+import consoleUtils from './console';
+import stringUtils from './string';
+import version from '../version';
 
 var ERROR_URL = "http://js.devexpress.com/error/" + version.split(".").slice(0, 2).join("_") + "/";
 
-module.exports = function(baseErrors, errors) {
+export default function(baseErrors, errors) {
 
     var exports = {
 
@@ -61,4 +61,4 @@ module.exports = function(baseErrors, errors) {
 
     return exports;
 
-};
+}

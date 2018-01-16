@@ -1,21 +1,21 @@
 "use strict";
 
-var $ = require("../core/renderer"),
-    eventsEngine = require("../events/core/events_engine"),
-    registerComponent = require("../core/component_registrator"),
-    stringUtils = require("../core/utils/string"),
-    extend = require("../core/utils/extend").extend,
-    inArray = require("../core/utils/array").inArray,
-    each = require("../core/utils/iterator").each,
-    typeUtils = require("../core/utils/type"),
-    translator = require("../animation/translator"),
-    fitIntoRange = require("../core/utils/math").fitIntoRange,
-    DOMComponent = require("../core/dom_component"),
-    eventUtils = require("../events/utils"),
-    dragEvents = require("../events/drag"),
-    isPlainObject = typeUtils.isPlainObject,
-    isFunction = typeUtils.isFunction,
-    domUtils = require("../core/utils/dom");
+import $ from '../core/renderer';
+import eventsEngine from '../events/core/events_engine';
+import registerComponent from '../core/component_registrator';
+import stringUtils from '../core/utils/string';
+import { extend } from '../core/utils/extend';
+import { inArray } from '../core/utils/array';
+import { each } from '../core/utils/iterator';
+import * as typeUtils from '../core/utils/type';
+import translator from '../animation/translator';
+import { fitIntoRange } from '../core/utils/math';
+import DOMComponent from '../core/dom_component';
+import * as eventUtils from '../events/utils';
+import dragEvents from '../events/drag';
+import domUtils from '../core/utils/dom';
+
+var isPlainObject = typeUtils.isPlainObject, isFunction = typeUtils.isFunction;
 
 var RESIZABLE = "dxResizable",
     RESIZABLE_CLASS = "dx-resizable",
@@ -490,4 +490,4 @@ var Resizable = DOMComponent.inherit({
 
 registerComponent(RESIZABLE, Resizable);
 
-module.exports = Resizable;
+export default Resizable;

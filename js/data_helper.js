@@ -1,8 +1,8 @@
 "use strict";
 
-var DataSource = require("./data/data_source/data_source").DataSource,
-    extend = require("./core/utils/extend").extend,
-    normalizeDataSourceOptions = require("./data/data_source/data_source").normalizeDataSourceOptions;
+import { DataSource } from './data/data_source/data_source';
+import { extend } from './core/utils/extend';
+import { normalizeDataSourceOptions } from './data/data_source/data_source';
 
 var DATA_SOURCE_OPTIONS_METHOD = "_dataSourceOptions",
     DATA_SOURCE_CHANGED_METHOD = "_dataSourceChangedHandler",
@@ -154,4 +154,4 @@ var DataHelperMixin = {
 
 };
 
-module.exports = DataHelperMixin;
+export default DataHelperMixin;

@@ -1,13 +1,13 @@
 "use strict";
 
-var dataErrors = require("../../data/errors").errors,
-    errors = require("../widget/ui.errors"),
-    extend = require("../../core/utils/extend").extend,
-    formatHelper = require("../../format_helper"),
-    inflector = require("../../core/utils/inflector"),
-    messageLocalization = require("../../localization/message"),
-    DataSource = require("../../data/data_source/data_source").DataSource,
-    filterOperationsDictionary = require("./ui.filter_operations_dictionary");
+import { errors as dataErrors } from '../../data/errors';
+import errors from '../widget/ui.errors';
+import { extend } from '../../core/utils/extend';
+import formatHelper from '../../format_helper';
+import inflector from '../../core/utils/inflector';
+import messageLocalization from '../../localization/message';
+import { DataSource } from '../../data/data_source/data_source';
+import filterOperationsDictionary from './ui.filter_operations_dictionary';
 
 var DEFAULT_DATA_TYPE = "string",
     AND_GROUP_OPERATION = "and",
@@ -519,30 +519,4 @@ function isValidCondition(condition, field) {
     return true;
 }
 
-exports.isValidCondition = isValidCondition;
-exports.isEmptyGroup = isEmptyGroup;
-exports.getOperationFromAvailable = getOperationFromAvailable;
-exports.updateConditionByOperation = updateConditionByOperation;
-exports.getCaptionWithParents = getCaptionWithParents;
-exports.getItems = getItems;
-exports.setGroupValue = setGroupValue;
-exports.getGroupMenuItem = getGroupMenuItem;
-exports.getGroupValue = getGroupValue;
-exports.getAvailableOperations = getAvailableOperations;
-exports.removeItem = removeItem;
-exports.createCondition = createCondition;
-exports.createEmptyGroup = createEmptyGroup;
-exports.addItem = addItem;
-exports.getField = getField;
-exports.isGroup = isGroup;
-exports.isCondition = isCondition;
-exports.getNormalizedFields = getNormalizedFields;
-exports.getNormalizedFilter = getNormalizedFilter;
-exports.getGroupCriteria = getGroupCriteria;
-exports.convertToInnerStructure = convertToInnerStructure;
-exports.getDefaultOperation = getDefaultOperation;
-exports.getCurrentValueText = getCurrentValueText;
-exports.getCurrentLookupValueText = getCurrentLookupValueText;
-exports.getFilterOperations = getFilterOperations;
-exports.getCaptionByOperation = getCaptionByOperation;
-exports.getOperationValue = getOperationValue;
+export { isValidCondition, isEmptyGroup, getOperationFromAvailable, updateConditionByOperation, getCaptionWithParents, getItems, setGroupValue, getGroupMenuItem, getGroupValue, getAvailableOperations, removeItem, createCondition, createEmptyGroup, addItem, getField, isGroup, isCondition, getNormalizedFields, getNormalizedFilter, getGroupCriteria, convertToInnerStructure, getDefaultOperation, getCurrentValueText, getCurrentLookupValueText, getFilterOperations, getCaptionByOperation, getOperationValue };

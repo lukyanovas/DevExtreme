@@ -1,12 +1,12 @@
 "use strict";
 
-var typeUtils = require("../../core/utils/type"),
-    SelectionStrategy = require("./selection.strategy"),
-    errors = require("../widget/ui.errors"),
-    dataQuery = require("../../data/query"),
-    Deferred = require("../../core/utils/deferred").Deferred;
+import * as typeUtils from '../../core/utils/type';
+import SelectionStrategy from './selection.strategy';
+import errors from '../widget/ui.errors';
+import dataQuery from '../../data/query';
+import { Deferred } from '../../core/utils/deferred';
 
-module.exports = SelectionStrategy.inherit({
+export default SelectionStrategy.inherit({
 
     getSelectedItems: function() {
         return this._loadFilteredData(this.options.selectionFilter);

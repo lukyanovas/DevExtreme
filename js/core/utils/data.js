@@ -1,14 +1,13 @@
 "use strict";
 
-var errors = require("../errors"),
-    Class = require("../class"),
-    objectUtils = require("./object"),
-    typeUtils = require("./type"),
-    each = require("./iterator").each,
-    variableWrapper = require("./variable_wrapper"),
-    unwrapVariable = variableWrapper.unwrap,
-    isWrapped = variableWrapper.isWrapped,
-    assign = variableWrapper.assign;
+import errors from '../errors';
+import Class from '../class';
+import objectUtils from './object';
+import * as typeUtils from './type';
+import { each } from './iterator';
+import variableWrapper from './variable_wrapper';
+
+var unwrapVariable = variableWrapper.unwrap, isWrapped = variableWrapper.isWrapped, assign = variableWrapper.assign;
 
 var bracketsToDots = function(expr) {
     return expr
@@ -177,6 +176,4 @@ var toComparable = function(value, caseSensitive) {
     return value;
 };
 
-exports.compileGetter = compileGetter;
-exports.compileSetter = compileSetter;
-exports.toComparable = toComparable;
+export { compileGetter, compileSetter, toComparable };
