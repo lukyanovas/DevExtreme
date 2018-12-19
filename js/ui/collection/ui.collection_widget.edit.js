@@ -488,11 +488,20 @@ var CollectionWidget = BaseCollectionWidget.inherit({
         var $itemElement = $(args.itemElement);
 
         if(this._isItemSelected(this._editStrategy.getNormalizedIndex($itemElement))) {
-            $itemElement.addClass(this._selectedItemClass());
-            this._setAriaSelected($itemElement, "true");
+            this._processSelectedItem($itemElement);
         } else {
-            this._setAriaSelected($itemElement, "false");
+            this._processUnselectedItem($itemElement);
         }
+    },
+
+    _processSelectedItem: function($itemElement) {
+        $itemElement.addClass(this._selectedItemClass());
+        this._setAriaSelected($itemElement, "true");
+    },
+
+    _processUnselectedItem: function($itemElement) {
+        $itemElement.removeClass(this._selectedItemClass());
+        this._setAriaSelected($itemElement, "false");
     },
 
     _updateSelectedItems: function(args) {
@@ -550,25 +559,23 @@ var CollectionWidget = BaseCollectionWidget.inherit({
         var $itemElement = this._editStrategy.getItemElement(normalizedIndex);
 
         if(indexExists(normalizedIndex)) {
-            $itemElement.removeClass(this._selectedItemClass());
-            this._setAriaSelected($itemElement, "false");
+            this._processUnselectedItem($itemElement);
             eventsEngine.triggerHandler($itemElement, "stateChanged", false);
         }
-    },
-
-    _showDeprecatedSelectionMode: function() {
-        errors.log("W0001", this.NAME, "selectionMode: 'multi'", "16.1", "Use selectionMode: 'multiple' instead");
-        this.option("selectionMode", "multiple");
     },
 
     _addSelection: function(normalizedIndex) {
         var $itemElement = this._editStrategy.getItemElement(normalizedIndex);
 
         if(indexExists(normalizedIndex)) {
-            $itemElement.addClass(this._selectedItemClass());
-            this._setAriaSelected($itemElement, "true");
+            this._processSelectedItem($itemElement);
             eventsEngine.triggerHandler($itemElement, "stateChanged", true);
         }
+    },
+
+    _showDeprecatedSelectionMode: function() {
+        errors.log("W0001", this.NAME, "selectionMode: 'multi'", "16.1", "Use selectionMode: 'multiple' instead");
+        this.option("selectionMode", "multiple");
     },
 
     _isItemSelected: function(index) {

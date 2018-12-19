@@ -1,7 +1,7 @@
 var $ = require("../../core/renderer"),
     devices = require("../../core/devices"),
     extend = require("../../core/utils/extend").extend,
-    hasWindow = require("../../core/utils/window").hasWindow,
+    typeUtils = require("../../core/utils/type"),
     inkRipple = require("../widget/utils.ink_ripple"),
     noop = require("../../core/utils/common").noop,
     registerComponent = require("../../core/component_registrator"),
@@ -20,7 +20,6 @@ var RADIO_GROUP_CLASS = "dx-radiogroup",
     RADIO_VALUE_CONTAINER_CLASS = "dx-radio-value-container",
     RADIO_BUTTON_CHECKED_CLASS = "dx-radiobutton-checked",
     RADIO_BUTTON_ICON_CHECKED_CLASS = "dx-radiobutton-icon-checked",
-    ITEM_DATA_KEY = "dxItemData",
     RADIO_FEEDBACK_HIDE_TIMEOUT = 100;
 
 var RadioCollection = CollectionWidget.inherit({
@@ -33,6 +32,29 @@ var RadioCollection = CollectionWidget.inherit({
     _initMarkup: function() {
         this.callBase();
         this.itemElements().addClass(RADIO_BUTTON_CLASS);
+    },
+
+    _processSelectedItem($item) {
+        this.callBase($item);
+        $item
+            .toggleClass(RADIO_BUTTON_CHECKED_CLASS, true)
+            .find("." + RADIO_BUTTON_ICON_CLASS)
+            .first()
+            .toggleClass(RADIO_BUTTON_ICON_CHECKED_CLASS, true);
+
+        this.setAria("checked", true, $item);
+    },
+
+    _processUnselectedItem($item) {
+        this.callBase($item);
+
+        $item
+            .toggleClass(RADIO_BUTTON_CHECKED_CLASS, false)
+            .find("." + RADIO_BUTTON_ICON_CLASS)
+            .first()
+            .toggleClass(RADIO_BUTTON_ICON_CHECKED_CLASS, false);
+
+        this.setAria("checked", false, $item);
     },
 
     _supportedKeys: function() {
@@ -236,7 +258,6 @@ var RadioGroup = Editor.inherit({
 
     _renderRadios: function() {
         var $radios = $("<div>").appendTo(this.$element());
-
         this._radios = this._createComponent($radios, RadioCollection, {
             dataSource: this._dataSource,
             onItemRendered: this._itemRenderedHandler.bind(this),
@@ -247,15 +268,20 @@ var RadioGroup = Editor.inherit({
             focusStateEnabled: this.option("focusStateEnabled"),
             accessKey: this.option("accessKey"),
             tabIndex: this.option("tabIndex"),
+            keyExpr: this._getCollectionKeyExpr(),
+            selectionMode: "single",
+            selectedItemKeys: [this.option("value")],
             noDataText: ""
         });
-
-        var willRadiosRiseContentReady = hasWindow();
-
-        if(!willRadiosRiseContentReady) {
-            this._refreshSelected();
-        }
     },
+
+    _getCollectionKeyExpr: function() {
+        var valueExpr = this.option("valueExpr"),
+            isValueExprField = typeUtils.isString(valueExpr) && valueExpr !== "this";
+
+        return isValueExprField ? valueExpr : null;
+    },
+
 
     _renderSubmitElement: function() {
         this._$submitElement = $("<input>")
@@ -276,7 +302,6 @@ var RadioGroup = Editor.inherit({
     },
 
     _contentReadyHandler: function(e) {
-        this._refreshSelected(e.component.itemElements());
         this._fireContentReadyAction(true);
     },
 
@@ -314,25 +339,6 @@ var RadioGroup = Editor.inherit({
         var layout = this.option("layout");
         this.$element().toggleClass(RADIO_GROUP_VERTICAL_CLASS, layout === "vertical");
         this.$element().toggleClass(RADIO_GROUP_HORIZONTAL_CLASS, layout === "horizontal");
-    },
-
-    _refreshSelected: function(itemElements) {
-        var selectedValue = this.option("value");
-
-        itemElements = itemElements || this.itemElements();
-
-        itemElements.each((function(_, item) {
-            var $item = $(item);
-            var itemValue = this._valueGetter($item.data(ITEM_DATA_KEY));
-            var isValueEquals = this._isValueEquals(itemValue, selectedValue);
-            $item
-                .toggleClass(RADIO_BUTTON_CHECKED_CLASS, isValueEquals)
-                .find("." + RADIO_BUTTON_ICON_CLASS)
-                .first()
-                .toggleClass(RADIO_BUTTON_ICON_CHECKED_CLASS, isValueEquals);
-
-            this.setAria("checked", this._isValueEquals(itemValue, selectedValue), $item);
-        }).bind(this));
     },
 
     _updateItemsSize: function() {
@@ -376,10 +382,10 @@ var RadioGroup = Editor.inherit({
                 this._setCollectionWidgetOption("dataSource");
                 break;
             case "valueExpr":
-                this._refreshSelected();
+                this._setCollectionWidgetOption("keyExpr", this._getCollectionKeyExpr());
                 break;
             case "value":
-                this._refreshSelected();
+                this._setCollectionWidgetOption("selectedItemKeys", [args.value]);
                 this._setSubmitValue(args.value);
                 this.callBase(args);
                 break;
